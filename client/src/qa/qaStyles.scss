@@ -1,0 +1,45 @@
+// global styles
+// styles that are used by multiple widgets (2 or more widgets)
+
+// base shades for the page elements (background, divs, etc.)
+$shade0: #000;
+$shade1: #111;
+$shade2: #222;
+$shade3: #333;
+$shade4: #444;
+$shade5: #555;
+$shade6: #667;
+$shade7: #777;
+$shade8: #888;
+$shade9: #999;
+$shadeA: #aaa;
+$shadeB: #bbb;
+$shadeC: #ccc;
+$shadeD: #ddd;
+$shadeE: #eee;
+$shadeF: #fff;
+
+// call to action colors (use these sparingly, for buttons such as add to cart and add to favorites)
+$pop0: #ffcbf2;
+$pop1: #f3c4fb;
+$pop2: #ECBCFD;
+$pop3: #E5B3FE;
+$pop4: #E2AFFF;
+$pop5: #DEAAFF;
+$pop6: #D8BBFF;
+$pop7: #D0D1FF;
+$pop8: #C8E7FF;
+$pop9: #C0FDFF;
+
+body {
+    background-color: $shade0;
+    color: $shadeF;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+    background-color: $shade6;
+}
+

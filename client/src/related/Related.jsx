@@ -1,12 +1,19 @@
 // the main component for related items. contains OutfitList and RelatedList components
-
 import React from "react";
-import { createRoot } from "react-dom/client";
-const root = createRoot(document.getElementById("root"));
+import RelatedList from "./RelatedList/RelatedList.jsx";
+// import Outfit from "./OutfitList/Outfit.jsx";
+import OutfitList from "./OutfitList/OutfitList.jsx";
 
-// Huzzah for jsx!
-const App = () => {
-  return <h1>Hello World</h1>
+const Related = () => {
+
+  return (
+    <div>
+      <RelatedList />
+      {/* <Outfit /> */}
+      <OutfitList />
+    </div>
+  )
+
 }
 
-root.render(<App />);
+export default Related;
