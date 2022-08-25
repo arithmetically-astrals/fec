@@ -1,10 +1,8 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-const root = createRoot(document.getElementById("root"));
+import React, { useState, useEffect } from "react";
 
 // Huzzah for jsx!
-const App = () => {
-  return <h1>Hello World</h1>
+const ReviewForm = () => {
+  return <h1>This will be the review form!</h1>
 }
 
-root.render(<App />);
+export default ReviewForm;
