@@ -8,11 +8,13 @@ const root = createRoot(document.getElementById("root"));
 
 // Huzzah for jsx!
 const Reviews = () => {
-  return <div>
+  return (
+  <div>
     <ReviewMenu />
     <ReviewList />
     <ReviewForm />
   </div>
+  )
 }
 
 root.render(<Reviews />);
