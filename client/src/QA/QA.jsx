@@ -7,13 +7,14 @@ import AddQuestion from "./AddQuestion.jsx";
 const QA = () => {
 
   const [questions, setQuestions] = useState([{text: 'This is a question', answers: ['This is an answer', 'and so is this']}]);
+  const [moreQuestions, setMoreQuestions] = useState(false);
 
   return (
     <div>
       <h1>Questions</h1>
       <Search />
       <QuestionList questions={questions}/>
-      <MoreQuestions />
+      <MoreQuestions moreQuestions={moreQuestions} setMoreQuestions={setMoreQuestions}/>
       <AddQuestion questions={questions} setQuestions={setQuestions}/>
     </div>
   )
