@@ -63,6 +63,37 @@ app.get('/reviews/meta', (req, res) => {
   })
 });
 
+app.get('/qa/questions', (req, res) => {
+
+});
+
+app.get('/qa/questions/:question_id/answers', (req, res) => {
+
+});
+
+app.post('/qa/questions', (req, res) => {
+
+});
+
+app.post('/qa/questions/:question_id/answers', (req, res) => {
+
+});
+
+app.put('/qa/questions/:question_id/helpful', (req, res) => {
+
+});
+
+app.put('/qa/questions/:question_id/report', (req, res) => {
+
+});
+
+app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+
+});
+
+app.put('/qa/answers/:answer_id/report', (req, res) => {
+
+});
 
 const PORT = process.env.PORT || 8080;
 
