@@ -3,12 +3,21 @@
 require("dotenv").config();
 const express = require('express');
 const path = require('path');
+const axios = require('axios');
 
 const app = express();
 
+//middleware
 app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.json());
 
-const PORT = 8080 || process.env.PORT;
+//requests
+app.get('/reviews', (req, res) => {
+
+});
+
+
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT);
 console.log(`Server listening at http://localhost:${PORT}`);
