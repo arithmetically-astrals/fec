@@ -1,3 +1,74 @@
+#overview-carousel {
+  width: 50%;
+  border: 1px solid black;
+}
+
+#overview-carousel-featuredimage {
+  width: 50%;
+  border: 1px solid black;
+}
+
+.overview-carousel-thumbnailimage {
+  width: 50%;
+  border: 1px solid black;
+}
+
+#overview-details {
+  width: 50%;
+  border: 1px solid black;
+}
+
+#overview-details-name {
+  width: 50%;
+  border: 1px solid black;
+}
+
+#overview-details-price {
+  width: 50%;
+  border: 1px solid black;
+}
+
+#overview-longdescription {
+  width: 50%;
+  border: 1px solid black;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
 body {
   background-color: #fff;
   color: #000;

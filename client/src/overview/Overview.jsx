@@ -11,6 +11,12 @@ const Overview = () => {
     <Carousel />
     <Details />
     <StylePicker />
+    <div id='overview-details-cart'>
+      add to cart
+    </div>
+    <div id='overview-details-favorite'>
+      add to favorites
+    </div>
     <LongDescription />
   </div>
 }

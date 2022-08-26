@@ -12,10 +12,10 @@ const root = createRoot(document.getElementById("root"));
 const App = () => {
   return <div id='appContainer'>
     <DarkModeToggle />
-    <Overview id='overview' />
-    <Related id='related' />
-    <QA id='qa' />
-    <Reviews id='reviews' />
+    <Overview />
+    <Related />
+    <QA />
+    <Reviews />
   </div>
 }
 
