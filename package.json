@@ -16,9 +16,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack --watch --mode=development",
-    "build": "webpack --watch --mode=production",
-    "dev": "webpack serve --open",
+    "start": "webpack --mode=development",
+    "build": "webpack --mode=production",
+    "dev": "webpack --open",
     "dev-server": "nodemon server/index.js localhost 8080"
   },
   "devDependencies": {
