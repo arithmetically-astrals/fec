@@ -1,14 +1,26 @@
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
+  text-decoration-color: #000;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 0;
 }
 
+.darkTheme {
+  background-color: #000;
+  text-decoration-color: #fff;
+  color: #fff;
+  border-color: #fff;
+}
+
 #appContainer {
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #overview, #qa, #related, #reviews {
