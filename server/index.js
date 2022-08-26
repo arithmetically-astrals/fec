@@ -3,12 +3,68 @@
 require("dotenv").config();
 const express = require('express');
 const path = require('path');
+const axios = require('axios');
 
 const app = express();
 
+//middleware
 app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.json());
 
-const PORT = 8080 || process.env.PORT;
+//requests
+
+//gets all products
+app.get('/products', (req, res) => {
+  axios.get(`${process.env.API}/products`, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.status(200);
+    res.send(response.data);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+
+//gets all reviews for item
+app.get('/reviews', (req, res) => {
+  var idNum = req.params.product_id;
+  axios.get(`${process.env.API}/reviews/`, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    },
+    params: { product_id: idNum }
+  }).then(response => {
+    res.status(200);
+    res.send(response.data);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+//gets all meta review info for item
+app.get('/reviews/meta', (req, res) => {
+  var idNum = req.params.product_id;
+  axios.get(`${process.env.API}/reviews/meta`, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    },
+    params: { product_id: idNum }
+  }).then(response => {
+    res.status(200);
+    res.send(response.data);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT);
 console.log(`Server listening at http://localhost:${PORT}`);
