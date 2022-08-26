@@ -4,7 +4,9 @@ import Answer from "./Answer.jsx";
 const AnswerList = (props) => (
   <div>
     {props.answers.map((answer, index) => (
-      <Answer answer={answer} key={index}/>
+      <div>
+        A: <Answer answer={answer} key={index}/>
+      </div>
     ))}
   </div>
 )

@@ -8,10 +8,12 @@ const AddQuestion = (props) => {
     <>
       <input type={text} placeholder="temporary input" onChange={(e) => {
         setText(e.target.value);
-        console.log(text);
       }}/>
       <button onClick={() => {
-        props.setQuestions([{text: 'testing!', answers: ['answertesting']}]);
+        const questions = props.questions;
+        questions.push({text, answers: []});
+        console.log('questions', questions);
+        props.setQuestions(questions);
       }}>Add a question</button>
     </>
   )
