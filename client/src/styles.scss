@@ -48,10 +48,6 @@ body {
     border-color: $shadeF;
 }
 
-// .lightTheme {
-
-// }
-
 #appContainer {
     position: absolute;
   top: 0;
@@ -63,6 +59,23 @@ body {
 #overview, #qa, #related, #reviews {
     background-color: $shade6;
 }
+
+#darkModeToggle {
+    border: 1px solid black;
+    padding: 20px;
+    width: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
 
 h1 {
 
