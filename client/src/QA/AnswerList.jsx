@@ -5,7 +5,7 @@ const AnswerList = (props) => (
   <div>
     {props.answers.map((answer, index) => (
       <div key={index}>
-        A: <Answer answer={answer}/>
+        A: <Answer answer={answer.body}/>
       </div>
     ))}
   </div>

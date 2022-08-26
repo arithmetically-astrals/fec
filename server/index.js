@@ -64,7 +64,22 @@ app.get('/reviews/meta', (req, res) => {
 });
 
 app.get('/qa/questions', (req, res) => {
-
+  axios.get(`${process.env.API}qa/questions`, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    },
+    params: {
+      product_id: req.query.product_id
+    }
+  })
+    .then((response) => {
+      res.status(200);
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log('err');
+      res.sendStatus(404);
+    });
 });
 
 app.get('/qa/questions/:question_id/answers', (req, res) => {

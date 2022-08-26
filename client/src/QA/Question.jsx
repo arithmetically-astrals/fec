@@ -3,8 +3,8 @@ import AnswerList from "./AnswerList.jsx";
 
 const Question = (props) => (
   <div>
-    Q: {props.question.text}
-    <AnswerList answers={props.question.answers}/>
+    Q: {props.question.question_body}
+    <AnswerList answers={Object.values(props.question.answers)}/>
   </div>
 )
 
