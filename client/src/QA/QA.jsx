@@ -14,7 +14,7 @@ const QA = () => {
       <Search />
       <QuestionList questions={questions}/>
       <MoreQuestions />
-      <AddQuestion />
+      <AddQuestion setQuestions={setQuestions}/>
     </div>
   )
 }
