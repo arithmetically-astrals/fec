@@ -1,9 +1,10 @@
 import React from "react";
+import Question from "./Question.jsx";
 
 const QuestionList = (props) => (
   <div>
     {props.questions.map((question, index) => (
-      <div key={index}>!!!</div>
+      <Question question={question} key={index}/>
     ))}
   </div>
 )

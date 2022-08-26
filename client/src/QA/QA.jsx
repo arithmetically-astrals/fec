@@ -6,7 +6,7 @@ import AddQuestion from "./AddQuestion.jsx";
 
 const QA = () => {
 
-  const [questions, setQuestions] = useState([{question: '??'}]);
+  const [questions, setQuestions] = useState([{text: 'This is a question', answers: ['This is an answer', 'and so is this']}]);
 
   return (
     <div>
