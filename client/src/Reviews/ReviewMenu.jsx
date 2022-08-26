@@ -25,10 +25,9 @@ const ReviewMenu = () => {
       totalStar += (Number(stuff.ratings[key]) * Number(key));
       totalVal += Number(stuff.ratings[key]);
     }
-    console.log(totalStar, totalVal)
     return (
       <div>
-        <h1>{Math.round(totalStar / totalVal)}</h1>
+        <h1>{(totalStar / totalVal).toFixed(1)}</h1>
         <p>{Math.round(100 - (stuff.recommended.false / stuff.recommended.true) * 100)}% of reviews recommend this product.</p>
         <ul>
           <li>5 stars: {stuff.ratings[5]}</li>
