@@ -1,7 +1,7 @@
 import React from "react";
 
 const MoreQuestions = () => (
-  <div>MoreQuestions</div>
+  <button>More Answered Questions</button>
 )
 
 export default MoreQuestions;
