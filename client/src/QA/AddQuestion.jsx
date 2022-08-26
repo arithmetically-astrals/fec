@@ -10,10 +10,9 @@ const AddQuestion = (props) => {
         setText(e.target.value);
       }}/>
       <button onClick={() => {
-        const questions = props.questions;
-        questions.push({text, answers: []});
-        console.log('questions', questions);
-        props.setQuestions(questions);
+        const newQuestions = props.questions.slice();
+        newQuestions.push({text, answers: []});
+        props.setQuestions(newQuestions);
       }}>Add a question</button>
     </>
   )
