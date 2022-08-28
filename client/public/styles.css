@@ -27,4 +27,9 @@ body {
   background-color: #667;
 }
 
+#review-rating-bar {
+  width: 150px;
+  background-color: #999;
+}
+
 /*# sourceMappingURL=styles.css.map */
