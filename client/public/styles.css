@@ -27,9 +27,54 @@ body {
   background-color: #667;
 }
 
+#review-meta-box {
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: x-small;
+  color: #555;
+  width: 185px;
+  height: 240px;
+  padding: 5px;
+  margin: 5px;
+  float: left;
+}
+
+#review-rating-number {
+  font-size: xx-large;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
 #review-rating-bar {
-  width: 150px;
+  align-content: center;
+  width: 50%;
+  height: 5px;
   background-color: #999;
+  float: left;
+  margin: 5px;
+  margin-bottom: auto;
+}
+
+#metaTextLeft {
+  float: left;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#metaTextRight {
+  font-size: x-small;
+}
+
+#meta-char-text {
+  text-align: left;
+}
+
+#review-rating-char {
+  width: 50%;
+  height: 5px;
+  background-color: #999;
+  margin: 5px;
+  margin-bottom: auto;
 }
 
 /*# sourceMappingURL=styles.css.map */

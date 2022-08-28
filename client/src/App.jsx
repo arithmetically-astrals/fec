@@ -18,7 +18,7 @@ const App = () => {
     <Overview id='overview' />
     <Related id='related' />
     <QA id='qa' />
-    <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} id='reviews' />
+    <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
   </div>
 }
 
