@@ -3,13 +3,13 @@ import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import ReviewList from './ReviewList.jsx';
 import ReviewForm from './ReviewForm.jsx';
-import ReviewMenu from './ReviewMenu.jsx';
+import ReviewMeta from './ReviewMeta.jsx';
 
 // Huzzah for jsx!
-const Reviews = () => {
+const Reviews = ({itemId, starRating, setstarRating}) => {
   return (
   <div>
-    <ReviewMenu />
+    <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
     <ReviewList />
     <ReviewForm />
   </div>
