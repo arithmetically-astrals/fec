@@ -9,6 +9,7 @@ import ReviewMeta from './ReviewMeta.jsx';
 const Reviews = ({itemId, starRating, setstarRating}) => {
   return (
   <div>
+    <h5>Ratings and Reviews</h5>
     <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
     <ReviewList />
     <ReviewForm />
