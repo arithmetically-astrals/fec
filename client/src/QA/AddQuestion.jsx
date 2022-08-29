@@ -16,10 +16,10 @@ const AddQuestion = (props) => {
 
         axios.post('/qa/questions', {
           params: {
-            product_id: 37312,
             body: 'When is this available?',
             name: 'John Doe',
-            email: 'fakeemail@fakecompany.com'
+            email: 'fakeemail@fakecompany.com',
+            product_id: 37312
           },
         })
           .then(() => {
@@ -30,6 +30,7 @@ const AddQuestion = (props) => {
             })
               .then((response) => {
                 props.setQuestions(response.data.results);
+                console.log('response.data.results', response.data.results);
               })
               .catch((err) => {
                 console.log(err);
