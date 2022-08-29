@@ -26,7 +26,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating}) => {
     }).catch(err => {
       console.log('err: ', err)
     })
-  },[])
+  },[itemId])
 
   const barStyle  = (n) => {
     return {width: Math.round((n / starCount) * 100) + '%', height: '5px', backgroundColor: 'green', marginBottom: '5px'}

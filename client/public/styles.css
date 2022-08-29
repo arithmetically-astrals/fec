@@ -87,4 +87,23 @@ body {
   right: 80px;
 }
 
+#review-tile-box {
+  position: relative;
+  border: 1px solid black;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+}
+
+#review-tile {
+  border: 1px solid black;
+  width: 450px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#review-tile-stars {
+  float: right;
+}
+
 /*# sourceMappingURL=styles.css.map */

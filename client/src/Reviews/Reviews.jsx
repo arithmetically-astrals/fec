@@ -11,7 +11,7 @@ const Reviews = ({itemId, starRating, setstarRating}) => {
   <div>
     <h5>Ratings and Reviews</h5>
     <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
-    <ReviewList />
+    <ReviewList itemId={itemId} />
     <ReviewForm />
   </div>
   )

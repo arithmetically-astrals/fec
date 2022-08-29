@@ -19,6 +19,15 @@ const App = () => {
     <Related id='related' />
     <QA id='qa' />
     <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
+    <div>
+      REMOVE THESE BUTTONS WHEN YOU CAN CLICK ON OTHER ITEMS!
+      <button onClick={() => {setitemId(37311)}}>37311</button>
+      <button onClick={() => {setitemId(37312)}}>37312</button>
+      <button onClick={() => {setitemId(37313)}}>37313</button>
+      <button onClick={() => {setitemId(37314)}}>37314</button>
+      <button onClick={() => {setitemId(37315)}}>37315</button>
+      THEY ARE JUST TO TEST SWAPPING BETWEEN ITEM IDS!
+    </div>
   </div>
 }
 
