@@ -46,7 +46,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating}) => {
   }
 
   if (metaInfo === 0) {
-    return (<h1>Loading reviews...</h1>)
+    return (<div id='review-meta-box'>Loading reviews...</div>)
   } else {
     return (
       <div id='review-meta-box'>

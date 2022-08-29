@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-// Huzzah for jsx!
+// Pass in a number as input to fill out the stars with the needed rating
 const StarScale = (num) => {
 
   var rating = {
@@ -34,15 +34,15 @@ const StarScale = (num) => {
     zIndex: 0,
   }
   return (
-    <div className="rating" style={rating}>
-      <div className="rating-upper" style={ratingUpper}>
+    <div style={rating}>
+      <div style={ratingUpper}>
           <span>★</span>
           <span>★</span>
           <span>★</span>
           <span>★</span>
           <span>★</span>
       </div>
-      <div className="rating-lower" style={ratingLower}>
+      <div style={ratingLower}>
           <span>★</span>
           <span>★</span>
           <span>★</span>
