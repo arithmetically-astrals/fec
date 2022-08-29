@@ -7,7 +7,7 @@ const Carousel = () => {
       <div id='overview-carousel-featuredimage'>
         Featured Image
       </div>
-      <div class='overview-carousel-thumbnailimage'>
+      <div className='overview-carousel-thumbnailimage'>
         Thumbnail
       </div>
     </div>
