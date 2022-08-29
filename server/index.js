@@ -87,7 +87,7 @@ app.get('/reviews/meta', (req, res) => {
 });
 
 app.get('/qa/questions', (req, res) => {
-  axios.get(`${process.env.API}qa/questions`, {
+  axios.get(`${process.env.API}/qa/questions`, {
     headers: {
       Authorization: process.env.AUTH_CODE
     },
@@ -106,7 +106,7 @@ app.get('/qa/questions', (req, res) => {
 });
 
 app.get('/qa/questions/:question_id/answers', (req, res) => {
-  axios.get(`${process.env.API}qa/questions/${req.query.question_id}/answers`, {
+  axios.get(`${process.env.API}/qa/questions/${req.query.question_id}/answers`, {
     headers: {
       Authorization: process.env.AUTH_CODE
     },
@@ -125,7 +125,7 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 app.post('/qa/questions', (req, res) => {
-  axios.post(`${process.env.API}qa/questions`, {
+  axios.post(`${process.env.API}/qa/questions`, {
     body: req.body.params.body,
     name: req.body.params.name,
     email: req.body.params.email,
