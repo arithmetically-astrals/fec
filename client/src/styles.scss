@@ -116,33 +116,88 @@ p {
 }
 
 #overview-carousel-feature {
-    
+
 }
 
 #overview-carousel-thumbnail {
 
 }
 
+#review-meta-box {
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: x-small;
+  color: $shade5;
+  width: 185px;
+  height: 245px;
+  padding: 10px;
+  margin: 5px;
+  float: left;
+}
+
 #review-rating-number {
-    
+  font-size: xx-large;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 #review-rating-bar {
-
+  align-content: center;
+  width: 50%;
+  height: 5px;
+  background-color: $shade9;
+  float: left;
+  margin: 5px;
+  margin-bottom: auto;
 }
 
-#review-rating-size {
-
+#metaTextLeft {
+  float: left;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-#review-rating-comfort {
-
+#metaTextRight {
+  font-size: x-small;
 }
 
-#review-form {
-
+#meta-char-text {
+  position: relative;
+  font-size: xx-small;
+  top: -4px;
+  margin-right: 50%;
 }
 
-#review-list {
+#review-rating-char {
+  width: 50%;
+  height: 5px;
+  background-color: $shade9;
+  margin: 2px;
+  margin-bottom: 10px;
+}
 
+#review-meta-stars {
+  position: relative;
+  float: right;
+  top: 20px;
+  right: 80px;
+}
+
+#review-tile-box {
+  position: relative;
+  border: 1px solid black;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+}
+
+#review-tile {
+  border: 1px solid black;
+  width: 450px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#review-tile-stars {
+  float: right;
 }
