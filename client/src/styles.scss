@@ -1,7 +1,7 @@
-@use "./Overview/overviewStyles.scss";
-@use "./QA/qaStyles.scss";
-@use "./Related/relatedStyles.scss";
-@use "./Reviews/reviewsStyles.scss";
+@import "./Overview/overviewStyles.scss";
+@import "./QA/qaStyles.scss";
+@import "./Related/relatedStyles.scss";
+@import "./Reviews/reviewsStyles.scss";
 
 // global styles
 // styles that are used by multiple widgets (2 or more widgets)
@@ -37,7 +37,7 @@ $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
 body {
-    background-color: $shadeF;
+    background-color: $shade2;
     color: $shade0;
     border-color: $shade0;
     text-decoration-color: $shade0;
