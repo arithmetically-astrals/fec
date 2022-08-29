@@ -33,6 +33,11 @@ $pop9: #C0FDFF;
 
 #overview {
     display: flex;
+    flex-direction: column;
+}
+
+#overview-carouselandinfopanel {
+    display: flex;
     flex-direction: row;
 }
 
@@ -51,27 +56,37 @@ $pop9: #C0FDFF;
     border: 1px solid black;
 }
 
-#overview-details {
+#overview-infopanel {
+    display: flex;
+    flex-direction: column;
+}
+
+#overview-infopanel-details {
     width: 50%;
     border: 1px solid black;
 }
 
-#overview-details-name {
+#overview-infopanel-details-name {
     width: 100%;
     border: 1px solid black;
 }
 
-#overview-details-price {
+#overview-infopanel-details-price {
     width: 100%;
     border: 1px solid black;
 }
 
-#overview-details-cart {
+#overview-infopanel-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+#overview-infopanel-actions-cart {
     width: 50px;
     border: 1px solid black;
 }
 
-#overview-details-favorite {
+#overview-infopanel-actions-favorite {
     width: 50px;
     border: 1px solid black;  
 }
