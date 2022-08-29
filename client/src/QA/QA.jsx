@@ -8,7 +8,6 @@ import axios from "axios";
 const QA = () => {
 
   const [questions, setQuestions] = useState([]);
-  const [moreQuestions, setMoreQuestions] = useState(false);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -26,15 +25,20 @@ const QA = () => {
       })
   }, []);
 
+  const renderMoreQuestions = () => {
+    console.log('render more questions!');
+  }
+
   return (
     <div>
       <h1>Questions</h1>
       <Search search={search} setSearch={setSearch}/>
       <QuestionList questions={questions} search={search}/>
-      <MoreQuestions moreQuestions={moreQuestions} setMoreQuestions={setMoreQuestions}/>
+      <MoreQuestions renderMoreQuestions={renderMoreQuestions}/>
       <AddQuestion questions={questions} setQuestions={setQuestions}/>
     </div>
   )
+
 }
 
 export default QA;
