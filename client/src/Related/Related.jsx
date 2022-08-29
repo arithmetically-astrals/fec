@@ -1,6 +1,6 @@
 // the main component for related items. contains OutfitList and RelatedList components
 import React from "react";
-import {useEffect, useState} from 'react';
+import {useEffect, useContext, useState} from 'react';
 import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
 // import Outfit from "./OutfitList/Outfit.jsx";
@@ -9,13 +9,12 @@ import OutfitList from "./OutfitList/OutfitList.jsx";
 import axios from 'axios';
 
 function Related({itemId, starRating}) {
-//global state variables
+  //global state variables
+  // const [itemID] = useContext(ProductContext);
+  // const [colorScheme] = useContext(ThemeContext);
 
-// const [itemID] = useContext(ProductContext);
-// const [colorScheme] = useContext(ThemeContext);
-const [productList, setProductList] = useState(null);
-const [defaultData, setDefaultData] = useState(null);
-
+  const [productList, setProductList] = useState(null);
+  const [defaultData, setDefaultData] = useState(null);
 
   useEffect(() => {
 
@@ -32,7 +31,7 @@ const [defaultData, setDefaultData] = useState(null);
           params: {
             product_id: itemId
           }
-        })//...then map relatedList
+        })//...then map relatedList items, converting relatedItems array into Promise
           .then((relatedList) => {
             Promise.all(
               relatedList.data.map((relatedListItem) =>
@@ -42,34 +41,26 @@ const [defaultData, setDefaultData] = useState(null);
                   }
                 })
                   .then((relatedListItemData) => relatedListItemData.data)),//end mapping
-            )//end of Promise.all, now set state of ProductList
+            )//end of Promise.all, now set state of ProductList with relatedList
               .then((prodList) => {
-                setProductList(() => (data));
+                setProductList(() => (prodList));
               })
               .catch(err => {
                 console.log(err);
               });
           })
       })
-        //set defaultdata state as overviewData
-        //get related items to current product
+    },[itemId]);
 
-        // .then((related) => {
-        //   //map related items with axios call for each
-        // })
-
-    return (
+ return (
 
       <div>
-        <ItemComparison />
+        {/* <ItemComparison />
         <RelatedList defaultData={defaultData} productList={productList} colorScheme={colorScheme}/>
         <Outfit />
-        <OutfitList defaultData={defaultData} colorScheme={colorScheme}/>
+        <OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
-
-    },[itemId])
-
 
 }
 

@@ -16,14 +16,12 @@ app.use(express.json());
 //gets all data for one product
 app.get('/products/item', (req, res) => {
   var productId = req.query.product_id;
-  console.log(productId);
   axios.get(`${process.env.API}/products/${productId}`, {
     headers: {
       'Authorization': process.env.AUTH_CODE
     }
   }).then(response => {
     res.status(200);
-    console.log(response.data);
     res.send(response.data);
   }).catch(err => {
     console.log(err)
@@ -31,10 +29,9 @@ app.get('/products/item', (req, res) => {
   })
 });
 
-//gets related items for one product
+//gets related items for a product
 app.get('/products/relatedlist', (req, res) => {
   var productId = req.query.product_id;
-  console.log(productId);
   axios.get(`${process.env.API}/products/${productId}/related`, {
     headers: {
       'Authorization': process.env.AUTH_CODE
@@ -44,7 +41,6 @@ app.get('/products/relatedlist', (req, res) => {
     }
   }).then(response => {
     res.status(200);
-    console.log(response.data);
     res.send(response.data);
   }).catch(err => {
     console.log(err)
