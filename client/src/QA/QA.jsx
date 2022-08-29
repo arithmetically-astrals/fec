@@ -30,7 +30,7 @@ const QA = () => {
     <div>
       <h1>Questions</h1>
       <Search search={search} setSearch={setSearch}/>
-      <QuestionList questions={questions}/>
+      <QuestionList questions={questions} search={search}/>
       <MoreQuestions moreQuestions={moreQuestions} setMoreQuestions={setMoreQuestions}/>
       <AddQuestion questions={questions} setQuestions={setQuestions}/>
     </div>
