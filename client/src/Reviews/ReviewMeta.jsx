@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import StarScale from '../shared/StarScale.jsx';
+import StarScale from '../Shared/StarScale.jsx';
 
 // Huzzah for jsx!
 const ReviewMeta = ({itemId, starRating, setstarRating}) => {
