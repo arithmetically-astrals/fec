@@ -9,6 +9,7 @@ const QA = () => {
 
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
+  const [questionCount, setQuestionCount] = useState(2);
 
   useEffect(() => {
     axios.get('/qa/questions', {
@@ -25,16 +26,12 @@ const QA = () => {
       })
   }, []);
 
-  const renderMoreQuestions = () => {
-    console.log('render more questions!');
-  }
-
   return (
     <div>
       <h1>Questions</h1>
       <Search search={search} setSearch={setSearch}/>
       <QuestionList questions={questions} search={search}/>
-      <MoreQuestions renderMoreQuestions={renderMoreQuestions}/>
+      <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
       <AddQuestion questions={questions} setQuestions={setQuestions}/>
     </div>
   )

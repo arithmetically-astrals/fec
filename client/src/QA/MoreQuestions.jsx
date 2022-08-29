@@ -1,7 +1,9 @@
 import React from "react";
 
 const MoreQuestions = (props) => (
-  <button onClick={props.renderMoreQuestions}>More Answered Questions</button>
+  <button onClick={() => {
+    props.setQuestionCount(props.questionCount + 2);
+  }}>More Answered Questions</button>
 )
 
 export default MoreQuestions;
