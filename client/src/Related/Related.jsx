@@ -7,7 +7,7 @@ import OutfitList from "./OutfitList/OutfitList.jsx";
 const Related = () => {
 
   return (
-    <div>
+    <div id='related' className='widget'>
       <RelatedList />
       {/* <Outfit /> */}
       <OutfitList />

@@ -62,23 +62,31 @@ body {
     padding: 0;
 }
 
-.darkTheme {
-    background-color: $shade1;
-    text-decoration-color: $shadeF;
-    color: $shadeF;
-    border-color: $shadeF;
+.bodyDark {
+  background-color: $shade1 !important;
+  text-decoration-color: $shadeF !important;
+  color: $shadeF !important;
+  border-color: $shadeF !important;
 }
 
 #appContainer {
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
 
-#overview, #qa, #related, #reviews {
-    background-color: $shade6;
+.widget {
+  background-color: $shadeE;
+}
+
+.widgetDark {
+  background-color: $shade3 !important;
+}
+
+.borderDark {
+  border-color: $shadeF !important;
 }
 
 #darkModeToggle {

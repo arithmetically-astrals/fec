@@ -11,7 +11,7 @@ const QA = () => {
   const [search, setSearch] = useState('');
 
   return (
-    <div>
+    <div id='qa' className='widget'>
       <h1>Questions</h1>
       <Search search={search} setSearch={setSearch}/>
       <QuestionList questions={questions}/>
