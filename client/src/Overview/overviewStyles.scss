@@ -31,10 +31,67 @@ $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
-#overview-carousel {
-
+#overview {
+    display: flex;
+    flex-direction: column;
 }
 
-#overview-details {
-    
+#overview-carouselandinfopanel {
+    display: flex;
+    flex-direction: row;
+}
+
+#overview-carousel {
+    width: 50%;
+    border: 1px solid black;
+}
+
+#overview-carousel-featuredimage {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.overview-carousel-thumbnailimage {
+    width: 50%;
+    border: 1px solid black;
+}
+
+#overview-infopanel {
+    display: flex;
+    flex-direction: column;
+}
+
+#overview-infopanel-details {
+    width: 50%;
+    border: 1px solid black;
+}
+
+#overview-infopanel-details-name {
+    width: 100%;
+    border: 1px solid black;
+}
+
+#overview-infopanel-details-price {
+    width: 100%;
+    border: 1px solid black;
+}
+
+#overview-infopanel-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+#overview-infopanel-actions-cart {
+    width: 50px;
+    border: 1px solid black;
+}
+
+#overview-infopanel-actions-favorite {
+    width: 50px;
+    border: 1px solid black;  
+}
+
+#overview-longdescription {
+    width: 100%;
+    border: 1px solid black;
 }

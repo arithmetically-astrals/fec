@@ -1,3 +1,8 @@
+@use "./Overview/overviewStyles.scss";
+@use "./QA/qaStyles.scss";
+@use "./Related/relatedStyles.scss";
+@use "./Reviews/reviewsStyles.scss";
+
 // global styles
 // styles that are used by multiple widgets (2 or more widgets)
 
@@ -31,6 +36,22 @@ $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
+// naming convention:
+// top-level widget: #overview
+// component of a widget: #overview-carousel
+// subcomponent of a component: #overview-carousel-thumbnail
+// #overview-carousel {
+
+// }
+
+// #overview-carousel-feature {
+
+// }
+
+// #overview-carousel-thumbnail {
+
+// }
+
 body {
     background-color: $shadeF;
     color: $shade0;
@@ -41,73 +62,147 @@ body {
     padding: 0;
 }
 
-.darkTheme {
-    background-color: $shade0;
-    text-decoration-color: $shadeF;
-    color: $shadeF;
-    border-color: $shadeF;
+.bodyDark {
+  background-color: $shade1 !important;
+  text-decoration-color: $shadeF !important;
+  color: $shadeF !important;
+  border-color: $shadeF !important;
 }
 
-// .lightTheme {
-
-// }
-
 #appContainer {
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
 
-#overview, #qa, #related, #reviews {
-    background-color: $shade6;
+.widget {
+  background-color: $shadeE;
 }
 
-h1 {
-
+.widgetDark {
+  background-color: $shade3 !important;
 }
 
-p {
-
+.borderDark {
+  border-color: $shadeF !important;
 }
 
-// naming convention:
-// top-level widget: #overview
-// component of a widget: #overview-carousel
-// subcomponent of a component: #overview-carousel-thumbnail
-#overview-carousel {
-
+.textDark {
+  color: $shadeF !important;
 }
 
-#overview-carousel-feature {
-    
+#darkModeToggle {
+    border: 1px solid $shadeF;
+    padding: 20px;
+    width: 200px;
+    font-size: 12px;
 }
 
-#overview-carousel-thumbnail {
+.blurred {
+    backdrop-filter: blur(10px);
+}
 
+#topNav {
+    color: $shadeF;
+    font-size: 30px;
+    background-color: $shade2;
+    padding: 10px;
+} 
+  
+#topMessage {
+    color: $shade0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#review-meta-box {
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: x-small;
+  color: $shade5;
+  width: 185px;
+  height: 245px;
+  padding: 10px;
+  margin: 5px;
+  float: left;
 }
 
 #review-rating-number {
-    
+  font-size: xx-large;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 #review-rating-bar {
-
+  align-content: center;
+  width: 50%;
+  height: 5px;
+  background-color: $shade9;
+  float: left;
+  margin: 5px;
+  margin-bottom: auto;
 }
 
-#review-rating-size {
-
+#metaTextLeft {
+  float: left;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-#review-rating-comfort {
-
+#metaTextRight {
+  font-size: x-small;
 }
 
-#review-form {
-
+#meta-char-text {
+  position: relative;
+  font-size: xx-small;
+  top: -4px;
+  margin-right: 50%;
 }
 
-#review-list {
+#review-rating-char {
+  width: 50%;
+  height: 5px;
+  background-color: $shade9;
+  margin: 2px;
+  margin-bottom: 10px;
+}
 
+#review-meta-stars {
+  position: relative;
+  float: right;
+  top: 20px;
+  right: 80px;
+}
+
+#review-tile-box {
+  position: relative;
+  border: 1px solid black;
+  float: left;
+  padding: 5px;
+  margin: 5px;
+}
+
+#review-tile {
+  border: 1px solid black;
+  width: 450px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#review-tile-stars {
+  float: right;
 }

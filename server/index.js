@@ -31,12 +31,16 @@ app.get('/products', (req, res) => {
 
 //gets all reviews for item
 app.get('/reviews', (req, res) => {
-  var idNum = req.params.product_id;
+  var idNum = req.query.product_id;
+  var count = req.query.count;
   axios.get(`${process.env.API}/reviews/`, {
     headers: {
       'Authorization': process.env.AUTH_CODE
     },
-    params: { product_id: idNum }
+    params: {
+      product_id: idNum,
+      count: count
+    }
   }).then(response => {
     res.status(200);
     res.send(response.data);
@@ -48,7 +52,7 @@ app.get('/reviews', (req, res) => {
 
 //gets all meta review info for item
 app.get('/reviews/meta', (req, res) => {
-  var idNum = req.params.product_id;
+  var idNum = req.query.product_id;
   axios.get(`${process.env.API}/reviews/meta`, {
     headers: {
       'Authorization': process.env.AUTH_CODE
