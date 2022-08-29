@@ -3,8 +3,7 @@ const OutfitList = () => {
 
   return (
        <h1>OutfitList</h1>
-      
   )
-  
+
 }
 export default OutfitList;
