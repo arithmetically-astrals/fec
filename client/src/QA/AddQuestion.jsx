@@ -19,13 +19,13 @@ const AddQuestion = (props) => {
             body: 'When is this available?',
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
-            product_id: 37312
+            product_id: props.product_id
           },
         })
           .then(() => {
             axios.get('/qa/questions', {
               params: {
-                product_id: 37312
+                product_id: props.product_id
               }
             })
               .then((response) => {
