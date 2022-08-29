@@ -11,10 +11,12 @@ const QA = () => {
   const [search, setSearch] = useState('');
   const [questionCount, setQuestionCount] = useState(4);
 
+  let product_id = 37312;
+
   useEffect(() => {
     axios.get('/qa/questions', {
       params: {
-        product_id: 37312
+        product_id: product_id
       }
     })
       .then((response) => {
@@ -32,7 +34,7 @@ const QA = () => {
       <Search search={search} setSearch={setSearch}/>
       <QuestionList questions={questions} search={search}/>
       <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
-      <AddQuestion questions={questions} setQuestions={setQuestions}/>
+      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id}/>
     </div>
   )
 

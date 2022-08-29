@@ -125,6 +125,7 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 app.post('/qa/questions', (req, res) => {
+
   axios.post(`${process.env.API}/qa/questions`, {
     body: req.body.params.body,
     name: req.body.params.name,
@@ -136,6 +137,7 @@ app.post('/qa/questions', (req, res) => {
     }
   })
     .then((response) => {
+      console.log('asdf', response);
       res.sendStatus(201);
     })
     .catch((err) => {
