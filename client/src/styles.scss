@@ -107,9 +107,13 @@ body {
 #topNav {
     color: $shadeF;
     font-size: 30px;
-    background-color: $shade2;
+    background-color: $shadeD;
     padding: 10px;
-} 
+}
+
+.topNavDark {
+  background-color: $shade3 !important;
+}
   
 #topMessage {
     color: $shade0;
@@ -117,16 +121,10 @@ body {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
+#topMessageDark {
+  background-color: $shadeB !important;
+  color: $shadeF !important;
+}
 
 #review-meta-box {
   border: 1px solid black;
