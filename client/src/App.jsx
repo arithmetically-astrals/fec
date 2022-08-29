@@ -11,7 +11,12 @@ const root = createRoot(document.getElementById("root"));
 // Huzzah for jsx!
 const App = () => {
   return <div id='appContainer'>
-    <DarkModeToggle />
+    <div id='topNav'>
+      logo and search
+      <DarkModeToggle />
+    </div>
+    <div id='topMessage'>special message</div>
+    
     <Overview />
     <Related />
     <QA />

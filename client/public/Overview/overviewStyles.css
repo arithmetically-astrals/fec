@@ -1,3 +1,8 @@
+#overview {
+  display: flex;
+  flex-direction: row;
+}
+
 #overview-carousel {
   width: 50%;
   border: 1px solid black;
@@ -19,17 +24,27 @@
 }
 
 #overview-details-name {
-  width: 50%;
+  width: 100%;
   border: 1px solid black;
 }
 
 #overview-details-price {
-  width: 50%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+#overview-details-cart {
+  width: 50px;
+  border: 1px solid black;
+}
+
+#overview-details-favorite {
+  width: 50px;
   border: 1px solid black;
 }
 
 #overview-longdescription {
-  width: 50%;
+  width: 100%;
   border: 1px solid black;
 }
 

@@ -47,7 +47,7 @@ body {
 }
 
 .darkTheme {
-    background-color: $shade0;
+    background-color: $shade1;
     text-decoration-color: $shadeF;
     color: $shadeF;
     border-color: $shadeF;
@@ -66,11 +66,28 @@ body {
 }
 
 #darkModeToggle {
-    border: 1px solid black;
+    border: 1px solid $shadeF;
     padding: 20px;
     width: 200px;
+    font-size: 12px;
 }
 
+.blurred {
+    backdrop-filter: blur(10px);
+}
+
+#topNav {
+    color: $shadeF;
+    font-size: 30px;
+    background-color: $shade2;
+    padding: 10px;
+} 
+  
+#topMessage {
+    color: $shade0;
+    padding: 10px;
+    text-align: center;
+}
 
 
 

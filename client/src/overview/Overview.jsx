@@ -7,7 +7,7 @@ import StylePicker from "./StylePicker.jsx";
 import LongDescription from "./LongDescription.jsx";
 
 const Overview = () => {
-  return <div>
+  return <div id='overview'>
     <Carousel />
     <Details />
     <StylePicker />

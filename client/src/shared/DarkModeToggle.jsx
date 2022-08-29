@@ -10,4 +10,3 @@ let toggleDarkMode = () => {
 }
 
 export default DarkModeToggle;
-
