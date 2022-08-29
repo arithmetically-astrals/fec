@@ -28,12 +28,12 @@ const [defaultData, setDefaultData] = useState(null);
     },
   })
     .then((overviewData) => {
-      //setdefault data as overviewData
+      //set default data as overviewData
       //axios 'get' call for 'related' to current product
     })
       .then((related) => {
         //PromiseAll
-          //map related.data with axios call for each
+          //map related data with axios call for each
       })
 
   return (
