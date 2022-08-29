@@ -15,8 +15,6 @@ const ReviewList = ({itemId}) => {
         count: 2
       }
     }).then(response => {
-      console.log(response.data)
-      setCount(2)
       setList(response.data.results);
     }).catch(err => {
       console.log('err: ', err)
@@ -31,7 +29,6 @@ const ReviewList = ({itemId}) => {
         count: count + 2
       }
     }).then(response => {
-      console.log(response.data)
       setCount(count + 2)
       setList(response.data.results);
     }).catch(err => {

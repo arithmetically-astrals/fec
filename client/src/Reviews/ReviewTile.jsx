@@ -4,15 +4,24 @@ import StarScale from '../shared/StarScale.jsx';
 const ReviewTile = ({info}) => {
   console.log(info)
 
+  const clickYes = (e) => {
+    console.log(e)
+  }
+
+  const clickReport = (e) => {
+
+  }
+
   return (
     <div id='review-tile'>
-      <div>User: {info.reviewer_name}</div>
+      <div id='review-tile-name'>{info.reviewer_name}, {new Date(info.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</div>
       <div id='review-tile-stars'>
-        <h5>Rating: {StarScale(info.rating)}</h5>
+        <h5>{StarScale(info.rating)}</h5>
       </div>
-      <h3>{info.summary}</h3>
+      <h4>{info.summary}</h4>
       <p>{info.body}</p>
-      <h6>Helpful: {info.helpfulness}</h6>
+      <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({info.helpfulness})
+      | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
   )
 }
