@@ -36,7 +36,6 @@ body {
   height: 240px;
   padding: 10px;
   margin: 5px;
-  float: left;
 }
 
 #review-rating-number {
@@ -78,6 +77,13 @@ body {
   background-color: #999;
   margin: 2px;
   margin-bottom: 10px;
+}
+
+#review-meta-stars {
+  position: relative;
+  float: right;
+  top: 20px;
+  right: 80px;
 }
 
 /*# sourceMappingURL=styles.css.map */
