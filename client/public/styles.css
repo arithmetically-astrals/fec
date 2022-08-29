@@ -33,9 +33,10 @@ body {
   font-size: x-small;
   color: #555;
   width: 185px;
-  height: 240px;
+  height: 245px;
   padding: 10px;
   margin: 5px;
+  float: left;
 }
 
 #review-rating-number {
