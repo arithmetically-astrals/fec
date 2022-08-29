@@ -2,20 +2,14 @@
 // this component will contain Details and StylePicker as sub-components
 import React from "react";
 import Carousel from "./Carousel.jsx";
-import Details from "./Details.jsx";
-import StylePicker from "./StylePicker.jsx";
+import InfoPanel from "./InfoPanel.jsx";
 import LongDescription from "./LongDescription.jsx";
 
 const Overview = () => {
-  return <div id='overview'>
-    <Carousel />
-    <Details />
-    <StylePicker />
-    <div id='overview-details-cart'>
-      add to cart
-    </div>
-    <div id='overview-details-favorite'>
-      add to favorites
+  return <div id='overview' className='widget'>
+    <div id='overview-carouselandinfopanel'>
+      <Carousel />
+      <InfoPanel />
     </div>
     <LongDescription />
   </div>
