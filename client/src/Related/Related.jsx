@@ -54,21 +54,13 @@ function Related({itemId, starRating}) {
 
  return (
 
-      <div>
+      <div id='related' className='widget'>
         {/* <ItemComparison />
         <RelatedList defaultData={defaultData} productList={productList} colorScheme={colorScheme}/>
         <Outfit />
         <OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
-
-  return (
-    <div id='related' className='widget'>
-      <RelatedList />
-      {/* <Outfit /> */}
-      <OutfitList />
-    </div>
-  )
 
 }
 
