@@ -11,7 +11,9 @@ const AddQuestion = (props) => {
         setText(e.target.value);
       }}/>
       <button onClick={() => {
-        console.log('add a question!');
+        //have modal pop up with input
+        //
+
         axios.post('/qa/questions', {
           params: {
             product_id: 37312,
@@ -20,15 +22,23 @@ const AddQuestion = (props) => {
             email: 'fakeemail@fakecompany.com'
           },
         })
+          .then(() => {
+            axios.get('/qa/questions', {
+              params: {
+                product_id: 37312
+              }
+            })
+              .then((response) => {
+                props.setQuestions(response.data.results);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+          })
           .catch((err) => {
             console.log(err);
-          })
-        //have modal pop up with input
-        //
+          });
 
-        // const newQuestions = props.questions.slice();
-        // newQuestions.push({text, answers: []});
-        // props.setQuestions(newQuestions);
       }}>Add a question</button>
     </>
   )
