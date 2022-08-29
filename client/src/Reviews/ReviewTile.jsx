@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import StarScale from '../shared/StarScale.jsx';
+import StarScale from '../Shared/StarScale.jsx';
 
 const ReviewTile = ({info}) => {
   console.log(info)

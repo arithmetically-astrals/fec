@@ -1,5 +1,5 @@
 import React from "react";
-import StarScale from "../shared/StarScale.jsx";
+import StarScale from "../Shared/StarScale.jsx";
 
 // This function returns a DOM element with the key details of the product listed
 const Details = () => {
