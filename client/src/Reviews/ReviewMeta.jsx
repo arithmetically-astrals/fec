@@ -102,7 +102,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating}) => {
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Fit.value)} />
               <a id='meta-char-text'>Small</a>
-              <a id='meta-char-text'>Big</a>
+              <a id='meta-char-text'>Loose</a>
             </div>
           </div> : null}
         </div>

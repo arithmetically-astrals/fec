@@ -20,6 +20,7 @@ const ReviewTile = ({info}) => {
       </div>
       <h4>{info.summary}</h4>
       <p>{info.body}</p>
+      <div>{info.recommend ? <div>✓ I recommend this product</div>: null}</div>
       <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({info.helpfulness})
       | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
