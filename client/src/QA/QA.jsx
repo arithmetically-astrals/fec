@@ -9,7 +9,7 @@ const QA = () => {
 
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
-  const [questionCount, setQuestionCount] = useState(2);
+  const [questionCount, setQuestionCount] = useState(4);
 
   useEffect(() => {
     axios.get('/qa/questions', {
