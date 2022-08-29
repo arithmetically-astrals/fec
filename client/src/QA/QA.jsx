@@ -20,7 +20,6 @@ const QA = () => {
       .then((response) => {
         setQuestions(response.data.results);
         console.log(response.data.results);
-        console.log(questions);
       })
       .catch((err) => {
         console.log(err);

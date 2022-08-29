@@ -23,7 +23,13 @@ const Question = (props) => {
 
   return (
     <div>
-      Q: {props.question.question_body} Helpful? Yes({props.question.question_helpfulness}) | <AddAnswer /> | Report
+      Q: {props.question.question_body}  <a href="#" onClick={(e) => {
+        e.preventDefault();
+        console.log('helpful question!');
+      }}>Helpful?</a> Yes({props.question.question_helpfulness}) | <AddAnswer /> | <a href="#" onClick={(e) => {
+        e.preventDefault();
+        console.log('report question!');
+      }}>Report</a>
       <AnswerList answers={answers}/>
     </div>
   )
