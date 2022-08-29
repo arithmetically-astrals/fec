@@ -14,10 +14,15 @@ const App = () => {
   const [starRating, setstarRating] = useState(0);
 
   return <div id='appContainer'>
-    <DarkModeToggle />
-    <Overview id='overview' />
-    <Related id='related' />
-    <QA id='qa' />
+    <div id='topNav'>
+      logo and search
+      <DarkModeToggle />
+    </div>
+    <div id='topMessage'>special message</div>
+
+    <Overview />
+    <Related />
+    <QA />
     <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
     <div>
       REMOVE THESE BUTTONS WHEN YOU CAN CLICK ON OTHER ITEMS!

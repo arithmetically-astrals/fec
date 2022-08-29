@@ -1,7 +1,7 @@
 import React from "react";
 
 const DarkModeToggle = () => {
-  return <div onClick={toggleDarkMode}>toggle dark mode</div>
+  return <div id='darkModeToggle' onClick={toggleDarkMode}>toggle dark mode</div>
 }
 
 let toggleDarkMode = () => {
@@ -10,4 +10,3 @@ let toggleDarkMode = () => {
 }
 
 export default DarkModeToggle;
-

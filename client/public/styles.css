@@ -1,4 +1,40 @@
 body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#overview, #qa, #related, #reviews {
+  background-color: #667;
+}
+
+body {
   background-color: #fff;
   color: #000;
   border-color: #000;
@@ -9,7 +45,7 @@ body {
 }
 
 .darkTheme {
-  background-color: #000;
+  background-color: #111;
   text-decoration-color: #fff;
   color: #fff;
   border-color: #fff;
@@ -27,6 +63,31 @@ body {
   background-color: #667;
 }
 
+#darkModeToggle {
+  border: 1px solid #fff;
+  padding: 20px;
+  width: 200px;
+  font-size: 12px;
+}
+
+.blurred {
+  backdrop-filter: blur(10px);
+}
+
+#topNav {
+  color: #fff;
+  font-size: 30px;
+  background-color: #222;
+  padding: 10px;
+}
+
+#topMessage {
+  color: #000;
+  padding: 10px;
+  text-align: center;
+}
+
+/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
 #review-meta-box {
   border: 1px solid black;
   border-radius: 20px;

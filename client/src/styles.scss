@@ -1,3 +1,8 @@
+@use "./Overview/overviewStyles.scss";
+@use "./QA/qaStyles.scss";
+@use "./Related/relatedStyles.scss";
+@use "./Reviews/reviewsStyles.scss";
+
 // global styles
 // styles that are used by multiple widgets (2 or more widgets)
 
@@ -42,15 +47,11 @@ body {
 }
 
 .darkTheme {
-    background-color: $shade0;
+    background-color: $shade1;
     text-decoration-color: $shadeF;
     color: $shadeF;
     border-color: $shadeF;
 }
-
-// .lightTheme {
-
-// }
 
 #appContainer {
     position: absolute;
@@ -63,6 +64,40 @@ body {
 #overview, #qa, #related, #reviews {
     background-color: $shade6;
 }
+
+#darkModeToggle {
+    border: 1px solid $shadeF;
+    padding: 20px;
+    width: 200px;
+    font-size: 12px;
+}
+
+.blurred {
+    backdrop-filter: blur(10px);
+}
+
+#topNav {
+    color: $shadeF;
+    font-size: 30px;
+    background-color: $shade2;
+    padding: 10px;
+} 
+  
+#topMessage {
+    color: $shade0;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
 
 h1 {
 
