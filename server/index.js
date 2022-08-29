@@ -87,7 +87,26 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 app.post('/qa/questions', (req, res) => {
-
+  console.log(req.body.params.body);
+  axios.post(`${process.env.API}qa/questions`, {
+    params: {
+      body: req.body.params.body,
+      name: req.body.params.name,
+      email: req.body.params.email,
+      product_id: req.body.params.product_id
+    }
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(501);
+    });
 });
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
