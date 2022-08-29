@@ -1,7 +1,8 @@
 import React from "react";
 
 const LongDescription = () => {
-  return <div className='headerClass'>Long Description</div>
-}
+  return (
+    <div id='overview-longdescription'>Long Product Description</div>
+)}
 
 export default LongDescription;
