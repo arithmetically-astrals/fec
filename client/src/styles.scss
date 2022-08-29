@@ -36,6 +36,22 @@ $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
+// naming convention:
+// top-level widget: #overview
+// component of a widget: #overview-carousel
+// subcomponent of a component: #overview-carousel-thumbnail
+// #overview-carousel {
+
+// }
+
+// #overview-carousel-feature {
+
+// }
+
+// #overview-carousel-thumbnail {
+
+// }
+
 body {
     background-color: $shadeF;
     color: $shade0;
@@ -97,31 +113,8 @@ body {
 
 
 
-/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
 
-h1 {
 
-}
-
-p {
-
-}
-
-// naming convention:
-// top-level widget: #overview
-// component of a widget: #overview-carousel
-// subcomponent of a component: #overview-carousel-thumbnail
-#overview-carousel {
-
-}
-
-#overview-carousel-feature {
-
-}
-
-#overview-carousel-thumbnail {
-
-}
 
 #review-meta-box {
   border: 1px solid black;
