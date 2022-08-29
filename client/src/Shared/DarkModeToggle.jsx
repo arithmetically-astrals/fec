@@ -16,6 +16,7 @@ let toggleDarkMode = () => {
   var allElements = document.body.getElementsByTagName("*");
   for (let i = 0; i < allElements.length; i++) {
     allElements[i].classList.toggle('borderDark')
+    allElements[i].classList.toggle('textDark')
   }
 }
 

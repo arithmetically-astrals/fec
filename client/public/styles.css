@@ -158,6 +158,10 @@ body {
   border-color: #fff !important;
 }
 
+.textDark {
+  color: #fff !important;
+}
+
 #darkModeToggle {
   border: 1px solid #fff;
   padding: 20px;
