@@ -8,7 +8,6 @@ import OutfitList from "./OutfitList/OutfitList.jsx";
 
 import axios from 'axios';
 
-<<<<<<< HEAD
 function Related({itemId, starRating}) {
   //global state variables
   // const [itemID] = useContext(ProductContext);
@@ -62,7 +61,7 @@ function Related({itemId, starRating}) {
         <OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
-=======
+
   return (
     <div id='related' className='widget'>
       <RelatedList />
@@ -70,7 +69,6 @@ function Related({itemId, starRating}) {
       <OutfitList />
     </div>
   )
->>>>>>> ec57812d4005707d6d75d9beb9fb1735acd426b5
 
 }
 
