@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import Overview from "./Overview/Overview.jsx";
 import QA from "./QA/QA.jsx";
@@ -10,12 +10,24 @@ const root = createRoot(document.getElementById("root"));
 
 // Huzzah for jsx!
 const App = () => {
+  const [itemId, setitemId] = useState(37311);
+  const [starRating, setstarRating] = useState(0);
+
   return <div id='appContainer'>
     <DarkModeToggle />
     <Overview id='overview' />
     <Related id='related' />
     <QA id='qa' />
-    <Reviews id='reviews' />
+    <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
+    <div>
+      REMOVE THESE BUTTONS WHEN YOU CAN CLICK ON OTHER ITEMS!
+      <button onClick={() => {setitemId(37311)}}>37311</button>
+      <button onClick={() => {setitemId(37312)}}>37312</button>
+      <button onClick={() => {setitemId(37313)}}>37313</button>
+      <button onClick={() => {setitemId(37314)}}>37314</button>
+      <button onClick={() => {setitemId(37315)}}>37315</button>
+      THEY ARE JUST TO TEST SWAPPING BETWEEN ITEM IDS!
+    </div>
   </div>
 }
 
