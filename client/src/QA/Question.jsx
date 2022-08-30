@@ -26,7 +26,7 @@ const Question = (props) => {
       Q: {props.question.question_body}  <a href="#" onClick={(e) => {
         e.preventDefault();
         console.log('helpful question!');
-      }}>Helpful?</a> Yes({props.question.question_helpfulness}) | <AddAnswer /> | <a href="#" onClick={(e) => {
+      }}>Helpful?</a> Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id}/> | <a href="#" onClick={(e) => {
         e.preventDefault();
         console.log('report question!');
       }}>Report</a>

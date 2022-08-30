@@ -9,12 +9,9 @@ const AddQuestion = (props) => {
 
   return (
     <>
-      <input type={text} placeholder="temporary input" onChange={(e) => {
-        setText(e.target.value);
-      }}/>
       <button onClick={() => {
         //have modal pop up with input
-        //
+        //body, name, email fields
 
         axios.post('/qa/questions', {
           params: {
@@ -24,21 +21,6 @@ const AddQuestion = (props) => {
             product_id: props.product_id
           },
         })
-          .then(() => {
-            axios.get('/qa/questions', {
-              params: {
-                product_id: props.product_id,
-                count: props.questionCount
-              }
-            })
-              .then((response) => {
-                props.setQuestions(response.data.results);
-                console.log('response.data.results', response.data.results);
-              })
-              .catch((err) => {
-                console.log(err);
-              })
-          })
           .catch((err) => {
             console.log(err);
           });

@@ -11,7 +11,7 @@ const QA = () => {
   const [search, setSearch] = useState('');
   const [questionCount, setQuestionCount] = useState(4);
 
-  let product_id = 37312;
+  let product_id = 37315;
 
   useEffect(() => {
     axios.get('/qa/questions', {
