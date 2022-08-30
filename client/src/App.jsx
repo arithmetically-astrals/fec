@@ -15,8 +15,11 @@ const App = () => {
 
   return <div id='appContainer'>
     <div id='topNav'>
-      logo and search
+      <div id='logo'>
+        checkout
+      </div>
       <DarkModeToggle />
+      <input id='search' placeholder='search' />
     </div>
     <div id='topMessage'>special message</div>
 

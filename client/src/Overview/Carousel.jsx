@@ -20,9 +20,9 @@ const Carousel = ({itemId = 37311}) => {
   return (
     <div id='overview-carousel'>
       <img id='overview-carousel-featuredimage' src='https://i.imgur.com/EPHb3G6.jpeg' />
-      
-      <div className='overview-carousel-thumbnailimage'>
-        Thumbnail
+      <div id='overview-carousel-thumbnails'>
+        <img className='overview-carousel-thumbnail' src='https://i.imgur.com/EPHb3G6.jpeg' />
+        <img className='overview-carousel-thumbnail' src='https://i.imgur.com/EPHb3G6.jpeg' />
       </div>
     </div>
 )}
