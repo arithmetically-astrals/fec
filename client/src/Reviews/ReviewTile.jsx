@@ -5,7 +5,6 @@ import axios from 'axios';
 const ReviewTile = ({info, setList, itemId, count}) => {
   const [yesCount, setYesCount] = useState(info.helpfulness)
 
-
   const clickYes = (e) => {
     axios.put('/reviews/helpful', {
       review_id: info.review_id
@@ -44,6 +43,11 @@ const ReviewTile = ({info, setList, itemId, count}) => {
       <h4>{info.summary}</h4>
       <p>{info.body}</p>
       <div>{info.recommend ? <div>✓ I recommend this product</div>: null}</div>
+      {info.photos.length > 0 ? <div id='review-tile-photobox'>
+        {info.photos.map(photo => {
+          return (<img  src={photo.url} style={{width: '40px', height: '40px'}} key={photo.id} />)
+        })}
+      </div>: null}
       <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({yesCount})
       | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
