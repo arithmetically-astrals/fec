@@ -10,6 +10,7 @@ const Question = (props) => {
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
   }, [props.question])
+  const [moreAnswers, setMoreAnswers] = useState(false);
 
   return (
     <div>
@@ -22,7 +23,7 @@ const Question = (props) => {
       }}>Report</a>
       <AnswerList answers={answers}/>
       {answers.length > 2
-      ? <MoreAnswers />
+      ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
       : <></>}
     </div>
   )
