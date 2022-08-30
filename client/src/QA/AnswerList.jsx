@@ -17,14 +17,16 @@ const AnswerList = (props) => {
 
   return (
     <div>
-      {/* {renderedAnswers */}
-      A: {renderedAnswers.map((answer, index) => (
-          <div key={index}>
-            <Answer answer={answer} />
-          </div>
-        ))}
-      {/* : <></> */}
-      {/* } */}
+      {renderedAnswers.length
+      ? <div>
+          A: {renderedAnswers.map((answer, index) => (
+            <div key={index}>
+              <Answer answer={answer} />
+            </div>
+          ))}
+        </div>
+      : <></>
+      }
     </div>
   )
 }
