@@ -1,15 +1,39 @@
 import React, { useState, useEffect } from "react";
 import StarScale from '../shared/StarScale.jsx';
+import axios from 'axios';
 
-const ReviewTile = ({info}) => {
+const ReviewTile = ({info, setList, itemId, count}) => {
   console.log(info)
+  const [yesCount, setYesCount] = useState(info.helpfulness)
+
 
   const clickYes = (e) => {
-    console.log(e)
+    axios.put('/reviews/helpful', {
+      review_id: info.review_id
+    }).then(response => {
+      setYesCount(yesCount + 1);
+    }).catch(err => {
+      console.log('Yes error: ', err)
+    })
   }
 
   const clickReport = (e) => {
-
+    axios.put('/reviews/report', {
+      review_id: info.review_id
+    }).then(reply => {
+      axios.get('/reviews', {
+        params: {
+          product_id: itemId,
+          count: count
+        }
+      }).then(response => {
+        setList(response.data.results);
+      }).catch(err => {
+        console.log('Report error: ', err)
+      })
+    }).catch(err => {
+      console.log('Report error: ', err)
+    })
   }
 
   return (
@@ -21,7 +45,7 @@ const ReviewTile = ({info}) => {
       <h4>{info.summary}</h4>
       <p>{info.body}</p>
       <div>{info.recommend ? <div>✓ I recommend this product</div>: null}</div>
-      <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({info.helpfulness})
+      <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({yesCount})
       | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
   )

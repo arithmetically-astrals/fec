@@ -42,9 +42,8 @@ const ReviewList = ({itemId}) => {
   } else {
     return (
       <div id='review-tile-box'>
-        <div>Don't render me yet!</div>
         {list.map(info => {
-          return <ReviewTile info={info} key={info.review_id} />
+          return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
         })}
         <button onClick={moreReviews}>More reviews</button>
       </div>
