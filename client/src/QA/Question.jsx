@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import AnswerList from "./AnswerList.jsx";
 import AddAnswer from "./AddAnswer.jsx";
 import axios from "axios";
+import MoreAnswers from "./MoreAnswers.jsx";
 
 const Question = (props) => {
 
@@ -20,6 +21,7 @@ const Question = (props) => {
         console.log('report question!');
       }}>Report</a>
       <AnswerList answers={answers}/>
+      <MoreAnswers />
     </div>
   )
 }
