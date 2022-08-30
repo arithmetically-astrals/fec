@@ -9,7 +9,7 @@
 }
 
 #overview-carousel {
-  width: 50%;
+  width: 60%;
   border: 1px solid black;
   position: relative;
 }
@@ -32,18 +32,25 @@
 #overview-infopanel {
   display: flex;
   flex-direction: column;
+  padding: 2em;
 }
 
 #overview-infopanel-details {
-  border: 1px solid black;
+  font-size: 1.25em;
 }
 
 #overview-infopanel-details-name {
-  border: 1px solid black;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 1.5em;
 }
 
 #overview-infopanel-details-price {
-  border: 1px solid black;
+  margin-bottom: 2em;
+}
+
+#overview-infopanel-stylepicker {
+  margin-bottom: 2em;
 }
 
 .overview-infopanel-stylepicker-option {
@@ -51,8 +58,10 @@
   border-radius: 100000px;
   width: 50px;
   height: 50px;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: small;
+  text-align: center;
 }
 
 #overview-infopanel-actions {
@@ -62,8 +71,9 @@
 
 #overview-infopanel-actions-cart, #overview-infopanel-actions-favorite {
   border: 1px solid black;
-  margin: 20px;
-  padding: 10px;
+  margin-right: 2em;
+  padding: 1em;
+  text-align: center;
 }
 
 #overview-infopanel-actions-favorite {
@@ -72,7 +82,7 @@
 
 #overview-longdescription {
   width: 100%;
-  border: 1px solid black;
+  padding: 2em;
 }
 
 body {
