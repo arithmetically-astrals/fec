@@ -32,20 +32,21 @@ const StylePicker = ({itemId = 37311}) => {
   },[itemId])
 
 
-  console.log(styleInfo)
+  console.log('styleInfo', styleInfo)
   if (styleInfo.results === undefined ) {
     return <div>loading styles</div>
   } else {
     return (
       <div id='overview-infopanel-stylepicker'>
         <div id='overview-infopanel-stylepicker-styles'>
-          {styleInfo.results.map(({ name }) => (
-            <div className='overview-infopanel-stylepicker-style' key={name}>{name}</div>
+          {styleInfo.results.map(({ name, photos }) => (
+            <img className='overview-infopanel-stylepicker-style' key={name} src={photos[0].thumbnail_url} />
           ))}
         </div>
         <select id='overview-infopanel-stylepicker-sizeandquantity'>
-          {styleInfo.results.map(({ name }) => (
-            <option className='overview-infopanel-stylepicker-style' key={name}>{name}</option>
+          {/* the skus data structure is an object, not an array, so we must needs get an array of the values of the skus object */}
+          {Object.values(styleInfo.results[0].skus).map(({ size }) => (
+            <option className='overview-infopanel-stylepicker-style' key={size}>{size}</option>
           ))}
         </select>
         <select id='overview-infopanel-stylepicker-quantity'>

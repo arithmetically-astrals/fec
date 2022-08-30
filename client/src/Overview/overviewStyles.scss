@@ -115,8 +115,7 @@ $pop9: #C0FDFF;
 
 // individual style options
 .overview-infopanel-stylepicker-style {
-    border: 1px solid $shade0;
-    border-radius: 100000px;
+    border-radius: 1000px;
     width: 5em;
     height: 5em;
     margin-right: 20px;
@@ -148,7 +147,7 @@ $pop9: #C0FDFF;
     flex-direction: row;
 }
 
-// button for size
+// selector for size
 #overview-infopanel-stylepicker-size {
     background-color: $pop0;
     border: 1px solid $pop0 !important;
@@ -161,7 +160,7 @@ $pop9: #C0FDFF;
     background: none !important;
 }
 
-// quantity button
+// selector for quantity
 #overview-infopanel-stylepicker-quantity {
     background-color: $pop3;
     color: $shadeF;
