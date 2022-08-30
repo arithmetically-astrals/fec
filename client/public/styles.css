@@ -336,4 +336,36 @@ body {
   transform: translate(-50%, -50%);
 }
 
+#related-card-container {
+  position: relative;
+  max-width: 1200px;
+}
+
+#related-card-list {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding:0.25rem;
+  max-width: 100%;
+}
+
+#related-left-arrow {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  font-size: 80px;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+#related-right-arrow {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  right: 0;
+  font-size: 80px;
+  opacity: 0.4;
+  z-index: 2;
+}
 /*# sourceMappingURL=styles.css.map */

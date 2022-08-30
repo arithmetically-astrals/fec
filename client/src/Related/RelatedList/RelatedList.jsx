@@ -7,18 +7,17 @@ import RelatedListItem from './RelatedListItem.jsx';
 const RelatedList = ({defaultData, productList/*, colorScheme={colorScheme}*/}) => {
 
 
-console.log('defaultData: ',defaultData, 'productList: ', productList);
+// console.log('defaultData: ',defaultData, 'productList: ', productList);
+
   return (
-    <div id='related-list-container'>
-      <div>This is a left arrow</div>
-      {/* <LeftArrow/> */}
-      <div>
+    <div id='related-card-container'>
+      <div id='related-left-arrow'>&#8592;</div>
+      <div id='related-card-list'>
         {productList.map((product) => {
-          return <RelatedListItem key={product.id} id={product.id} product={product} defaultData={defaultData} /*colorScheme={colorScheme}*//>
+          return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} /*colorScheme={colorScheme}*//>
         })}
       </div>
-      <div>This is a right arrow</div>
-      {/* <RightArrow/> */}
+      <div id='related-right-arrow'>&#8594;</div>
     </div>
 
   )
