@@ -124,7 +124,8 @@ app.get('/qa/questions', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      product_id: req.query.product_id
+      product_id: req.query.product_id,
+      count: req.query.count
     }
   })
     .then((response) => {
@@ -143,7 +144,8 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      question_id: req.query.question_id
+      question_id: req.query.question_id,
+      count: req.query.count
     }
   })
     .then((response) => {
@@ -157,7 +159,6 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 app.post('/qa/questions', (req, res) => {
-
   axios.post(`${process.env.API}/qa/questions`, {
     body: req.body.params.body,
     name: req.body.params.name,
@@ -169,7 +170,6 @@ app.post('/qa/questions', (req, res) => {
     }
   })
     .then((response) => {
-      console.log('asdf', response);
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -179,7 +179,23 @@ app.post('/qa/questions', (req, res) => {
 });
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-
+  axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
+    body: req.body.params.body,
+    name: req.body.params.name,
+    email: req.body.params.email,
+    photos: req.body.params.photos
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 app.put('/qa/questions/:question_id/helpful', (req, res) => {

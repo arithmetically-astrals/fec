@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import StarScale from '../shared/StarScale.jsx';
+import StarScale from '../Shared/StarScale.jsx';
 import axios from 'axios';
 
 const ReviewTile = ({info, setList, itemId, count}) => {
