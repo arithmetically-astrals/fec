@@ -22,7 +22,7 @@ const Question = (props) => {
         e.preventDefault();
         console.log('report question!');
       }}>Report</a>
-      <AnswerList answers={answers}/>
+      <AnswerList answers={answers} moreAnswers={moreAnswers}/>
       {answers.length > 2
       ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
       : <></>}

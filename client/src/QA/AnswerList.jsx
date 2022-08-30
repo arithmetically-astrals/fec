@@ -4,10 +4,21 @@ import Answer from "./Answer.jsx";
 const AnswerList = (props) => {
 
   let renderedAnswers = [];
+  if (props.moreAnswers) {
+    renderedAnswers = props.answers;
+    console.log(renderedAnswers);
+  } else {
+    if (props.answers[0]) {
+      renderedAnswers.push(props.answers[0]);
+    }
+    if (props.answers[1]) {
+      renderedAnswers.push(props.answers[1]);
+    }
+  }
 
   return (
     <div>
-      A: {props.answers.map((answer, index) => (
+      A: {renderedAnswers.map((answer, index) => (
         <div key={index}>
           <Answer answer={answer} />
         </div>
