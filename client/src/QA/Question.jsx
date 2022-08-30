@@ -21,7 +21,9 @@ const Question = (props) => {
         console.log('report question!');
       }}>Report</a>
       <AnswerList answers={answers}/>
-      <MoreAnswers />
+      {answers.length > 2
+      ? <MoreAnswers />
+      : <></>}
     </div>
   )
 }

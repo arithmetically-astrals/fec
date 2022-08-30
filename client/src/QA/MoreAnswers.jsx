@@ -3,7 +3,7 @@ import React from "react";
 const MoreAnswers = (props) => (
   <button onClick={() => {
     props.setMoreAnswers(!props.moreAnswers);
-  }}>More Answers</button>
+  }}>See more answers</button>
 )
 
 export default MoreAnswers;
