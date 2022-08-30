@@ -5,7 +5,7 @@ const RelatedListItem = ({id, product, defaultData}) => {
 
   return (
     <div>
-      {product.name}
+      {product.name} {product.default_price}
     </div>
 
   )
