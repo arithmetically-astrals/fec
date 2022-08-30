@@ -3,7 +3,9 @@ import axios from "axios";
 
 const AddQuestion = (props) => {
 
-  const [text, setText] = useState ('');
+  const [body, setBody] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <>
