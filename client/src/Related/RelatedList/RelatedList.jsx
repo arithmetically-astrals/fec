@@ -9,14 +9,15 @@ const RelatedList = ({defaultData, productList/*, colorScheme={colorScheme}*/}) 
 
 console.log('defaultData: ',defaultData, 'productList: ', productList);
   return (
-    <div>
+    <div id='related-list-containter'>
+      <div>This is a left arrow</div>
       {/* <LeftArrow/> */}
       <div>
         {productList.map((product) => {
           return <RelatedListItem key={product.id} id={product.id} product={product} defaultData={defaultData} /*colorScheme={colorScheme}*//>
         })}
       </div>
-
+      <div>This is a right arrow</div>
       {/* <RightArrow/> */}
     </div>
 

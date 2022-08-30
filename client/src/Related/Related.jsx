@@ -4,6 +4,7 @@ import {useEffect, useContext, useState} from 'react';
 import RelatedTitle from './RelatedList/RelatedTitle.jsx';
 // import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
+import OutfitTitle from './OutfitList/OutfitTitle.jsx';
 // import Outfit from "./OutfitList/Outfit.jsx";
 // import OutfitList from "./OutfitList/OutfitList.jsx";
 import App from '../App.jsx';
@@ -67,7 +68,7 @@ function Related({itemId, starRating}) {
         <RelatedTitle/>
         {/* <ItemComparison />*/}
         <RelatedList defaultData={defaultData} productList={productList} /*colorScheme={colorScheme}*//>
-        {/* <Outfit />*/}
+        <OutfitTitle />
         {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
