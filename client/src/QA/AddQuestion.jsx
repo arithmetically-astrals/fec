@@ -15,7 +15,7 @@ const AddQuestion = (props) => {
 
         axios.post('/qa/questions', {
           params: {
-            body: 'ooga booga',
+            body: 'temporary question',
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
             product_id: props.product_id
