@@ -16,7 +16,7 @@ const AddQuestion = (props) => {
 
         axios.post('/qa/questions', {
           params: {
-            body: 'When is this available?',
+            body: 'ooga booga',
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
             product_id: props.product_id
@@ -25,7 +25,8 @@ const AddQuestion = (props) => {
           .then(() => {
             axios.get('/qa/questions', {
               params: {
-                product_id: props.product_id
+                product_id: props.product_id,
+                count: props.questionCount
               }
             })
               .then((response) => {

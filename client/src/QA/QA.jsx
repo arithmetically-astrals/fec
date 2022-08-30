@@ -14,9 +14,11 @@ const QA = () => {
   let product_id = 37312;
 
   useEffect(() => {
+    console.log(questionCount);
     axios.get('/qa/questions', {
       params: {
-        product_id: product_id
+        product_id: product_id,
+        count: questionCount + 9
       }
     })
       .then((response) => {
@@ -26,7 +28,7 @@ const QA = () => {
       .catch((err) => {
         console.log(err);
       })
-  }, []);
+  }, [questionCount]);
 
   return (
     <div id='qa' className='widget'>
@@ -34,7 +36,7 @@ const QA = () => {
       <Search search={search} setSearch={setSearch}/>
       <QuestionList questions={questions} search={search}/>
       <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
-      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id}/>
+      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
     </div>
   )
 

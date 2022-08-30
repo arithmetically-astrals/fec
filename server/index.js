@@ -92,7 +92,8 @@ app.get('/qa/questions', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      product_id: req.query.product_id
+      product_id: req.query.product_id,
+      count: req.query.count
     }
   })
     .then((response) => {
@@ -137,7 +138,6 @@ app.post('/qa/questions', (req, res) => {
     }
   })
     .then((response) => {
-      console.log('asdf', response);
       res.sendStatus(201);
     })
     .catch((err) => {
