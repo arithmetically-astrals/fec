@@ -7,10 +7,11 @@ import MoreAnswers from "./MoreAnswers.jsx";
 const Question = (props) => {
 
   const [answers, setAnswers] = useState([]);
+  const [moreAnswers, setMoreAnswers] = useState(false);
+
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
-  }, [props.question])
-  const [moreAnswers, setMoreAnswers] = useState(false);
+  }, [props.question]);
 
   return (
     <div>
