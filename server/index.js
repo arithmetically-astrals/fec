@@ -146,7 +146,7 @@ app.post('/qa/questions', (req, res) => {
 });
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-  axios.post(`${process.env.API}/qa/questions/${req.query.question_id}/answers`, {
+  axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
     body: req.body.params.body,
     name: req.body.params.name,
     email: req.body.params.email,
