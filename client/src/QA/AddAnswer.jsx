@@ -18,12 +18,12 @@ const AddAnswer = (props) => (
       .then(() => {
         axios.get('/qa/questions/:question_id/answers', {
           params: {
-            question_id: props.question_id
+            question_id: props.question_id,
+            count: 10000
           }
         })
           .then((response) => {
-            let answersClone = props.answers;
-            console.log(answersClone);
+            props.setAnswers(response.data.results);
           })
           .catch((err) => {
             console.log(err);

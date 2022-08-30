@@ -112,7 +112,8 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      question_id: req.query.question_id
+      question_id: req.query.question_id,
+      count: req.query.count
     }
   })
     .then((response) => {

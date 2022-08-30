@@ -17,12 +17,11 @@ const QA = () => {
     axios.get('/qa/questions', {
       params: {
         product_id: product_id,
-        count: 1000
+        count: 10000
       }
     })
       .then((response) => {
         setQuestions(response.data.results);
-        console.log(response.data.results);
       })
       .catch((err) => {
         console.log(err);
