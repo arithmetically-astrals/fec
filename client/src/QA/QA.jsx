@@ -14,7 +14,6 @@ const QA = () => {
   let product_id = 37312;
 
   useEffect(() => {
-    console.log(questionCount);
     axios.get('/qa/questions', {
       params: {
         product_id: product_id,
