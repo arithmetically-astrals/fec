@@ -1,13 +1,12 @@
 import React from "react";
 
 
-const RelatedListItem = ({key, product, defaultData}) => {
+const RelatedListItem = ({id, product, defaultData}) => {
 
   return (
     <div>
-      {defaultData}
+      {product.name} {product.default_price}
     </div>
-
   )
 
 }
