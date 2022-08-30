@@ -14,12 +14,26 @@ const AddQuestion = (props) => {
 
         axios.post('/qa/questions', {
           params: {
-            body: 'temporary question',
+            body: 'trying something',
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
             product_id: props.product_id
           },
         })
+          .then(() => {
+            axios.get('/qa/questions', {
+              params: {
+                product_id: props.product_id,
+                count: 10000
+              }
+            })
+              .then((response) => {
+                props.setQuestions(response.data.results);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+          })
           .catch((err) => {
             console.log(err);
           });
