@@ -5,21 +5,21 @@ import axios from "axios";
 
 const Question = (props) => {
 
-  const [answers, setAnswers] = useState([]);
+  // const [answers, setAnswers] = useState([]);
 
-  useEffect(() => {
-    axios.get('/qa/questions/:question_id/answers', {
-      params: {
-        question_id: props.question.question_id
-      }
-    })
-      .then((response) => {
-        setAnswers(response.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }, []);
+  // useEffect(() => {
+  //   axios.get('/qa/questions/:question_id/answers', {
+  //     params: {
+  //       question_id: props.question.question_id
+  //     }
+  //   })
+  //     .then((response) => {
+  //       setAnswers(response.data.results);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  // }, []);
 
   return (
     <div>
@@ -30,7 +30,8 @@ const Question = (props) => {
         e.preventDefault();
         console.log('report question!');
       }}>Report</a>
-      <AnswerList answers={answers}/>
+      {console.log(props.question.answers)}
+      <AnswerList answers={props.question.answers}/>
     </div>
   )
 }

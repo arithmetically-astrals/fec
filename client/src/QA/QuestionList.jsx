@@ -4,13 +4,13 @@ import Question from "./Question.jsx";
 const QuestionList = (props) => (
   <div>
     {props.questions.length === 0
-    ? <div>No questions found!</div>
+    ? <div>Be the first to ask a question...</div>
     : props.search.length >= 3
     ? props.questions.some((question) => (
-        question.question_body.indexOf(props.search) > -1
+        question.question_body.toUpperCase().indexOf(props.search.toUpperCase()) > -1
       ))
       ? props.questions.map((question, index) => {
-          if (question.question_body.includes(props.search)) {
+          if (question.question_body.toUpperCase().includes(props.search.toUpperCase())) {
             return <Question question={question} key={index}/>
           }
         })

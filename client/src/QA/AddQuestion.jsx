@@ -10,8 +10,7 @@ const AddQuestion = (props) => {
   return (
     <>
       <button onClick={() => {
-        //have modal pop up with input
-        //body, name, email fields
+        //have modal pop up with input body, name, email fields
 
         axios.post('/qa/questions', {
           params: {

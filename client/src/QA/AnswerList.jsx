@@ -3,9 +3,9 @@ import Answer from "./Answer.jsx";
 
 const AnswerList = (props) => (
   <div>
-    A: {props.answers.map((answer, index) => (
+    A: {Object.keys(props.answers).map((id, index) => (
       <div key={index}>
-        <Answer answer={answer} />
+        <Answer answer={props.answers[id]} />
       </div>
     ))}
   </div>
