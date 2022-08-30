@@ -7,13 +7,13 @@ const axios = require('axios');
 
 const app = express();
 
-//middleware
+// middleware
 app.use(express.static(path.join(__dirname, '../client/public')));
 app.use(express.json());
 
-//requests
+// Express routes
 
-//gets all data for one product
+// gets all data for one product
 app.get('/products/item', (req, res) => {
   var productId = req.query.product_id;
   axios.get(`${process.env.API}/products/${productId}`, {
@@ -29,7 +29,23 @@ app.get('/products/item', (req, res) => {
   })
 });
 
-//gets related items for a product
+// gets all styles for a given product
+app.get('/products/styles', (req, res) => {
+  var productId = req.query.product_id;
+  axios.get(`${process.env.API}/products/${productId}/styles`, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.status(200);
+    res.send(response.data);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+// gets related items for a product
 app.get('/products/relatedlist', (req, res) => {
   var productId = req.query.product_id;
   axios.get(`${process.env.API}/products/${productId}/related`, {
