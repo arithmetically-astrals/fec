@@ -17,7 +17,7 @@ const ReviewList = ({itemId, starCount}) => {
     }).then(response => {
       setList(response.data.results);
     }).catch(err => {
-      console.log('err: ', err)
+      console.log('ReviewList err: ', err)
     })
   },[itemId])
 
@@ -42,7 +42,7 @@ const ReviewList = ({itemId, starCount}) => {
   } else {
     return (
       <div id='review-tile-box'>
-        <div>{starCount} total reviews, sort by</div>
+        <div>{starCount} total reviews, sort</div>
         {list.map(info => {
           return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
         })}
