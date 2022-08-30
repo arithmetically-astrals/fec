@@ -3,20 +3,18 @@ import axios from "axios";
 
 const AddQuestion = (props) => {
 
-  const [text, setText] = useState ('');
+  const [body, setBody] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
 
   return (
     <>
-      <input type={text} placeholder="temporary input" onChange={(e) => {
-        setText(e.target.value);
-      }}/>
       <button onClick={() => {
-        //have modal pop up with input
-        //
+        //have modal pop up with input body, name, email fields
 
         axios.post('/qa/questions', {
           params: {
-            body: 'When is this available?',
+            body: 'trying something',
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
             product_id: props.product_id
@@ -25,12 +23,12 @@ const AddQuestion = (props) => {
           .then(() => {
             axios.get('/qa/questions', {
               params: {
-                product_id: props.product_id
+                product_id: props.product_id,
+                count: 10000
               }
             })
               .then((response) => {
                 props.setQuestions(response.data.results);
-                console.log('response.data.results', response.data.results);
               })
               .catch((err) => {
                 console.log(err);
