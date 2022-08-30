@@ -13,11 +13,11 @@ console.log('defaultData: ',defaultData, 'productList: ', productList);
       {/* <LeftArrow/> */}
       <div>
         {productList.map((product) => {
-          <RelatedListItem key={product.id} product={product} defaultData={defaultData} /*colorScheme={colorScheme}*//>
+          return <RelatedListItem key={product.id} id={product.id} product={product} defaultData={defaultData} /*colorScheme={colorScheme}*//>
         })}
       </div>
 
-      {/* <LeftArrow/> */}
+      {/* <RightArrow/> */}
     </div>
 
   )

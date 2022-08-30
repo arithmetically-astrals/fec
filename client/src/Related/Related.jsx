@@ -1,10 +1,11 @@
 // the main component for related items. contains OutfitList and RelatedList components
 import React from "react";
 import {useEffect, useContext, useState} from 'react';
-import ItemComparison from "./RelatedList/ItemComparison.jsx";
+import RelatedTitle from './RelatedList/RelatedTitle.jsx';
+// import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
 // import Outfit from "./OutfitList/Outfit.jsx";
-import OutfitList from "./OutfitList/OutfitList.jsx";
+// import OutfitList from "./OutfitList/OutfitList.jsx";
 import App from '../App.jsx';
 
 import axios from 'axios';
@@ -63,10 +64,11 @@ function Related({itemId, starRating}) {
  return (
 
       <div id='related' className='widget'>
-        {/* <ItemComparison />*/
+        <RelatedTitle/>
+        {/* <ItemComparison />*/}
         <RelatedList defaultData={defaultData} productList={productList} /*colorScheme={colorScheme}*//>
-       /* <Outfit />
-        <OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
+        {/* <Outfit />*/}
+        {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
 
