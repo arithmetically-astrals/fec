@@ -86,6 +86,38 @@ app.get('/reviews/meta', (req, res) => {
   })
 });
 
+//increases 'Yes' vote count
+app.put('/reviews/helpful', (req, res) => {
+  var reviewNum = req.body.review_id;
+  axios.put(`${process.env.API}/reviews/${reviewNum}/helpful`, {},
+  {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.sendStatus(204);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+//reports review for removal
+app.put('/reviews/report', (req, res) => {
+  var reviewNum = req.body.review_id;
+  axios.put(`${process.env.API}/reviews/${reviewNum}/report`, {},
+  {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.sendStatus(204);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
 app.get('/qa/questions', (req, res) => {
   axios.get(`${process.env.API}/qa/questions`, {
     headers: {
