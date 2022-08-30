@@ -43,22 +43,22 @@ const StylePicker = ({itemId = 37311}) => {
             <div className='overview-infopanel-stylepicker-style' key={name}>{name}</div>
           ))}
         </div>
-        <div id='overview-infopanel-stylepicker-sizeandquantity'>
+        <select id='overview-infopanel-stylepicker-sizeandquantity'>
           {styleInfo.results.map(({ name }) => (
-            <div className='overview-infopanel-stylepicker-style' key={name}>{name}</div>
+            <option className='overview-infopanel-stylepicker-style' key={name}>{name}</option>
           ))}
-          <select id='overview-infopanel-stylepicker-quantity'>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-          </select>
-        </div>
+        </select>
+        <select id='overview-infopanel-stylepicker-quantity'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+        </select>
       </div>
     )
 }
