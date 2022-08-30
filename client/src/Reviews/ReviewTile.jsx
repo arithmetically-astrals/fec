@@ -63,7 +63,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
           )
         })}
       </div>: null}
-      <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({yesCount})
+      <div>Was this review helpful? <span data-testid="yes-button" onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> <span data-testid="yes-count">({yesCount})</span>
       | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
   )

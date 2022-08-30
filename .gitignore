@@ -4,3 +4,5 @@
 *bundle.js
 config.js
 node_modules/
+jest.config.js
+coverage
