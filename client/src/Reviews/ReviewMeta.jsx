@@ -3,10 +3,9 @@ import axios from 'axios';
 import StarScale from '../Shared/StarScale.jsx';
 
 // Huzzah for jsx!
-const ReviewMeta = ({itemId, starRating, setstarRating}) => {
+const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}) => {
 
   const [metaInfo, setmetaInfo] = useState(0)
-  const [starCount, setstarCount] = useState(0)
 
   useEffect( () => {
     axios.get('/reviews/meta', {

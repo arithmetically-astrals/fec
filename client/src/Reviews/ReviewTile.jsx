@@ -3,7 +3,6 @@ import StarScale from '../shared/StarScale.jsx';
 import axios from 'axios';
 
 const ReviewTile = ({info, setList, itemId, count}) => {
-  console.log(info)
   const [yesCount, setYesCount] = useState(info.helpfulness)
 
 

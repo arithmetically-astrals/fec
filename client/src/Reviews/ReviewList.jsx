@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 // Huzzah for jsx!
-const ReviewList = ({itemId}) => {
+const ReviewList = ({itemId, starCount}) => {
 
   const [count, setCount] = useState(2);
   const [list, setList] = useState([]);
@@ -42,6 +42,7 @@ const ReviewList = ({itemId}) => {
   } else {
     return (
       <div id='review-tile-box'>
+        <div>{starCount} total reviews, sort by</div>
         {list.map(info => {
           return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
         })}
