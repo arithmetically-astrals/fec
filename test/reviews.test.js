@@ -1,3 +1,4 @@
+require("dotenv").config();
 import React from 'react';
 import '@testing-library/react/dont-cleanup-after-each';
 import '@testing-library/jest-dom';
@@ -7,11 +8,11 @@ import Reviews from "../client/src/Reviews/Reviews.jsx";
 import axios from 'axios';
 
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = `http://localhost:3001`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
 describe('review stuff', function () {
-  const user= userEvent.setup();
+  const user = userEvent.setup();
 
   render(<Reviews />)
 
