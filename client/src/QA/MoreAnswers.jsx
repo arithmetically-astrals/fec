@@ -1,9 +1,10 @@
 import React from "react";
 
 const MoreAnswers = (props) => (
-  <button onClick={() => {
+  <a href="#" onClick={(e) => {
+    e.preventDefault();
     props.setMoreAnswers(!props.moreAnswers);
-  }}>More Answers</button>
+  }}>{!props.moreAnswers ? 'See more answers' : 'Collapse answers'}</a>
 )
 
 export default MoreAnswers;

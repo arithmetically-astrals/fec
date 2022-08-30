@@ -7,13 +7,13 @@ const axios = require('axios');
 
 const app = express();
 
-//middleware
+// middleware
 app.use(express.static(path.join(__dirname, '../client/public')));
 app.use(express.json());
 
-//requests
+// Express routes
 
-//gets all data for one product
+// gets all data for one product
 app.get('/products/item', (req, res) => {
   var productId = req.query.product_id;
   axios.get(`${process.env.API}/products/${productId}`, {
@@ -29,7 +29,23 @@ app.get('/products/item', (req, res) => {
   })
 });
 
-//gets related items for a product
+// gets all styles for a given product
+app.get('/products/styles', (req, res) => {
+  var productId = req.query.product_id;
+  axios.get(`${process.env.API}/products/${productId}/styles`, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.status(200);
+    res.send(response.data);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
+});
+
+// gets related items for a product
 app.get('/products/relatedlist', (req, res) => {
   var productId = req.query.product_id;
   axios.get(`${process.env.API}/products/${productId}/related`, {
@@ -124,7 +140,8 @@ app.get('/qa/questions', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      product_id: req.query.product_id
+      product_id: req.query.product_id,
+      count: req.query.count
     }
   })
     .then((response) => {
@@ -143,7 +160,8 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
       Authorization: process.env.AUTH_CODE
     },
     params: {
-      question_id: req.query.question_id
+      question_id: req.query.question_id,
+      count: req.query.count
     }
   })
     .then((response) => {
@@ -157,7 +175,6 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 });
 
 app.post('/qa/questions', (req, res) => {
-
   axios.post(`${process.env.API}/qa/questions`, {
     body: req.body.params.body,
     name: req.body.params.name,
@@ -169,7 +186,6 @@ app.post('/qa/questions', (req, res) => {
     }
   })
     .then((response) => {
-      console.log('asdf', response);
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -179,7 +195,23 @@ app.post('/qa/questions', (req, res) => {
 });
 
 app.post('/qa/questions/:question_id/answers', (req, res) => {
-
+  axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
+    body: req.body.params.body,
+    name: req.body.params.name,
+    email: req.body.params.email,
+    photos: req.body.params.photos
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then((response) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 app.put('/qa/questions/:question_id/helpful', (req, res) => {

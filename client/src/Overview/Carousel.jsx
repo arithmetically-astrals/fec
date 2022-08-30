@@ -11,7 +11,6 @@ const Carousel = ({itemId = 37311}) => {
       }
     }).then(response => {
       setmetaInfo(response.data);
-      console.log(response.data)
     }).catch(err => {
       console.log('err: ', err)
     })
@@ -19,10 +18,10 @@ const Carousel = ({itemId = 37311}) => {
 
   return (
     <div id='overview-carousel'>
-      <img id='overview-carousel-featuredimage' src='https://i.imgur.com/EPHb3G6.jpeg' />
+      <img id='overview-carousel-featuredimage' src='https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' />
       <div id='overview-carousel-thumbnails'>
-        <img className='overview-carousel-thumbnail' src='https://i.imgur.com/EPHb3G6.jpeg' />
-        <img className='overview-carousel-thumbnail' src='https://i.imgur.com/EPHb3G6.jpeg' />
+        <img className='overview-carousel-thumbnail' src='https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' />
+        <img className='overview-carousel-thumbnail' src='https://images.unsplash.com/photo-1501088430049-71c79fa3283e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80' />
       </div>
     </div>
 )}

@@ -6,7 +6,7 @@ import ReviewForm from './ReviewForm.jsx';
 import ReviewMeta from './ReviewMeta.jsx';
 
 // Huzzah for jsx!
-const Reviews = ({itemId, starRating, setstarRating}) => {
+const Reviews = ({itemId = 37311, starRating, setstarRating}) => {
   const [starCount, setstarCount] = useState(0)
   return (
   <div id='reviews' className='widget'>

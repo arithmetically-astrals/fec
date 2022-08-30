@@ -23,7 +23,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}
       setstarRating((totalStar / totalVal).toFixed(1));
       setstarCount(totalVal);
     }).catch(err => {
-      console.log('err: ', err)
+      console.log('ReviewMeta err: ', err)
     })
   },[itemId])
 
@@ -45,7 +45,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}
   }
 
   if (metaInfo === 0) {
-    return (<div id='review-meta-box'>Loading reviews...</div>)
+    return (<div id='review-meta-box'>Loading meta...</div>)
   } else {
     return (
       <div id='review-meta-box'>

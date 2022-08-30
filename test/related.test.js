@@ -4,8 +4,8 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import {render, screen, waitFor} from '@testing-library/react';
 import RelatedListItem from '../client/src/Related/RelatedList/RelatedListItem.jsx';
-
 import axios from 'axios';
+
 
 axios.defaults.baseURL = 'http://localhost:8080';
 axios.defaults.adapter = require('axios/lib/adapters/http');
