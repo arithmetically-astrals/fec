@@ -5,7 +5,10 @@ import axios from "axios";
 
 const Question = (props) => {
 
-  const [answers, setAnswers] = useState(Object.values(props.question.answers));
+  const [answers, setAnswers] = useState([]);
+  useEffect(() => {
+    setAnswers(Object.values(props.question.answers));
+  }, [props.question])
 
   return (
     <div>
