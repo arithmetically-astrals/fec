@@ -8,7 +8,7 @@ let toggleDarkMode = () => {
   document.body.classList.toggle('bodyDark');
 
   document.getElementById('topNav').classList.toggle('topNavDark')
-
+  document.getElementById('darkModeToggle').classList.toggle('darkModeToggleDark')
   document.getElementById('topMessage').classList.toggle('topMessageDark');
 
   document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');

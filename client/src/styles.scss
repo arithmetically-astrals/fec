@@ -94,10 +94,17 @@ body {
 }
 
 #darkModeToggle {
-    border: 1px solid $shadeF;
+    border: 1px solid $shade5;
     padding: 20px;
-    width: 200px;
     font-size: 12px;
+    text-align: center;
+    background-color: $shade5;
+}
+
+.darkModeToggleDark {
+  border: 1px solid $shadeA !important;
+  color: $shadeF !important;
+  background-color: $shadeA !important;
 }
 
 .blurred {
@@ -109,20 +116,36 @@ body {
     font-size: 30px;
     background-color: $shadeD;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .topNavDark {
   background-color: $shade3 !important;
+  color: $shadeF !important;
 }
-  
+
+#logo {
+  width: 80%;
+}
+
+#search {
+  border: 1px solid white;
+  font-size: medium;
+  text-align: center;
+  padding: 1em;
+  width: 10%;
+  margin-left: 1em;
+}
+
 #topMessage {
     color: $shade0;
     padding: 10px;
     text-align: center;
 }
 
-#topMessageDark {
-  background-color: $shadeB !important;
+.topMessageDark {
+  background-color: $shade5 !important;
   color: $shadeF !important;
 }
 
