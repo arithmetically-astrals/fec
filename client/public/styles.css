@@ -54,7 +54,12 @@
   margin-bottom: 2em;
 }
 
-.overview-infopanel-stylepicker-option {
+#overview-infopanel-stylepicker-styles {
+  display: flex;
+  flex-direction: row;
+}
+
+.overview-infopanel-stylepicker-style {
   border: 1px solid #000;
   border-radius: 100000px;
   width: 50px;
@@ -70,20 +75,67 @@
   flex-direction: row;
 }
 
-#overview-infopanel-actions-cart, #overview-infopanel-actions-favorite {
-  border: 1px solid black;
+#overview-infopanel-stylepicker-size, #overview-infopanel-stylepicker-quantity, #overview-infopanel-actions-cart, #overview-infopanel-actions-favorite {
   margin-right: 2em;
   padding: 1em;
   text-align: center;
 }
 
+#overview-infopanel-stylepicker-sizeandquantity {
+  display: flex;
+  flex-direction: row;
+}
+
+#overview-infopanel-stylepicker-size {
+  background-color: #ffcbf2;
+  border: 1px solid #ffcbf2 !important;
+  color: #fff;
+}
+
+.overview-infopanel-stylepicker-size-dark {
+  color: #ffcbf2 !important;
+  background: none !important;
+}
+
+#overview-infopanel-stylepicker-quantity {
+  background-color: #E5B3FE;
+  color: #fff;
+  border: 1px solid #E5B3FE !important;
+}
+
+.overview-infopanel-stylepicker-quantity-dark {
+  color: #E5B3FE !important;
+  background: none !important;
+}
+
+#overview-infopanel-actions-cart {
+  background-color: #D0D1FF;
+  color: #fff;
+  border: 1px solid #D0D1FF !important;
+}
+
+.overview-infopanel-actions-cart-dark {
+  color: #D0D1FF !important;
+  background: none !important;
+}
+
 #overview-infopanel-actions-favorite {
   margin-left: 0px;
+  background-color: #C0FDFF;
+  color: #fff;
+  border: 1px solid #C0FDFF !important;
+}
+
+.overview-infopanel-actions-favorite-dark {
+  margin-left: 0px;
+  color: #C0FDFF !important;
+  background: none !important;
 }
 
 #overview-longdescription {
   width: 100%;
   padding: 2em;
+  text-align: center;
 }
 
 body {
@@ -120,11 +172,11 @@ body {
 }
 
 .borderDark {
-  border-color: #fff !important;
+  border-color: #fff;
 }
 
 .textDark {
-  color: #fff !important;
+  color: #fff;
 }
 
 #darkModeToggle {

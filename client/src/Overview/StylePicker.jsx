@@ -27,16 +27,18 @@ const StylePicker = ({itemId = 37311}) => {
 
   return (
     <div id='overview-infopanel-stylepicker'>
-      <div className='overview-infopanel-stylepicker-options'>
-        <div className='overview-infopanel-stylepicker-option'>
+      <div className='overview-infopanel-stylepicker-styles'>
+        <div className='overview-infopanel-stylepicker-style'>
           option 1
         </div>
       </div>
-      <div className='overview-infopanel-stylepicker-size'>
-        select size
-      </div>
-      <div className='overview-infopanel-stylepicker-quantity'>
-        1
+      <div id='overview-infopanel-stylepicker-sizeandquantity'>
+        <div id='overview-infopanel-stylepicker-size'>
+          select size
+        </div>
+        <div id='overview-infopanel-stylepicker-quantity'>
+          1
+        </div>
       </div>
     </div>
   )
