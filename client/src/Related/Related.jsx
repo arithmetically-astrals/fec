@@ -5,12 +5,13 @@ import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
 // import Outfit from "./OutfitList/Outfit.jsx";
 import OutfitList from "./OutfitList/OutfitList.jsx";
+import App from '../App.jsx';
 
 import axios from 'axios';
 
 function Related({itemId, starRating}) {
   //global state variables
-  // const [itemID] = useContext(ProductContext);
+  // const [itemID] = useContext(App);
   // const [colorScheme] = useContext(ThemeContext);
 
   const [productList, setProductList] = useState(null);
@@ -40,7 +41,7 @@ function Related({itemId, starRating}) {
                     product_id: relatedListItem
                   }
                 })
-                  .then((relatedListItemData) => relatedListItemData.data)),//end mapping
+                  .then((relatedListItemResponse) => relatedListItemResponse.data)),//end mapping
             )//end of Promise.all, now set state of ProductList with relatedList
               .then((prodList) => {
                 setProductList(() => (prodList));
@@ -52,16 +53,22 @@ function Related({itemId, starRating}) {
       })
     },[itemId]);
 
+    if(!productList) {
+      return null;
+    }
+    if(!defaultData) {
+      return null;
+    }
+
  return (
 
       <div id='related' className='widget'>
-        {/* <ItemComparison />
-        <RelatedList defaultData={defaultData} productList={productList} colorScheme={colorScheme}/>
-        <Outfit />
+        {/* <ItemComparison />*/
+        <RelatedList defaultData={defaultData} productList={productList} /*colorScheme={colorScheme}*//>
+       /* <Outfit />
         <OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
       </div>
     );
-
 
 }
 
