@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const ReviewTile = ({info, setList, itemId, count}) => {
   const [yesCount, setYesCount] = useState(info.helpfulness)
+  const [showImg, setShowImg] = useState(false);
 
   const clickYes = (e) => {
     axios.put('/reviews/helpful', {
@@ -34,8 +35,17 @@ const ReviewTile = ({info, setList, itemId, count}) => {
     })
   }
 
+  const clickImg = () => {
+    setShowImg(true)
+  }
+
+  const closeImg = () => {
+    setShowImg(false)
+  }
+
   return (
     <div id='review-tile'>
+
       <div id='review-tile-name'>{info.reviewer_name}, {new Date(info.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</div>
       <div id='review-tile-stars'>
         <h5>{StarScale(info.rating)}</h5>
@@ -45,7 +55,12 @@ const ReviewTile = ({info, setList, itemId, count}) => {
       <div>{info.recommend ? <div>✓ I recommend this product</div>: null}</div>
       {info.photos.length > 0 ? <div id='review-tile-photobox'>
         {info.photos.map(photo => {
-          return (<img  src={photo.url} style={{width: '40px', height: '40px'}} key={photo.id} />)
+          return (
+            <div key={photo.id}>
+              <img  src={photo.url} style={{width: '40px', height: '40px', cursor: 'pointer'}} onClick={clickImg}/>
+              {showImg ? <div id='review-img-modal'><span onClick={closeImg} style={{cursor: 'pointer'}}>X</span><img src={photo.url} /></div> : null}
+            </div>
+          )
         })}
       </div>: null}
       <div>Was this review helpful? <span onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> ({yesCount})

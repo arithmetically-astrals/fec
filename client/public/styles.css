@@ -324,4 +324,14 @@ body {
   float: right;
 }
 
+#review-img-modal {
+  position: fixed;
+  background: white;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /*# sourceMappingURL=styles.css.map */
