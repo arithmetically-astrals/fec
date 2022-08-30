@@ -9,7 +9,7 @@ const RelatedList = ({defaultData, productList/*, colorScheme={colorScheme}*/}) 
 
 console.log('defaultData: ',defaultData, 'productList: ', productList);
   return (
-    <div id='related-list-containter'>
+    <div id='related-list-container'>
       <div>This is a left arrow</div>
       {/* <LeftArrow/> */}
       <div>
