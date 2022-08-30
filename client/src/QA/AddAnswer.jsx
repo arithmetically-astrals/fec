@@ -4,8 +4,6 @@ import axios from "axios";
 const AddAnswer = (props) => (
   <a href="#" onClick={(e) => {
     e.preventDefault();
-    console.log('add an answer!');
-    console.log('props.question_id', props.question_id)
     //modal popup with body, name, email, photos
     axios.post(`/qa/questions/${props.question_id}/answers`, {
       params: {

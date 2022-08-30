@@ -22,7 +22,7 @@ const QuestionList = (props) => {
 
   return (
     <div>
-      {props.questions.length === 0
+      {!props.questions.length
       ? <div>Be the first to ask a question...</div>
       : props.search.length >= 3
         ? props.questions.some((question) => (

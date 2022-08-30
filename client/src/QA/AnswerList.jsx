@@ -6,7 +6,6 @@ const AnswerList = (props) => {
   let renderedAnswers = [];
   if (props.moreAnswers) {
     renderedAnswers = props.answers;
-    console.log(renderedAnswers);
   } else {
     if (props.answers[0]) {
       renderedAnswers.push(props.answers[0]);
@@ -18,11 +17,14 @@ const AnswerList = (props) => {
 
   return (
     <div>
+      {/* {renderedAnswers */}
       A: {renderedAnswers.map((answer, index) => (
-        <div key={index}>
-          <Answer answer={answer} />
-        </div>
-      ))}
+          <div key={index}>
+            <Answer answer={answer} />
+          </div>
+        ))}
+      {/* : <></> */}
+      {/* } */}
     </div>
   )
 }
