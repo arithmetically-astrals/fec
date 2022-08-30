@@ -8,7 +8,7 @@ import Reviews from "../client/src/Reviews/Reviews.jsx";
 import axios from 'axios';
 
 
-axios.defaults.baseURL = `http://localhost:3001`;
+axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
 describe('review stuff', function () {
