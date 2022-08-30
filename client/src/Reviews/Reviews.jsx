@@ -14,6 +14,7 @@ const Reviews = ({itemId, starRating, setstarRating}) => {
     <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} setstarCount={setstarCount} starCount={starCount} />
     <ReviewList itemId={itemId} starCount={starCount}/>
     <ReviewForm />
+
   </div>
   )
 }
