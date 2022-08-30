@@ -89,7 +89,7 @@ app.get('/reviews/meta', (req, res) => {
 //increases 'Yes' vote count
 app.put('/reviews/helpful', (req, res) => {
   var reviewNum = req.body.review_id;
-  axios.put(`${process.env.API}/reviews/${reviewNum}/helpful`, {},
+  axios.put(`${process.env.API}/reviews/${reviewNum}/helpful`, null,
   {
     headers: {
       'Authorization': process.env.AUTH_CODE
@@ -105,7 +105,7 @@ app.put('/reviews/helpful', (req, res) => {
 //reports review for removal
 app.put('/reviews/report', (req, res) => {
   var reviewNum = req.body.review_id;
-  axios.put(`${process.env.API}/reviews/${reviewNum}/report`, {},
+  axios.put(`${process.env.API}/reviews/${reviewNum}/report`, null,
   {
     headers: {
       'Authorization': process.env.AUTH_CODE
