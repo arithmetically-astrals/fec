@@ -1,24 +1,21 @@
 // the main component for the overview of the current product
 // this component will contain Details and StylePicker as sub-components
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Carousel from "./Carousel.jsx";
-import Details from "./Details.jsx";
-import StylePicker from "./StylePicker.jsx";
+import InfoPanel from "./InfoPanel.jsx";
 import LongDescription from "./LongDescription.jsx";
 
-const Overview = () => {
-  return <div id='overview'>
-    <Carousel />
-    <Details />
-    <StylePicker />
-    <div id='overview-details-cart'>
-      add to cart
+const Overview = ({itemId = 37311, starRating, setstarRating}) => {
+  return (
+    <div id='overview' className='widget'>
+      <div id='overview-carouselandinfopanel'>
+        <Carousel itemId={itemId} />
+        <InfoPanel itemId={itemId} />
+      </div>
+      <LongDescription itemId={itemId} />
     </div>
-    <div id='overview-details-favorite'>
-      add to favorites
-    </div>
-    <LongDescription />
-  </div>
+  )
 }
 
 export default Overview;

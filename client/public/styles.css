@@ -1,37 +1,141 @@
-body {
-  background-color: #000;
+#overview {
+  display: flex;
+  flex-direction: column;
+}
+
+#overview-carouselandinfopanel {
+  display: flex;
+  flex-direction: row;
+}
+
+#overview-carousel {
+  width: 70%;
+  position: relative;
+  height: auto;
+  text-align: center;
+}
+
+#overview-carousel-featuredimage {
+  width: auto;
+  height: auto;
+  max-width: 800px;
+  max-height: 500px;
+}
+
+.overview-carousel-thumbnailimage {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+}
+
+#overview-infopanel {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+#overview-infopanel-details {
+  font-size: 1.25em;
+}
+
+#overview-infopanel-details-name {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 1.5em;
+}
+
+#overview-infopanel-details-price {
+  margin-bottom: 2em;
+}
+
+#overview-infopanel-stylepicker {
+  margin-bottom: 2em;
+}
+
+#overview-infopanel-stylepicker-styles {
+  display: flex;
+  flex-direction: row;
+}
+
+.overview-infopanel-stylepicker-style {
+  border: 1px solid #000;
+  border-radius: 100000px;
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: small;
+  text-align: center;
+}
+
+#overview-infopanel-actions {
+  display: flex;
+  flex-direction: row;
+}
+
+#overview-infopanel-stylepicker-size, #overview-infopanel-stylepicker-quantity, #overview-infopanel-actions-cart, #overview-infopanel-actions-favorite {
+  margin-right: 2em;
+  padding: 1em;
+  text-align: center;
+}
+
+#overview-infopanel-stylepicker-sizeandquantity {
+  display: flex;
+  flex-direction: row;
+}
+
+#overview-infopanel-stylepicker-size {
+  background-color: #ffcbf2;
+  border: 1px solid #ffcbf2 !important;
   color: #fff;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
-#overview, #qa, #related, #reviews {
-  background-color: #667;
+.overview-infopanel-stylepicker-size-dark {
+  color: #ffcbf2 !important;
+  background: none !important;
 }
 
-body {
-  background-color: #000;
+#overview-infopanel-stylepicker-quantity {
+  background-color: #E5B3FE;
   color: #fff;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
+  border: 1px solid #E5B3FE !important;
 }
 
-#overview, #qa, #related, #reviews {
-  background-color: #667;
+.overview-infopanel-stylepicker-quantity-dark {
+  color: #E5B3FE !important;
+  background: none !important;
 }
 
-body {
-  background-color: #000;
+#overview-infopanel-actions-cart {
+  background-color: #D0D1FF;
   color: #fff;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
+  border: 1px solid #D0D1FF !important;
 }
 
-#overview, #qa, #related, #reviews {
-  background-color: #667;
+.overview-infopanel-actions-cart-dark {
+  color: #D0D1FF !important;
+  background: none !important;
+}
+
+#overview-infopanel-actions-favorite {
+  margin-left: 0px;
+  background-color: #C0FDFF;
+  color: #fff;
+  border: 1px solid #C0FDFF !important;
+}
+
+.overview-infopanel-actions-favorite-dark {
+  margin-left: 0px;
+  color: #C0FDFF !important;
+  background: none !important;
+}
+
+#overview-longdescription {
+  width: 100%;
+  padding: 2em;
+  text-align: center;
 }
 
 body {
@@ -44,11 +148,11 @@ body {
   padding: 0;
 }
 
-.darkTheme {
-  background-color: #111;
-  text-decoration-color: #fff;
-  color: #fff;
-  border-color: #fff;
+.bodyDark {
+  background-color: #111 !important;
+  text-decoration-color: #fff !important;
+  color: #fff !important;
+  border-color: #fff !important;
 }
 
 #appContainer {
@@ -59,8 +163,20 @@ body {
   width: 100%;
 }
 
-#overview, #qa, #related, #reviews {
-  background-color: #667;
+.widget {
+  background-color: #fafafa;
+}
+
+.widgetDark {
+  background-color: #222 !important;
+}
+
+.borderDark {
+  border-color: #fff;
+}
+
+.textDark {
+  color: #fff;
 }
 
 #darkModeToggle {
@@ -77,8 +193,12 @@ body {
 #topNav {
   color: #fff;
   font-size: 30px;
-  background-color: #222;
+  background-color: #ddd;
   padding: 10px;
+}
+
+.topNavDark {
+  background-color: #333 !important;
 }
 
 #topMessage {
@@ -87,7 +207,11 @@ body {
   text-align: center;
 }
 
-/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
+#topMessageDark {
+  background-color: #bbb !important;
+  color: #fff !important;
+}
+
 #review-meta-box {
   border: 1px solid black;
   border-radius: 20px;

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import StarScale from "../shared/StarScale.jsx";
+import Details from "./Details.jsx";
+import StylePicker from "./StylePicker.jsx";
 
 // This function returns a DOM element with the key details of the product listed
-const Details = ({itemId = 37311}) => {
+const InfoPanel = ({itemId = 37311}) => {
   const [metaInfo, setmetaInfo] = useState(0)
   const [starCount, setstarCount] = useState(0)
 
@@ -28,16 +29,18 @@ const Details = ({itemId = 37311}) => {
   },[itemId])
 
   return (
-    <div id='overview-infopanel-details'>
-      <StarScale />
-      <div id='overview-infopanel-details-name'>
-        {metaInfo.name}
-      </div>
-      <div id='overview-infopanel-details-price'>
-        ${metaInfo.default_price}
+    <div id='overview-infopanel'>
+      <Details />
+      <StylePicker />
+      <div id='overview-infopanel-actions'>
+        <div id='overview-infopanel-actions-cart'>
+          add to cart
+        </div>
+        <div id='overview-infopanel-actions-favorite'>
+          add to favorites
+        </div>
       </div>
     </div>
-  )
-}
+)}
 
-export default Details;
+export default InfoPanel;

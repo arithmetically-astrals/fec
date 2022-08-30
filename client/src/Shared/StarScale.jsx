@@ -1,5 +1,4 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
 
 // Pass in a number as input to fill out the stars with the needed rating
 const StarScale = (num) => {
@@ -53,4 +52,4 @@ const StarScale = (num) => {
   )
 }
 
-export default StarScale;
+export default StarScale; 

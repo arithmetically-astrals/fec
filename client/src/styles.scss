@@ -1,7 +1,7 @@
-@use "./Overview/overviewStyles.scss";
-@use "./QA/qaStyles.scss";
-@use "./Related/relatedStyles.scss";
-@use "./Reviews/reviewsStyles.scss";
+@import "./Overview/overviewStyles.scss";
+@import "./QA/qaStyles.scss";
+@import "./Related/relatedStyles.scss";
+@import "./Reviews/reviewsStyles.scss";
 
 // global styles
 // styles that are used by multiple widgets (2 or more widgets)
@@ -36,6 +36,22 @@ $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
+// naming convention:
+// top-level widget: #overview
+// component of a widget: #overview-carousel
+// subcomponent of a component: #overview-carousel-thumbnail
+// #overview-carousel {
+
+// }
+
+// #overview-carousel-feature {
+
+// }
+
+// #overview-carousel-thumbnail {
+
+// }
+
 body {
     background-color: $shadeF;
     color: $shade0;
@@ -46,23 +62,35 @@ body {
     padding: 0;
 }
 
-.darkTheme {
-    background-color: $shade1;
-    text-decoration-color: $shadeF;
-    color: $shadeF;
-    border-color: $shadeF;
+.bodyDark {
+  background-color: $shade1 !important;
+  text-decoration-color: $shadeF !important;
+  color: $shadeF !important;
+  border-color: $shadeF !important;
 }
 
 #appContainer {
-    position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
 }
 
-#overview, #qa, #related, #reviews {
-    background-color: $shade6;
+.widget {
+  background-color: #fafafa;
+}
+
+.widgetDark {
+  background-color: $shade2 !important;
+}
+
+.borderDark {
+  border-color: $shadeF;
+}
+
+.textDark {
+  color: $shadeF;
 }
 
 #darkModeToggle {
@@ -79,9 +107,13 @@ body {
 #topNav {
     color: $shadeF;
     font-size: 30px;
-    background-color: $shade2;
+    background-color: $shadeD;
     padding: 10px;
-} 
+}
+
+.topNavDark {
+  background-color: $shade3 !important;
+}
   
 #topMessage {
     color: $shade0;
@@ -89,38 +121,9 @@ body {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
-/* EVERYTHING BELOW HERE IS FOR REFERENCE ONLY */
-
-h1 {
-
-}
-
-p {
-
-}
-
-// naming convention:
-// top-level widget: #overview
-// component of a widget: #overview-carousel
-// subcomponent of a component: #overview-carousel-thumbnail
-#overview-carousel {
-
-}
-
-#overview-carousel-feature {
-
-}
-
-#overview-carousel-thumbnail {
-
+#topMessageDark {
+  background-color: $shadeB !important;
+  color: $shadeF !important;
 }
 
 #review-meta-box {
