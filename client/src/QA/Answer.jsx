@@ -5,7 +5,9 @@ var tempStorage = {};
 
 const Answer = (props) => {
 
-  const[initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
+
+  const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
+  const [reported, setReported] = useState(false);
 
   useEffect(() => {
     if (tempStorage[props.answer.answer_id] === undefined) {
@@ -23,9 +25,7 @@ const Answer = (props) => {
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"})} | {props.answer.helpfulness === initialAnswerHelpfulness[props.answer.answer_id]
       ? <a href="#" onClick={(e) => {
         e.preventDefault();
-        axios.put(`/qa/answers/${props.answer.answer_id}/helpful`, {
-          helpfulness: props.answer.helpfulness + 1
-        })
+        axios.put(`/qa/answers/${props.answer.answer_id}/helpful`)
           .then(() => {
             axios.get(`/qa/questions/:question_id/answers`, {
               params: {
@@ -45,10 +45,21 @@ const Answer = (props) => {
           });
       }}>Helpful?</a>
       : <>Helpful!</>
-      } ({props.answer.helpfulness}) | <a href="#" onClick={(e) => {
+      } ({props.answer.helpfulness}) | {reported
+      ? <>Reported</>
+      : <a href="#" onClick={(e) => {
         e.preventDefault();
-        console.log('report answer!');
-      }}>Report</a></div>
+        axios.put(`/qa/answers/${props.answer.answer_id}/report`)
+          .then(() => {
+            setReported(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }}>Report</a>
+      }
+      </div>
+
     </>
   )
 }
