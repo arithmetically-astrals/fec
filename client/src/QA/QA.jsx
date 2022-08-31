@@ -27,7 +27,7 @@ const QA = () => {
       .catch((err) => {
         console.log(err);
       })
-  }, [questionCount]);
+  }, []);
 
   return (
     <div id='qa' className='widget'>
