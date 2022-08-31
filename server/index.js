@@ -179,10 +179,10 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
 //posts a new question
 app.post('/qa/questions', (req, res) => {
   axios.post(`${process.env.API}/qa/questions`, {
-    body: req.body.params.body,
-    name: req.body.params.name,
-    email: req.body.params.email,
-    product_id: req.body.params.product_id
+    body: req.body.body,
+    name: req.body.name,
+    email: req.body.email,
+    product_id: req.body.product_id
   }, {
     headers: {
       Authorization: process.env.AUTH_CODE
@@ -200,10 +200,10 @@ app.post('/qa/questions', (req, res) => {
 //posts a new answer
 app.post('/qa/questions/:question_id/answers', (req, res) => {
   axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
-    body: req.body.params.body,
-    name: req.body.params.name,
-    email: req.body.params.email,
-    photos: req.body.params.photos
+    body: req.body.body,
+    name: req.body.name,
+    email: req.body.email,
+    photos: req.body.photos
   }, {
     headers: {
       Authorization: process.env.AUTH_CODE

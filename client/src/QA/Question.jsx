@@ -15,7 +15,7 @@ const Question = (props) => {
 
   return (
     <div>
-      Q: {props.question.question_body}  <a href="#" onClick={(e) => {
+      Q: {props.question.question_body} <a href="#" onClick={(e) => {
         e.preventDefault();
         axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
           question_helpfulness: props.question.question_helpfulness + 1
@@ -32,7 +32,7 @@ const Question = (props) => {
               })
               .catch((err) => {
                 console.log(err);
-              })
+              });
           })
           .catch((err) => {
             console.log(err);

@@ -6,12 +6,10 @@ const AddAnswer = (props) => (
     e.preventDefault();
     //modal popup with body, name, email, photos
     axios.post(`/qa/questions/${props.question_id}/answers`, {
-      params: {
-        body: 'temporary answer',
-        name: 'John Doe',
-        email: 'fakeemail@fakecompany.com',
-        photos: []
-      }
+      body: 'temporary answer',
+      name: 'John Doe',
+      email: 'fakeemail@fakecompany.com',
+      photos: []
     })
       .then(() => {
         axios.get('/qa/questions/:question_id/answers', {

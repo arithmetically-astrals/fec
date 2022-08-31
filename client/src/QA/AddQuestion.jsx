@@ -13,12 +13,10 @@ const AddQuestion = (props) => {
         //have modal pop up with input body, name, email fields
 
         axios.post('/qa/questions', {
-          params: {
-            body: 'trying something',
-            name: 'John Doe',
-            email: 'fakeemail@fakecompany.com',
-            product_id: props.product_id
-          }
+          body: 'trying something',
+          name: 'John Doe',
+          email: 'fakeemail@fakecompany.com',
+          product_id: props.product_id
         })
           .then(() => {
             axios.get('/qa/questions', {
