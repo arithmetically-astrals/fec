@@ -14,18 +14,14 @@ describe('related products', function() {
 
   const user = userEvent.setup();
 
-  describe('related products', function() {
-    console.log(userEvent)
-    const user = userEvent.setup();
+  render(<Related/>);
 
-    render(<Related itemId={37311} setitemId={setitemId} starRating={5.0}/>);
-
-    it('should render related products on load', () => {
-      return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
-        .then(() => {
-          expect(screen.getByTestId('productList').toExist);
-        })
-    })
+  it('should render related products on load', () => {
+    return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+      .then(() => {
+        expect(screen.getByTestId('productList').toExist);
+      })
+  })
   });
 
   // const testProduct = {
