@@ -5,7 +5,8 @@ var tempStorage = {};
 
 const Answer = (props) => {
 
-  const[initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
+  const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
+  const [reported, setReported] = useState(false);
 
   useEffect(() => {
     if (tempStorage[props.answer.answer_id] === undefined) {
@@ -44,17 +45,19 @@ const Answer = (props) => {
           });
       }}>Helpful?</a>
       : <>Helpful!</>
-      } ({props.answer.helpfulness}) | <a href="#" onClick={(e) => {
+      } ({props.answer.helpfulness}) | {reported
+      ? <>Reported</>
+      : <a href="#" onClick={(e) => {
         e.preventDefault();
-        console.log('report answer!');
         axios.put(`/qa/answers/${props.answer.answer_id}/report`)
           .then(() => {
-            console.log('reported!');
+            setReported(true);
           })
           .catch((err) => {
             console.log(err);
           });
       }}>Report</a>
+      }
       </div>
     </>
   )
