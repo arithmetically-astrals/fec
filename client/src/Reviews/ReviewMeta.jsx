@@ -3,7 +3,7 @@ import axios from 'axios';
 import StarScale from '../Shared/StarScale.jsx';
 
 // Huzzah for jsx!
-const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}) => {
+const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount, clickFilterStar}) => {
 
   const [metaInfo, setmetaInfo] = useState(0)
 
@@ -53,39 +53,39 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}
         <div id='review-meta-stars'>{StarScale(starRating)}</div>
         <p>{Math.round(100 - (metaInfo.recommended.false / metaInfo.recommended.true) * 100)}% of reviews recommend this product.</p>
         <div>
-          <div id='metaTextLeft'>5 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>5 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[5])} />
+            <div style={barStyle(metaInfo.ratings[5] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[5]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[5] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft'>4 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>4 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[4])} />
+            <div style={barStyle(metaInfo.ratings[4] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[4]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[4] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft'>3 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>3 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[3])} />
+            <div style={barStyle(metaInfo.ratings[3] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[3]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[3] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft'>2 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>2 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[2])} />
+            <div style={barStyle(metaInfo.ratings[2] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[2]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[2] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft'>1 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>1 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[1])} />
+            <div style={barStyle(metaInfo.ratings[1] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[1]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[1] || 0}</div>
         </div>
         <div>{metaInfo.characteristics.Comfort ? <div>
             <a>Comfort</a>
