@@ -4,7 +4,7 @@ import AddAnswer from "./AddAnswer.jsx";
 import axios from "axios";
 import MoreAnswers from "./MoreAnswers.jsx";
 
-var initialHelpfulness = {};
+var initialQuestionHelpfulness = {};
 
 const Question = (props) => {
 
@@ -13,14 +13,14 @@ const Question = (props) => {
 
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
-    if (!initialHelpfulness[props.question.question_id]) {
-      initialHelpfulness[props.question.question_id] = props.question.question_helpfulness;
+    if (!initialQuestionHelpfulness[props.question.question_id]) {
+      initialQuestionHelpfulness[props.question.question_id] = props.question.question_helpfulness;
     }
   }, [props.question.question_id]);
 
   return (
     <div>
-      Q: {props.question.question_body} {props.question.question_helpfulness === initialHelpfulness[props.question.question_id]
+      Q: {props.question.question_body} {props.question.question_helpfulness === initialQuestionHelpfulness[props.question.question_id]
       ? <a href="#" onClick={(e) => {
           e.preventDefault();
           axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
