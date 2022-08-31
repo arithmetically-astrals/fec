@@ -17,7 +17,15 @@ const Question = (props) => {
     <div>
       Q: {props.question.question_body}  <a href="#" onClick={(e) => {
         e.preventDefault();
-        console.log('helpful question!');
+        axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
+          question_helpfulness: props.question.question_helpfulness + 1
+        })
+          .then(() => {
+            console.log('should increment');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }}>Helpful?</a> Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id} answers={props.question.answers} setAnswers={setAnswers}/> | <a href="#" onClick={(e) => {
         e.preventDefault();
         console.log('report question!');

@@ -18,7 +18,7 @@ const AddQuestion = (props) => {
             name: 'John Doe',
             email: 'fakeemail@fakecompany.com',
             product_id: props.product_id
-          },
+          }
         })
           .then(() => {
             axios.get('/qa/questions', {
@@ -32,7 +32,7 @@ const AddQuestion = (props) => {
               })
               .catch((err) => {
                 console.log(err);
-              })
+              });
           })
           .catch((err) => {
             console.log(err);

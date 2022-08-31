@@ -21,6 +21,7 @@ const QA = () => {
       }
     })
       .then((response) => {
+        console.log(response.data.results);
         setQuestions(response.data.results);
       })
       .catch((err) => {

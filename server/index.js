@@ -188,7 +188,7 @@ app.post('/qa/questions', (req, res) => {
       Authorization: process.env.AUTH_CODE
     }
   })
-    .then((response) => {
+    .then(() => {
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -209,7 +209,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
       Authorization: process.env.AUTH_CODE
     }
   })
-    .then((response) => {
+    .then(() => {
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -220,7 +220,22 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
 
 //mark a question as helpful
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-
+  axios.put(`${process.env.API}/qa/questions/${req.params.question_id}/helpful`, {
+    params: {
+      question_helpfulness: req.body.question_helpfulness
+    }
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 //report a question
