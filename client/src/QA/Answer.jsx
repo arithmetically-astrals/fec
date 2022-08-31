@@ -12,6 +12,7 @@ const Answer = (props) => {
       tempStorage[props.answer.answer_id] = props.answer.helpfulness;
     }
     setInitialAnswerHelpfulness(tempStorage);
+    console.log(props.answer.helpfulness, initialAnswerHelpfulness[props.answer.answer_id])
   }, [props.answer]);
 
   return (
@@ -23,9 +24,7 @@ const Answer = (props) => {
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"})} | {props.answer.helpfulness === initialAnswerHelpfulness[props.answer.answer_id]
       ? <a href="#" onClick={(e) => {
         e.preventDefault();
-        axios.put(`/qa/answers/${props.answer.answer_id}/helpful`, {
-          helpfulness: props.answer.helpfulness + 1
-        })
+        axios.put(`/qa/answers/${props.answer.answer_id}/helpful`)
           .then(() => {
             axios.get(`/qa/questions/:question_id/answers`, {
               params: {
@@ -48,7 +47,15 @@ const Answer = (props) => {
       } ({props.answer.helpfulness}) | <a href="#" onClick={(e) => {
         e.preventDefault();
         console.log('report answer!');
-      }}>Report</a></div>
+        axios.put(`/qa/answers/${props.answer.answer_id}/report`)
+          .then(() => {
+            console.log('reported!');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }}>Report</a>
+      </div>
     </>
   )
 }
