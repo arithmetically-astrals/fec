@@ -8,36 +8,41 @@ const Question = (props) => {
 
   const [answers, setAnswers] = useState([]);
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const [initialHelpfulness, setInitialHelpfulness] = useState(0);
 
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
-  }, [props.question]);
+    setInitialHelpfulness(props.question.question_helpfulness);
+  }, []);
 
   return (
     <div>
-      Q: {props.question.question_body} <a href="#" onClick={(e) => {
-        e.preventDefault();
-        axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
-          question_helpfulness: props.question.question_helpfulness + 1
-        })
-          .then(() => {
-            axios.get('/qa/questions', {
-              params: {
-                product_id: props.product_id,
-                count: 10000
-              }
-            })
-              .then((response) => {
-                props.setQuestions(response.data.results);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
+      Q: {props.question.question_body} {props.question.question_helpfulness === initialHelpfulness
+      ? <a href="#" onClick={(e) => {
+          e.preventDefault();
+          axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
+            question_helpfulness: props.question.question_helpfulness + 1
           })
-          .catch((err) => {
-            console.log(err);
-          });
-      }}>Helpful?</a> Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id} answers={props.question.answers} setAnswers={setAnswers}/> | <a href="#" onClick={(e) => {
+            .then(() => {
+              axios.get('/qa/questions', {
+                params: {
+                  product_id: props.product_id,
+                  count: 10000
+                }
+              })
+                .then((response) => {
+                  props.setQuestions(response.data.results);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+      }}>Helpful?</a>
+      : <>Helpful!</>
+      } Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id} answers={props.question.answers} setAnswers={setAnswers}/> | <a href="#" onClick={(e) => {
         e.preventDefault();
         console.log('report question!');
       }}>Report</a>
