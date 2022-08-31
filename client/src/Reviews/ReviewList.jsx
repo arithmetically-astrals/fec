@@ -13,7 +13,8 @@ const ReviewList = ({itemId, starCount}) => {
     axios.get('/reviews', {
       params: {
         product_id: itemId,
-        count: 40
+        count: 40,
+        sort: 'relevant'
       }
     }).then(response => {
       setList(response.data.results);
@@ -26,6 +27,20 @@ const ReviewList = ({itemId, starCount}) => {
     setCount(count + 2);
   }
 
+  const selectSort = (e) => {
+    axios.get('/reviews', {
+      params: {
+        product_id: itemId,
+        count: 40,
+        sort: e.target.value.toLowerCase()
+      }
+    }).then(response => {
+      setList(response.data.results);
+    }).catch(err => {
+      console.log('ReviewList err: ', err)
+    })
+  }
+
   if (list.length === 0) {
     return (
     <div>Loading reviews...</div>
@@ -33,7 +48,13 @@ const ReviewList = ({itemId, starCount}) => {
   } else {
     return (
       <div id='review-tile-box'>
-        <div>{starCount} total reviews, sort</div>
+        <div>{starCount} total reviews, sort by
+          <select style={{marginLeft: '5px'}} onChange={selectSort}>
+            <option>Relevant</option>
+            <option>Helpful</option>
+            <option>Newest</option>
+          </select>
+        </div>
         {list.map((info, index) => {
           if (index < count) {
             return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />

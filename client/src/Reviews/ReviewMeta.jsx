@@ -23,7 +23,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}
       setstarRating((totalStar / totalVal).toFixed(1));
       setstarCount(totalVal);
     }).catch(err => {
-      console.log('ReviewMeta err: ', err)
+      console.log('ReviewMeta  || 0err: ', err)
     })
   },[itemId])
 
@@ -55,37 +55,37 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount}
         <div>
           <div id='metaTextLeft'>5 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[5])} />
+            <div style={barStyle(metaInfo.ratings[5] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[5]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[5] || 0}</div>
         </div>
         <div>
           <div id='metaTextLeft'>4 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[4])} />
+            <div style={barStyle(metaInfo.ratings[4] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[4]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[4] || 0}</div>
         </div>
         <div>
           <div id='metaTextLeft'>3 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[3])} />
+            <div style={barStyle(metaInfo.ratings[3] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[3]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[3] || 0}</div>
         </div>
         <div>
           <div id='metaTextLeft'>2 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[2])} />
+            <div style={barStyle(metaInfo.ratings[2] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[2]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[2] || 0}</div>
         </div>
         <div>
           <div id='metaTextLeft'>1 stars:</div>
           <div id='review-rating-bar'>
-            <div style={barStyle(metaInfo.ratings[1])} />
+            <div style={barStyle(metaInfo.ratings[1] || 0)} />
           </div>
-          <div id='metaTextRight'>{metaInfo.ratings[1]}</div>
+          <div id='metaTextRight'>{metaInfo.ratings[1] || 0}</div>
         </div>
         <div>{metaInfo.characteristics.Comfort ? <div>
             <a>Comfort</a>
