@@ -36,7 +36,25 @@ describe('related products', function() {
   //       expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
   //     })
   // })
-})
+
+// describe('First Test', function() {
+//   console.log(userEvent)
+//   const user = userEvent.setup();
+
+//   const testProduct = {
+//     name: "Camo Onesie",
+//     id: 37311
+//   }
+//   render(<RelatedListItem key={testProduct.id} id={testProduct.id} product={testProduct}/>);
+
+//   it('should render a Related List Item', () => {
+//     return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+//       .then(() => {
+//         expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
+//       })
+//   })
+// })
+>>>>>>> fead785c15f026477938f609aa346e36cbe8be92
 
 
 
