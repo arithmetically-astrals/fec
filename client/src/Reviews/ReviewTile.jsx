@@ -3,17 +3,23 @@ import StarScale from '../Shared/StarScale.jsx';
 import axios from 'axios';
 
 const ReviewTile = ({info, setList, itemId, count}) => {
+  //count of yes votes
   const [yesCount, setYesCount] = useState(info.helpfulness)
+  //flag to show photo modal
   const [showImg, setShowImg] = useState(null);
+  //keeps user from spamming yes button
   const [clickedYes, setClickedYes] = useState(false);
+  //flag to show or hide excess text
   const [showMore, setShowMore] = useState(false);
 
+  //check if text is too long
   useEffect( () => {
     if (info.body.length > 250) {
       setShowMore(true);
     }
   }, [])
 
+  //adds to yes vote count
   const clickYes = (e) => {
     axios.put('/reviews/helpful', {
       review_id: info.review_id
@@ -25,6 +31,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
     })
   }
 
+  //reports review and removes from review list
   const clickReport = (e) => {
     axios.put('/reviews/report', {
       review_id: info.review_id
@@ -44,22 +51,24 @@ const ReviewTile = ({info, setList, itemId, count}) => {
     })
   }
 
+  //shows img modal
   const clickImg = (photo) => {
      setShowImg(<div id='review-img-modal'><span onClick={closeImg} style={{cursor: 'pointer'}}>
        X</span><img src={photo.url} style={{maxWidth: '750px', maxHeight: '750px'}}/></div> )
   }
 
+  //closes img modal
   const closeImg = () => {
     setShowImg(null)
   }
 
+  //shows excess text
   const clickShowMore = () => {
     setShowMore(false)
   }
 
   return (
     <div id='review-tile' data-testid="review-tile">
-
       <div id='review-tile-name'>{info.reviewer_name}, {new Date(info.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</div>
       <div id='review-tile-stars'>
         <h5>{StarScale(info.rating)}</h5>
@@ -74,7 +83,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
             <div key={photo.id} style={{display: 'inline', marginLeft: '5px'}}>
               <img  src={photo.url} style={{width: '40px', height: '40px', cursor: 'pointer'}} onClick={() => {clickImg(photo)}}/>
             </div>
-          )
+            )
         })}
       </div>: null}
       <div>{showImg}</div>
