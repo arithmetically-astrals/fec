@@ -10,7 +10,7 @@ const root = createRoot(document.getElementById("root"));
 
 // Huzzah for jsx!
 const App = () => {
-  const [itemId, setitemId] = useState(37311);
+  const [itemId, setitemId] = useState(37317);
   const [starRating, setstarRating] = useState(0);
 
   return <div id='appContainer'>
@@ -24,7 +24,7 @@ const App = () => {
     <div id='topMessage'>special message</div>
 
     <Overview />
-    <Related itemId={itemId} setitemId={setitemId} starRating={starRating}/>
+    <Related itemId={itemId} setitemId={setitemId}/>
     <QA />
     <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
     <div>

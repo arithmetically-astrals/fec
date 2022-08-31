@@ -10,7 +10,6 @@ require("dotenv").config();
 axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
-
 describe('related products', function() {
 
   const user = userEvent.setup();
@@ -37,7 +36,25 @@ describe('related products', function() {
   //       expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
   //     })
   // })
-})
+
+// describe('First Test', function() {
+//   console.log(userEvent)
+//   const user = userEvent.setup();
+
+//   const testProduct = {
+//     name: "Camo Onesie",
+//     id: 37311
+//   }
+//   render(<RelatedListItem key={testProduct.id} id={testProduct.id} product={testProduct}/>);
+
+//   it('should render a Related List Item', () => {
+//     return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+//       .then(() => {
+//         expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
+//       })
+//   })
+// })
+
 
 
 

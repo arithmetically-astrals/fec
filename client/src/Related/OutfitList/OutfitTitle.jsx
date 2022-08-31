@@ -2,7 +2,7 @@ import React from 'react';
 
 const OutfitTitle = () => {
   return (
-    <h2>Outfit</h2>
+    <h2>Your Outfit</h2>
   );
 }
 
