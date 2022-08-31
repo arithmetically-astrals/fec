@@ -68,13 +68,15 @@ app.get('/products/relatedlist', (req, res) => {
 app.get('/reviews', (req, res) => {
   var idNum = req.query.product_id;
   var count = req.query.count;
+  var sort = req.query.sort;
   axios.get(`${process.env.API}/reviews/`, {
     headers: {
       'Authorization': process.env.AUTH_CODE
     },
     params: {
       product_id: idNum,
-      count: count
+      count: count,
+      sort: sort
     }
   }).then(response => {
     res.status(200);

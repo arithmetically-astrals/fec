@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1661914669376" clover="3.2.0">
-  <project timestamp="1661914669376" name="All files">
-    <metrics statements="145" coveredstatements="77" conditionals="46" coveredconditionals="15" methods="64" coveredmethods="20" elements="255" coveredelements="112" complexity="0" loc="145" ncloc="145" packages="3" files="16" classes="16"/>
+<coverage generated="1661963044752" clover="3.2.0">
+  <project timestamp="1661963044752" name="All files">
+    <metrics statements="147" coveredstatements="79" conditionals="48" coveredconditionals="19" methods="63" coveredmethods="20" elements="258" coveredelements="118" complexity="0" loc="147" ncloc="147" packages="3" files="16" classes="16"/>
     <package name="QA">
       <metrics statements="80" coveredstatements="26" conditionals="28" coveredconditionals="4" methods="35" coveredmethods="4"/>
-      <file name="AddAnswer.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/AddAnswer.jsx">
+      <file name="AddAnswer.jsx" path="/Users/daniel/fec/client/src/QA/AddAnswer.jsx">
         <metrics statements="8" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
@@ -15,7 +15,7 @@
         <line num="28" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
       </file>
-      <file name="AddQuestion.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/AddQuestion.jsx">
+      <file name="AddQuestion.jsx" path="/Users/daniel/fec/client/src/QA/AddQuestion.jsx">
         <metrics statements="10" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -28,7 +28,7 @@
         <line num="35" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
       </file>
-      <file name="Answer.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/Answer.jsx">
+      <file name="Answer.jsx" path="/Users/daniel/fec/client/src/QA/Answer.jsx">
         <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -37,7 +37,7 @@
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
       </file>
-      <file name="AnswerList.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/AnswerList.jsx">
+      <file name="AnswerList.jsx" path="/Users/daniel/fec/client/src/QA/AnswerList.jsx">
         <metrics statements="10" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="4" count="1" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -50,20 +50,20 @@
         <line num="19" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
       </file>
-      <file name="MoreAnswers.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/MoreAnswers.jsx">
+      <file name="MoreAnswers.jsx" path="/Users/daniel/fec/client/src/QA/MoreAnswers.jsx">
         <metrics statements="4" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
       </file>
-      <file name="MoreQuestions.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/MoreQuestions.jsx">
+      <file name="MoreQuestions.jsx" path="/Users/daniel/fec/client/src/QA/MoreQuestions.jsx">
         <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
       </file>
-      <file name="QA.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/QA.jsx">
+      <file name="QA.jsx" path="/Users/daniel/fec/client/src/QA/QA.jsx">
         <metrics statements="10" coveredstatements="8" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -76,7 +76,7 @@
         <line num="28" count="0" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
       </file>
-      <file name="Question.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/Question.jsx">
+      <file name="Question.jsx" path="/Users/daniel/fec/client/src/QA/Question.jsx">
         <metrics statements="10" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -89,7 +89,7 @@
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
-      <file name="QuestionList.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/QuestionList.jsx">
+      <file name="QuestionList.jsx" path="/Users/daniel/fec/client/src/QA/QuestionList.jsx">
         <metrics statements="16" coveredstatements="6" conditionals="12" coveredconditionals="2" methods="4" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -108,7 +108,7 @@
         <line num="32" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
       </file>
-      <file name="Search.jsx" path="/Users/banzubie/RFE2207/fec/client/src/QA/Search.jsx">
+      <file name="Search.jsx" path="/Users/daniel/fec/client/src/QA/Search.jsx">
         <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -116,32 +116,31 @@
       </file>
     </package>
     <package name="Reviews">
-      <metrics statements="60" coveredstatements="46" conditionals="18" coveredconditionals="11" methods="28" coveredmethods="15"/>
-      <file name="ReviewForm.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Reviews/ReviewForm.jsx">
+      <metrics statements="62" coveredstatements="48" conditionals="20" coveredconditionals="15" methods="27" coveredmethods="15"/>
+      <file name="ReviewForm.jsx" path="/Users/daniel/fec/client/src/Reviews/ReviewForm.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
-      <file name="ReviewList.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Reviews/ReviewList.jsx">
-        <metrics statements="16" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="6"/>
+      <file name="ReviewList.jsx" path="/Users/daniel/fec/client/src/Reviews/ReviewList.jsx">
+        <metrics statements="15" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="5"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="24" count="3" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="38" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="43" count="2" type="stmt"/>
-        <line num="47" count="6" type="stmt"/>
+        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="38" count="80" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="6" type="stmt"/>
       </file>
-      <file name="ReviewMeta.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Reviews/ReviewMeta.jsx">
+      <file name="ReviewMeta.jsx" path="/Users/daniel/fec/client/src/Reviews/ReviewMeta.jsx">
         <metrics statements="20" coveredstatements="19" conditionals="10" coveredconditionals="6" methods="6" coveredmethods="6"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
@@ -164,29 +163,32 @@
         <line num="48" count="1" type="stmt"/>
         <line num="50" count="1" type="stmt"/>
       </file>
-      <file name="ReviewTile.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Reviews/ReviewTile.jsx">
-        <metrics statements="19" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="12" coveredmethods="1"/>
+      <file name="ReviewTile.jsx" path="/Users/daniel/fec/client/src/Reviews/ReviewTile.jsx">
+        <metrics statements="22" coveredstatements="10" conditionals="6" coveredconditionals="5" methods="13" coveredmethods="2"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="6" type="stmt"/>
         <line num="7" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="38" count="6" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="42" count="6" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="46" count="6" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="45" count="6" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="61" count="10" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
       </file>
-      <file name="Reviews.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Reviews/Reviews.jsx">
+      <file name="Reviews.jsx" path="/Users/daniel/fec/client/src/Reviews/Reviews.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
@@ -195,7 +197,7 @@
     </package>
     <package name="Shared">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="StarScale.jsx" path="/Users/banzubie/RFE2207/fec/client/src/Shared/StarScale.jsx">
+      <file name="StarScale.jsx" path="/Users/daniel/fec/client/src/Shared/StarScale.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="7" type="stmt"/>
