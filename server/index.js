@@ -245,7 +245,22 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
 
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
-
+  axios.put(`${process.env.API}/qa/answers/${req.params.question_id}/helpful`, {
+    params: {
+      answer_helpfulness: req.body.answer_helpfulness
+    }
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 //report an answer
