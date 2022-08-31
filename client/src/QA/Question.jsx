@@ -25,7 +25,6 @@ const Question = (props) => {
       Q: {props.question.question_body} {props.question.question_helpfulness === initialQuestionHelpfulness[props.question.question_id]
       ? <a href="#" onClick={(e) => {
           e.preventDefault();
-          console.log('this should be the question id', props.question.question_id);
           axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
             question_helpfulness: props.question.question_helpfulness + 1
           })

@@ -3,16 +3,33 @@ import Answer from "./Answer.jsx";
 
 const AnswerList = (props) => {
 
-  //sort by seller, then helpfulness
+  let sellerAnswers = [];
+  let normalAnswers = [];
+  props.answers.forEach((answer) => {
+    if (answer.answerer_name.toUpperCase() === 'SELLER') {
+      sellerAnswers.push(answer);
+    } else {
+      normalAnswers.push(answer);
+    }
+  })
+  sellerAnswers.sort((a, b) => {
+    return b.helpfulness - a.helpfulness;
+  });
+  normalAnswers.sort((a, b) => {
+    return b.helpfulness - a.helpfulness;
+  });
+  let sortedAnswers = sellerAnswers.concat(normalAnswers);
+
   let renderedAnswers = [];
+
   if (props.moreAnswers) {
-    renderedAnswers = props.answers;
+    renderedAnswers = sortedAnswers;
   } else {
     if (props.answers[0]) {
-      renderedAnswers.push(props.answers[0]);
+      renderedAnswers.push(sortedAnswers[0]);
     }
     if (props.answers[1]) {
-      renderedAnswers.push(props.answers[1]);
+      renderedAnswers.push(sortedAnswers[1]);
     }
   }
 

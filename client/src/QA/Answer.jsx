@@ -31,9 +31,7 @@ const Answer = (props) => {
               }
             })
               .then((response) => {
-                //sort by seller, then helpfulness
                 props.setAnswers(response.data.results);
-                console.log(response.data.results);
               })
               .catch((err) => {
                 console.log(err);
