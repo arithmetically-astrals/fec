@@ -22,7 +22,7 @@ const AnswerList = (props) => {
       ? <div>
           A: {renderedAnswers.map((answer, index) => (
             <div key={index}>
-              <Answer answer={answer} />
+              <Answer answer={answer} question_id={props.question_id} setAnswers={props.setAnswers}/>
             </div>
           ))}
         </div>

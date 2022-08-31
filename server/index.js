@@ -245,9 +245,10 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
 
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
-  axios.put(`${process.env.API}/qa/answers/${req.params.question_id}/helpful`, {
+  console.log(req.params);
+  axios.put(`${process.env.API}/qa/answers/${req.params.answer_id}/helpful`, {
     params: {
-      answer_helpfulness: req.body.answer_helpfulness
+      helpfulness: req.body.helpfulness
     }
   }, {
     headers: {

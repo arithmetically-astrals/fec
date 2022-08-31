@@ -49,7 +49,7 @@ const Question = (props) => {
         e.preventDefault();
         console.log('report question!');
       }}>Report</a>
-      <AnswerList answers={answers} moreAnswers={moreAnswers}/>
+      <AnswerList answers={answers} moreAnswers={moreAnswers} question_id={props.question.question_id} setAnswers={setAnswers}/>
       {answers.length > 2
       ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
       : null}
