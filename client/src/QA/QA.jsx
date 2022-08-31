@@ -41,10 +41,7 @@ const QA = () => {
     <div id='qa' className='widget'>
       <h1>Questions</h1>
       {questions.length === 0
-      ? <>
-          <div>Be the first to ask a question...</div>
-          <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
-        </>
+      ? <div>Be the first to ask a question...</div>
       : <>
           <Search search={search} setSearch={setSearch}/>
           <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id}/>
@@ -52,9 +49,9 @@ const QA = () => {
           ? null
           : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
           }
-          <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
         </>
       }
+      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
     </div>
   )
 
