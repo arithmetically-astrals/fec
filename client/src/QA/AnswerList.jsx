@@ -26,7 +26,7 @@ const AnswerList = (props) => {
             </div>
           ))}
         </div>
-      : <></>
+      : null
       }
     </div>
   )

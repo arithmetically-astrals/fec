@@ -134,6 +134,7 @@ app.put('/reviews/report', (req, res) => {
   })
 });
 
+//gets all questions for a product id
 app.get('/qa/questions', (req, res) => {
   axios.get(`${process.env.API}/qa/questions`, {
     headers: {
@@ -154,6 +155,7 @@ app.get('/qa/questions', (req, res) => {
     });
 });
 
+//gets all answers for a question id
 app.get('/qa/questions/:question_id/answers', (req, res) => {
   axios.get(`${process.env.API}/qa/questions/${req.query.question_id}/answers`, {
     headers: {
@@ -174,18 +176,19 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
     });
 });
 
+//posts a new question
 app.post('/qa/questions', (req, res) => {
   axios.post(`${process.env.API}/qa/questions`, {
-    body: req.body.params.body,
-    name: req.body.params.name,
-    email: req.body.params.email,
-    product_id: req.body.params.product_id
+    body: req.body.body,
+    name: req.body.name,
+    email: req.body.email,
+    product_id: req.body.product_id
   }, {
     headers: {
       Authorization: process.env.AUTH_CODE
     }
   })
-    .then((response) => {
+    .then(() => {
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -194,18 +197,19 @@ app.post('/qa/questions', (req, res) => {
     });
 });
 
+//posts a new answer
 app.post('/qa/questions/:question_id/answers', (req, res) => {
   axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
-    body: req.body.params.body,
-    name: req.body.params.name,
-    email: req.body.params.email,
-    photos: req.body.params.photos
+    body: req.body.body,
+    name: req.body.name,
+    email: req.body.email,
+    photos: req.body.photos
   }, {
     headers: {
       Authorization: process.env.AUTH_CODE
     }
   })
-    .then((response) => {
+    .then(() => {
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -214,18 +218,37 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     });
 });
 
+//mark a question as helpful
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
-
+  axios.put(`${process.env.API}/qa/questions/${req.params.question_id}/helpful`, {
+    params: {
+      question_helpfulness: req.body.question_helpfulness
+    }
+  }, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
+//report a question
 app.put('/qa/questions/:question_id/report', (req, res) => {
 
 });
 
+//mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
 });
 
+//report an answer
 app.put('/qa/answers/:answer_id/report', (req, res) => {
 
 });
