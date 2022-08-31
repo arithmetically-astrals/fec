@@ -55,7 +55,7 @@ function Related({itemId, starRating}) {
       })
     },[itemId]);
 
-    if(!productList) {
+    if(!productList || !defaultData) {
       return (
         <div>Loading reviews...</div>
       )
