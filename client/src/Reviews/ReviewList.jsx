@@ -9,10 +9,11 @@ const ReviewList = ({itemId, starCount}) => {
   const [list, setList] = useState([]);
 
   useEffect( () => {
+    setCount(2);
     axios.get('/reviews', {
       params: {
         product_id: itemId,
-        count: 2
+        count: 40
       }
     }).then(response => {
       setList(response.data.results);
@@ -22,19 +23,9 @@ const ReviewList = ({itemId, starCount}) => {
   },[itemId])
 
   const moreReviews = () => {
-
-    axios.get('/reviews', {
-      params: {
-        product_id: itemId,
-        count: count + 2
-      }
-    }).then(response => {
-      setCount(count + 2)
-      setList(response.data.results);
-    }).catch(err => {
-      console.log('err: ', err)
-    })
+    setCount(count + 2);
   }
+
   if (list.length === 0) {
     return (
     <div>Loading reviews...</div>
@@ -43,8 +34,10 @@ const ReviewList = ({itemId, starCount}) => {
     return (
       <div id='review-tile-box'>
         <div>{starCount} total reviews, sort</div>
-        {list.map(info => {
-          return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
+        {list.map((info, index) => {
+          if (index < count) {
+            return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
+          }
         })}
         <button onClick={moreReviews}>More reviews</button>
       </div>
