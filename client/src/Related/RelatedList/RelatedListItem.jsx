@@ -3,7 +3,7 @@ import {useEffect, useState, /*useContext*/} from 'react';
 
 const axios = require('axios');
 
-const RelatedListItem = ({itemId, product, defaultData}) => {
+const RelatedListItem = ({itemId, product, defaultData, starRating}) => {
   // const [productId, setProductId] = useContext(ProductContext);
   const [showing, setShowing] = useState(null);
   const [productImage, setProductImage] = useState(null);
@@ -41,6 +41,10 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
         aspectRation: '16 / 9',
         }}
         />
+        <div id='related-category'>{product.category}</div>
+        <div id='related-product-name'>{product.name}</div>
+        <div id='related-product-price'>{product.default_price}</div>
+        <div id='related-product-rating'>{starRating} Stars</div>
       </div>
     </div>
   )

@@ -10,23 +10,34 @@ require("dotenv").config();
 axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
-// describe('First Test', function() {
-//   console.log(userEvent)
-//   const user = userEvent.setup();
 
-//   const testProduct = {
-//     name: "Camo Onesie",
-//     id: 37311
-//   }
-//   render(<RelatedListItem key={testProduct.id} id={testProduct.id} product={testProduct}/>);
+describe('related products', function() {
 
-//   it('should render a Related List Item', () => {
-//     return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
-//       .then(() => {
-//         expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
-//       })
-//   })
-// })
+  const user = userEvent.setup();
+
+  render(<Related/>);
+
+  it('should render related products on load', () => {
+    return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+      .then(() => {
+        expect(screen.getByTestId('productList').toExist);
+      })
+  })
+  });
+
+  // const testProduct = {
+  //   name: "Camo Onesie",
+  //   id: 37311
+  // }
+  // render(<RelatedListItem key={testProduct.id} id={testProduct.id} product={testProduct}/>);
+
+  // it('should render a Related List Item', () => {
+  //   return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+  //     .then(() => {
+  //       expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
+  //     })
+  // })
+})
 
 
 
