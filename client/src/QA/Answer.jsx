@@ -17,7 +17,10 @@ const Answer = (props) => {
   return (
     <>
       {props.answer.body}
-      <div>by {props.answer.answerer_name}, {new Date(props.answer.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"})} | {props.answer.helpfulness === initialAnswerHelpfulness[props.answer.answer_id]
+      <div>by {props.answer.answerer_name.toUpperCase() === 'SELLER'
+      ? <b>{props.answer.answerer_name}</b>
+      : props.answer.answerer_name
+      }, {new Date(props.answer.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"})} | {props.answer.helpfulness === initialAnswerHelpfulness[props.answer.answer_id]
       ? <a href="#" onClick={(e) => {
         e.preventDefault();
         axios.put(`/qa/answers/${props.answer.answer_id}/helpful`, {
