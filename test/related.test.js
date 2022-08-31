@@ -10,10 +10,6 @@ require("dotenv").config();
 axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 938cf1e87748fcf1a4c044719fc7187d5977941c
 describe('related products', function() {
 
   const user = userEvent.setup();
@@ -40,7 +36,6 @@ describe('related products', function() {
   //       expect(screen.queryByText("Camo Onesie").toBeInTheDocument());
   //     })
   // })
-<<<<<<< HEAD
 
 // describe('First Test', function() {
 //   console.log(userEvent)
@@ -59,10 +54,7 @@ describe('related products', function() {
 //       })
 //   })
 // })
->>>>>>> fead785c15f026477938f609aa346e36cbe8be92
-=======
-})
->>>>>>> 938cf1e87748fcf1a4c044719fc7187d5977941c
+
 
 
 
