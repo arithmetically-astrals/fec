@@ -11,17 +11,30 @@ import axios from 'axios';
 axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
-describe('review stuff', function () {
+describe.only('review stuff', function () {
   const user = userEvent.setup();
 
   render(<Reviews />)
 
-  it('should render meta review info', () => {
+  it('should render a single set of reviews', () => {
 
-    return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
       .then(() => {
-        return user.click(screen.getByText('Yes')).then(() => {
-          expect(screen.getByTestId('yes-count').toHaveTextContent('1'))
+        expect(screen.getAllByTestId('review-tile')).toHaveLength(2);
+      })
+  })
+
+  it('should render more reviews when button is clicked', () => {
+
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
+      .then(() => {
+        expect(screen.getAllByTestId('review-tile')).toHaveLength(2);
+        return user.click(screen.getByRole('button', {name: 'More reviews'}))
+      })
+      .then(() => {
+        return waitFor(() => expect(screen.getAllByTestId('review-tile')).toHaveLength(4))
+        .then(() => {
+          expect(screen.getAllByTestId('review-tile')).toHaveLength(4);
         })
       })
   })

@@ -44,7 +44,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
   }
 
   return (
-    <div id='review-tile'>
+    <div id='review-tile' data-testid="review-tile">
 
       <div id='review-tile-name'>{info.reviewer_name}, {new Date(info.date).toLocaleDateString('en-us', {year:"numeric", month:"short", day:"numeric"}) }</div>
       <div id='review-tile-stars'>
