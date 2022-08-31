@@ -5,8 +5,7 @@ import RelatedTitle from './RelatedList/RelatedTitle.jsx';
 // import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
 import OutfitTitle from './OutfitList/OutfitTitle.jsx';
-// import Outfit from "./OutfitList/Outfit.jsx";
-// import OutfitList from "./OutfitList/OutfitList.jsx";
+import OutfitList from "./OutfitList/OutfitList.jsx";
 import App from '../App.jsx';
 
 import axios from 'axios';
@@ -66,9 +65,10 @@ function Related({itemId, starRating}) {
           <RelatedTitle/>
           {/* <ItemComparison />*/}
           <RelatedList defaultData={defaultData} productList={productList} itemId={itemId}
-          starRating={starRating} /*colorScheme={colorScheme}*//>
+          starRating={starRating} />
           <OutfitTitle />
-          {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
+          <OutfitList defaultData={defaultData} productList={productList} itemId={itemId}
+          starRating={starRating}/>
         </div>
       );
     }

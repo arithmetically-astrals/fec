@@ -5,6 +5,7 @@ var tempStorage = {};
 
 const Answer = (props) => {
 
+
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [reported, setReported] = useState(false);
 
@@ -58,6 +59,7 @@ const Answer = (props) => {
       }}>Report</a>
       }
       </div>
+
     </>
   )
 }

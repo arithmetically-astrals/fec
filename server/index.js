@@ -259,6 +259,7 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
   axios.put(`${process.env.API}/qa/answers/${req.params.answer_id}/helpful`, null, {
+
     headers: {
       Authorization: process.env.AUTH_CODE
     }

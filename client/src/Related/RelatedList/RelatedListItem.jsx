@@ -17,7 +17,11 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
       }
     })
       .then((imageData) => {
-        setProductImage(imageData.data.results[0].photos[0].url);
+        if(!imageData.data.results[0].photos[0].url){
+          setProductImage(`https://www.tallusridge.com/wp-content/uploads/2019/08/650x600.jpg`);
+        } else {
+          setProductImage(imageData.data.results[0].photos[0].url);
+        }
         axios.get('/reviews/meta', {
             params: {
               product_id: itemId
@@ -30,12 +34,16 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
               totalStar += (Number(response.data.ratings[key]) * Number(key));
               totalVal += Number(response.data.ratings[key]);
             }
-            setRelatedStarRating((totalStar / totalVal).toFixed(1));
+            if (totalVal === 0) {
+              setRelatedStarRating(null);
+            } else {
+              setRelatedStarRating((totalStar / totalVal).toFixed(1));
+            }
           })
       })
-          .catch(err => {
-            console.log(err);
-          })
+      .catch(err => {
+        console.log(err);
+      })
   }, [itemId]);
 
   return (
@@ -44,9 +52,11 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
         <div id='related-comparison'>
           </div>
       </div>
-      <div onClick={() => {
+      <div
+      // onClick={() => {
         // setProductId(itemId);
-      }}>
+      // }}
+      >
         <img src={productImage}
         style={{
         objectFit: 'cover',
@@ -60,7 +70,8 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
         <div id='related-category'>{product.category}</div>
         <div id='related-product-name'>{product.name}</div>
         <div id='related-product-price'>${product.default_price}</div>
-        <div id='related-product-rating'>{StarScale(relatedStarRating)} </div>
+        {!relatedStarRating ? <div></div> : <div id='related-product-rating'>{StarScale(relatedStarRating)} </div>}
+
       </div>
     </div>
   )

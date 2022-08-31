@@ -13,6 +13,7 @@ const Question = (props) => {
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
   const [reported, setReported] = useState(false);
 
+
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
     if (tempStorage[props.question.question_id] === undefined) {
@@ -67,6 +68,7 @@ const Question = (props) => {
           });
       }}>Report</a>
       }
+
       <AnswerList answers={answers} moreAnswers={moreAnswers} question_id={props.question.question_id} setAnswers={setAnswers}/>
       {answers.length > 2
       ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
