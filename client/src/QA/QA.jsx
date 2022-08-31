@@ -35,7 +35,7 @@ const QA = () => {
       {questions.length === 0
       ? null
       : <Search search={search} setSearch={setSearch}/>}
-      <QuestionList questions={questions} search={search} questionCount={questionCount}/>
+      <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id}/>
       {questions.length <=  questionCount
       ? null
       :<MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>}

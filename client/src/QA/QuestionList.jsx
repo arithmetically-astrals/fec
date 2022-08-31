@@ -29,11 +29,11 @@ const QuestionList = (props) => {
             question.question_body.toUpperCase().indexOf(props.search.toUpperCase()) > -1
           ))
           ? renderedQuestions.map((question, index) => (
-            <Question question={question} key={index}/>
+            <Question question={question} key={index} setQuestions={props.setQuestions} product_id={props.product_id}/>
           ))
           : <div>No questions found!</div>
         : renderedQuestions.map((question, index) => (
-          <Question question={question} key={index}/>
+          <Question question={question} key={index} setQuestions={props.setQuestions} product_id={props.product_id}/>
         ))
       }
     </div>

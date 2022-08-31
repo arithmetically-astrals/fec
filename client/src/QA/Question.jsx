@@ -21,7 +21,18 @@ const Question = (props) => {
           question_helpfulness: props.question.question_helpfulness + 1
         })
           .then(() => {
-            console.log('should increment');
+            axios.get('/qa/questions', {
+              params: {
+                product_id: props.product_id,
+                count: 10000
+              }
+            })
+              .then((response) => {
+                props.setQuestions(response.data.results);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
           })
           .catch((err) => {
             console.log(err);
