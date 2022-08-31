@@ -339,6 +339,7 @@ body {
 #related-card-container {
   position: relative;
   max-width: 1200px;
+
 }
 
 #related-card-list {
@@ -347,8 +348,44 @@ body {
   max-width: 100%;
   display: flex;
   gap: 1rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
+}
+
+#related-card {
+  position: relative;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0 0 0 0.2);
+  padding: 0.25rem;
+  width: 300px;
+  height: 450px;
+}
+
+/* #related-star-button {
+
+} */
+
+#related-category {
+  text-align: left;
+  font-size: 1em;
+  padding: 10px 0 10px 10px;
+}
+
+#related-product-name {
+  padding: 0 0 10px 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+#related-product-price {
+  padding: 0 0 10px 10px;
+  font-size: 0.75em;
+}
+
+#related-product-rating {
+  padding-left: 10px;
+  position: absolute;
+  bottom: 10px;
 }
 
 #related-left-arrow {

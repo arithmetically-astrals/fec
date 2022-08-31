@@ -49,17 +49,17 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
       }}>
         <img src={productImage}
         style={{
-        display: 'block',
-        height: '300px',
         objectFit: 'cover',
         overflow: 'hidden',
         width: '100%',
-        aspectRation: '16 / 9',
+        display: 'block',
+        height: '300px',
+        aspectRation: '16 / 9'
         }}
         />
         <div id='related-category'>{product.category}</div>
         <div id='related-product-name'>{product.name}</div>
-        <div id='related-product-price'>{product.default_price}</div>
+        <div id='related-product-price'>${product.default_price}</div>
         <div id='related-product-rating'>{StarScale(relatedStarRating)} </div>
       </div>
     </div>
