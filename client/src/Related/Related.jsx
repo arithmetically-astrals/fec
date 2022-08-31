@@ -46,7 +46,7 @@ function Related({itemId, starRating}) {
                   .then((relatedListItemResponse) => relatedListItemResponse.data)),//end mapping
             )//end of Promise.all, now set state of ProductList with relatedList
               .then((prodList) => {
-                setProductList(() => (prodList));
+                setProductList(prodList);
               })
               .catch(err => {
                 console.log(err);
@@ -56,22 +56,24 @@ function Related({itemId, starRating}) {
     },[itemId]);
 
     if(!productList) {
-      return null;
-    }
-    if(!defaultData) {
-      return null;
+      return (
+        <div>Loading reviews...</div>
+      )
+    } else {
+      return (
+
+        <div id='related' className='widget'>
+          <RelatedTitle/>
+          {/* <ItemComparison />*/}
+          <RelatedList defaultData={defaultData} productList={productList} itemId={itemId} /*colorScheme={colorScheme}*//>
+          <OutfitTitle />
+          {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
+        </div>
+      );
     }
 
- return (
 
-      <div id='related' className='widget'>
-        <RelatedTitle/>
-        {/* <ItemComparison />*/}
-        <RelatedList defaultData={defaultData} productList={productList} /*colorScheme={colorScheme}*//>
-        <OutfitTitle />
-        {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
-      </div>
-    );
+
 
 }
 
