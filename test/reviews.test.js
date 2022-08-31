@@ -14,7 +14,7 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 describe.only('review stuff', function () {
   const user = userEvent.setup();
 
-  render(<Reviews />)
+  render(<Reviews itemId={37311}/>)
 
   it('should render a single set of reviews', () => {
 
