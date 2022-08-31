@@ -21,7 +21,6 @@ const QA = () => {
       }
     })
       .then((response) => {
-        //sort by helpfulness
         setQuestions(response.data.results);
       })
       .catch((err) => {

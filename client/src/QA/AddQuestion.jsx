@@ -28,7 +28,6 @@ const AddQuestion = (props) => {
               }
             })
               .then((response) => {
-                //sort by helpfulness
                 props.setQuestions(response.data.results);
               })
               .catch((err) => {

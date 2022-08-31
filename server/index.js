@@ -134,6 +134,7 @@ app.put('/reviews/report', (req, res) => {
   })
 });
 
+//gets all questions for a product id
 app.get('/qa/questions', (req, res) => {
   axios.get(`${process.env.API}/qa/questions`, {
     headers: {
@@ -154,6 +155,7 @@ app.get('/qa/questions', (req, res) => {
     });
 });
 
+//gets all answers for a question id
 app.get('/qa/questions/:question_id/answers', (req, res) => {
   axios.get(`${process.env.API}/qa/questions/${req.query.question_id}/answers`, {
     headers: {
@@ -174,6 +176,7 @@ app.get('/qa/questions/:question_id/answers', (req, res) => {
     });
 });
 
+//posts a new question
 app.post('/qa/questions', (req, res) => {
   axios.post(`${process.env.API}/qa/questions`, {
     body: req.body.params.body,
@@ -194,6 +197,7 @@ app.post('/qa/questions', (req, res) => {
     });
 });
 
+//posts a new answer
 app.post('/qa/questions/:question_id/answers', (req, res) => {
   axios.post(`${process.env.API}/qa/questions/${req.params.question_id}/answers`, {
     body: req.body.params.body,
@@ -214,18 +218,22 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     });
 });
 
+//mark a question as helpful
 app.put('/qa/questions/:question_id/helpful', (req, res) => {
 
 });
 
+//report a question
 app.put('/qa/questions/:question_id/report', (req, res) => {
 
 });
 
+//mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
 });
 
+//report an answer
 app.put('/qa/answers/:answer_id/report', (req, res) => {
 
 });
