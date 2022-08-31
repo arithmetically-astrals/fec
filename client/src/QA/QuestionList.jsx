@@ -22,9 +22,7 @@ const QuestionList = (props) => {
 
   return (
     <div data-testid='questions'>
-      {!props.questions.length
-      ? <div>Be the first to ask a question...</div>
-      : props.search.length >= 3
+      {props.search.length >= 3
         ? props.questions.some((question) => (
             question.question_body.toUpperCase().indexOf(props.search.toUpperCase()) > -1
           ))
