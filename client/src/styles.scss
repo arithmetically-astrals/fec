@@ -237,3 +237,14 @@ body {
   transform: translate(-50%,-50%);
   z-index: 2;
 }
+
+#review-write-form {
+  position:fixed;
+  background-color: $shadeC;
+  width: 80%;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
+}
