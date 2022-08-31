@@ -4,25 +4,28 @@ import AddAnswer from "./AddAnswer.jsx";
 import axios from "axios";
 import MoreAnswers from "./MoreAnswers.jsx";
 
-var initialQuestionHelpfulness = {};
+var tempStorage = {};
 
 const Question = (props) => {
 
   const [answers, setAnswers] = useState([]);
   const [moreAnswers, setMoreAnswers] = useState(false);
+  const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
 
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
-    if (!initialQuestionHelpfulness[props.question.question_id]) {
-      initialQuestionHelpfulness[props.question.question_id] = props.question.question_helpfulness;
+    if (tempStorage[props.question.question_id] === undefined) {
+     tempStorage[props.question.question_id] = props.question.question_helpfulness;
     }
-  }, [props.question.question_id]);
+    setInitialQuestionHelpfulness(tempStorage);
+  }, [props.question]);
 
   return (
     <div>
       Q: {props.question.question_body} {props.question.question_helpfulness === initialQuestionHelpfulness[props.question.question_id]
       ? <a href="#" onClick={(e) => {
           e.preventDefault();
+          console.log('this should be the question id', props.question.question_id);
           axios.put(`/qa/questions/${props.question.question_id}/helpful`, {
             question_helpfulness: props.question.question_helpfulness + 1
           })
@@ -34,6 +37,14 @@ const Question = (props) => {
                 }
               })
                 .then((response) => {
+                  response.data.results.forEach((question) => {
+                    if (Object.values(question.answers).length !== 0) {
+                      Object.values(question.answers).forEach((answerObj) => {
+                        answerObj.answer_id = answerObj.id;
+                        delete answerObj.id;
+                      })
+                    }
+                  })
                   props.setQuestions(response.data.results);
                 })
                 .catch((err) => {

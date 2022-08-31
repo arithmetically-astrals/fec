@@ -25,6 +25,14 @@ const AddQuestion = (props) => {
               }
             })
               .then((response) => {
+                response.data.results.forEach((question) => {
+                  if (Object.values(question.answers).length !== 0) {
+                    Object.values(question.answers).forEach((answerObj) => {
+                      answerObj.answer_id = answerObj.id;
+                      delete answerObj.id;
+                    })
+                  }
+                })
                 props.setQuestions(response.data.results);
               })
               .catch((err) => {
