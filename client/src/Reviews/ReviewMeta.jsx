@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarScale from '../Shared/StarScale.jsx';
 
-// Huzzah for jsx!
-const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount, clickFilterStar}) => {
+//renders the meta info box
+const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount, clickFilterStar, metaInfo, setmetaInfo}) => {
 
-  const [metaInfo, setmetaInfo] = useState(0)
-
+  //makes a call to the db to populate the meta info box
   useEffect( () => {
     axios.get('/reviews/meta', {
       params: {
@@ -27,10 +26,12 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
     })
   },[itemId])
 
+  //sets the green bar for star ratings
   const barStyle  = (n) => {
     return {width: Math.round((n / starCount) * 100) + '%', height: '5px', backgroundColor: 'green', marginBottom: '5px'}
   }
 
+  //sets red triangle above the bar for fit ratings
   const triangleStyle = (n) => {
     return {
       position: 'relative',
@@ -120,6 +121,24 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
               <div style={triangleStyle(metaInfo.characteristics.Quality.value)} />
               <a id='meta-char-text'>Poor</a>
               <a id='meta-char-text'>Good</a>
+            </div>
+          </div> : null}
+        </div>
+        <div>{metaInfo.characteristics.Size ? <div>
+            <a>Size</a>
+            <div id='review-rating-char'>
+              <div style={triangleStyle(metaInfo.characteristics.Size.value)} />
+              <a id='meta-char-text'>Small</a>
+              <a id='meta-char-text'>Big</a>
+            </div>
+          </div> : null}
+        </div>
+        <div>{metaInfo.characteristics.Width ? <div>
+            <a>Width</a>
+            <div id='review-rating-char'>
+              <div style={triangleStyle(metaInfo.characteristics.Width.value)} />
+              <a id='meta-char-text'>Narrow</a>
+              <a id='meta-char-text'>Wide</a>
             </div>
           </div> : null}
         </div>

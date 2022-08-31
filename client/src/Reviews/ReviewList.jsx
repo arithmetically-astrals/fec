@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
-// Huzzah for jsx!
-const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultList}) => {
-
+//renders the reviews for the product
+const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultList, clickWriteReview}) => {
+  //the current number of reviews to render
   const [count, setCount] = useState(2);
 
+  //gets all reviews for current item
   useEffect( () => {
     setCount(2);
     axios.get('/reviews', {
@@ -22,10 +23,12 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
     })
   },[itemId])
 
+  //increases the amount of rendered reviews
   const moreReviews = () => {
     setCount(count + 2);
   }
 
+  //grabs a new list of reviews sorted by the chosen option
   const selectSort = (e) => {
     axios.get('/reviews', {
       params: {
@@ -39,6 +42,7 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
       console.log('ReviewList err: ', err)
     })
   }
+
   var mapList = list;
   if (list.length === 0) {
     mapList = defaultList;
@@ -46,7 +50,10 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
 
   if (mapList.length === 0) {
     return (
-    <div>Loading reviews...</div>
+      <div>
+        <div>Be the first to write a review!</div>
+        <button onClick={clickWriteReview}>Write a review</button>
+      </div>
     )
   } else {
     return (
@@ -64,6 +71,7 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
           }
         })}
         <button onClick={moreReviews}>More reviews</button>
+        <button onClick={clickWriteReview}>Write a review</button>
       </div>
       )
   }
