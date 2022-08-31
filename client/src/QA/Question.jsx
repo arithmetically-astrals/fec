@@ -25,7 +25,7 @@ const Question = (props) => {
       <AnswerList answers={answers} moreAnswers={moreAnswers}/>
       {answers.length > 2
       ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
-      : <></>}
+      : null}
     </div>
   )
 }

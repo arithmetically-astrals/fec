@@ -33,11 +33,11 @@ const QA = () => {
     <div id='qa' className='widget'>
       <h1>Questions</h1>
       {questions.length === 0
-      ? <></>
+      ? null
       : <Search search={search} setSearch={setSearch}/>}
       <QuestionList questions={questions} search={search} questionCount={questionCount}/>
       {questions.length <=  questionCount
-      ? <></>
+      ? null
       :<MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>}
       <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
     </div>
