@@ -21,7 +21,7 @@ const QuestionList = (props) => {
   }
 
   return (
-    <div>
+    <div data-testid='questions'>
       {!props.questions.length
       ? <div>Be the first to ask a question...</div>
       : props.search.length >= 3
