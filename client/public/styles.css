@@ -339,7 +339,6 @@ body {
 #related-card-container {
   position: relative;
   max-width: 1200px;
-
 }
 
 #related-card-list {
@@ -348,7 +347,7 @@ body {
   max-width: 100%;
   display: flex;
   gap: 1rem;
-  overflow-x: auto;
+  overflow-x: scroll;
   scroll-behavior: smooth;
 }
 
@@ -371,6 +370,14 @@ body {
   padding: 10px 0 10px 10px;
 }
 
+#related-card {
+  position: relative;
+  padding: 0.25rem;
+  width: 300px;
+  border-radius: 0.25rem;
+  height: 450px;
+}
+
 #related-product-name {
   padding: 0 0 10px 10px;
   font-size: 1.1em;
@@ -378,7 +385,9 @@ body {
 }
 
 #related-product-price {
-  padding: 0 0 10px 10px;
+  padding-left: 13px;
+  position: absolute;
+  bottom: 25px;
   font-size: 0.75em;
 }
 
