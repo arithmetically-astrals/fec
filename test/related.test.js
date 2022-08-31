@@ -10,6 +10,7 @@ require("dotenv").config();
 axios.defaults.baseURL = `http://localhost:${process.env.PORT}`;
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
+
 describe('related products', function() {
 
   const user = userEvent.setup();
