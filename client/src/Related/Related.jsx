@@ -65,7 +65,8 @@ function Related({itemId, starRating}) {
         <div id='related' className='widget'>
           <RelatedTitle/>
           {/* <ItemComparison />*/}
-          <RelatedList defaultData={defaultData} productList={productList} itemId={itemId} /*colorScheme={colorScheme}*//>
+          <RelatedList defaultData={defaultData} productList={productList} itemId={itemId}
+          starRating={starRating} /*colorScheme={colorScheme}*//>
           <OutfitTitle />
           {/*<OutfitList defaultData={defaultData} colorScheme={colorScheme}/> */}
         </div>
