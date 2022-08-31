@@ -11,6 +11,7 @@ const Question = (props) => {
   const [answers, setAnswers] = useState([]);
   const [moreAnswers, setMoreAnswers] = useState(false);
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
+  const [reported, setReported] = useState(false);
 
   useEffect(() => {
     setAnswers(Object.values(props.question.answers));
@@ -53,10 +54,19 @@ const Question = (props) => {
             });
       }}>Helpful?</a>
       : <>Helpful!</>
-      } Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id} answers={props.question.answers} setAnswers={setAnswers}/> | <a href="#" onClick={(e) => {
+      } Yes({props.question.question_helpfulness}) | <AddAnswer question_id={props.question.question_id} answers={props.question.answers} setAnswers={setAnswers}/> | {reported
+      ? <>Reported</>
+      : <a href="#" onClick={(e) => {
         e.preventDefault();
-        console.log('report question!');
+        axios.put(`/qa/questions/${props.question.question_id}/report`)
+          .then(() => {
+            setReported(true);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }}>Report</a>
+      }
       <AnswerList answers={answers} moreAnswers={moreAnswers} question_id={props.question.question_id} setAnswers={setAnswers}/>
       {answers.length > 2
       ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>

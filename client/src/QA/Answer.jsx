@@ -13,7 +13,6 @@ const Answer = (props) => {
       tempStorage[props.answer.answer_id] = props.answer.helpfulness;
     }
     setInitialAnswerHelpfulness(tempStorage);
-    console.log(props.answer.helpfulness, initialAnswerHelpfulness[props.answer.answer_id])
   }, [props.answer]);
 
   return (
