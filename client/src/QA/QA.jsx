@@ -21,6 +21,14 @@ const QA = () => {
       }
     })
       .then((response) => {
+        response.data.results.forEach((question) => {
+          if (Object.values(question.answers).length !== 0) {
+            Object.values(question.answers).forEach((answerObj) => {
+              answerObj.answer_id = answerObj.id;
+              delete answerObj.id;
+            })
+          }
+        })
         console.log(response.data.results);
         setQuestions(response.data.results);
       })
@@ -33,12 +41,16 @@ const QA = () => {
     <div id='qa' className='widget'>
       <h1>Questions</h1>
       {questions.length === 0
-      ? null
-      : <Search search={search} setSearch={setSearch}/>}
-      <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id}/>
-      {questions.length <=  questionCount
-      ? null
-      :<MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>}
+      ? <div>Be the first to ask a question...</div>
+      : <>
+          <Search search={search} setSearch={setSearch}/>
+          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id}/>
+          {questions.length <= questionCount
+          ? null
+          : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
+          }
+        </>
+      }
       <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
     </div>
   )

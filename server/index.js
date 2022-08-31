@@ -242,17 +242,51 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 
 //report a question
 app.put('/qa/questions/:question_id/report', (req, res) => {
-
+  axios.put(`${process.env.API}/qa/questions/${req.params.question_id}/report`, null, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
+  axios.put(`${process.env.API}/qa/answers/${req.params.answer_id}/helpful`, null, {
 
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 //report an answer
 app.put('/qa/answers/:answer_id/report', (req, res) => {
-
+  axios.put(`${process.env.API}/qa/answers/${req.params.answer_id}/report`, null, {
+    headers: {
+      Authorization: process.env.AUTH_CODE
+    }
+  })
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      console.log(err.response.data);
+      res.sendStatus(501);
+    });
 });
 
 const PORT = process.env.PORT || 8080;

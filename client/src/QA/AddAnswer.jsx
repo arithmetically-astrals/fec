@@ -19,7 +19,6 @@ const AddAnswer = (props) => (
           }
         })
           .then((response) => {
-            //sort by seller, then helpfulness
             props.setAnswers(response.data.results);
           })
           .catch((err) => {
