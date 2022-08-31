@@ -3,6 +3,7 @@ import Answer from "./Answer.jsx";
 
 const AnswerList = (props) => {
 
+  //sort by seller, then helpfulness
   let renderedAnswers = [];
   if (props.moreAnswers) {
     renderedAnswers = props.answers;
