@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
 const QuestionModal = (props) => {
@@ -78,27 +78,33 @@ const QuestionModal = (props) => {
           </div>
         </div>
         <button id='qa-question-modal-button' onClick={(e) => {
+          let sendRequest = true;
           if (body === '') {
             setEmptyBody(true);
+            sendRequest = false;
           } else {
             setEmptyBody(false);
           }
           if (name === '') {
             setEmptyName(true);
+            sendRequest = false;
           } else {
             setEmptyName(false);
           }
           if (email === '') {
             setEmptyEmail(true);
+            sendRequest = false;
           } else {
             setEmptyEmail(false);
-            if (email === 'invalid') {
+            if ((email.substr(-4) !== '.com' && email.substr(-4) !== '.edu' && email.substr(-4) !== '.gov') || email.indexOf('@') === -1 || email.substr(0, 1) === '@' || email.substr(-5, 1) === '@') {
               setInvalidEmail(true);
+              sendRequest = false;
             } else {
               setInvalidEmail(false);
             }
           }
-          if (!emptyBody && !emptyName && !emptyEmail && !invalidEmail) {
+          if (sendRequest) {
+            props.setQuestionModal(false);
             axios.post('/qa/questions', {
               body: body,
               name: name,

@@ -10,11 +10,11 @@ const AddQuestion = (props) => {
   return (
     <>
       {questionModal
-      ? <QuestionModal productName={props.productName} initialQuestionHelpfulness={props.initialQuestionHelpfulness} setInitialQuestionHelpfulness={props.setInitialQuestionHelpfulness} setQuestions={props.setQuestions} product_id={props.product_id}/>
+      ? <QuestionModal productName={props.productName} initialQuestionHelpfulness={props.initialQuestionHelpfulness} setInitialQuestionHelpfulness={props.setInitialQuestionHelpfulness} setQuestions={props.setQuestions} product_id={props.product_id} setQuestionModal={setQuestionModal}/>
       : null
       }
       <button onClick={() => {
-        BlurToggle();
+        // BlurToggle();
         setQuestionModal(true);
       }}>Add a question</button>
     </>
