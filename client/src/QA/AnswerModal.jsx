@@ -12,16 +12,16 @@ const AnswerModal = (props) => {
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const modal = useRef(null);
-  const initialLoad = useRef(false);
+  const initialLoad = useRef(true);
 
   const closeModal = (ref) => {
     useEffect(() => {
       const handleOutsideClick = (e) => {
         if (ref.current && !ref.current.contains(e.target)) {
           if (initialLoad.current) {
-            props.setAnswerModal(false);
+            initialLoad.current = false;
           } else {
-            initialLoad.current = true;
+            props.setAnswerModal(false);
           }
         }
       }
