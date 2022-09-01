@@ -428,4 +428,13 @@ body {
   z-index: 5;
 }
 
+#qa-search {
+
+}
+
+#qa-answers {
+  max-height: 50vh;
+  overflow: auto;
+}
+
 /*# sourceMappingURL=styles.css.map */
