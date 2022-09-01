@@ -25,14 +25,13 @@ const AddQuestion = (props) => {
               }
             })
               .then((response) => {
+                let tempObj = props.initialQuestionHelpfulness;
                 response.data.results.forEach((question) => {
-                  if (Object.values(question.answers).length !== 0) {
-                    Object.values(question.answers).forEach((answerObj) => {
-                      answerObj.answer_id = answerObj.id;
-                      delete answerObj.id;
-                    })
+                  if (props.initialQuestionHelpfulness[question.question_id] === undefined) {
+                    tempObj[question.question_id] = question.question_helpfulness;
                   }
                 })
+                props.setInitialQuestionHelpfulness(tempObj);
                 props.setQuestions(response.data.results);
               })
               .catch((err) => {

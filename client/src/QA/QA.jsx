@@ -10,6 +10,8 @@ const QA = () => {
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
   const [questionCount, setQuestionCount] = useState(4);
+  const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
+  const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
 
   let product_id = 37311;
 
@@ -21,20 +23,23 @@ const QA = () => {
       }
     })
       .then((response) => {
+        let tempObj = {};
         response.data.results.forEach((question) => {
-          if (Object.values(question.answers).length !== 0) {
-            Object.values(question.answers).forEach((answerObj) => {
-              answerObj.answer_id = answerObj.id;
-              delete answerObj.id;
-            })
-          }
+          tempObj[question.question_id] = question.question_helpfulness;
         })
-        console.log(response.data.results);
+        setInitialQuestionHelpfulness(tempObj);
+        tempObj = {};
+        response.data.results.forEach((question) => {
+          Object.keys(question.answers).forEach((id) => {
+            tempObj[id] = question.answers[id].helpfulness;
+          })
+        })
+        setInitialAnswerHelpfulness(tempObj);
         setQuestions(response.data.results);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }, []);
 
   return (
@@ -44,14 +49,14 @@ const QA = () => {
       ? <div>Be the first to ask a question...</div>
       : <>
           <Search search={search} setSearch={setSearch}/>
-          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id}/>
+          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness}/>
           {questions.length <= questionCount
           ? null
           : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
           }
         </>
       }
-      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount}/>
+      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} initialQuestionHelpfulness={initialQuestionHelpfulness}/>
     </div>
   )
 
