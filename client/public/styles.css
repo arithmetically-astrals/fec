@@ -433,7 +433,6 @@ body {
 }
 
 #qa-question-container {
-  display: inline-block;
   border-top: 2px solid #BBBBBB;
   border-bottom: 1px dashed #BBBBBB;
   margin-bottom: 15px;
