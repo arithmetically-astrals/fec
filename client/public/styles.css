@@ -370,9 +370,26 @@ body {
   height: 450px;
 }
 
-/* #related-star-button {
+#related-star-button {
+  position: absolute;
+  font-size: 1.5em;
+  top: 10px;
+  right: 10px;
+  color: #E5B3FE;
+}
 
-} */
+#related-background-modal {
+  background: white;
+  color: black;
+  display: flex;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  width: 25%;
+  height: 40%;
+  z-index: 50;
+  overflow-y: scroll;
+}
 
 #related-product-name {
   padding: 0 0 10px 10px;

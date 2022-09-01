@@ -1,11 +1,12 @@
 import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
+import ItemComparison from './ItemComparison.jsx';
 
 const axios = require('axios');
 
 const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
-  const [showing, setShowing] = useState(null);
+  const [show, setShow] = useState(false);
   const [productImage, setProductImage] = useState(null);
   const [relatedStarRating, setRelatedStarRating] = useState(0);
 
@@ -45,11 +46,12 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
       })
   }, [itemId]);
 
+
   return (
     <div id='related-card'>
-      <div id='related-star-button'>
-        <div id='related-comparison'>
-          </div>
+      <div id='related-comparison-and-star-button'>
+        <div id='related-star-button' onClick={() => {setShow(!show);}}>&#9733;</div>
+        <ItemComparison id='related-comparison' product={product} defaultData={defaultData} show={show} setShow={setShow}/>
       </div>
       <div
       onClick={() => {

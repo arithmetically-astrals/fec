@@ -19,7 +19,7 @@ describe('related products', function() {
   it('should render related products on load', () => {
     return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
       .then(() => {
-        expect(screen.getByTestId('productList').toExist);
+        expect(screen.getByTestId('related').toExist);
       })
   })
   });
