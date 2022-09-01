@@ -87,6 +87,12 @@ app.get('/reviews', (req, res) => {
   })
 });
 
+//posts review to server
+app.post('/review/post', (req, res) => {
+  res.status(201);
+  res.send(req.body);
+})
+
 //gets all meta review info for item
 app.get('/reviews/meta', (req, res) => {
   var idNum = req.query.product_id;
