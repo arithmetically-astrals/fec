@@ -501,6 +501,10 @@ body {
   margin-left: 30px;
 }
 
+#qa-question-modal-error {
+  color: red;
+}
+
 .blurred {
   filter: blur(2px);
 }
