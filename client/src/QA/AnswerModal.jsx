@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
 
 const AnswerModal = (props) => {
@@ -11,9 +11,31 @@ const AnswerModal = (props) => {
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
+  const modal = useRef(null);
+  const initialLoad = useRef(false);
+
+  const closeModal = (ref) => {
+    useEffect(() => {
+      const handleOutsideClick = (e) => {
+        if (ref.current && !ref.current.contains(e.target)) {
+          if (initialLoad.current) {
+            props.setAnswerModal(false);
+          } else {
+            initialLoad.current = true;
+          }
+        }
+      }
+      document.addEventListener('click', handleOutsideClick);
+      return () => {
+        document.removeEventListener('click', handleOutsideClick);
+      }
+    }, [ref]);
+  }
+
+  closeModal(modal);
 
   return (
-    <div id='qa-modal'>
+    <div id='qa-modal' ref={modal}>
       <h2 id='qa-modal-header'>Submit Your Answer</h2>
       <h6 id='qa-modal-header'>{props.productName}: {props.question.question_body}</h6>
       <div>
