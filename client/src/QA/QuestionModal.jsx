@@ -95,7 +95,9 @@ const QuestionModal = (props) => {
             sendRequest = false;
           } else {
             setEmptyEmail(false);
-            if ((email.substr(-4) !== '.com' && email.substr(-4) !== '.edu' && email.substr(-4) !== '.gov') || email.indexOf('@') === -1 || email.substr(0, 1) === '@' || email.substr(-5, 1) === '@') {
+            if (email.toLowerCase().match(
+              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            ) === null) {
               setInvalidEmail(true);
               sendRequest = false;
             } else {
