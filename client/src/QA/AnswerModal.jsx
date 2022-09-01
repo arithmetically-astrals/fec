@@ -57,7 +57,7 @@ const AnswerModal = (props) => {
             <label><b>Your email* </b></label>
           </div>
           <div>
-            <input type='text' placeholder='Why did you like the product or not?' onChange={(e) => {
+            <input type='text' maxLength='60' placeholder='Example: jack@email.com' onChange={(e) => {
               setEmail(e.target.value);
             }}/>
           </div>
