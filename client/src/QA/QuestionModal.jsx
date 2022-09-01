@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 const QuestionModal = (props) => {
@@ -129,7 +129,7 @@ const QuestionModal = (props) => {
               .catch((err) => {
                 console.log(err);
               });
-            }
+          }
           }}>Submit</button>
       </div>
     </div>
