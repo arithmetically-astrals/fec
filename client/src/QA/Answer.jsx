@@ -20,25 +20,14 @@ const Answer = (props) => {
         e.preventDefault();
         axios.put(`/qa/answers/${props.answer.id}/helpful`)
           .then(() => {
-            axios.get(`/qa/questions/:question_id/answers`, {
+            axios.get('/qa/questions', {
               params: {
-                question_id: props.question_id,
+                product_id: props.product_id,
                 count: 10000
               }
             })
               .then((response) => {
-                axios.get('/qa/questions', {
-                  params: {
-                    product_id: props.product_id,
-                    count: 10000
-                  }
-                })
-                  .then((response) => {
-                    props.setQuestions(response.data.results);
-                  })
-                  .catch((err) => {
-                    console.log(err);
-                  });
+                props.setQuestions(response.data.results);
               })
               .catch((err) => {
                 console.log(err);
