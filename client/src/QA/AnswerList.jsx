@@ -39,7 +39,7 @@ const AnswerList = (props) => {
       ? <div>
           A: {renderedAnswers.map((answer, index) => (
             <div key={index}>
-              <Answer answer={answer} question_id={props.question_id} setAnswers={props.setAnswers}/>
+              <Answer answer={answer} question_id={props.question_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
             </div>
           ))}
         </div>

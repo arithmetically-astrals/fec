@@ -12,18 +12,25 @@ const AddAnswer = (props) => (
       photos: []
     })
       .then(() => {
-        axios.get('/qa/questions/:question_id/answers', {
+        axios.get('/qa/questions', {
           params: {
-            question_id: props.question_id,
+            product_id: props.product_id,
             count: 10000
           }
         })
           .then((response) => {
-            props.setAnswers(response.data.results);
+            let tempObj = {};
+            response.data.results.forEach((question) => {
+              Object.keys(question.answers).forEach((id) => {
+                tempObj[id] = question.answers[id].helpfulness;
+              })
+            })
+            props.setInitialAnswerHelpfulness(tempObj);
+            props.setQuestions(response.data.results);
           })
           .catch((err) => {
             console.log(err);
-          })
+          });
       })
       .catch((err) => {
         console.log(err);
