@@ -36,7 +36,7 @@ const AnswerList = (props) => {
       }
       setRenderedAnswers(truncatedSortedAnswers);
     }
-  }, [props.question])
+  }, [props.question, moreAnswers])
 
   return (
     <div>
