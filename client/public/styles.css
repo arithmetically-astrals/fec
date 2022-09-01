@@ -328,23 +328,30 @@ body {
 
 #review-img-modal {
   position: fixed;
-  width: 80%;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  width: auto;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 4;
+  padding: 10px;
 }
 
 #review-write-form {
   position: fixed;
-  background-color: #ccc;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
   width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 5;
+  padding: 10px;
 }
 
 #related-card-container {
