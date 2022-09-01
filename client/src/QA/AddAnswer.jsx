@@ -5,7 +5,7 @@ const AddAnswer = (props) => (
   <a href="#" onClick={(e) => {
     e.preventDefault();
     //modal popup with body, name, email, photos
-    axios.post(`/qa/questions/${props.question_id}/answers`, {
+    axios.post(`/qa/questions/${props.question.question_id}/answers`, {
       body: 'temporary answer',
       name: 'John Doe',
       email: 'fakeemail@fakecompany.com',
@@ -19,10 +19,12 @@ const AddAnswer = (props) => (
           }
         })
           .then((response) => {
-            let tempObj = {};
+            let tempObj = props.initialAnswerHelpfulness;
             response.data.results.forEach((question) => {
               Object.keys(question.answers).forEach((id) => {
-                tempObj[id] = question.answers[id].helpfulness;
+                if (props.initialAnswerHelpfulness[id] === undefined) {
+                  tempObj[id] = question.answers[id].helpfulness;
+                }
               })
             })
             props.setInitialAnswerHelpfulness(tempObj);
