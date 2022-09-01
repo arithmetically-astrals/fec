@@ -11,9 +11,6 @@ import App from '../App.jsx';
 import axios from 'axios';
 
 function Related({itemId, starRating, setitemId}) {
-  //global state variables
-  // const [itemID] = useContext(App);
-  // const [colorScheme] = useContext(ThemeContext);
 
   const [productList, setProductList] = useState(null);
   const [defaultData, setDefaultData] = useState(null);
@@ -28,6 +25,7 @@ function Related({itemId, starRating, setitemId}) {
     })  //...then set default data state with response data
       .then(overviewData => {
         setDefaultData(overviewData.data);
+        setProductName(overviewData.data.name);
         //get related items to current product
         axios.get(`/products/relatedlist`, {
           params: {
