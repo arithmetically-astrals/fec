@@ -418,4 +418,47 @@ body {
   z-index: 5;
 }
 
+#qa-search {
+
+}
+
+#qa-question-container {
+  border-top: 2px solid #BBBBBB;
+  /* border-bottom: 1px dashed #BBBBBB;
+  margin-bottom: 15px; */
+  width: 100%;
+}
+
+#qa-question-tag {
+  display: inline;
+}
+
+#qa-question-body {
+  margin-left: 10px;
+}
+
+#qa-question-actions {
+  float: right;
+}
+
+#qa-answer-container {
+  display: flex;
+  border-top: 1px dashed #BBBBBB;
+  padding-top: 15px;
+}
+
+#qa-answer-tag {
+  flex: 1;
+}
+
+#qa-answers {
+  max-height: 50vh;
+  overflow: auto;
+  flex: 9;
+}
+
+#qa-answer {
+  margin-bottom: 15px;
+}
+
 /*# sourceMappingURL=styles.css.map */
