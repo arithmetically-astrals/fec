@@ -21,7 +21,7 @@ const QuestionList = (props) => {
   }
 
   return (
-    <div data-testid='questions'>
+    <div data-testid='questions' id='qa-questions'>
       {props.search.length >= 3
         ? props.questions.some((question) => (
             question.question_body.toUpperCase().indexOf(props.search.toUpperCase()) > -1

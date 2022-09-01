@@ -432,10 +432,13 @@ body {
 
 }
 
+#qa-questions {
+  max-height: 100vh;
+  overflow: auto;
+}
+
 #qa-question-container {
   border-top: 2px solid #BBBBBB;
-  /* border-bottom: 1px dashed #BBBBBB;
-  margin-bottom: 15px; */
   width: 100%;
 }
 
