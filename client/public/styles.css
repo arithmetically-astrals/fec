@@ -434,6 +434,7 @@ body {
 #qa-question-container {
   border-top: 2px solid #BBBBBB;
   width: 100%;
+  padding: 10px;
 }
 
 #qa-question-tag {
@@ -451,6 +452,7 @@ body {
 #qa-answer-container {
   display: flex;
   border-top: 1px dashed #BBBBBB;
+  padding: 10px;
   padding-top: 15px;
 }
 

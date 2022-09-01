@@ -50,7 +50,6 @@ const Answer = (props) => {
       }}>Report</a>
       }
       </div>
-
     </>
   )
 }
