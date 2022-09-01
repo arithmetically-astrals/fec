@@ -471,4 +471,20 @@ body {
   margin-bottom: 15px;
 }
 
+#qa-question-modal {
+  border: 3px solid black;
+  background: #fff;
+  position: fixed;
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.blurred {
+  filter: blur(2px);
+}
+
 /*# sourceMappingURL=styles.css.map */
