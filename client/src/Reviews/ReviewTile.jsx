@@ -33,22 +33,26 @@ const ReviewTile = ({info, setList, itemId, count}) => {
 
   //reports review and removes from review list
   const clickReport = (e) => {
-    axios.put('/reviews/report', {
-      review_id: info.review_id
-    }).then(reply => {
-      axios.get('/reviews', {
-        params: {
-          product_id: itemId,
-          count: count
-        }
-      }).then(response => {
-        setList(response.data.results);
+    if (window.confirm('Do you want to report this review?')) {
+      axios.put('/reviews/report', {
+        review_id: info.review_id
+      }).then(reply => {
+        axios.get('/reviews', {
+          params: {
+            product_id: itemId,
+            count: count
+          }
+        }).then(response => {
+          setList(response.data.results);
+        }).catch(err => {
+          console.log('Report error: ', err)
+        })
       }).catch(err => {
         console.log('Report error: ', err)
       })
-    }).catch(err => {
-      console.log('Report error: ', err)
-    })
+    } else {
+      return;
+    }
   }
 
   //shows img modal
