@@ -35,6 +35,7 @@ const QA = (props) => {
           })
         })
         setInitialAnswerHelpfulness(tempObj);
+        console.log(response.data.results);
         setQuestions(response.data.results);
       })
       .catch((err) => {

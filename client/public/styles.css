@@ -447,6 +447,7 @@ body {
 
 #qa-question-actions {
   float: right;
+  padding-right: 15px;
 }
 
 #qa-answer-container {

@@ -10,6 +10,7 @@ const AnswerList = (props) => {
   useEffect(() => {
     let sellerAnswers = [];
     let normalAnswers = [];
+    let truncatedSortedAnswers = [];
     props.answers.forEach((answer) => {
       if (answer.answerer_name.toUpperCase() === 'SELLER') {
         sellerAnswers.push(answer);
@@ -24,9 +25,6 @@ const AnswerList = (props) => {
       return b.helpfulness - a.helpfulness;
     });
     let sortedAnswers = sellerAnswers.concat(normalAnswers);
-
-    let truncatedSortedAnswers = [];
-
     if (moreAnswers) {
       setRenderedAnswers(sortedAnswers);
     } else {
@@ -38,7 +36,7 @@ const AnswerList = (props) => {
       }
       setRenderedAnswers(truncatedSortedAnswers);
     }
-  }, [moreAnswers])
+  }, [props.question])
 
   return (
     <div>

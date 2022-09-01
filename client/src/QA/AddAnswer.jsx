@@ -35,6 +35,7 @@ const AddAnswer = (props) => {
                 })
               })
               props.setInitialAnswerHelpfulness(tempObj);
+              console.log(response.data.results);
               props.setQuestions(response.data.results);
             })
             .catch((err) => {
