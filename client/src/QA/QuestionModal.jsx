@@ -91,6 +91,7 @@ const QuestionModal = (props) => {
             setEmptyName(false);
           }
           if (email === '') {
+            setInvalidEmail(false);
             setEmptyEmail(true);
             sendRequest = false;
           } else {
