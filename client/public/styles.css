@@ -433,19 +433,23 @@ body {
 }
 
 #qa-question-container {
-  display: flex;
+  display: inline-block;
+  border-top: 2px solid #BBBBBB;
+  border-bottom: 1px dashed #BBBBBB;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 #qa-question-tag {
-  flex: 1;
+  display: inline;
 }
 
 #qa-question-body {
-  flex: 1;
+  margin-left: 10px;
 }
 
 #qa-question-actions {
-  flex: 1;
+  float: right;
 }
 
 #qa-answer-container {
@@ -460,6 +464,10 @@ body {
   max-height: 50vh;
   overflow: auto;
   flex: 9;
+}
+
+#qa-answer {
+  margin-bottom: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */

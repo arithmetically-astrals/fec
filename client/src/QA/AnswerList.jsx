@@ -40,7 +40,7 @@ const AnswerList = (props) => {
           <h3 id='qa-answer-tag'>A: </h3>
           <div id='qa-answers'>
             {renderedAnswers.map((answer, index) => (
-              <div key={index}>
+              <div key={index} id='qa-answer'>
                 <Answer answer={answer} question_id={props.question_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
               </div>
             ))}

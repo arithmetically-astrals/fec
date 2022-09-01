@@ -13,10 +13,10 @@ const Question = (props) => {
     <div>
       <div id='qa-question-container'>
         <h3 id='qa-question-tag'>Q:</h3>
-        <div id='qa-question-body'>
+        <span id='qa-question-body'>
           {props.question.question_body}
-        </div>
-        <div id='qa-question-actions'>
+        </span>
+        <span id='qa-question-actions'>
           {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_id]
           ? <a href="#" onClick={(e) => {
               e.preventDefault();
@@ -53,7 +53,7 @@ const Question = (props) => {
               });
           }}>Report</a>
           }
-        </div>
+        </span>
       </div>
       <AnswerList answers={Object.values(props.question.answers)} moreAnswers={moreAnswers} question_id={props.question.question_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
       {Object.values(props.question.answers).length > 2
