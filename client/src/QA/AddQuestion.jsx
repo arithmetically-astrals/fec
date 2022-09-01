@@ -15,10 +15,33 @@ const AddQuestion = (props) => {
       <button onClick={() => {
         //have modal pop up with input body, name, email fields
         // BlurToggle();
-        setQuestionModal(<form id='qa-question-modal'>
+        setQuestionModal(<div id='qa-question-modal'>
           <h2>Ask Your Question</h2>
-          <h4>About the {props.productName}</h4>
-        </form>);
+          <h6>About the {props.productName}</h6>
+          <div>
+            <div id='qa-question-modal-input'>
+              <label><b>Your Question* </b></label>
+              <input type='text' maxLength='1000' name='question'/>
+            </div>
+            <div id='qa-question-modal-input'>
+              <label><b>What is your nickname* </b></label>
+              <input type='text' name='nickname' placeholder='Example: jackson11!'/>
+              <div>
+                For privacy reasons, do not use your full name or email address
+              </div>
+            </div>
+            <div id='qa-question-modal-input'>
+              <label><b>Your email* </b></label>
+              <input type='text' name='email' placeholder='Why did you like the product or not?'/>
+              <div>
+                For authentication reasons, you will not be emailed
+              </div>
+            </div>
+            <button onClick={(e) => {
+              console.log('hi')
+              }}>Submit</button>
+          </div>
+        </div>);
         // axios.post('/qa/questions', {
         //   body: 'trying something',
         //   name: 'John Doe',
