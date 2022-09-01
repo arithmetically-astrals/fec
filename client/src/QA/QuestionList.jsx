@@ -8,7 +8,7 @@ const QuestionList = (props) => {
     let i = 0;
     let j = 0;
     while (i < props.questionCount && j < props.questions.length) {
-      if (props.questions[j].question_body.toUpperCase().includes(props.search.toUpperCase())) {
+      if (props.questions[j].question_body.toUpperCase().includes(props.search.toUpperCase()) && props.questions[j]) {
         i++;
         renderedQuestions.push(props.questions[j]);
       }
@@ -16,7 +16,9 @@ const QuestionList = (props) => {
     }
   } else {
     for (let i = 0; i < props.questionCount; i++) {
-      renderedQuestions.push(props.questions[i]);
+      if (props.questions[i]) {
+        renderedQuestions.push(props.questions[i]);
+      }
     }
   }
 
