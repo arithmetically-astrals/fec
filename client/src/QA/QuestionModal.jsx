@@ -22,7 +22,6 @@ const QuestionModal = (props) => {
           </div>
           <div>
             <textarea id='qa-question-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
-              console.log(e.target.value);
               setBody(e.target.value);
             }}/>
           </div>
