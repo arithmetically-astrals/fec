@@ -157,27 +157,6 @@ app.get('/qa/questions', (req, res) => {
     });
 });
 
-//gets all answers for a question id
-app.get('/qa/questions/:question_id/answers', (req, res) => {
-  axios.get(`${process.env.API}/qa/questions/${req.query.question_id}/answers`, {
-    headers: {
-      Authorization: process.env.AUTH_CODE
-    },
-    params: {
-      question_id: req.query.question_id,
-      count: req.query.count
-    }
-  })
-    .then((response) => {
-      res.status(200);
-      res.send(response.data);
-    })
-    .catch((err) => {
-      console.log(err.response.data);
-      res.sendStatus(404);
-    });
-});
-
 //posts a new question
 app.post('/qa/questions', (req, res) => {
   axios.post(`${process.env.API}/qa/questions`, {
@@ -259,7 +238,6 @@ app.put('/qa/questions/:question_id/report', (req, res) => {
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {
   axios.put(`${process.env.API}/qa/answers/${req.params.answer_id}/helpful`, null, {
-
     headers: {
       Authorization: process.env.AUTH_CODE
     }

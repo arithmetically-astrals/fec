@@ -36,12 +36,15 @@ const AnswerList = (props) => {
   return (
     <div>
       {renderedAnswers.length
-      ? <div>
-          A: {renderedAnswers.map((answer, index) => (
-            <div key={index}>
-              <Answer answer={answer} question_id={props.question_id} setAnswers={props.setAnswers}/>
-            </div>
-          ))}
+      ? <div id='qa-answer-container'>
+          <h3 id='qa-answer-tag'>A: </h3>
+          <div id='qa-answers'>
+            {renderedAnswers.map((answer, index) => (
+              <div key={index} id='qa-answer'>
+                <Answer answer={answer} question_id={props.question_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
+              </div>
+            ))}
+          </div>
         </div>
       : null
       }

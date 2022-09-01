@@ -5,25 +5,34 @@ const AddAnswer = (props) => (
   <a href="#" onClick={(e) => {
     e.preventDefault();
     //modal popup with body, name, email, photos
-    axios.post(`/qa/questions/${props.question_id}/answers`, {
+    axios.post(`/qa/questions/${props.question.question_id}/answers`, {
       body: 'temporary answer',
       name: 'John Doe',
       email: 'fakeemail@fakecompany.com',
       photos: []
     })
       .then(() => {
-        axios.get('/qa/questions/:question_id/answers', {
+        axios.get('/qa/questions', {
           params: {
-            question_id: props.question_id,
+            product_id: props.product_id,
             count: 10000
           }
         })
           .then((response) => {
-            props.setAnswers(response.data.results);
+            let tempObj = props.initialAnswerHelpfulness;
+            response.data.results.forEach((question) => {
+              Object.keys(question.answers).forEach((id) => {
+                if (props.initialAnswerHelpfulness[id] === undefined) {
+                  tempObj[id] = question.answers[id].helpfulness;
+                }
+              })
+            })
+            props.setInitialAnswerHelpfulness(tempObj);
+            props.setQuestions(response.data.results);
           })
           .catch((err) => {
             console.log(err);
-          })
+          });
       })
       .catch((err) => {
         console.log(err);
