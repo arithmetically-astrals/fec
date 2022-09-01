@@ -70,7 +70,6 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
         <div id='related-category'>{product.category}</div>
         <div id='related-product-price'>${product.default_price}</div>
         {!relatedStarRating ? <div></div> : <div id='related-product-rating'>{StarScale(relatedStarRating)} </div>}
-
       </div>
     </div>
   )
