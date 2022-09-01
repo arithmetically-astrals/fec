@@ -25,7 +25,7 @@ const App = () => {
 
     <Overview />
     <Related itemId={itemId} setitemId={setitemId}/>
-    <QA />
+    <QA itemId={itemId}/>
     <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
   </div>
 }

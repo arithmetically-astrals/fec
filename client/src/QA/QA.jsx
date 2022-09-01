@@ -5,15 +5,16 @@ import MoreQuestions from "./MoreQuestions.jsx";
 import AddQuestion from "./AddQuestion.jsx";
 import axios from "axios";
 
-const QA = () => {
+const QA = (props) => {
 
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
   const [questionCount, setQuestionCount] = useState(4);
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
+  const [productName, setProductName] = useState('');
 
-  let product_id = 37311;
+  let product_id = props.itemId;
 
   useEffect(() => {
     axios.get('/qa/questions', {
@@ -40,7 +41,18 @@ const QA = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+    axios.get(`/products/item`, {
+      params: {
+        product_id: props.itemId
+      }
+    })
+      .then((response) => {
+        setProductName(response.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [props.itemId]);
 
   return (
     <div id='qa' className='widget'>
@@ -56,7 +68,7 @@ const QA = () => {
           }
         </>
       }
-      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} initialQuestionHelpfulness={initialQuestionHelpfulness}/>
+      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} initialQuestionHelpfulness={initialQuestionHelpfulness} productName={productName}/>
     </div>
   )
 
