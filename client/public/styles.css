@@ -432,10 +432,20 @@ body {
 
 }
 
-#qa-answers {
-  max-height: 50vh;
-  overflow: auto;
-  flex: 9;
+#qa-question-container {
+  display: flex;
+}
+
+#qa-question-tag {
+  flex: 1;
+}
+
+#qa-question-body {
+  flex: 1;
+}
+
+#qa-question-actions {
+  flex: 1;
 }
 
 #qa-answer-container {
@@ -444,6 +454,12 @@ body {
 
 #qa-answer-tag {
   flex: 1;
+}
+
+#qa-answers {
+  max-height: 50vh;
+  overflow: auto;
+  flex: 9;
 }
 
 /*# sourceMappingURL=styles.css.map */
