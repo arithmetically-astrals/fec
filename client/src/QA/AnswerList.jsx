@@ -34,7 +34,7 @@ const AnswerList = (props) => {
   }
 
   return (
-    <div id='qa-answer-list'>
+    <div>
       {renderedAnswers.length
       ? <div id='qa-answer-container'>
           <h3 id='qa-answer-tag'>A: </h3>

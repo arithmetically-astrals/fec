@@ -435,6 +435,15 @@ body {
 #qa-answers {
   max-height: 50vh;
   overflow: auto;
+  flex: 9;
+}
+
+#qa-answer-container {
+  display: flex;
+}
+
+#qa-answer-tag {
+  flex: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */
