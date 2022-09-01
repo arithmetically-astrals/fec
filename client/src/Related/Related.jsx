@@ -10,7 +10,7 @@ import App from '../App.jsx';
 
 import axios from 'axios';
 
-function Related({itemId, starRating}) {
+function Related({itemId, starRating, setitemId}) {
   //global state variables
   // const [itemID] = useContext(App);
   // const [colorScheme] = useContext(ThemeContext);
@@ -64,11 +64,9 @@ function Related({itemId, starRating}) {
         <div id='related' className='widget'>
           <RelatedTitle/>
           {/* <ItemComparison />*/}
-          <RelatedList defaultData={defaultData} productList={productList} itemId={itemId}
-          starRating={starRating} />
+          <RelatedList defaultData={defaultData} productList={productList} setitemId={setitemId} />
           <OutfitTitle />
-          <OutfitList defaultData={defaultData} productList={productList} itemId={itemId}
-          starRating={starRating}/>
+          <OutfitList defaultData={defaultData} productList={productList} />
         </div>
       );
     }
