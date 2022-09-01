@@ -82,7 +82,7 @@ const AnswerModal = (props) => {
             <label><b>Upload your photos</b></label>
           </div>
           <div>
-            <button>Upload</button>
+            <button>Choose File</button>
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
@@ -114,10 +114,10 @@ const AnswerModal = (props) => {
           if (sendRequest) {
             props.setQuestionModal(false);
             axios.post(`/qa/questions/${props.question.question_id}/answers`, {
-              body: 'temporary answer',
-              name: 'John Doe',
-              email: 'fakeemail@fakecompany.com',
-              photos: []
+              body: body,
+              name: name,
+              email: email,
+              photos: photos
             })
               .then(() => {
                 axios.get('/qa/questions', {

@@ -12,7 +12,8 @@ const AddAnswer = (props) => {
       ? <AnswerModal question={props.question} product_id={props.product_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} setQuestions={props.setQuestions} productName={props.productName}/>
       : null
       }
-      <a href="#" onClick={() => {
+      <a href="#" onClick={(e) => {
+        e.preventDefault();
         setAnswerModal(true);
       }}>Add Answer</a>
     </>
