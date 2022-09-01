@@ -6,7 +6,7 @@ const AnswerModal = (props) => {
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [photos, setPhotos] = useState('');
+  const [photos, setPhotos] = useState([]);
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
@@ -114,7 +114,7 @@ const AnswerModal = (props) => {
             }
           }
           if (sendRequest) {
-            props.setQuestionModal(false);
+            props.setAnswerModal(false);
             axios.post(`/qa/questions/${props.question.question_id}/answers`, {
               body: body,
               name: name,
