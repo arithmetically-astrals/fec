@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 
-// var tempAnswerStorage = {};
-
 const Answer = (props) => {
 
   const [reported, setReported] = useState(false);
