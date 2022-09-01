@@ -4,8 +4,7 @@ import StarScale from '../../Shared/StarScale.jsx';
 
 const axios = require('axios');
 
-const RelatedListItem = ({itemId, product, defaultData}) => {
-  // const [productId, setProductId] = useContext(ProductContext);
+const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
   const [showing, setShowing] = useState(null);
   const [productImage, setProductImage] = useState(null);
   const [relatedStarRating, setRelatedStarRating] = useState(0);
@@ -53,9 +52,9 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
           </div>
       </div>
       <div
-      // onClick={() => {
-        // setProductId(itemId);
-      // }}
+      onClick={() => {
+        setitemId(itemId);
+      }}
       >
         <img src={productImage}
         style={{

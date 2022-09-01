@@ -4,12 +4,11 @@ import RelatedListItem from './RelatedListItem.jsx';
 // import styled from 'styled-components';
 // import {TiArrowRightOutline, TiArrowLeftOutline} from 'react/icons/md';
 
-const RelatedList = ({defaultData, productList}) => {
+const RelatedList = ({defaultData, productList, setitemId}) => {
   const [showRight, setShowRight] = useState(true);
   const [slideLeft, setSlideLeft] = useState(0);
 
   const scrollRef = useRef();
-
 
   const handleScrollLeft = () => {
     setShowRight(true);
@@ -41,7 +40,7 @@ const RelatedList = ({defaultData, productList}) => {
 
       <div id='related-card-list' ref={scrollRef}>
         {productList.map((product) => {
-          return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} />
+          return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} setitemId={setitemId}/>
         })}
       </div>
 
