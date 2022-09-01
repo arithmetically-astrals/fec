@@ -429,7 +429,11 @@ body {
 }
 
 #qa-search {
-
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  border: 3px solid #ffcbf2;
+  outline: none;
 }
 
 #qa-questions {
