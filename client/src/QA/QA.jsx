@@ -5,7 +5,7 @@ import MoreQuestions from "./MoreQuestions.jsx";
 import AddQuestion from "./AddQuestion.jsx";
 import axios from "axios";
 
-const QA = () => {
+const QA = (props) => {
 
   const [questions, setQuestions] = useState([]);
   const [search, setSearch] = useState('');
@@ -13,7 +13,7 @@ const QA = () => {
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
 
-  let product_id = 37311;
+  let product_id = props.itemId;
 
   useEffect(() => {
     axios.get('/qa/questions', {
@@ -40,7 +40,7 @@ const QA = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.itemId]);
 
   return (
     <div id='qa' className='widget'>
