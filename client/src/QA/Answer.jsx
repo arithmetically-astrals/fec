@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
 
 const Answer = (props) => {
 
   const [reported, setReported] = useState(false);
+  const clicked = useRef(false);
 
   return (
     <>
@@ -16,7 +17,9 @@ const Answer = (props) => {
       })} | {props.answer.helpfulness === props.initialAnswerHelpfulness[props.answer.id]
       ? <a href="#" onClick={(e) => {
         e.preventDefault();
-        axios.put(`/qa/answers/${props.answer.id}/helpful`)
+        if (!clicked.current) {
+          clicked.current = true;
+          axios.put(`/qa/answers/${props.answer.id}/helpful`)
           .then(() => {
             axios.get('/qa/questions', {
               params: {
@@ -34,6 +37,7 @@ const Answer = (props) => {
           .catch((err) => {
             console.log(err);
           });
+        }
       }}>Helpful?</a>
       : <>Helpful!</>
       } ({props.answer.helpfulness}) | {reported

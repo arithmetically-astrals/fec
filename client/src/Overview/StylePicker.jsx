@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const StylePicker = ({itemId = 37311}) => {
-  const [styleInfo, setStyleInfo] = useState(0);
+const StylePicker = ({itemId, styleInfo}) => {
   const [productInfo, setProductInfo] = useState(0)
-
-  useEffect( () => {
-    axios.get('/products/styles', {
-      params: {
-        product_id: itemId
-      }
-    }).then(response => {
-      setStyleInfo(response.data);
-      console.log('styles', response.data.results[0].name)
-    }).catch(err => {
-      console.log('err: ', err)
-    })
-  },[itemId])
 
   useEffect( () => {
     axios.get('/products/item', {
@@ -30,7 +16,6 @@ const StylePicker = ({itemId = 37311}) => {
       console.log('err: ', err)
     })
   },[itemId])
-
 
   console.log('styleInfo', styleInfo)
   if (styleInfo.results === undefined ) {

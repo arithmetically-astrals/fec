@@ -48,7 +48,7 @@ const Reviews = ({itemId, starRating, setstarRating}) => {
     <h5>Ratings and Reviews</h5>
     <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} setstarCount={setstarCount} starCount={starCount} clickFilterStar={clickFilterStar} metaInfo={metaInfo} setmetaInfo={setmetaInfo} />
     <ReviewList itemId={itemId} starCount={starCount} list={list} setList={setList} defaultList={defaultList} setDefaultList={setDefaultList} clickWriteReview={clickWriteReview}/>
-    {writeReview ? <ReviewForm itemId={itemId} setWriteReview={setWriteReview} metaInfo={metaInfo}/> : null}
+    {writeReview ? <ReviewForm itemId={itemId} setWriteReview={setWriteReview} metaInfo={metaInfo} setDefaultList={setDefaultList}/> : null}
 
   </div>
   )

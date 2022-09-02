@@ -14,6 +14,7 @@ const AddAnswer = (props) => {
       }
       <a href="#" onClick={(e) => {
         e.preventDefault();
+        // BlurToggle();
         setAnswerModal(true);
       }}>Add Answer</a>
     </>

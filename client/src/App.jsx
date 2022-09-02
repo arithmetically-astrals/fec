@@ -24,7 +24,7 @@ const App = () => {
     </div>
     <div id='topMessage'>special message</div>
 
-    <Overview />
+    <Overview itemId={itemId} starRating={starRating} />
     <Related itemId={itemId} setitemId={setitemId}/>
     <QA itemId={itemId}/>
     <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
