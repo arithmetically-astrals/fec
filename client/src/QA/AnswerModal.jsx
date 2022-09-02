@@ -11,8 +11,11 @@ const AnswerModal = (props) => {
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
+  const [, updateState] = React.useState();
   const modal = useRef(null);
   const initialLoad = useRef(true);
+
+  const forceUpdate = React.useCallback(() => updateState({}), []);
 
   const closeModal = (ref) => {
     useEffect(() => {
@@ -33,28 +36,6 @@ const AnswerModal = (props) => {
   }
 
   closeModal(modal);
-
-  const previewFile = () => {
-    let preview = document.querySelector('#qa-modal-photos:not(.filled)');
-    let file = document.querySelector('input[type=file]').files[0];
-    let reader = new FileReader();
-
-    reader.onloadend = () => {
-      let url = URL.createObjectURL(file);
-      preview.src = url;
-      preview.classList.add('filled');
-      let photosClone = photos;
-      photosClone.push(url);
-      setPhotos(photosClone);
-      console.log(photosClone);
-    }
-
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = '';
-    }
-  }
 
   return (
     <div id='qa-modal' ref={modal}>
@@ -126,10 +107,27 @@ const AnswerModal = (props) => {
             <label><b>Upload your photos</b></label>
           </div>
           <div>
-            {console.log('right before render', photos.length)}
             {photos.length === 5
             ? null
-            : <input type='file' onChange={previewFile} multiple='multiple'/>
+            : <>
+                <div>
+                  {photos.length !== 4
+                  ? <>You can upload {5 - photos.length} more pictures</>
+                  : <>You can upload 1 more picture</>
+                  }
+                </div>
+                <input type='file' onChange={() => {
+                  let preview = document.querySelector('#qa-modal-photos:not(.filled)');
+                  let file = document.querySelector('input[type=file]').files[0];
+                  let url = URL.createObjectURL(file);
+                  preview.src = url;
+                  preview.classList.add('filled');
+                  let photosClone = photos;
+                  photosClone.push(url);
+                  setPhotos(photosClone);
+                  forceUpdate();
+                }} multiple='multiple'/>
+              </>
             }
             <div>
               <img id='qa-modal-photos' src='' height='200'/>
