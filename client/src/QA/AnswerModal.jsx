@@ -116,7 +116,7 @@ const AnswerModal = (props) => {
                   : <>You can upload 1 more picture</>
                   }
                 </div>
-                <input type='file' onChange={() => {
+                <input id='uploadphoto' type='file' multiple='multiple' style={{display: 'none'}} onChange={() => {
                   let preview = document.querySelector('#qa-modal-photo:not(.filled)');
                   let caption = document.querySelector('#qa-modal-caption:not(.filled)');
                   let file = document.querySelector('input[type=file]').files[0];
@@ -129,7 +129,10 @@ const AnswerModal = (props) => {
                   photosClone.push(url);
                   setPhotos(photosClone);
                   forceUpdate();
-                }} multiple='multiple'/>
+                }}/>
+                <input type='button' value='Upload a photo...' onClick={() => {
+                  document.getElementById('uploadphoto').click();
+                }}/>
               </div>
             }
             <div style={{display: photos.length ? 'initial' : 'none'}}>
