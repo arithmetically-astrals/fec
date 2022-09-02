@@ -40,8 +40,13 @@ const AnswerModal = (props) => {
     let reader = new FileReader();
 
     reader.onloadend = () => {
-      preview.src = reader.result;
+      let url = URL.createObjectURL(file);
+      preview.src = url;
       preview.classList.add('filled');
+      let photosClone = photos;
+      photosClone.push(url);
+      setPhotos(photosClone);
+      console.log(photosClone);
     }
 
     if (file) {
@@ -121,12 +126,18 @@ const AnswerModal = (props) => {
             <label><b>Upload your photos</b></label>
           </div>
           <div>
-            <input type='file' onChange={previewFile} multiple='multiple'/>
-            <img id='qa-modal-photos' src='' height='200'/>
-            <img id='qa-modal-photos' src='' height='200'/>
-            <img id='qa-modal-photos' src='' height='200'/>
-            <img id='qa-modal-photos' src='' height='200'/>
-            <img id='qa-modal-photos' src='' height='200'/>
+            {console.log('right before render', photos.length)}
+            {photos.length === 5
+            ? null
+            : <input type='file' onChange={previewFile} multiple='multiple'/>
+            }
+            <div>
+              <img id='qa-modal-photos' src='' height='200'/>
+              <img id='qa-modal-photos' src='' height='200'/>
+              <img id='qa-modal-photos' src='' height='200'/>
+              <img id='qa-modal-photos' src='' height='200'/>
+              <img id='qa-modal-photos' src='' height='200'/>
+            </div>
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
