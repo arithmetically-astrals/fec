@@ -16,12 +16,11 @@ const AddOutfitCard = ({defaultData, rating, setStorageChange, storageChange,pro
     <div id='outfitlist-addcard'
       onClick={() => {
         localStorage.setItem(`${defaultData.id}`, JSON.stringify(savedData));
-        setStorageChange(() => !storageChange);
+        setStorageChange(!storageChange);
       }}
     >
       <img src={`https://cdn.icon-icons.com/icons2/1875/PNG/512/additem_120286.png`}
         style={{
-
         objectFit: 'cover',
         overflow: 'hidden',
         width: '100%',

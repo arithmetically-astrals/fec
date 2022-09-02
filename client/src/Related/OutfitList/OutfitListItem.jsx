@@ -6,14 +6,14 @@ const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStar
 
   const storageOutfit = JSON.parse(localStorage.getItem(eachOutfit));
 
-  useEffect(() => {}, [eachOutfit, storageChange]);
+  // useEffect(() => {}, [eachOutfit, storageChange]);
 
   return (
     <div>
       <div id='outfitlist-card'>
         <div id='outfitlist-delete-button'
         onClick={() => {
-          setStorageChange(() => !storageChange);
+          setStorageChange(!storageChange);
           localStorage.removeItem(eachOutfit);
         }}>
         {/* <img src={'https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/cross-24-1024.png'}

@@ -16,7 +16,7 @@ const OutfitList = ({defaultData}) => {
   const scrollRef = useRef();
   const storedOutfits = Object.keys(localStorage);
 
-  useEffect(() => {}, [storageChange]);
+  // useEffect(() => {}, [storageChange]);
 
   useEffect(() => {
     axios.get(`/products/styles`, {
