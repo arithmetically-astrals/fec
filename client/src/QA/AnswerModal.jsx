@@ -35,12 +35,13 @@ const AnswerModal = (props) => {
   closeModal(modal);
 
   const previewFile = () => {
-    let preview = document.querySelector('#qa-modal-photos');
+    let preview = document.querySelector('#qa-modal-photos:not(.filled)');
     let file = document.querySelector('input[type=file]').files[0];
     let reader = new FileReader();
 
     reader.onloadend = () => {
       preview.src = reader.result;
+      preview.classList.add('filled');
     }
 
     if (file) {
@@ -121,7 +122,11 @@ const AnswerModal = (props) => {
           </div>
           <div>
             <input type='file' onChange={previewFile} multiple='multiple'/>
-            <img id='qa-modal-photos' src='' height='200' alt='Image preview...' />
+            <img id='qa-modal-photos' src='' height='200'/>
+            <img id='qa-modal-photos' src='' height='200'/>
+            <img id='qa-modal-photos' src='' height='200'/>
+            <img id='qa-modal-photos' src='' height='200'/>
+            <img id='qa-modal-photos' src='' height='200'/>
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
