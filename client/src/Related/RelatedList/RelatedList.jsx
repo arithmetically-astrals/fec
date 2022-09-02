@@ -6,6 +6,7 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
   const [showRight, setShowRight] = useState(true);
   const [slideLeft, setSlideLeft] = useState(0);
 
+
   const scrollRef = useRef();
 
   const handleScrollLeft = () => {

@@ -369,6 +369,7 @@ body {
   gap: 1rem;
   overflow-x: scroll;
   scroll-behavior: smooth;
+
 }
 
 #related-card, #outfitlist-addcard, #outfitlist-card {
@@ -409,7 +410,7 @@ body {
   top: 30%;
   left: 30%;
   width: 25%;
-  height: 40%;
+  height: 70%;
   z-index: 50;
   overflow-y: scroll;
 }

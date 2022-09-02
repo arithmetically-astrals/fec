@@ -15,7 +15,7 @@ const ItemComparison = ({product, defaultData, show, setShow}) => {
           <table>
             <thead>
               <tr>
-                <th>Comparison</th>
+                <th id='related-modal-title'>Comparison</th>
               </tr>
             </thead>
             <thead>
