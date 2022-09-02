@@ -2,7 +2,7 @@ import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
 
-const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStarRating}) => {
+const OutfitListItem = ({eachOutfit, setStorageChange, storageChange}) => {
 
   const storageOutfit = JSON.parse(localStorage.getItem(eachOutfit));
 

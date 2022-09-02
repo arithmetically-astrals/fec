@@ -89,7 +89,7 @@ const OutfitList = ({defaultData}) => {
 
         <div id='related-card-list' ref={scrollRef}>
         {storedOutfits.map((eachOutfit) => {
-          return <OutfitListItem key={eachOutfit} itemId={defaultData.id} defaultData={defaultData} storageChange={storageChange} setStorageChange={setStorageChange} eachOutfit={eachOutfit} outfitStarRating={outfitStarRating}/>
+          return <OutfitListItem key={eachOutfit} itemId={defaultData.id} defaultData={defaultData} storageChange={storageChange} setStorageChange={setStorageChange} eachOutfit={eachOutfit}/>
         })}
         </div>
 
