@@ -89,7 +89,6 @@ app.get('/reviews', (req, res) => {
 
 //posts review to server
 app.post('/review/post', (req, res) => {
-  console.log(req.body)
   axios.post(`${process.env.API}/reviews`, {
     product_id: req.body.product_id,
     rating: req.body.rating,

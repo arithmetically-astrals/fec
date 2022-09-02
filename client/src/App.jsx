@@ -24,12 +24,11 @@ const App = () => {
       </div>
       <div id='topMessage'>special message</div>
 
-      <Overview />
-      <Related itemId={itemId} setitemId={setitemId}/>
-      <QA itemId={itemId}/>
-      <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
-    </div>
-  )
+    <Overview itemId={itemId} starRating={starRating} />
+    <Related itemId={itemId} setitemId={setitemId}/>
+    <QA itemId={itemId}/>
+    <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
+  </div>
 }
 
 root.render(<App />);

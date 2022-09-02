@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const Carousel = ({itemId = 37311}) => {
+const Carousel = ({itemId, styleInfo}) => {
   const [metaInfo, setmetaInfo] = useState(0)
 
   useEffect( () => {
