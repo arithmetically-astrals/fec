@@ -61,7 +61,7 @@ const QA = (props) => {
       ? <div>Be the first to ask a question...</div>
       : <>
           <Search search={search} setSearch={setSearch}/>
-          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness}/>
+          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName}/>
           {questions.length <= questionCount
           ? null
           : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>

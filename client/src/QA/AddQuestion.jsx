@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import axios from "axios";
 import BlurToggle from "../Shared/BlurToggle.jsx";
 import QuestionModal from "./QuestionModal.jsx";
 

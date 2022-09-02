@@ -495,12 +495,12 @@ body {
   margin-bottom: 15px;
 }
 
-#qa-question-modal {
+#qa-modal {
   border: 3px solid black;
   background: #fff;
   position: fixed;
   width: 50%;
-  height: 80%;
+  height: 90%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -509,23 +509,23 @@ body {
   overflow: auto;
 }
 
-#qa-question-modal-header {
+#qa-modal-header {
   margin-left: 30px;
 }
 
-#qa-question-modal-input {
+#qa-modal-input {
   margin: 30px;
 }
 
-#qa-question-modal-textarea {
+#qa-modal-textarea {
   resize: none;
 }
 
-#qa-question-modal-button {
+#qa-modal-button {
   margin-left: 30px;
 }
 
-#qa-question-modal-error {
+#qa-modal-error {
   color: red;
 }
 

@@ -40,7 +40,7 @@ const Question = (props) => {
                 });
           }}>Helpful?</a>
           : <>Helpful!</>
-          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness}/> | {reported
+          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName}/> | {reported
           ? <>Reported</>
           : <a href="#" onClick={(e) => {
             e.preventDefault();

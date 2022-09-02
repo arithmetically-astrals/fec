@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
 
-const QuestionModal = (props) => {
+const AnswerModal = (props) => {
 
   const [body, setBody] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [photos, setPhotos] = useState([]);
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
@@ -20,7 +21,7 @@ const QuestionModal = (props) => {
           if (initialLoad.current) {
             initialLoad.current = false;
           } else {
-            props.setQuestionModal(false);
+            props.setAnswerModal(false);
           }
         }
       }
@@ -35,12 +36,12 @@ const QuestionModal = (props) => {
 
   return (
     <div id='qa-modal' ref={modal}>
-      <h2 id='qa-modal-header'>Ask Your Question</h2>
-      <h6 id='qa-modal-header'>About the {props.productName}</h6>
+      <h2 id='qa-modal-header'>Submit Your Answer</h2>
+      <h6 id='qa-modal-header'>{props.productName}: {props.question.question_body}</h6>
       <div>
         <div id='qa-modal-input'>
           <div>
-            <label><b>Your Question* </b></label>
+            <label><b>Your Answer* </b></label>
           </div>
           <div>
             <textarea id='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
@@ -59,7 +60,7 @@ const QuestionModal = (props) => {
             <label><b>What is your nickname* </b></label>
           </div>
           <div>
-            <input type='text' maxLength='60' placeholder='Example: jackson11!' onChange={(e) => {
+            <input type='text' maxLength='60' placeholder='Example: jack543!' onChange={(e) => {
               setName(e.target.value);
             }}/>
           </div>
@@ -78,7 +79,7 @@ const QuestionModal = (props) => {
             <label><b>Your email* </b></label>
           </div>
           <div>
-            <input type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
+            <input type='text' maxLength='60' placeholder='Example: jack@email.com' onChange={(e) => {
               setEmail(e.target.value);
             }}/>
           </div>
@@ -96,6 +97,14 @@ const QuestionModal = (props) => {
           }
           <div>
             For authentication reasons, you will not be emailed
+          </div>
+        </div>
+        <div id='qa-modal-input'>
+          <div>
+            <label><b>Upload your photos</b></label>
+          </div>
+          <div>
+            <button>Choose File</button>
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
@@ -128,12 +137,12 @@ const QuestionModal = (props) => {
             }
           }
           if (sendRequest) {
-            props.setQuestionModal(false);
-            axios.post('/qa/questions', {
+            props.setAnswerModal(false);
+            axios.post(`/qa/questions/${props.question.question_id}/answers`, {
               body: body,
               name: name,
               email: email,
-              product_id: props.product_id
+              photos: photos
             })
               .then(() => {
                 axios.get('/qa/questions', {
@@ -143,13 +152,15 @@ const QuestionModal = (props) => {
                   }
                 })
                   .then((response) => {
-                    let tempObj = props.initialQuestionHelpfulness;
+                    let tempObj = props.initialAnswerHelpfulness;
                     response.data.results.forEach((question) => {
-                      if (props.initialQuestionHelpfulness[question.question_id] === undefined) {
-                        tempObj[question.question_id] = question.question_helpfulness;
-                      }
+                      Object.keys(question.answers).forEach((id) => {
+                        if (props.initialAnswerHelpfulness[id] === undefined) {
+                          tempObj[id] = question.answers[id].helpfulness;
+                        }
+                      })
                     })
-                    props.setInitialQuestionHelpfulness(tempObj);
+                    props.setInitialAnswerHelpfulness(tempObj);
                     props.setQuestions(response.data.results);
                   })
                   .catch((err) => {
@@ -166,4 +177,4 @@ const QuestionModal = (props) => {
   )
 }
 
-export default QuestionModal;
+export default AnswerModal;
