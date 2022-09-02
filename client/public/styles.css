@@ -354,13 +354,13 @@ body {
   padding: 10px;
 }
 
-#related-card-container, #outfitlist-container {
+#related-card-container  {
   position: relative;
   max-width: 100%;
   align-content: center;
 }
 
-#related-card-list {
+#related-card-list, #outfitlist-container{
   align-self: center;
   position: relative;
   padding: 0.25rem;

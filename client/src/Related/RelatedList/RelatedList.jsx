@@ -33,8 +33,6 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
   }
 
 
-
-
   return (
     <div id='related-card-container'>
       {slideLeft >  0 ? (<div id='related-left-arrow' onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
