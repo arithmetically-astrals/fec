@@ -11,27 +11,34 @@ const QuestionModal = (props) => {
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
   const modal = useRef(null);
-  const initialLoad = useRef(true);
 
-  const closeModal = (ref) => {
-    useEffect(() => {
-      const handleOutsideClick = (e) => {
-        if (ref.current && !ref.current.contains(e.target)) {
-          if (initialLoad.current) {
-            initialLoad.current = false;
-          } else {
-            props.setQuestionModal(false);
-          }
-        }
+  useEffect(() => {
+    const delta = 6;
+    let startX;
+    let startY;
+    const handleOutsideClick = (e) => {
+      if (modal.current && !modal.current.contains(e.target)) {
+        props.setQuestionModal(false);
       }
-      document.addEventListener('click', handleOutsideClick);
-      return () => {
-        document.removeEventListener('click', handleOutsideClick);
+    };
+    const handleMouseDown = (e) => {
+      startX = e.pageX;
+      startY = e.pageY;
+    };
+    const handleMouseUp = (e) => {
+      const diffX = Math.abs(e.pageX - startX);
+      const diffY = Math.abs(e.pageY - startY);
+      if (diffX < delta && diffY < delta) {
+        handleOutsideClick(e);
       }
-    }, [ref]);
-  }
-
-  closeModal(modal);
+    };
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
+  }, [modal]);
 
   return (
     <div id='qa-modal' ref={modal}>
