@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const LongDescription = ({itemId = 37311}) => {
+const LongDescription = ({itemId}) => {
   const [metaInfo, setmetaInfo] = useState(0)
 
   useEffect( () => {
