@@ -2,7 +2,7 @@ import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
 
-const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStarRating, productImage}) => {
+const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStarRating}) => {
 
   const storageOutfit = JSON.parse(localStorage.getItem(eachOutfit));
 
@@ -27,7 +27,7 @@ const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStar
         X
         </div>
 
-        <img src={productImage}
+        <img src={storageOutfit[4]}
         style={{
         objectFit: 'cover',
         overflow: 'hidden',
@@ -40,7 +40,7 @@ const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStar
         <div id='related-product-name'>{storageOutfit[1]}</div>
         <div id='related-category'>{storageOutfit[0]}</div>
         <div id='related-product-price'>${storageOutfit[2]}</div>
-        {!outfitStarRating ? <div></div> : <div id='related-product-rating'>{StarScale(outfitStarRating={outfitStarRating})} </div>}
+        {!storageOutfit[3] ? <div></div> : <div id='related-product-rating'>{StarScale(storageOutfit[3])} </div>}
       </div>
     </div>
 

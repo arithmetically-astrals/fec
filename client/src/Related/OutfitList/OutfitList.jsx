@@ -84,12 +84,12 @@ const OutfitList = ({defaultData}) => {
         <AddOutfitCard id='outfitlist-add-card' defaultData={defaultData} rating={outfitStarRating} setStorageChange={setStorageChange} storageChange={storageChange} productImage={productImage}/>
       </div>
 
-      <div id='outfitlist-card-container'>
+      <div id='related-card-container'>
         {slideLeft >  0 ? (<div id='related-left-arrow' onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
 
-        <div id='outfitlist-card-list' ref={scrollRef}>
+        <div id='related-card-list' ref={scrollRef}>
         {storedOutfits.map((eachOutfit) => {
-          return <OutfitListItem key={eachOutfit} itemId={defaultData.id} defaultData={defaultData} storageChange={storageChange} setStorageChange={setStorageChange} eachOutfit={eachOutfit} outfitStarRating={outfitStarRating} productImage={productImage}/>
+          return <OutfitListItem key={eachOutfit} itemId={defaultData.id} defaultData={defaultData} storageChange={storageChange} setStorageChange={setStorageChange} eachOutfit={eachOutfit} outfitStarRating={outfitStarRating}/>
         })}
         </div>
 

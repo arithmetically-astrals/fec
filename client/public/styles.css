@@ -353,7 +353,7 @@ body {
   align-content: center;
 }
 
-#related-card-list, #outfitlist-card-list {
+#related-card-list {
   align-self: center;
   position: relative;
   padding: 0.25rem;
