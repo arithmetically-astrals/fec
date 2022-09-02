@@ -13,6 +13,7 @@ const App = () => {
   const [itemId, setitemId] = useState(37317);
   const [starRating, setstarRating] = useState(0);
 
+
   return <div id='appContainer'>
     <div id='topNav'>
       <div id='logo'>
@@ -25,17 +26,8 @@ const App = () => {
 
     <Overview itemId={itemId} starRating={starRating} />
     <Related itemId={itemId} setitemId={setitemId}/>
-    <QA />
-    <Reviews itemId={itemId}  starRating={starRating} setstarRating={setstarRating} />
-    <div>
-      REMOVE THESE BUTTONS WHEN YOU CAN CLICK ON OTHER ITEMS!
-      <button onClick={() => {setitemId(37311)}}>37311</button>
-      <button onClick={() => {setitemId(37312)}}>37312</button>
-      <button onClick={() => {setitemId(37313)}}>37313</button>
-      <button onClick={() => {setitemId(37314)}}>37314</button>
-      <button onClick={() => {setitemId(37315)}}>37315</button>
-      THEY ARE JUST TO TEST SWAPPING BETWEEN ITEM IDS!
-    </div>
+    <QA itemId={itemId}/>
+    <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
   </div>
 }
 

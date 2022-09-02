@@ -328,31 +328,40 @@ body {
 
 #review-img-modal {
   position: fixed;
-  width: 80%;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  width: auto;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 4;
+  padding: 10px;
 }
 
 #review-write-form {
   position: fixed;
-  background-color: #ccc;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
   width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 5;
+  padding: 10px;
 }
 
-#related-card-container {
+#related-card-container, #outfitlist-container {
   position: relative;
-  max-width: 1200px;
+  max-width: 100%;
+  align-content: center;
 }
 
 #related-card-list {
+  align-self: center;
   position: relative;
   padding: 0.25rem;
   max-width: 100%;
@@ -362,56 +371,76 @@ body {
   scroll-behavior: smooth;
 }
 
-#related-card {
+#related-card, #outfitlist-addcard, #outfitlist-card {
   position: relative;
   border-radius: 0.25rem;
-  box-shadow: 0 2px 5px 0 rgba(0 0 0 0.2);
   padding: 0.25rem;
   width: 300px;
   height: 450px;
 }
 
-/* #related-star-button {
-
-} */
-
-#related-category {
-  text-align: left;
-  font-size: 1em;
-  padding: 10px 0 10px 10px;
+#outfitlist-addcard-text {
+  font-size: 25px;
+  margin: 2em;
 }
 
-#related-card {
-  position: relative;
-  padding: 0.25rem;
-  width: 300px;
-  border-radius: 0.25rem;
-  height: 450px;
+#outfitlist-delete-button {
+  position: absolute;
+  font-size: 2.0em;
+  top: 10px;
+  right: 10px;
+  color: black;
+}
+
+#related-star-button {
+  position: absolute;
+  font-size: 1.5em;
+  top: 10px;
+  right: 10px;
+  color: #E5B3FE;
+}
+
+#related-background-modal {
+  background: white;
+  color: black;
+  display: flex;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  width: 25%;
+  height: 40%;
+  z-index: 50;
+  overflow-y: scroll;
 }
 
 #related-product-name {
   padding: 0 0 10px 10px;
   font-size: 1.1em;
   font-weight: bold;
+  text-align: center;
+}
+
+#related-category {
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0 0 8px 8px;
 }
 
 #related-product-price {
-  padding-left: 13px;
-  position: absolute;
+  text-align: center;
   bottom: 25px;
   font-size: 0.75em;
 }
 
 #related-product-rating {
-  padding-left: 10px;
-  position: absolute;
+  text-align: center;
   bottom: 10px;
 }
 
 #related-left-arrow {
   display: inline-block;
   position: absolute;
-  bottom: 20%;
+  bottom: 50%;
   left: 0;
   font-size: 80px;
   opacity: 0.4;
@@ -421,7 +450,7 @@ body {
 #related-right-arrow {
   display: inline-block;
   position: absolute;
-  bottom: 20%;
+  bottom: 50%;
   right: 0;
   font-size: 80px;
   opacity: 0.4;
@@ -429,14 +458,22 @@ body {
 }
 
 #qa-search {
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  border: 3px solid #ffcbf2;
+  outline: none;
+}
 
+#qa-questions {
+  max-height: 100vh;
+  overflow: auto;
 }
 
 #qa-question-container {
   border-top: 2px solid #BBBBBB;
-  /* border-bottom: 1px dashed #BBBBBB;
-  margin-bottom: 15px; */
   width: 100%;
+  padding: 10px;
 }
 
 #qa-question-tag {
@@ -449,11 +486,13 @@ body {
 
 #qa-question-actions {
   float: right;
+  padding-right: 15px;
 }
 
 #qa-answer-container {
   display: flex;
   border-top: 1px dashed #BBBBBB;
+  padding: 10px;
   padding-top: 15px;
 }
 
@@ -469,6 +508,44 @@ body {
 
 #qa-answer {
   margin-bottom: 15px;
+}
+
+#qa-modal {
+  border: 3px solid black;
+  background: #fff;
+  position: fixed;
+  width: 50%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  filter: blur(0px);
+  overflow: auto;
+}
+
+#qa-modal-header {
+  margin-left: 30px;
+}
+
+#qa-modal-input {
+  margin: 30px;
+}
+
+#qa-modal-textarea {
+  resize: none;
+}
+
+#qa-modal-button {
+  margin-left: 30px;
+}
+
+#qa-modal-error {
+  color: red;
+}
+
+.blurred {
+  filter: blur(2px);
 }
 
 /*# sourceMappingURL=styles.css.map */

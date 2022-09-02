@@ -2,7 +2,6 @@
 import React from "react";
 import {useEffect, useContext, useState} from 'react';
 import RelatedTitle from './RelatedList/RelatedTitle.jsx';
-// import ItemComparison from "./RelatedList/ItemComparison.jsx";
 import RelatedList from "./RelatedList/RelatedList.jsx";
 import OutfitTitle from './OutfitList/OutfitTitle.jsx';
 import OutfitList from "./OutfitList/OutfitList.jsx";
@@ -10,10 +9,7 @@ import App from '../App.jsx';
 
 import axios from 'axios';
 
-function Related({itemId, starRating}) {
-  //global state variables
-  // const [itemID] = useContext(App);
-  // const [colorScheme] = useContext(ThemeContext);
+function Related({itemId, starRating, setitemId}) {
 
   const [productList, setProductList] = useState(null);
   const [defaultData, setDefaultData] = useState(null);
@@ -64,11 +60,9 @@ function Related({itemId, starRating}) {
         <div id='related' className='widget'>
           <RelatedTitle/>
           {/* <ItemComparison />*/}
-          <RelatedList defaultData={defaultData} productList={productList} itemId={itemId}
-          starRating={starRating} />
+          <RelatedList defaultData={defaultData} productList={productList} setitemId={setitemId} />
           <OutfitTitle />
-          <OutfitList defaultData={defaultData} productList={productList} itemId={itemId}
-          starRating={starRating}/>
+          <OutfitList defaultData={defaultData} />
         </div>
       );
     }

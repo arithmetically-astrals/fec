@@ -18,6 +18,20 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader','css-loader']
       }
+      //,
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/i, //allows import of image types of jpg/png/gif/svg
+      //   use: [
+      //     'file-loader',
+      //     {
+      //       loader: 'image-webpack-loader',
+      //       options: {
+      //         bypassOnDebug: true, // webpack@1.x
+      //         disable: true, // webpack@2.x and newer
+      //       },
+      //     },
+      //   ],
+      // }
     ]
   },
   // [devtool] this is an additional source map that will let the browser know what files are running our code.

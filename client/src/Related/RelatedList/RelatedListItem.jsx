@@ -1,14 +1,16 @@
 import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
+import ItemComparison from './ItemComparison.jsx';
+// import DefaultImage from './defaultimage.jpeg';
 
 const axios = require('axios');
 
-const RelatedListItem = ({itemId, product, defaultData}) => {
-  // const [productId, setProductId] = useContext(ProductContext);
-  const [showing, setShowing] = useState(null);
+const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
   const [productImage, setProductImage] = useState(null);
   const [relatedStarRating, setRelatedStarRating] = useState(0);
+  const [show, setShow] = useState(false);
+
 
   useEffect(() => {
     axios.get(`/products/styles`, {
@@ -46,16 +48,18 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
       })
   }, [itemId]);
 
+
   return (
     <div id='related-card'>
-      <div id='related-star-button'>
-        <div id='related-comparison'>
-          </div>
+      <div id='related-comparison-and-star-button'>
+        <div id='related-star-button' onClick={() => {setShow(!show);}}>&#9733;</div>
+        <ItemComparison id='related-comparison' product={product} defaultData={defaultData} show={show} setShow={setShow}/>
       </div>
       <div
-      // onClick={() => {
-        // setProductId(itemId);
-      // }}
+      onClick={() => {
+        setitemId(itemId);
+
+      }}
       >
         <img src={productImage}
         style={{
@@ -67,11 +71,10 @@ const RelatedListItem = ({itemId, product, defaultData}) => {
         aspectRation: '16 / 9'
         }}
         />
-        <div id='related-category'>{product.category}</div>
         <div id='related-product-name'>{product.name}</div>
+        <div id='related-category'>{product.category}</div>
         <div id='related-product-price'>${product.default_price}</div>
         {!relatedStarRating ? <div></div> : <div id='related-product-rating'>{StarScale(relatedStarRating)} </div>}
-
       </div>
     </div>
   )

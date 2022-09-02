@@ -2,11 +2,11 @@ import React, {useState, useEffect} from "react";
 import AnswerList from "./AnswerList.jsx";
 import AddAnswer from "./AddAnswer.jsx";
 import axios from "axios";
-import MoreAnswers from "./MoreAnswers.jsx";
+// import MoreAnswers from "./MoreAnswers.jsx";
 
 const Question = (props) => {
 
-  const [moreAnswers, setMoreAnswers] = useState(false);
+  // const [moreAnswers, setMoreAnswers] = useState(false);
   const [reported, setReported] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ const Question = (props) => {
                 });
           }}>Helpful?</a>
           : <>Helpful!</>
-          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness}/> | {reported
+          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName}/> | {reported
           ? <>Reported</>
           : <a href="#" onClick={(e) => {
             e.preventDefault();
@@ -55,10 +55,7 @@ const Question = (props) => {
           }
         </span>
       </div>
-      <AnswerList answers={Object.values(props.question.answers)} moreAnswers={moreAnswers} question_id={props.question.question_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
-      {Object.values(props.question.answers).length > 2
-      ? <MoreAnswers moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
-      : null}
+      <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
     </div>
   )
 }
