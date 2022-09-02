@@ -71,7 +71,7 @@ const ReviewSelector = ({metaInfo, mainRating, setMainRating, setRecommend, clic
   }
 
   return (
-    <div style={{float: 'right'}}>
+    <div id='review-input-rating'>
       <span>Overall rating</span>
         <div>
         {reviewStarScale(mainRating)}
@@ -82,7 +82,7 @@ const ReviewSelector = ({metaInfo, mainRating, setMainRating, setRecommend, clic
       Yes<input name='recommend' type='radio' onClick={() => setRecommend(true)} required/>
       No <input name='recommend' type='radio' onClick={() => setRecommend(false)} required/>
       <br/>
-      <div style={{display: 'table'}}>
+      <div>
         {metaInfo.characteristics.Size ? <div>
           <span>Size: </span>
           <div>

@@ -251,7 +251,6 @@ body {
   border: 1px solid black;
   border-radius: 20px;
   font-size: x-small;
-  color: #555;
   width: 185px;
   height: 245px;
   padding: 10px;
@@ -292,6 +291,10 @@ body {
   margin-right: 50%;
 }
 
+#reviews {
+  margin-left: 15%;
+}
+
 #review-rating-char {
   width: 50%;
   height: 5px;
@@ -309,28 +312,46 @@ body {
 
 #review-tile-box {
   position: relative;
-  border: 1px solid black;
   float: left;
   padding: 5px;
   margin: 5px;
 }
 
+#review-tile-box button {
+  margin-left: 20%;
+  background-color: rgb(210, 209, 209);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#review-tile-box select {
+  background-color: rgb(210, 209, 209);
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 #review-tile {
   border: 1px solid black;
+  border-radius: 15px;
   width: 450px;
   margin: 5px;
   padding: 5px;
 }
 
-#review-tile-stars {
+#review-tile-name {
+  position: relative;
   float: right;
+  font-size: small;
 }
 
 #review-img-modal {
   position: fixed;
   border: 1px solid black;
   border-radius: 15px;
-  background-color: rgb(207, 207, 207);
+  background-color: rgb(210, 209, 209);
   width: auto;
   height: auto;
   top: 50%;
@@ -345,12 +366,23 @@ body {
   border: 1px solid black;
   border-radius: 15px;
   background-color: rgb(207, 207, 207);
-  width: 80%;
+  width: 70%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
+  padding: 10px;
+}
+
+#review-input-rating {
+  position: relative;
+  background-color: #e8e7e7;
+  border: 1px solid black;
+  border-radius: 15px;
+  float: right;
+  margin-right: 15%;
+  top: -50px;
   padding: 10px;
 }
 
