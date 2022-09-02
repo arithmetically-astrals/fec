@@ -1,13 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import AnswerList from "./AnswerList.jsx";
 import AddAnswer from "./AddAnswer.jsx";
 import axios from "axios";
-// import MoreAnswers from "./MoreAnswers.jsx";
 
 const Question = (props) => {
 
-  // const [moreAnswers, setMoreAnswers] = useState(false);
   const [reported, setReported] = useState(false);
+  const clicked = useRef(false);
 
   return (
     <div>
@@ -20,7 +19,9 @@ const Question = (props) => {
           {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_id]
           ? <a href="#" onClick={(e) => {
               e.preventDefault();
-              axios.put(`/qa/questions/${props.question.question_id}/helpful`)
+              if (!clicked.current) {
+                clicked.current = true;
+                axios.put(`/qa/questions/${props.question.question_id}/helpful`)
                 .then(() => {
                   axios.get('/qa/questions', {
                     params: {
@@ -38,6 +39,7 @@ const Question = (props) => {
                 .catch((err) => {
                   console.log(err);
                 });
+              }
           }}>Helpful?</a>
           : <>Helpful!</>
           } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName}/> | {reported

@@ -11,8 +11,11 @@ const AnswerModal = (props) => {
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState(false);
+  const [, updateState] = React.useState();
   const modal = useRef(null);
   const initialLoad = useRef(true);
+
+  const forceUpdate = React.useCallback(() => updateState({}), []);
 
   const closeModal = (ref) => {
     useEffect(() => {
@@ -104,7 +107,56 @@ const AnswerModal = (props) => {
             <label><b>Upload your photos</b></label>
           </div>
           <div>
-            <button>Choose File</button>
+            {photos.length === 5
+            ? null
+            : <div>
+                <div>
+                  {photos.length !== 4
+                  ? <>You can upload {5 - photos.length} more pictures</>
+                  : <>You can upload 1 more picture</>
+                  }
+                </div>
+                <input id='uploadphoto' type='file' multiple='multiple' style={{display: 'none'}} onChange={() => {
+                  let preview = document.querySelector('#qa-modal-photo:not(.filled)');
+                  let caption = document.querySelector('#qa-modal-caption:not(.filled)');
+                  let file = document.querySelector('input[type=file]').files[0];
+                  let url = URL.createObjectURL(file);
+                  preview.src = url;
+                  preview.classList.add('filled');
+                  caption.innerHTML = file.name;
+                  caption.classList.add('filled');
+                  let photosClone = photos;
+                  photosClone.push(url);
+                  setPhotos(photosClone);
+                  forceUpdate();
+                }}/>
+                <input type='button' value='Upload a photo...' onClick={() => {
+                  document.getElementById('uploadphoto').click();
+                }}/>
+              </div>
+            }
+            <div style={{display: photos.length ? 'initial' : 'none'}}>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure >
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+            </div>
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
