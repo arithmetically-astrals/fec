@@ -13,6 +13,7 @@ const App = () => {
   const [itemId, setitemId] = useState(37317);
   const [starRating, setstarRating] = useState(0);
 
+
   return <div id='appContainer'>
     <div id='topNav'>
       <div id='logo'>
