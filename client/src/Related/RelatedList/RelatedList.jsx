@@ -30,7 +30,10 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
     }
     scrollRef.current.scrollLeft += leftover;
     setSlideLeft((scrollRef.current.scrollLeft += leftover));
-}
+  }
+
+
+
 
   return (
     <div id='related-card-container'>

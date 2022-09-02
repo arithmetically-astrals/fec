@@ -11,7 +11,6 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
   const [relatedStarRating, setRelatedStarRating] = useState(0);
   const [show, setShow] = useState(false);
 
-
   useEffect(() => {
     axios.get(`/products/styles`, {
       params: {
