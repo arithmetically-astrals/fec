@@ -2,62 +2,32 @@ import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
 
-const axios = require('axios');
+const OutfitListItem = ({eachOutfit, setStorageChange, storageChange, outfitStarRating}) => {
 
-const OutfitListItem = ({itemId, product, defaultData}) => {
-  // const [productId, setProductId] = useContext(ProductContext);
-  const [showing, setShowing] = useState(null);
-  const [productImage, setProductImage] = useState(null);
-  const [OutfitStarRating, setOutfitStarRating] = useState(0);
+  const storageOutfit = JSON.parse(localStorage.getItem(eachOutfit));
 
-  useEffect(() => {
-    axios.get(`/products/styles`, {
-      params: {
-        product_id: itemId
-      }
-    })
-      .then((imageData) => {
-        if(!imageData.data.results[0].photos[0].url){
-          setProductImage(`https://www.tallusridge.com/wp-content/uploads/2019/08/650x600.jpg`);
-        } else {
-          setProductImage(imageData.data.results[0].photos[0].url);
-        }
-        axios.get('/reviews/meta', {
-            params: {
-              product_id: itemId
-            }
-          })
-          .then(response => {
-            var totalStar = 0
-            var totalVal = 0
-            for (var key in response.data.ratings) {
-              totalStar += (Number(response.data.ratings[key]) * Number(key));
-              totalVal += Number(response.data.ratings[key]);
-            }
-            if (totalVal === 0) {
-              setOutfitStarRating(null);
-            } else {
-              setOutfitStarRating((totalStar / totalVal).toFixed(1));
-            }
-          })
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }, [itemId]);
+  // useEffect(() => {}, [eachOutfit, storageChange]);
 
   return (
-    <div id='related-card'>
-      <div id='related-star-button'>
-        <div id='related-comparison'>
-          </div>
-      </div>
-      <div
-      // onClick={() => {
-        // setProductId(itemId);
-      // }}
-      >
-        <img src={productImage}
+    <div>
+      <div id='outfitlist-card'>
+        <div id='outfitlist-delete-button'
+        onClick={() => {
+          setStorageChange(!storageChange);
+          localStorage.removeItem(eachOutfit);
+        }}>
+        {/* <img src={'https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/cross-24-1024.png'}
+        style={{
+        position: 'absolute',
+        font-size: '2em',
+        top: '8px',
+        right: '8px'
+        }}
+        /> */}
+        X
+        </div>
+
+        <img src={storageOutfit[4]}
         style={{
         objectFit: 'cover',
         overflow: 'hidden',
@@ -67,14 +37,15 @@ const OutfitListItem = ({itemId, product, defaultData}) => {
         aspectRation: '16 / 9'
         }}
         />
-        <div id='related-category'>{product.category}</div>
-        <div id='related-product-name'>{product.name}</div>
-        <div id='related-product-price'>${product.default_price}</div>
-        {!OutfitStarRating ? <div></div> : <div id='related-product-rating'>{StarScale(OutfitStarRating)} </div>}
-
+        <div id='related-product-name'>{storageOutfit[1]}</div>
+        <div id='related-category'>{storageOutfit[0]}</div>
+        <div id='related-product-price'>${storageOutfit[2]}</div>
+        {!storageOutfit[3] ? <div></div> : <div id='related-product-rating'>{StarScale(storageOutfit[3])} </div>}
       </div>
     </div>
-  )
+
+  );
 
 }
+
 export default OutfitListItem;
