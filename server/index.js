@@ -89,8 +89,27 @@ app.get('/reviews', (req, res) => {
 
 //posts review to server
 app.post('/review/post', (req, res) => {
-  res.status(201);
-  res.send(req.body);
+  console.log(req.body)
+  axios.post(`${process.env.API}/reviews`, {
+    product_id: req.body.product_id,
+    rating: req.body.rating,
+    summary: req.body.summary,
+    body: req.body.body,
+    recommend: req.body.recommend,
+    name: req.body.name,
+    email: req.body.email,
+    photos: req.body.photos,
+    characteristics: req.body.characteristics
+  }, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(() => {
+    res.sendStatus(201);
+  }).catch(err => {
+    console.log(err)
+    res.sendStatus(404);
+  })
 })
 
 //gets all meta review info for item

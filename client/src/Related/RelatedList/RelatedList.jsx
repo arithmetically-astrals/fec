@@ -1,8 +1,6 @@
 import React from "react";
-import {useState, useRef} from "react";
+import {useState, useRef /*useContext*/} from "react";
 import RelatedListItem from './RelatedListItem.jsx';
-// import styled from 'styled-components';
-// import {TiArrowRightOutline, TiArrowLeftOutline} from 'react/icons/md';
 
 const RelatedList = ({defaultData, productList, setitemId}) => {
   const [showRight, setShowRight] = useState(true);
