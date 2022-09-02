@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useRef} from "react";
+import {useState, useRef /*useContext*/} from "react";
 import RelatedListItem from './RelatedListItem.jsx';
 
 const RelatedList = ({defaultData, productList, setitemId}) => {

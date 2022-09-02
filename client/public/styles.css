@@ -347,13 +347,13 @@ body {
   z-index: 2;
 }
 
-#related-card-container {
+#related-card-container, #outfitlist-container {
   position: relative;
   max-width: 100%;
   align-content: center;
 }
 
-#related-card-list {
+#related-card-list, #outfitlist-card-list {
   align-self: center;
   position: relative;
   padding: 0.25rem;
@@ -364,12 +364,25 @@ body {
   scroll-behavior: smooth;
 }
 
-#related-card {
+#related-card, #outfitlist-addcard, #outfitlist-card {
   position: relative;
   border-radius: 0.25rem;
   padding: 0.25rem;
   width: 300px;
   height: 450px;
+}
+
+#outfitlist-addcard-text {
+  font-size: 25px;
+  margin: 2em;
+}
+
+#outfitlist-delete-button {
+  position: absolute;
+  font-size: 2.0em;
+  top: 10px;
+  right: 10px;
+  color: black;
 }
 
 #related-star-button {

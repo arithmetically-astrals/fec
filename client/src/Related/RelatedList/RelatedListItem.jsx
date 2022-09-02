@@ -2,13 +2,15 @@ import React from "react";
 import {useEffect, useState, /*useContext*/} from 'react';
 import StarScale from '../../Shared/StarScale.jsx';
 import ItemComparison from './ItemComparison.jsx';
+// import DefaultImage from './defaultimage.jpeg';
 
 const axios = require('axios');
 
 const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
-  const [show, setShow] = useState(false);
   const [productImage, setProductImage] = useState(null);
   const [relatedStarRating, setRelatedStarRating] = useState(0);
+  const [show, setShow] = useState(false);
+
 
   useEffect(() => {
     axios.get(`/products/styles`, {
@@ -56,6 +58,7 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
       <div
       onClick={() => {
         setitemId(itemId);
+
       }}
       >
         <img src={productImage}
