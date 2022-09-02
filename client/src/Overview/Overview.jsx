@@ -6,12 +6,28 @@ import Carousel from "./Carousel.jsx";
 import InfoPanel from "./InfoPanel.jsx";
 import LongDescription from "./LongDescription.jsx";
 
-const Overview = ({itemId = 37311, starRating, setstarRating}) => {
+const Overview = ({itemId, starRating, setstarRating}) => {
+
+  const [styleInfo, setStyleInfo] = useState(0);
+
+  useEffect( () => {
+    axios.get('/products/styles', {
+      params: {
+        product_id: itemId
+      }
+    }).then(response => {
+      setStyleInfo(response.data);
+      console.log('styles', response.data.results[0].name)
+    }).catch(err => {
+      console.log('err: ', err)
+    })
+  },[itemId])
+
   return (
     <div id='overview' className='widget'>
       <div id='overview-carouselandinfopanel'>
         <Carousel itemId={itemId} />
-        <InfoPanel itemId={itemId} />
+        <InfoPanel itemId={itemId} styleInfo={styleInfo} starRating={starRating} />
       </div>
       <LongDescription itemId={itemId} />
     </div>
