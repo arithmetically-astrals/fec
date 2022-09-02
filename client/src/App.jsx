@@ -8,7 +8,6 @@ import DarkModeToggle from "./Shared/DarkModeToggle.jsx";
 
 const root = createRoot(document.getElementById("root"));
 
-// Huzzah for jsx!
 const App = () => {
 
   const [itemId, setitemId] = useState(37317);
@@ -25,7 +24,7 @@ const App = () => {
       </div>
       <div id='topMessage'>special message</div>
 
-      {/* <Overview /> */}
+      <Overview />
       <Related itemId={itemId} setitemId={setitemId}/>
       <QA itemId={itemId}/>
       <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
