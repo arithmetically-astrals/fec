@@ -11,6 +11,21 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
   const [charRatings, setCharRatings] = useState({});
   const [reviewBody, setReviewBody] = useState('');
   const [imageForm, setImageForm] = useState(null);
+  const [productName, setProductName] = useState('Loading..');
+
+  useEffect(() => {
+    axios.get(`/products/item`, {
+      params: {
+        product_id: itemId
+      }
+    })
+      .then((response) => {
+        setProductName(response.data.name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [])
 
   const submitReview = (e) => {
     e.preventDefault();
@@ -79,7 +94,7 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
     <div id='review-write-form'>
       <span onClick={() => setWriteReview(null)} style={{cursor: 'pointer', float: 'right'}}>X</span>
       <h3>Write Your Review</h3>
-      <h5>About the [Product Name Here]</h5>
+      <h5>About the {productName}</h5>
       <ReviewSelector metaInfo={metaInfo} mainRating={mainRating} setMainRating={setMainRating} setRecommend={setRecommend} clickCharRating={clickCharRating}/>
       <form onSubmit={submitReview}>
         Summary:
