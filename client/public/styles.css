@@ -328,23 +328,30 @@ body {
 
 #review-img-modal {
   position: fixed;
-  width: 80%;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  width: auto;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 4;
+  padding: 10px;
 }
 
 #review-write-form {
   position: fixed;
-  background-color: #ccc;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
   width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 5;
+  padding: 10px;
 }
 
 #related-card-container, #outfitlist-container {
@@ -451,14 +458,22 @@ body {
 }
 
 #qa-search {
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+  border: 3px solid #ffcbf2;
+  outline: none;
+}
 
+#qa-questions {
+  max-height: 100vh;
+  overflow: auto;
 }
 
 #qa-question-container {
   border-top: 2px solid #BBBBBB;
-  /* border-bottom: 1px dashed #BBBBBB;
-  margin-bottom: 15px; */
   width: 100%;
+  padding: 10px;
 }
 
 #qa-question-tag {
@@ -471,11 +486,13 @@ body {
 
 #qa-question-actions {
   float: right;
+  padding-right: 15px;
 }
 
 #qa-answer-container {
   display: flex;
   border-top: 1px dashed #BBBBBB;
+  padding: 10px;
   padding-top: 15px;
 }
 
@@ -491,6 +508,44 @@ body {
 
 #qa-answer {
   margin-bottom: 15px;
+}
+
+#qa-modal {
+  border: 3px solid black;
+  background: #fff;
+  position: fixed;
+  width: 50%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  filter: blur(0px);
+  overflow: auto;
+}
+
+#qa-modal-header {
+  margin-left: 30px;
+}
+
+#qa-modal-input {
+  margin: 30px;
+}
+
+#qa-modal-textarea {
+  resize: none;
+}
+
+#qa-modal-button {
+  margin-left: 30px;
+}
+
+#qa-modal-error {
+  color: red;
+}
+
+.blurred {
+  filter: blur(2px);
 }
 
 /*# sourceMappingURL=styles.css.map */
