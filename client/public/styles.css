@@ -402,6 +402,7 @@ body {
 
 #related-background-modal {
   background: white;
+  border: 1px solid black;
   color: black;
   display: flex;
   position: fixed;
