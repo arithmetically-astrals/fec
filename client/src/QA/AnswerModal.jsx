@@ -109,7 +109,7 @@ const AnswerModal = (props) => {
           <div>
             {photos.length === 5
             ? null
-            : <>
+            : <div>
                 <div>
                   {photos.length !== 4
                   ? <>You can upload {5 - photos.length} more pictures</>
@@ -117,24 +117,42 @@ const AnswerModal = (props) => {
                   }
                 </div>
                 <input type='file' onChange={() => {
-                  let preview = document.querySelector('#qa-modal-photos:not(.filled)');
+                  let preview = document.querySelector('#qa-modal-photo:not(.filled)');
+                  let caption = document.querySelector('#qa-modal-caption:not(.filled)');
                   let file = document.querySelector('input[type=file]').files[0];
                   let url = URL.createObjectURL(file);
                   preview.src = url;
                   preview.classList.add('filled');
+                  caption.innerHTML = file.name;
+                  caption.classList.add('filled');
                   let photosClone = photos;
                   photosClone.push(url);
                   setPhotos(photosClone);
                   forceUpdate();
                 }} multiple='multiple'/>
-              </>
+              </div>
             }
-            <div>
-              <img id='qa-modal-photos' src='' height='200'/>
-              <img id='qa-modal-photos' src='' height='200'/>
-              <img id='qa-modal-photos' src='' height='200'/>
-              <img id='qa-modal-photos' src='' height='200'/>
-              <img id='qa-modal-photos' src='' height='200'/>
+            <div style={{display: photos.length ? 'initial' : 'none'}}>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure >
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
+              <figure id='qa-modal-photos'>
+                <img id='qa-modal-photo' src='' height='130'/>
+                <figcaption id='qa-modal-caption'/>
+              </figure>
             </div>
           </div>
         </div>

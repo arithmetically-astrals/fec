@@ -557,6 +557,10 @@ body {
   color: red;
 }
 
+#qa-modal-photos {
+  display: inline-block;
+}
+
 .blurred {
   filter: blur(2px);
 }
