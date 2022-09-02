@@ -251,7 +251,6 @@ body {
   border: 1px solid black;
   border-radius: 20px;
   font-size: x-small;
-  color: #555;
   width: 185px;
   height: 245px;
   padding: 10px;
@@ -292,6 +291,10 @@ body {
   margin-right: 50%;
 }
 
+#reviews {
+  margin-left: 15%;
+}
+
 #review-rating-char {
   width: 50%;
   height: 5px;
@@ -310,13 +313,32 @@ body {
 #review-tile-box {
   position: relative;
   border: 1px solid black;
+  border-radius: 15px;
   float: left;
   padding: 5px;
   margin: 5px;
 }
 
+#review-tile-box button {
+  margin-left: 20%;
+  background-color: rgb(165, 196, 193);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#review-tile-box select {
+  background-color: rgb(165, 196, 193);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
 #review-tile {
   border: 1px solid black;
+  border-radius: 15px;
   width: 450px;
   margin: 5px;
   padding: 5px;
