@@ -350,6 +350,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 4;
+  padding: 10px;
+}
+
+#review-image-form {
+  position: fixed;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  width: 80%;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 5;
   padding: 10px;
 }
