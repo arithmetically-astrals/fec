@@ -161,15 +161,18 @@ const AnswerModal = (props) => {
         </div>
         <button id='qa-modal-button' onClick={(e) => {
           let sendRequest = true;
+          let alertMessages = [];
           if (body === '') {
             setEmptyBody(true);
             sendRequest = false;
+            alertMessages.push('A valid answer body');
           } else {
             setEmptyBody(false);
           }
           if (name === '') {
             setEmptyName(true);
             sendRequest = false;
+            alertMessages.push('A valid nickname');
           } else {
             setEmptyName(false);
           }
@@ -177,6 +180,7 @@ const AnswerModal = (props) => {
             setInvalidEmail(false);
             setEmptyEmail(true);
             sendRequest = false;
+            alertMessages.push('A valid email');
           } else {
             setEmptyEmail(false);
             if (email.toLowerCase().match(
@@ -184,6 +188,7 @@ const AnswerModal = (props) => {
             ) === null) {
               setInvalidEmail(true);
               sendRequest = false;
+              alertMessages.push('A valid email');
             } else {
               setInvalidEmail(false);
             }
@@ -222,6 +227,8 @@ const AnswerModal = (props) => {
               .catch((err) => {
                 console.log(err);
               });
+          } else {
+            alert(`You must enter the following:\n${alertMessages.join('\n')}`);
           }
           }}>Submit</button>
       </div>

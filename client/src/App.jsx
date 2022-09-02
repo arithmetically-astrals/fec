@@ -10,25 +10,27 @@ const root = createRoot(document.getElementById("root"));
 
 // Huzzah for jsx!
 const App = () => {
+
   const [itemId, setitemId] = useState(37317);
   const [starRating, setstarRating] = useState(0);
 
-
-  return <div id='appContainer'>
-    <div id='topNav'>
-      <div id='logo'>
-        checkout
+  return (
+    <div id='appContainer'>
+      <div id='topNav'>
+        <div id='logo'>
+          checkout
+        </div>
+        <DarkModeToggle />
+        <input id='search' placeholder='search' />
       </div>
-      <DarkModeToggle />
-      <input id='search' placeholder='search' />
-    </div>
-    <div id='topMessage'>special message</div>
+      <div id='topMessage'>special message</div>
 
-    <Overview />
-    <Related itemId={itemId} setitemId={setitemId}/>
-    <QA itemId={itemId}/>
-    <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
-  </div>
+      {/* <Overview /> */}
+      <Related itemId={itemId} setitemId={setitemId}/>
+      <QA itemId={itemId}/>
+      <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
+    </div>
+  )
 }
 
 root.render(<App />);
