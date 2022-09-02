@@ -34,6 +34,22 @@ const AnswerModal = (props) => {
 
   closeModal(modal);
 
+  const previewFile = () => {
+    let preview = document.querySelector('#qa-modal-photos');
+    let file = document.querySelector('input[type=file]').files[0];
+    let reader = new FileReader();
+
+    reader.onloadend = () => {
+      preview.src = reader.result;
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = '';
+    }
+  }
+
   return (
     <div id='qa-modal' ref={modal}>
       <h2 id='qa-modal-header'>Submit Your Answer</h2>
@@ -104,7 +120,8 @@ const AnswerModal = (props) => {
             <label><b>Upload your photos</b></label>
           </div>
           <div>
-            <button>Choose File</button>
+            <input type='file' onChange={previewFile} multiple='multiple'/>
+            <img id='qa-modal-photos' src='' height='200' alt='Image preview...' />
           </div>
         </div>
         <button id='qa-modal-button' onClick={(e) => {
