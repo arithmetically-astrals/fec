@@ -205,10 +205,6 @@ body {
   background-color: #aaa !important;
 }
 
-.blurred {
-  filter: blur(2px);
-}
-
 #topNav {
   color: #fff;
   font-size: 30px;
