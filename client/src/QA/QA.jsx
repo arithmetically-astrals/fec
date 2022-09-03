@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Search from "./Search.jsx";
-import QuestionList from "./QuestionList.jsx";
-import MoreQuestions from "./MoreQuestions.jsx";
 import axios from "axios";
 import QuestionModal from "./QuestionModal.jsx";
 import BlurToggle from "../Shared/BlurToggle.jsx";
+import Question from "./Question.jsx";
 
 const QA = (props) => {
 
@@ -86,10 +84,23 @@ const QA = (props) => {
       {questions.length === 0
       ? <div>Be the first to ask a question...</div>
       : <>
-          <Search search={search} setSearch={setSearch}/>
-          <QuestionList search={search} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} renderedQuestions={renderedQuestions}/>
+          <input id='qa-search' type="text" placeholder="Have a question? Search for answers…" onChange={(e) => {
+            setSearch(e.target.value);
+          }}></input>
+          <div data-testid='questions' id='qa-questions'>
+            {search.length < 3 || renderedQuestions.some((question) => (
+              question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
+            ))
+            ? renderedQuestions.map((question, index) => (
+              <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} search={search}/>
+            ))
+            : <div>No questions found!</div>
+            }
+          </div>
           {(search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
-          ? <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
+          ? <button onClick={() => {
+              setQuestionCount(questionCount + 2);
+            }}>More Answered Questions</button>
           : null
           }
         </>
@@ -100,7 +111,6 @@ const QA = (props) => {
       }}>Add a question</button>
     </div>
   )
-
 }
 
 export default QA;

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import Answer from "./Answer.jsx";
-import MoreAnswers from "./MoreAnswers.jsx";
 
 const AnswerList = (props) => {
 
@@ -50,8 +49,12 @@ const AnswerList = (props) => {
               </div>
             ))}
             {Object.values(props.question.answers).length > 2
-            ? <MoreAnswers id='qa-more-answers' moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
-            : null}
+            ? <a id='qa-more-answers' href="#" onClick={(e) => {
+                e.preventDefault();
+                setMoreAnswers(!moreAnswers);
+              }}>{moreAnswers ? 'Collapse answers' : 'See more answers'}</a>
+            : null
+            }
           </div>
         </div>
       : null
