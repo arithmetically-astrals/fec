@@ -45,28 +45,28 @@ const AnswerModal = (props) => {
   }, [modal]);
 
   return (
-    <div id='qa-modal-background'>
-      <div id='qa-modal' ref={modal}>
-        <h2 id='qa-modal-header'>Submit Your Answer</h2>
-        <h6 id='qa-modal-header'>{props.productName}: {props.question.question_body}</h6>
+    <div className='qa-modal-background'>
+      <div className='qa-modal' ref={modal}>
+        <h2 className='qa-modal-header'>Submit Your Answer</h2>
+        <h6 className='qa-modal-header'>{props.productName}: {props.question.question_body}</h6>
         <div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>Your Answer* </b></label>
             </div>
             <div>
-              <textarea id='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
+              <textarea className='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
                 setBody(e.target.value);
               }}/>
             </div>
             {emptyBody
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Question cannot be empty!
               </div>
             : null
             }
           </div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>What is your nickname* </b></label>
             </div>
@@ -76,7 +76,7 @@ const AnswerModal = (props) => {
               }}/>
             </div>
             {emptyName
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Nickname cannot be empty!
               </div>
             : null
@@ -85,7 +85,7 @@ const AnswerModal = (props) => {
               For privacy reasons, do not use your full name or email address
             </div>
           </div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>Your email* </b></label>
             </div>
@@ -95,13 +95,13 @@ const AnswerModal = (props) => {
               }}/>
             </div>
             {emptyEmail
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Email cannot be empty!
               </div>
             : null
             }
             {invalidEmail
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Invalid email!
               </div>
             : null
@@ -110,7 +110,7 @@ const AnswerModal = (props) => {
               For authentication reasons, you will not be emailed
             </div>
           </div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>Upload your photos</b></label>
             </div>
@@ -125,8 +125,8 @@ const AnswerModal = (props) => {
                     }
                   </div>
                   <input id='uploadphoto' type='file' multiple='multiple' style={{display: 'none'}} onChange={() => {
-                    let preview = document.querySelector('#qa-modal-photo:not(.filled)');
-                    let caption = document.querySelector('#qa-modal-caption:not(.filled)');
+                    let preview = document.querySelector('.qa-modal-photo:not(.filled)');
+                    let caption = document.querySelector('.qa-modal-caption:not(.filled)');
                     let file = document.querySelector('input[type=file]').files[0];
                     let url = URL.createObjectURL(file);
                     preview.src = url;
@@ -144,30 +144,30 @@ const AnswerModal = (props) => {
                 </div>
               }
               <div style={{display: photos.length ? 'initial' : 'none'}}>
-                <figure id='qa-modal-photos'>
-                  <img id='qa-modal-photo' src='' height='130'/>
-                  <figcaption id='qa-modal-caption'/>
+                <figure className='qa-modal-photos'>
+                  <img className='qa-modal-photo' src='' height='130'/>
+                  <figcaption className='qa-modal-caption'/>
                 </figure>
-                <figure id='qa-modal-photos'>
-                  <img id='qa-modal-photo' src='' height='130'/>
-                  <figcaption id='qa-modal-caption'/>
+                <figure className='qa-modal-photos'>
+                  <img className='qa-modal-photo' src='' height='130'/>
+                  <figcaption className='qa-modal-caption'/>
                 </figure>
-                <figure id='qa-modal-photos'>
-                  <img id='qa-modal-photo' src='' height='130'/>
-                  <figcaption id='qa-modal-caption'/>
+                <figure className='qa-modal-photos'>
+                  <img className='qa-modal-photo' src='' height='130'/>
+                  <figcaption className='qa-modal-caption'/>
                 </figure >
-                <figure id='qa-modal-photos'>
-                  <img id='qa-modal-photo' src='' height='130'/>
-                  <figcaption id='qa-modal-caption'/>
+                <figure className='qa-modal-photos'>
+                  <img className='qa-modal-photo' src='' height='130'/>
+                  <figcaption className='qa-modal-caption'/>
                 </figure>
-                <figure id='qa-modal-photos'>
-                  <img id='qa-modal-photo' src='' height='130'/>
-                  <figcaption id='qa-modal-caption'/>
+                <figure className='qa-modal-photos'>
+                  <img className='qa-modal-photo' src='' height='130'/>
+                  <figcaption className='qa-modal-caption'/>
                 </figure>
               </div>
             </div>
           </div>
-          <button id='qa-modal-button' onClick={(e) => {
+          <button className='qa-modal-button' onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
             if (body === '') {

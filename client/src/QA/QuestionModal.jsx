@@ -9,14 +9,14 @@ const QuestionModal = (props) => {
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
-  const [invalidEmail, setInvalidEmail] = useState(false);
+  const [invalclassNameEmail, setInvalclassNameEmail] = useState(false);
   const modal = useRef(null);
 
   useEffect(() => {
     const delta = 6;
     let startX;
     let startY;
-    const handleOutsideClick = (e) => {
+    const handleOutsclassNameeClick = (e) => {
       if (modal.current && !modal.current.contains(e.target)) {
         props.setQuestionModal(false);
       }
@@ -29,7 +29,7 @@ const QuestionModal = (props) => {
       const diffX = Math.abs(e.pageX - startX);
       const diffY = Math.abs(e.pageY - startY);
       if (diffX < delta && diffY < delta) {
-        handleOutsideClick(e);
+        handleOutsclassNameeClick(e);
       }
     };
     document.addEventListener('mousedown', handleMouseDown);
@@ -41,28 +41,28 @@ const QuestionModal = (props) => {
   }, [modal]);
 
   return (
-    <div id='qa-modal-background'>
-      <div id='qa-modal' ref={modal}>
-        <h2 id='qa-modal-header'>Ask Your Question</h2>
-        <h6 id='qa-modal-header'>About the {props.productName}</h6>
+    <div className='qa-modal-background'>
+      <div className='qa-modal' ref={modal}>
+        <h2 className='qa-modal-header'>Ask Your Question</h2>
+        <h6 className='qa-modal-header'>About the {props.productName}</h6>
         <div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>Your Question* </b></label>
             </div>
             <div>
-              <textarea id='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
+              <textarea className='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
                 setBody(e.target.value);
               }}/>
             </div>
             {emptyBody
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Question cannot be empty!
               </div>
             : null
             }
           </div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>What is your nickname* </b></label>
             </div>
@@ -72,7 +72,7 @@ const QuestionModal = (props) => {
               }}/>
             </div>
             {emptyName
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Nickname cannot be empty!
               </div>
             : null
@@ -81,24 +81,24 @@ const QuestionModal = (props) => {
               For privacy reasons, do not use your full name or email address
             </div>
           </div>
-          <div id='qa-modal-input'>
+          <div className='qa-modal-input'>
             <div>
               <label><b>Your email* </b></label>
             </div>
             <div>
-              <input type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
+              <input type='text' maxLength='60' placeholder='Why dclassName you like the product or not?' onChange={(e) => {
                 setEmail(e.target.value);
               }}/>
             </div>
             {emptyEmail
-            ? <div id='qa-modal-error'>
+            ? <div className='qa-modal-error'>
                 Email cannot be empty!
               </div>
             : null
             }
-            {invalidEmail
-            ? <div id='qa-modal-error'>
-                Invalid email!
+            {invalclassNameEmail
+            ? <div className='qa-modal-error'>
+                InvalclassName email!
               </div>
             : null
             }
@@ -106,38 +106,38 @@ const QuestionModal = (props) => {
               For authentication reasons, you will not be emailed
             </div>
           </div>
-          <button id='qa-modal-button' onClick={(e) => {
+          <button className='qa-modal-button' onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
             if (body === '') {
               setEmptyBody(true);
               sendRequest = false;
-              alertMessages.push('A valid question body');
+              alertMessages.push('A valclassName question body');
             } else {
               setEmptyBody(false);
             }
             if (name === '') {
               setEmptyName(true);
               sendRequest = false;
-              alertMessages.push('A valid nickname');
+              alertMessages.push('A valclassName nickname');
             } else {
               setEmptyName(false);
             }
             if (email === '') {
-              setInvalidEmail(false);
+              setInvalclassNameEmail(false);
               setEmptyEmail(true);
               sendRequest = false;
-              alertMessages.push('A valid email');
+              alertMessages.push('A valclassName email');
             } else {
               setEmptyEmail(false);
               if (email.toLowerCase().match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               ) === null) {
-                setInvalidEmail(true);
+                setInvalclassNameEmail(true);
                 sendRequest = false;
-                alertMessages.push('A valid email');
+                alertMessages.push('A valclassName email');
               } else {
-                setInvalidEmail(false);
+                setInvalclassNameEmail(false);
               }
             }
             if (sendRequest) {
@@ -146,20 +146,20 @@ const QuestionModal = (props) => {
                 body: body,
                 name: name,
                 email: email,
-                product_id: props.product_id
+                product_className: props.product_className
               })
                 .then(() => {
                   axios.get('/qa/questions', {
                     params: {
-                      product_id: props.product_id,
+                      product_className: props.product_className,
                       count: 10000
                     }
                   })
                     .then((response) => {
                       let tempObj = props.initialQuestionHelpfulness;
                       response.data.results.forEach((question) => {
-                        if (props.initialQuestionHelpfulness[question.question_id] === undefined) {
-                          tempObj[question.question_id] = question.question_helpfulness;
+                        if (props.initialQuestionHelpfulness[question.question_className] === undefined) {
+                          tempObj[question.question_className] = question.question_helpfulness;
                         }
                       })
                       props.setInitialQuestionHelpfulness(tempObj);

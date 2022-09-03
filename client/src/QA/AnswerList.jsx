@@ -40,16 +40,16 @@ const AnswerList = (props) => {
   return (
     <div>
       {renderedAnswers.length
-      ? <div id='qa-answer-container'>
-          <h3 id='qa-answer-tag'>A: </h3>
-          <div id='qa-answers'>
+      ? <div className='qa-answer-container'>
+          <h3 className='qa-answer-tag'>A: </h3>
+          <div className='qa-answers'>
             {renderedAnswers.map((answer, index) => (
-              <div key={index} id='qa-answer'>
+              <div key={index} className='qa-answer'>
                 <Answer answer={answer} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
               </div>
             ))}
             {Object.values(props.question.answers).length > 2
-            ? <a id='qa-more-answers' href="#" onClick={(e) => {
+            ? <a href="#" onClick={(e) => {
                 e.preventDefault();
                 setMoreAnswers(!moreAnswers);
               }}>{moreAnswers ? 'Collapse answers' : 'See more answers'}</a>
