@@ -9,14 +9,14 @@ const QuestionModal = (props) => {
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
-  const [invalclassNameEmail, setInvalclassNameEmail] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
   const modal = useRef(null);
 
   useEffect(() => {
     const delta = 6;
     let startX;
     let startY;
-    const handleOutsclassNameeClick = (e) => {
+    const handleOutsideClick = (e) => {
       if (modal.current && !modal.current.contains(e.target)) {
         props.setQuestionModal(false);
       }
@@ -29,7 +29,7 @@ const QuestionModal = (props) => {
       const diffX = Math.abs(e.pageX - startX);
       const diffY = Math.abs(e.pageY - startY);
       if (diffX < delta && diffY < delta) {
-        handleOutsclassNameeClick(e);
+        handleOutsideClick(e);
       }
     };
     document.addEventListener('mousedown', handleMouseDown);
@@ -86,7 +86,7 @@ const QuestionModal = (props) => {
               <label><b>Your email* </b></label>
             </div>
             <div>
-              <input type='text' maxLength='60' placeholder='Why dclassName you like the product or not?' onChange={(e) => {
+              <input type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
                 setEmail(e.target.value);
               }}/>
             </div>
@@ -96,9 +96,9 @@ const QuestionModal = (props) => {
               </div>
             : null
             }
-            {invalclassNameEmail
+            {invalidEmail
             ? <div className='qa-modal-error'>
-                InvalclassName email!
+                Invalid email!
               </div>
             : null
             }
@@ -112,32 +112,32 @@ const QuestionModal = (props) => {
             if (body === '') {
               setEmptyBody(true);
               sendRequest = false;
-              alertMessages.push('A valclassName question body');
+              alertMessages.push('A valid question body');
             } else {
               setEmptyBody(false);
             }
             if (name === '') {
               setEmptyName(true);
               sendRequest = false;
-              alertMessages.push('A valclassName nickname');
+              alertMessages.push('A valid nickname');
             } else {
               setEmptyName(false);
             }
             if (email === '') {
-              setInvalclassNameEmail(false);
+              setInvalidEmail(false);
               setEmptyEmail(true);
               sendRequest = false;
-              alertMessages.push('A valclassName email');
+              alertMessages.push('A valid email');
             } else {
               setEmptyEmail(false);
               if (email.toLowerCase().match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               ) === null) {
-                setInvalclassNameEmail(true);
+                setInvalidEmail(true);
                 sendRequest = false;
-                alertMessages.push('A valclassName email');
+                alertMessages.push('A valid email');
               } else {
-                setInvalclassNameEmail(false);
+                setInvalidEmail(false);
               }
             }
             if (sendRequest) {
