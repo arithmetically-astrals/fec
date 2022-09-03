@@ -19,10 +19,13 @@ const Answer = (props) => {
       {props.answer.photos.length
       ? <div>
           {props.answer.photos.map((photo, index) => (
-            <img className='qa-answer-photos' src={photo} key={index} height='130' onClick={() => {
+            <a href='#'  onClick={(e) => {
+              e.preventDefault();
               clickedPhoto.current = photo;
               setPhotoModal(true);
-            }}/>
+            }}>
+              <img className='qa-answer-photos' src={photo} key={index} height='130'/>
+            </a>
           ))}
         </div>
       : null

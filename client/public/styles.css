@@ -553,6 +553,14 @@ body {
   margin-bottom: 15px;
 }
 
+.qa-answer-photos {
+  margin: 10px;
+}
+
+.qa-answer-photos:hover {
+  box-shadow: 0 0 2px 1px #ffcbf2;
+}
+
 .qa-modal-background {
   position: fixed;
   left: 0;
