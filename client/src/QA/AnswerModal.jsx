@@ -13,29 +13,36 @@ const AnswerModal = (props) => {
   const [invalidEmail, setInvalidEmail] = useState(false);
   const [, updateState] = React.useState();
   const modal = useRef(null);
-  const initialLoad = useRef(true);
 
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
-  const closeModal = (ref) => {
-    useEffect(() => {
-      const handleOutsideClick = (e) => {
-        if (ref.current && !ref.current.contains(e.target)) {
-          if (initialLoad.current) {
-            initialLoad.current = false;
-          } else {
-            props.setAnswerModal(false);
-          }
-        }
+  useEffect(() => {
+    const delta = 6;
+    let startX;
+    let startY;
+    const handleOutsideClick = (e) => {
+      if (modal.current && !modal.current.contains(e.target)) {
+        props.setAnswerModal(false);
       }
-      document.addEventListener('click', handleOutsideClick);
-      return () => {
-        document.removeEventListener('click', handleOutsideClick);
+    };
+    const handleMouseDown = (e) => {
+      startX = e.pageX;
+      startY = e.pageY;
+    };
+    const handleMouseUp = (e) => {
+      const diffX = Math.abs(e.pageX - startX);
+      const diffY = Math.abs(e.pageY - startY);
+      if (diffX < delta && diffY < delta) {
+        handleOutsideClick(e);
       }
-    }, [ref]);
-  }
-
-  closeModal(modal);
+    };
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+    }
+  }, [modal]);
 
   return (
     <div id='qa-modal' ref={modal}>
@@ -161,15 +168,18 @@ const AnswerModal = (props) => {
         </div>
         <button id='qa-modal-button' onClick={(e) => {
           let sendRequest = true;
+          let alertMessages = [];
           if (body === '') {
             setEmptyBody(true);
             sendRequest = false;
+            alertMessages.push('A valid answer body');
           } else {
             setEmptyBody(false);
           }
           if (name === '') {
             setEmptyName(true);
             sendRequest = false;
+            alertMessages.push('A valid nickname');
           } else {
             setEmptyName(false);
           }
@@ -177,6 +187,7 @@ const AnswerModal = (props) => {
             setInvalidEmail(false);
             setEmptyEmail(true);
             sendRequest = false;
+            alertMessages.push('A valid email');
           } else {
             setEmptyEmail(false);
             if (email.toLowerCase().match(
@@ -184,6 +195,7 @@ const AnswerModal = (props) => {
             ) === null) {
               setInvalidEmail(true);
               sendRequest = false;
+              alertMessages.push('A valid email');
             } else {
               setInvalidEmail(false);
             }
@@ -222,6 +234,8 @@ const AnswerModal = (props) => {
               .catch((err) => {
                 console.log(err);
               });
+          } else {
+            alert(`You must enter the following:\n${alertMessages.join('\n')}`);
           }
           }}>Submit</button>
       </div>
