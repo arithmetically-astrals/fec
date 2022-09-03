@@ -7,13 +7,27 @@ const Question = (props) => {
 
   const [reported, setReported] = useState(false);
   const clicked = useRef(false);
+  const searchedQuestions = [];
+  if (props.search.length >= 3) {
+    const splitSearchedQuestion = props.question.question_body.split(new RegExp(`(${props.search})`, 'i'));
+    splitSearchedQuestion.forEach((term) => {
+      if (term.toUpperCase() === props.search.toUpperCase()) {
+        searchedQuestions.push(<mark>{term}</mark>);
+      } else {
+        searchedQuestions.push(term);
+      }
+    })
+  }
 
   return (
     <div>
       <div id='qa-question-container'>
         <h3 id='qa-question-tag'>Q:</h3>
         <span id='qa-question-body'>
-          {props.question.question_body}
+          {props.search.length >= 3
+          ? searchedQuestions
+          : props.question.question_body
+          }
         </span>
         <span id='qa-question-actions'>
           {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_id]
@@ -40,20 +54,20 @@ const Question = (props) => {
                   console.log(err);
                 });
               }
-          }}>Helpful?</a>
+            }}>Helpful?</a>
           : <>Helpful!</>
           } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName}/> | {reported
           ? <>Reported</>
           : <a href="#" onClick={(e) => {
-            e.preventDefault();
-            axios.put(`/qa/questions/${props.question.question_id}/report`)
-              .then(() => {
-                setReported(true);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-          }}>Report</a>
+              e.preventDefault();
+              axios.put(`/qa/questions/${props.question.question_id}/report`)
+                .then(() => {
+                  setReported(true);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            }}>Report</a>
           }
         </span>
       </div>
