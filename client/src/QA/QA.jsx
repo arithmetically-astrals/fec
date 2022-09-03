@@ -14,6 +14,27 @@ const QA = (props) => {
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [productName, setProductName] = useState('');
 
+  let renderedQuestions = [];
+  let searchedQuestions = [];
+  if (search.length >= 3) {
+    questions.forEach((question) => {
+      if (question.question_body.toUpperCase().includes(search.toUpperCase())) {
+        searchedQuestions.push(question);
+      }
+    })
+    for (let i = 0; i < questionCount; i++) {
+      if (searchedQuestions[i]) {
+        renderedQuestions.push(searchedQuestions[i]);
+      }
+    }
+  } else {
+    for (let i = 0; i < questionCount; i++) {
+      if (questions[i]) {
+        renderedQuestions.push(questions[i]);
+      }
+    }
+  }
+
   useEffect(() => {
     axios.get('/qa/questions', {
       params: {
@@ -59,10 +80,10 @@ const QA = (props) => {
       ? <div>Be the first to ask a question...</div>
       : <>
           <Search search={search} setSearch={setSearch}/>
-          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName}/>
-          {questions.length <= questionCount
-          ? null
-          : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
+          <QuestionList search={search} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} renderedQuestions={renderedQuestions}/>
+          {(search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
+          ? <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
+          : null
           }
         </>
       }
