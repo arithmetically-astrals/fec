@@ -110,7 +110,7 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
         {photoUpload.map(photo => {
           return (
             <div key={photo} style={{display: 'inline', marginLeft: '5px'}}>
-              <img  src={photo} style={{width: '40px', height: '40px'}}/>
+              <img  src={photo} style={{width: '40px', height: '40px', borderRadius: '15px', cursor: 'pointer'}}/>
             </div>
             )}
             )} {photoUpload.length < 5 ? <button onClick={addImageForm}>Add a photo!</button> : null }
