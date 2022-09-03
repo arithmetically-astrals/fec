@@ -8,7 +8,7 @@ const QuestionList = (props) => {
     let i = 0;
     let j = 0;
     while (i < props.questionCount && j < props.questions.length) {
-      if (props.questions[j].question_body.toUpperCase().includes(props.search.toUpperCase()) && props.questions[j]) {
+      if (props.questions[j].question_body.toUpperCase().includes(props.search.toUpperCase())) {
         i++;
         renderedQuestions.push(props.questions[j]);
       }
