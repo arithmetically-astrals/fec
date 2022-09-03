@@ -24,7 +24,7 @@ const Answer = (props) => {
               clickedPhoto.current = photo;
               setPhotoModal(true);
             }}>
-              <img className='qa-answer-photos' src={photo} key={index} height='130'/>
+              <img className='qa-answer-photos' src={photo} key={index} height='80'/>
             </a>
           ))}
         </div>
