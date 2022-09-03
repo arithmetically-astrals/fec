@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import BlurToggle from "../Shared/BlurToggle.jsx";
 import AnswerModal from "./AnswerModal.jsx";
 
 const AddAnswer = (props) => {
@@ -14,7 +13,6 @@ const AddAnswer = (props) => {
       }
       <a href="#" onClick={(e) => {
         e.preventDefault();
-        // BlurToggle();
         setAnswerModal(true);
       }}>Add Answer</a>
     </>

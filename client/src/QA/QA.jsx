@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import QuestionModal from "./QuestionModal.jsx";
-import BlurToggle from "../Shared/BlurToggle.jsx";
 import Question from "./Question.jsx";
 
 const QA = (props) => {
@@ -105,7 +104,6 @@ const QA = (props) => {
         </>
       }
       <button onClick={() => {
-        // BlurToggle();
         setQuestionModal(true);
       }}>Add a question</button>
     </div>
