@@ -9,6 +9,14 @@ const Answer = (props) => {
   return (
     <>
       {props.answer.body}
+      {props.answer.photos.length
+      ? <div>
+          {props.answer.photos.map((photo, index) => (
+            <img src={photo} key={index} height='130'/>
+          ))}
+        </div>
+      : null
+      }
       <div>by {props.answer.answerer_name.toUpperCase() === 'SELLER'
       ? <b>{props.answer.answerer_name}</b>
       : props.answer.answerer_name

@@ -10,7 +10,7 @@ const root = createRoot(document.getElementById("root"));
 
 const App = () => {
 
-  const [itemId, setitemId] = useState(37317);
+  const [itemId, setitemId] = useState(37316);
   const [starRating, setstarRating] = useState(0);
 
   return (
