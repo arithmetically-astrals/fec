@@ -2,8 +2,9 @@ import React, {useState, useEffect} from "react";
 import Search from "./Search.jsx";
 import QuestionList from "./QuestionList.jsx";
 import MoreQuestions from "./MoreQuestions.jsx";
-import AddQuestion from "./AddQuestion.jsx";
 import axios from "axios";
+import QuestionModal from "./QuestionModal.jsx";
+import BlurToggle from "../Shared/BlurToggle.jsx";
 
 const QA = (props) => {
 
@@ -13,6 +14,8 @@ const QA = (props) => {
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [productName, setProductName] = useState('');
+  const [questionModal, setQuestionModal] = useState(false);
+  const [answerModal, setAnswerModal] = useState(false);
 
   let renderedQuestions = [];
   let searchedQuestions = [];
@@ -75,6 +78,10 @@ const QA = (props) => {
 
   return (
     <div id='qa' className='widget'>
+      {questionModal
+      ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
+      : null
+      }
       <h1>Questions</h1>
       {questions.length === 0
       ? <div>Be the first to ask a question...</div>
@@ -87,7 +94,10 @@ const QA = (props) => {
           }
         </>
       }
-      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={props.itemId} questionCount={questionCount} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} initialQuestionHelpfulness={initialQuestionHelpfulness} productName={productName}/>
+      <button onClick={() => {
+        // BlurToggle();
+        setQuestionModal(true);
+      }}>Add a question</button>
     </div>
   )
 
