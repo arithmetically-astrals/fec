@@ -7,14 +7,12 @@ const Question = (props) => {
 
   const [reported, setReported] = useState(false);
   const clicked = useRef(false);
-  const searchedQuestions = [];
+  let searchedQuestion;
   if (props.search.length >= 3) {
-    const splitSearchedQuestion = props.question.question_body.split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
-    splitSearchedQuestion.forEach((term, index) => {
+    searchedQuestion = props.question.question_body.split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+    searchedQuestion.forEach((term, index) => {
       if (term.toUpperCase() === props.search.toUpperCase()) {
-        searchedQuestions.push(<mark key={index}>{term}</mark>);
-      } else {
-        searchedQuestions.push(term);
+        searchedQuestion[index] = <mark key={index}>{term}</mark>
       }
     })
   }
@@ -25,7 +23,7 @@ const Question = (props) => {
         <h3 id='qa-question-tag'>Q:</h3>
         <span id='qa-question-body'>
           {props.search.length >= 3
-          ? searchedQuestions
+          ? searchedQuestion
           : props.question.question_body
           }
         </span>
