@@ -1,18 +1,28 @@
 import React, {useState, useEffect, useRef} from "react";
 import axios from "axios";
+import PhotoModal from "./PhotoModal.jsx";
 
 const Answer = (props) => {
 
   const [reported, setReported] = useState(false);
+  const [photoModal, setPhotoModal] = useState(false);
   const clicked = useRef(false);
+  const clickedPhoto = useRef(null);
 
   return (
     <>
       {props.answer.body}
+      {photoModal
+      ? <PhotoModal setPhotoModal={setPhotoModal} clickedPhoto={clickedPhoto.current}/>
+      : null
+      }
       {props.answer.photos.length
       ? <div>
           {props.answer.photos.map((photo, index) => (
-            <img src={photo} key={index} height='130'/>
+            <img className='qa-answer-photos' src={photo} key={index} height='130' onClick={() => {
+              clickedPhoto.current = photo;
+              setPhotoModal(true);
+            }}/>
           ))}
         </div>
       : null
