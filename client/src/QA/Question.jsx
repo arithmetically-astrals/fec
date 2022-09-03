@@ -9,10 +9,10 @@ const Question = (props) => {
   const clicked = useRef(false);
   const searchedQuestions = [];
   if (props.search.length >= 3) {
-    const splitSearchedQuestion = props.question.question_body.split(new RegExp(`(${props.search})`, 'i'));
-    splitSearchedQuestion.forEach((term) => {
+    const splitSearchedQuestion = props.question.question_body.split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+    splitSearchedQuestion.forEach((term, index) => {
       if (term.toUpperCase() === props.search.toUpperCase()) {
-        searchedQuestions.push(<mark>{term}</mark>);
+        searchedQuestions.push(<mark key={index}>{term}</mark>);
       } else {
         searchedQuestions.push(term);
       }
