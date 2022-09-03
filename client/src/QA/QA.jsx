@@ -13,7 +13,6 @@ const QA = (props) => {
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [productName, setProductName] = useState('');
   const [questionModal, setQuestionModal] = useState(false);
-  const [answerModal, setAnswerModal] = useState(false);
 
   let renderedQuestions = [];
   let searchedQuestions = [];
