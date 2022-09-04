@@ -9,6 +9,16 @@ const Answer = (props) => {
   const clicked = useRef(false);
   const clickedPhoto = useRef(null);
 
+  useEffect(() => {
+    const allElements = document.body.getElementsByTagName('*');
+    if (document.getElementsByClassName('bodyDark').length) {
+      for (let i = 0; i < allElements.length; i++) {
+        allElements[i].classList.add('borderDark');
+        allElements[i].classList.add('textDark');
+      }
+    }
+  }, [])
+
   return (
     <>
       {props.answer.body}

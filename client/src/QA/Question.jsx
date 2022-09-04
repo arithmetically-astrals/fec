@@ -17,8 +17,18 @@ const Question = (props) => {
     })
   }
 
+  useEffect(() => {
+    const allElements = document.body.getElementsByTagName('*');
+    if (document.getElementsByClassName('bodyDark').length) {
+      for (let i = 0; i < allElements.length; i++) {
+        allElements[i].classList.add('borderDark');
+        allElements[i].classList.add('textDark');
+      }
+    }
+  }, [])
+
   return (
-    <div>
+    <>
       <div className='qa-question-container'>
         <h3 className='qa-question-tag'>Q:</h3>
         <span className='qa-question-body'>
@@ -70,7 +80,7 @@ const Question = (props) => {
         </span>
       </div>
       <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
-    </div>
+    </>
   )
 }
 
