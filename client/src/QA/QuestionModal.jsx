@@ -40,27 +40,31 @@ const QuestionModal = (props) => {
     }
   }, [modal]);
 
-  let x = document.getElementsByClassName('bodyDark').length;
+  let classObj = {
+    qaClose: 'qa-close',
+    qaModal: 'qa-modal',
+    qaModalInput: 'qa-modal-input',
+    qaModalButton: 'qa-modal-button',
+  };
+  if (document.getElementsByClassName('bodyDark').length) {
+    for (let key in classObj) {
+      classObj[key] += '-dark';
+    }
+  }
 
   return (
     <div className='qa-modal-background'>
-      <a href="#" className={x
-      ? 'qa-close-dark'
-      : 'qa-close'
-      }/>
-      <div className={x
-        ? 'qa-modal-dark'
-        : 'qa-modal'
-        } ref={modal}>
-        <h2 className='qa-modal-header'>Ask Your Question</h2>
-        <h6 className='qa-modal-header'>About the {props.productName}</h6>
+      <a href="#" className={classObj.qaClose}/>
+      <div className={classObj.qaModal} ref={modal}>
+        <h2 className='qa-modal-title'>Ask Your Question</h2>
+        <h6 className='qa-modal-title'>About the {props.productName}</h6>
         <div>
-          <div className='qa-modal-input'>
+          <div className='qa-modal-header'>
             <div>
               <label><b>Your Question* </b></label>
             </div>
             <div>
-              <textarea className='qa-modal-textarea' maxLength='1000' rows="10" cols="80" onChange={(e) => {
+              <textarea className={classObj.qaModalInput} maxLength='1000' rows="10" cols="80" onChange={(e) => {
                 setBody(e.target.value);
               }}/>
             </div>
@@ -71,12 +75,12 @@ const QuestionModal = (props) => {
             : null
             }
           </div>
-          <div className='qa-modal-input'>
+          <div className='qa-modal-header'>
             <div>
               <label><b>What is your nickname* </b></label>
             </div>
             <div>
-              <input type='text' maxLength='60' placeholder='Example: jackson11!' onChange={(e) => {
+              <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Example: jackson11!' onChange={(e) => {
                 setName(e.target.value);
               }}/>
             </div>
@@ -90,12 +94,12 @@ const QuestionModal = (props) => {
               For privacy reasons, do not use your full name or email address
             </div>
           </div>
-          <div className='qa-modal-input'>
+          <div className='qa-modal-header'>
             <div>
               <label><b>Your email* </b></label>
             </div>
             <div>
-              <input type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
+              <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
                 setEmail(e.target.value);
               }}/>
             </div>
@@ -115,7 +119,7 @@ const QuestionModal = (props) => {
               For authentication reasons, you will not be emailed
             </div>
           </div>
-          <button className='qa-modal-button' onClick={(e) => {
+          <button className={classObj.qaModalButton} onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
             if (body.trim() === '') {

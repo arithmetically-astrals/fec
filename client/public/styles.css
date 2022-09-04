@@ -673,19 +673,27 @@ body {
   background-color: #fff;
 }
 
-.qa-modal-header {
-  margin-left: 30px;
+.qa-modal-title {
+  text-align: center;
 }
 
-.qa-modal-input {
+.qa-modal-header {
   margin: 30px;
 }
 
-.qa-modal-textarea {
+.qa-modal-input {
+  resize: none;
+}
+
+.qa-modal-input-dark {
   resize: none;
 }
 
 .qa-modal-button {
+  margin-left: 30px;
+}
+
+.qa-modal-button-dark {
   margin-left: 30px;
 }
 
