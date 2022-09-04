@@ -35,7 +35,10 @@ const PhotoModal = (props) => {
 
   return (
     <div className='qa-modal-background'>
-      <a href="#" className="qa-close" />
+      <a href="#" className={document.getElementsByClassName('bodyDark').length
+      ? 'qa-close-dark'
+      : 'qa-close'
+      }/>
       <img id='qa-photo-modal' src={props.clickedPhoto} ref={modal}/>
     </div>
   )

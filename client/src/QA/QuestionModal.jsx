@@ -40,10 +40,18 @@ const QuestionModal = (props) => {
     }
   }, [modal]);
 
+  let x = document.getElementsByClassName('bodyDark').length;
+
   return (
     <div className='qa-modal-background'>
-      <a href="#" className="qa-close" />
-      <div className='qa-modal' ref={modal}>
+      <a href="#" className={x
+      ? 'qa-close-dark'
+      : 'qa-close'
+      }/>
+      <div className={x
+        ? 'qa-modal-dark'
+        : 'qa-modal'
+        } ref={modal}>
         <h2 className='qa-modal-header'>Ask Your Question</h2>
         <h6 className='qa-modal-header'>About the {props.productName}</h6>
         <div>

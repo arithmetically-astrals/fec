@@ -620,7 +620,20 @@ body {
   overflow: auto;
 }
 
-.qa-close {
+.qa-modal-dark {
+  border: 3px solid #666;
+  background: #222;
+  position: fixed;
+  width: 50%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
+  overflow: auto;
+}
+
+.qa-close, .qa-close-dark {
   position: fixed;
   right: 32px;
   top: 32px;
@@ -630,7 +643,7 @@ body {
   z-index: 9999;
 }
 
-.qa-close:hover {
+.qa-close:hover, .qa-close-dark:hover {
   opacity: 1;
 }
 
@@ -643,12 +656,21 @@ body {
   background-color: #222;
 }
 
-.qa-close:before {
+.qa-close:before, .qa-close-dark:before {
   transform: rotate(45deg);
 }
 
-.qa-close:after {
+.qa-close:after, .qa-close-dark:after {
   transform: rotate(-45deg);
+}
+
+.qa-close-dark:before, .qa-close-dark:after {
+  position: fixed;
+  right: 47px;
+  content: '';
+  height: 32px;
+  width: 2px;
+  background-color: #fff;
 }
 
 .qa-modal-header {
@@ -669,6 +691,8 @@ body {
 
 .qa-modal-error {
   color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 .qa-modal-photos {
@@ -680,11 +704,11 @@ body {
 }
 
 .qa-button {
-
+  background-color: red;
 }
 
 .qa-button-dark {
-
+  background-color: purple;
 }
 
 /*# sourceMappingURL=styles.css.map */
