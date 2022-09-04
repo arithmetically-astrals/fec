@@ -605,7 +605,7 @@ body {
 
 .qa-modal {
   border: 3px solid #111;
-  background: #fff;
+  background: #ccc;
   position: fixed;
   width: 50%;
   height: 90%;
@@ -632,9 +632,9 @@ body {
 
 .close:before, .close:after {
   position: fixed;
-  right: 64px;
-  content: ' ';
-  height: 33px;
+  right: 47px;
+  content: '';
+  height: 32px;
   width: 2px;
   background-color: #222;
 }

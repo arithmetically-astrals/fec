@@ -73,7 +73,7 @@ const QA = (props) => {
   }, [props.itemId]);
 
   return (
-    <div id='qa' className='widget'>
+    <div id='qa' class='widget'>
       {questionModal
       ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
       : null
