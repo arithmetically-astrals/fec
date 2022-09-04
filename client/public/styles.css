@@ -501,6 +501,12 @@ body {
   z-index: 5;
 }
 
+#qa {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #qa-search {
   width: calc(100% - 16px);
   padding: 5px;
@@ -509,13 +515,17 @@ body {
   outline: none;
 }
 
+#qa-no-questions {
+  text-align: center;
+}
+
 #qa-questions {
   max-height: 100vh;
   overflow: auto;
 }
 
 .qa-question-container {
-  border-top: 2px solid #BBBBBB;
+  border-top: 3px solid #555;
   padding: 10px;
 }
 
@@ -529,36 +539,49 @@ body {
 
 .qa-question-actions {
   float: right;
-  padding-right: 15px;
+  padding-top: 3px;
+  padding-right: 10px;
+  font-size: 14px;
 }
 
 .qa-answer-container {
   display: flex;
-  border-top: 1px dashed #BBBBBB;
-  padding: 10px;
-  padding-top: 15px;
+  border-top: 1px dashed #bbb;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .qa-answer-tag {
   flex: 1;
+  margin-top: 10px;
 }
 
 .qa-answers {
   max-height: 50vh;
   overflow: auto;
+  padding-top: 7px;
   flex: 9;
 }
 
 .qa-answer {
-  margin-bottom: 15px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: ridge;
 }
 
 .qa-answer-photos {
-  margin: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 .qa-answer-photos:hover {
   box-shadow: 0 0 2px 1px #ffcbf2;
+}
+
+.qa-answer-actions {
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .qa-modal-background {
@@ -573,7 +596,7 @@ body {
 
 #qa-photo-modal {
   position: fixed;
-  border: 3px solid black;
+  border: 3px solid #111;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -581,7 +604,7 @@ body {
 }
 
 .qa-modal {
-  border: 3px solid black;
+  border: 3px solid #111;
   background: #fff;
   position: fixed;
   width: 50%;
@@ -591,6 +614,37 @@ body {
   transform: translate(-50%, -50%);
   z-index: 9998;
   overflow: auto;
+}
+
+.close {
+  position: fixed;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  z-index: 9999;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: fixed;
+  right: 64px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #222;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
 }
 
 .qa-modal-header {
@@ -615,6 +669,14 @@ body {
 
 .qa-modal-photos {
   display: inline-block;
+}
+
+#qa-button-container {
+  text-align: center;
+}
+
+.qa-button {
+
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -28,16 +28,16 @@ const Question = (props) => {
           }
         </span>
         <span className='qa-question-actions'>
-          {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_className]
-          ? <a href="#" onClick={(e) => {
+          {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_id]
+          ? <a href='#' onClick={(e) => {
               e.preventDefault();
               if (!clicked.current) {
                 clicked.current = true;
-                axios.put(`/qa/questions/${props.question.question_className}/helpful`)
+                axios.put(`/qa/questions/${props.question.question_id}/helpful`)
                 .then(() => {
                   axios.get('/qa/questions', {
                     params: {
-                      product_className: props.product_className,
+                      product_id: props.product_id,
                       count: 10000
                     }
                   })
@@ -54,11 +54,11 @@ const Question = (props) => {
               }
             }}>Helpful?</a>
           : <>Helpful!</>
-          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_className={props.product_className} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/> | {reported
+          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/> | {reported
           ? <>Reported</>
           : <a href="#" onClick={(e) => {
               e.preventDefault();
-              axios.put(`/qa/questions/${props.question.question_className}/report`)
+              axios.put(`/qa/questions/${props.question.question_id}/report`)
                 .then(() => {
                   setReported(true);
                 })
@@ -69,7 +69,7 @@ const Question = (props) => {
           }
         </span>
       </div>
-      <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_className={props.product_className} setQuestions={props.setQuestions}/>
+      <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
     </div>
   )
 }

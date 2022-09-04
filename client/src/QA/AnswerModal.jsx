@@ -46,6 +46,7 @@ const AnswerModal = (props) => {
 
   return (
     <div className='qa-modal-background'>
+      <a href="#" className="close" />
       <div className='qa-modal' ref={modal}>
         <h2 className='qa-modal-header'>Submit Your Answer</h2>
         <h6 className='qa-modal-header'>{props.productName}: {props.question.question_body}</h6>
@@ -170,21 +171,21 @@ const AnswerModal = (props) => {
           <button className='qa-modal-button' onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
-            if (body === '') {
+            if (body.trim() === '') {
               setEmptyBody(true);
               sendRequest = false;
               alertMessages.push('A valid answer body');
             } else {
               setEmptyBody(false);
             }
-            if (name === '') {
+            if (name.trim() === '') {
               setEmptyName(true);
               sendRequest = false;
               alertMessages.push('A valid nickname');
             } else {
               setEmptyName(false);
             }
-            if (email === '') {
+            if (email.trim() === '') {
               setInvalidEmail(false);
               setEmptyEmail(true);
               sendRequest = false;
@@ -204,9 +205,9 @@ const AnswerModal = (props) => {
             if (sendRequest) {
               props.setAnswerModal(false);
               axios.post(`/qa/questions/${props.question.question_id}/answers`, {
-                body: body,
-                name: name,
-                email: email,
+                body: body.trim(),
+                name: name.trim(),
+                email: email.trim(),
                 photos: photos
               })
                 .then(() => {

@@ -49,7 +49,7 @@ const AnswerList = (props) => {
               </div>
             ))}
             {Object.values(props.question.answers).length > 2
-            ? <a href="#" onClick={(e) => {
+            ? <a href='#' onClick={(e) => {
                 e.preventDefault();
                 setMoreAnswers(!moreAnswers);
               }}>{moreAnswers ? 'Collapse answers' : 'See more answers'}</a>

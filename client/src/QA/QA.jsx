@@ -92,20 +92,22 @@ const QA = (props) => {
             ? renderedQuestions.map((question, index) => (
               <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} search={search}/>
             ))
-            : <div>No questions found!</div>
+            : <h2 id='qa-no-questions'>No questions found!</h2>
             }
           </div>
-          {(search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
-          ? <button onClick={() => {
-              setQuestionCount(questionCount + 2);
-            }}>More Answered Questions</button>
-          : null
-          }
         </>
       }
-      <button onClick={() => {
-        setQuestionModal(true);
-      }}>Add a question</button>
+      <div id='qa-button-container'>
+        {(search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
+        ? <button className='qa-button' onClick={() => {
+            setQuestionCount(questionCount + 2);
+          }}>More Answered Questions</button>
+        : null
+        }
+        <button className='qa-button' onClick={() => {
+          setQuestionModal(true);
+        }}>Add a question</button>
+      </div>
     </div>
   )
 }

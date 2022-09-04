@@ -30,7 +30,7 @@ const Answer = (props) => {
         </div>
       : null
       }
-      <div>by {props.answer.answerer_name.toUpperCase() === 'SELLER'
+      <div className='qa-answer-actions'>by {props.answer.answerer_name.toUpperCase() === 'SELLER'
       ? <b>{props.answer.answerer_name}</b>
       : props.answer.answerer_name
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
