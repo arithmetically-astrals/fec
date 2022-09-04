@@ -151,7 +151,7 @@ const AnswerModal = (props) => {
                     setPhotos(photosClone);
                     forceUpdate();
                   }}/>
-                  <input type='button' value='Upload a photo...' onClick={() => {
+                  <input className={classObj.qaModalButton} type='button' value='Upload a photo...' onClick={() => {
                     document.getElementById('uploadphoto').click();
                   }}/>
                 </div>
@@ -180,7 +180,7 @@ const AnswerModal = (props) => {
               </div>
             </div>
           </div>
-          <button className={classObj.qaModalButton} onClick={(e) => {
+          <button className={`qa-modal-header ${classObj.qaModalButton}`} onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
             if (body.trim() === '') {

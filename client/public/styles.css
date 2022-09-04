@@ -516,7 +516,16 @@ body {
 }
 
 .qa-search-dark {
+  width: calc(100% - 16px);
+  padding: 5px;
+  height: 30px;
+  border: 3px solid #C0FDFF !important;
+  background-color: #777;
+  outline: none;
+}
 
+.qa-search-dark::placeholder {
+  color: #000;
 }
 
 #qa-no-questions {
@@ -687,14 +696,19 @@ body {
 
 .qa-modal-input-dark {
   resize: none;
+  background-color: #777
+}
+
+.qa-modal-input-dark::placeholder {
+  color: #000;
 }
 
 .qa-modal-button {
-  margin-left: 30px;
+  background-color: red;
 }
 
 .qa-modal-button-dark {
-  margin-left: 30px;
+  background-color: purple;
 }
 
 .qa-modal-error {

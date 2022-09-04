@@ -119,7 +119,7 @@ const QuestionModal = (props) => {
               For authentication reasons, you will not be emailed
             </div>
           </div>
-          <button className={classObj.qaModalButton} onClick={(e) => {
+          <button className={`qa-modal-header ${classObj.qaModalButton}`} onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
             if (body.trim() === '') {
