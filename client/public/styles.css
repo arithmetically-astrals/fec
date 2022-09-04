@@ -515,6 +515,10 @@ body {
   outline: none;
 }
 
+.qa-search-dark {
+
+}
+
 #qa-no-questions {
   text-align: center;
 }
@@ -676,6 +680,10 @@ body {
 }
 
 .qa-button {
+
+}
+
+.qa-button-dark {
 
 }
 

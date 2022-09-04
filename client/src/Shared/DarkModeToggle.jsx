@@ -22,11 +22,16 @@ let toggleDarkMode = () => {
     allElements[i].classList.toggle('textDark');
   }
 
-  document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');
+  // document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');
   document.getElementById('overview-infopanel-stylepicker-quantity').classList.toggle('overview-infopanel-stylepicker-quantity-dark');
   document.getElementById('overview-infopanel-actions-cart').classList.toggle('overview-infopanel-actions-cart-dark');
   document.getElementById('overview-infopanel-actions-favorite').classList.toggle('overview-infopanel-actions-favorite-dark');
 
+  document.getElementById('qa-search').classList.toggle('qa-search-dark');
+  let qaButtons = document.getElementsByClassName('qa-button');
+  for (let i = 0; i < qaButtons.length; i++) {
+    qaButtons[i].classList.toggle('qa-button-dark');
+  }
 }
 
 export default DarkModeToggle;
