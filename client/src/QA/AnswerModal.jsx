@@ -48,7 +48,7 @@ const AnswerModal = (props) => {
     qaClose: 'qa-close',
     qaModal: 'qa-modal',
     qaModalInput: 'qa-modal-input',
-    qaModalButton: 'qa-modal-button',
+    qaModalButton: 'qa-button',
   };
   if (document.getElementsByClassName('bodyDark').length) {
     for (let key in classObj) {

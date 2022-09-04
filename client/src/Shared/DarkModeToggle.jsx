@@ -17,17 +17,22 @@ let toggleDarkMode = () => {
   }
 
   var allElements = document.body.getElementsByTagName("*");
+  console.log(allElements.length);
   for (let i = 0; i < allElements.length; i++) {
     allElements[i].classList.toggle('borderDark');
     allElements[i].classList.toggle('textDark');
   }
 
-  // document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');
+  document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');
   document.getElementById('overview-infopanel-stylepicker-quantity').classList.toggle('overview-infopanel-stylepicker-quantity-dark');
   document.getElementById('overview-infopanel-actions-cart').classList.toggle('overview-infopanel-actions-cart-dark');
   document.getElementById('overview-infopanel-actions-favorite').classList.toggle('overview-infopanel-actions-favorite-dark');
 
   document.getElementById('qa-search').classList.toggle('qa-search-dark');
+  let qaAnswerPhotos = document.getElementsByClassName('qa-answer-photos');
+  for (let i = 0; i < qaAnswerPhotos.length; i++) {
+    qaAnswerPhotos[i].classList.toggle('qa-answer-photos-dark');
+  }
   let qaButtons = document.getElementsByClassName('qa-button');
   for (let i = 0; i < qaButtons.length; i++) {
     qaButtons[i].classList.toggle('qa-button-dark');
