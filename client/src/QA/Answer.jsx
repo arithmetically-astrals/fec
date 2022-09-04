@@ -19,7 +19,7 @@ const Answer = (props) => {
       {props.answer.photos.length
       ? <div>
           {props.answer.photos.map((photo, index) => (
-            <a href='#'  onClick={(e) => {
+            <a key={index} href='#' onClick={(e) => {
               e.preventDefault();
               clickedPhoto.current = photo;
               setPhotoModal(true);
