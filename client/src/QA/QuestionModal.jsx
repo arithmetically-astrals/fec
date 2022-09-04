@@ -42,7 +42,7 @@ const QuestionModal = (props) => {
 
   return (
     <div className='qa-modal-background'>
-      <a href="#" className="close" />
+      <a href="#" className="qa-close" />
       <div className='qa-modal' ref={modal}>
         <h2 className='qa-modal-header'>Ask Your Question</h2>
         <h6 className='qa-modal-header'>About the {props.productName}</h6>

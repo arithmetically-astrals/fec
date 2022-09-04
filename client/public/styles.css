@@ -620,7 +620,7 @@ body {
   overflow: auto;
 }
 
-.close {
+.qa-close {
   position: fixed;
   right: 32px;
   top: 32px;
@@ -630,11 +630,11 @@ body {
   z-index: 9999;
 }
 
-.close:hover {
+.qa-close:hover {
   opacity: 1;
 }
 
-.close:before, .close:after {
+.qa-close:before, .qa-close:after {
   position: fixed;
   right: 47px;
   content: '';
@@ -643,11 +643,11 @@ body {
   background-color: #222;
 }
 
-.close:before {
+.qa-close:before {
   transform: rotate(45deg);
 }
 
-.close:after {
+.qa-close:after {
   transform: rotate(-45deg);
 }
 
