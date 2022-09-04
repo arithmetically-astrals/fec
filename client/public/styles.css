@@ -695,6 +695,7 @@ body {
 
 .qa-modal-input {
   resize: none;
+  min-width: 250px;
 }
 
 .qa-modal-input-dark {
