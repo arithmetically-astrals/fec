@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const DarkModeToggle = () => {
   return <div id='darkModeToggle' onClick={toggleDarkMode}>toggle dark mode</div>
@@ -16,7 +16,7 @@ let toggleDarkMode = () => {
     elements[i].classList.toggle('widgetDark');
   }
 
-  var allElements = document.body.getElementsByTagName("*");
+  var allElements = document.body.getElementsByTagName('*');
   for (let i = 0; i < allElements.length; i++) {
     allElements[i].classList.toggle('borderDark');
     allElements[i].classList.toggle('textDark');

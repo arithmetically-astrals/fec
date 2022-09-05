@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useRef} from "react";
-import axios from "axios";
-import PhotoModal from "./PhotoModal.jsx";
+import React, {useState, useEffect, useRef} from 'react';
+import axios from 'axios';
+import PhotoModal from './PhotoModal.jsx';
 
 const Answer = (props) => {
 

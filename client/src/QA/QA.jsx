@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import axios from "axios";
-import QuestionModal from "./QuestionModal.jsx";
-import Question from "./Question.jsx";
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import QuestionModal from './QuestionModal.jsx';
+import Question from './Question.jsx';
 
 const QA = (props) => {
 
@@ -82,7 +82,7 @@ const QA = (props) => {
       {questions.length === 0
       ? <h2 className='qa-no-questions'>Be the first to ask a question...</h2>
       : <>
-          <input id='qa-search' type="text" placeholder="Have a question? Search for answers…" onChange={(e) => {
+          <input id='qa-search' type='text' placeholder='Have a question? Search for answers…' onChange={(e) => {
             setSearch(e.target.value);
           }}></input>
           <div data-testid='questions' id='qa-questions'>

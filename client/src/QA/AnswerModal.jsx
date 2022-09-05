@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useRef} from "react";
-import axios from "axios";
+import React, {useState, useEffect, useRef} from 'react';
+import axios from 'axios';
 
 const AnswerModal = (props) => {
 
@@ -68,7 +68,7 @@ const AnswerModal = (props) => {
               <label><b>Your Answer* </b></label>
             </div>
             <div>
-              <textarea className={classObj.qaModalInput} maxLength='1000' rows="10" cols="80" onChange={(e) => {
+              <textarea className={classObj.qaModalInput} maxLength='1000' rows='10' cols='80' onChange={(e) => {
                 setBody(e.target.value);
               }}/>
             </div>

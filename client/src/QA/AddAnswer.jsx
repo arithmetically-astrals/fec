@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import AnswerModal from "./AnswerModal.jsx";
+import React, {useState} from 'react';
+import AnswerModal from './AnswerModal.jsx';
 
 const AddAnswer = (props) => {
 
