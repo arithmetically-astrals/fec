@@ -536,7 +536,6 @@ body {
 }
 
 .qa-question-container {
-  border-top: 3px solid #888;
   padding: 10px;
 }
 
@@ -558,7 +557,12 @@ body {
 .qa-answer-container {
   display: flex;
   border-top: 1px dashed #bbb;
+  border-bottom: 3px solid #ffcbf2;
   padding: 8px;
+}
+
+.qa-answer-container-dark {
+  border-bottom: 3px solid #C0FDFF;
 }
 
 .qa-answer-tag {
@@ -589,7 +593,7 @@ body {
 
 .qa-answer-photos {
   margin-top: 5px;
-  margin-left: 5px;
+  margin-right: 5px;
   border-radius: 4px;
   cursor: pointer;
 }

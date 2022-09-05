@@ -16,6 +16,10 @@ const Answer = (props) => {
         allElements[i].classList.add('borderDark');
         allElements[i].classList.add('textDark');
       }
+      const qaAnswers = document.getElementsByClassName('qa-answers');
+      for (let i = 0; i < qaAnswers.length; i++) {
+        qaAnswers[i].classList.add('qa-answers-dark');
+      }
     }
   }, [])
 
