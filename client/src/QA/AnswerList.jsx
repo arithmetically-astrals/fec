@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from "react";
-import Answer from "./Answer.jsx";
-import MoreAnswers from "./MoreAnswers.jsx";
+import React, {useState, useEffect} from 'react';
+import Answer from './Answer.jsx';
 
 const AnswerList = (props) => {
 
@@ -41,17 +40,21 @@ const AnswerList = (props) => {
   return (
     <div>
       {renderedAnswers.length
-      ? <div id='qa-answer-container'>
-          <h3 id='qa-answer-tag'>A: </h3>
-          <div id='qa-answers'>
+      ? <div className='qa-answer-container'>
+          <h3 className='qa-answer-tag'>A: </h3>
+          <div className='qa-answers'>
             {renderedAnswers.map((answer, index) => (
-              <div key={index} id='qa-answer'>
+              <div key={index} className='qa-answer'>
                 <Answer answer={answer} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
               </div>
             ))}
             {Object.values(props.question.answers).length > 2
-            ? <MoreAnswers id='qa-more-answers' moreAnswers={moreAnswers} setMoreAnswers={setMoreAnswers}/>
-            : null}
+            ? <a href='#' onClick={(e) => {
+                e.preventDefault();
+                setMoreAnswers(!moreAnswers);
+              }}>{moreAnswers ? 'Collapse answers' : 'See more answers'}</a>
+            : null
+            }
           </div>
         </div>
       : null
