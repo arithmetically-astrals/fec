@@ -524,7 +524,7 @@ body {
   color: #000;
 }
 
-#qa-no-questions {
+.qa-no-questions {
   text-align: center;
   border: 3px solid #888;
   border-radius: 25px;

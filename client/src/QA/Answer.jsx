@@ -70,8 +70,8 @@ const Answer = (props) => {
           });
         }
       }}>Helpful?</a>
-      : <>Helpful!</>
-      } ({props.answer.helpfulness}) | {reported
+      : <>Helpful?</>
+      } Yes ({props.answer.helpfulness}) | {reported
       ? <>Reported</>
       : <a href="#" onClick={(e) => {
         e.preventDefault();

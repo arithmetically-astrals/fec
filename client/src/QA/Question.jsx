@@ -63,8 +63,8 @@ const Question = (props) => {
                 });
               }
             }}>Helpful?</a>
-          : <>Helpful!</>
-          } Yes({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/> | {reported
+          : <>Helpful?</>
+          } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/> | {reported
           ? <>Reported</>
           : <a href="#" onClick={(e) => {
               e.preventDefault();

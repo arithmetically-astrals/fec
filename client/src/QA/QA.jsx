@@ -80,7 +80,7 @@ const QA = (props) => {
       }
       <h1>Questions</h1>
       {questions.length === 0
-      ? <div>Be the first to ask a question...</div>
+      ? <h2 className='qa-no-questions'>Be the first to ask a question...</h2>
       : <>
           <input id='qa-search' type="text" placeholder="Have a question? Search for answers…" onChange={(e) => {
             setSearch(e.target.value);
@@ -92,7 +92,7 @@ const QA = (props) => {
             ? renderedQuestions.map((question, index) => (
               <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} search={search}/>
             ))
-            : <h2 id='qa-no-questions'>No questions found!</h2>
+            : <h2 className='qa-no-questions'>No questions found!</h2>
             }
           </div>
         </>
