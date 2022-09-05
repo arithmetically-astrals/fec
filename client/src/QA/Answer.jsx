@@ -29,13 +29,10 @@ const Answer = (props) => {
       {props.answer.photos.length
       ? <div>
           {props.answer.photos.map((photo, index) => (
-            <a key={index} href='#' onClick={(e) => {
-              e.preventDefault();
+            <img className='qa-answer-photos' src={photo} key={index} height='80' onClick={() => {
               clickedPhoto.current = photo;
               setPhotoModal(true);
-            }}>
-              <img className='qa-answer-photos' src={photo} key={index} height='80'/>
-            </a>
+            }}/>
           ))}
         </div>
       : null
@@ -46,7 +43,7 @@ const Answer = (props) => {
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
         year: 'numeric', month: 'short', day: 'numeric'
       })} | {props.answer.helpfulness === props.initialAnswerHelpfulness[props.answer.id]
-      ? <a href="#" onClick={(e) => {
+      ? <a href='#' onClick={(e) => {
         e.preventDefault();
         if (!clicked.current) {
           clicked.current = true;
@@ -73,7 +70,7 @@ const Answer = (props) => {
       : <>Helpful?</>
       } Yes ({props.answer.helpfulness}) | {reported
       ? <>Reported</>
-      : <a href="#" onClick={(e) => {
+      : <a href='#' onClick={(e) => {
         e.preventDefault();
         axios.put(`/qa/answers/${props.answer.id}/report`)
           .then(() => {
