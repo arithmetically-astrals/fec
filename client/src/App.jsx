@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
-import Overview from "./Overview/Overview.jsx";
-import QA from "./QA/QA.jsx";
-import Related from "./Related/Related.jsx";
-import Reviews from "./Reviews/Reviews.jsx";
-import DarkModeToggle from "./Shared/DarkModeToggle.jsx";
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import Overview from './Overview/Overview.jsx';
+import QA from './QA/QA.jsx';
+import Related from './Related/Related.jsx';
+import Reviews from './Reviews/Reviews.jsx';
+import DarkModeToggle from './Shared/DarkModeToggle.jsx';
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById('root'));
 
 const App = () => {
 
-  const [itemId, setitemId] = useState(37317);
+  const [itemId, setitemId] = useState(37316);
   const [starRating, setstarRating] = useState(0);
 
   return (

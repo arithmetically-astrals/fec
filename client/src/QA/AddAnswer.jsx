@@ -1,6 +1,5 @@
-import React, {useState} from "react";
-import BlurToggle from "../Shared/BlurToggle.jsx";
-import AnswerModal from "./AnswerModal.jsx";
+import React, {useState} from 'react';
+import AnswerModal from './AnswerModal.jsx';
 
 const AddAnswer = (props) => {
 
@@ -12,9 +11,8 @@ const AddAnswer = (props) => {
       ? <AnswerModal question={props.question} product_id={props.product_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} setQuestions={props.setQuestions} productName={props.productName} setAnswerModal={setAnswerModal}/>
       : null
       }
-      <a href="#" onClick={(e) => {
+      <a href='#' onClick={(e) => {
         e.preventDefault();
-        // BlurToggle();
         setAnswerModal(true);
       }}>Add Answer</a>
     </>
