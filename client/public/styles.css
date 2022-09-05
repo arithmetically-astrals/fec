@@ -551,6 +551,7 @@ body {
 .qa-question-actions {
   float: right;
   font-size: 14px;
+  padding-top: 3.5px;
 }
 
 .qa-answer-container {
