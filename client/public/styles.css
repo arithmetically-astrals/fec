@@ -562,15 +562,23 @@ body {
 }
 
 .qa-answer-tag {
+  text-align: center;
   flex: 1;
-  margin-top: 10px;
 }
 
 .qa-answers {
+  background-color: #eee;
+  border: #ccc solid;
+  border-radius: 10px;
   max-height: 50vh;
   overflow: auto;
-  padding-top: 7px;
-  flex: 9;
+  flex: 19;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.qa-answers-dark {
+  background-color: #333;
 }
 
 .qa-answer {

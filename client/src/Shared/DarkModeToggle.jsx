@@ -36,6 +36,10 @@ let toggleDarkMode = () => {
   for (let i = 0; i < qaButtons.length; i++) {
     qaButtons[i].classList.toggle('qa-button-dark');
   }
+  let qaAnswers = document.getElementsByClassName('qa-answers');
+  for (let i = 0; i < qaButtons.length; i++) {
+    qaAnswers[i].classList.toggle('qa-answers-dark');
+  }
 }
 
 export default DarkModeToggle;
