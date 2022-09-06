@@ -817,10 +817,6 @@ body {
   background-color: #aaa !important;
 }
 
-.blurred {
-  backdrop-filter: blur(10px);
-}
-
 #topNav {
   color: #fff;
   font-size: 30px;
