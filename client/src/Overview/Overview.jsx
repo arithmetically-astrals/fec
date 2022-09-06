@@ -26,8 +26,8 @@ const Overview = ({itemId, starRating, setstarRating}) => {
   return (
     <div id='overview' className='widget'>
       <div id='overview-carouselandinfopanel'>
-        <Carousel itemId={itemId} />
-        <InfoPanel itemId={itemId} styleInfo={styleInfo} starRating={starRating} />
+        <Carousel itemId={itemId} styleInfo={styleInfo} />
+        <InfoPanel itemId={itemId} styleInfo={styleInfo} setStyleInfo={setStyleInfo} starRating={starRating} />
       </div>
       <LongDescription itemId={itemId} />
     </div>

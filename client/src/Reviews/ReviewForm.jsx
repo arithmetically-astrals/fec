@@ -91,41 +91,43 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
   }
 
   return (
-    <div id='review-write-form'>
-      <span onClick={() => setWriteReview(null)} style={{cursor: 'pointer', float: 'right'}}>X</span>
-      <h3>Write Your Review</h3>
-      <h5>About the {productName}</h5>
-      <ReviewSelector metaInfo={metaInfo} mainRating={mainRating} setMainRating={setMainRating} setRecommend={setRecommend} clickCharRating={clickCharRating}/>
-      <form onSubmit={submitReview}>
-        Summary:
-        <br/>
-        <input type='text' name='summary' maxLength='60' style={{width: '400px'}} />
-        <br/>
-        Review:
-        <br/>
-        <textarea name='body' minLength='50' maxLength='1000' style={{width: '400px', height: '250px', resize: 'none'}} required onChange={bodyChange}/>
-        <br/>
-        {reviewBody.length < 50 ? <p style={{fontSize: 'x-small'}}>Minimum required characters left: {50 - reviewBody.length}</p> : <p style={{fontSize: 'x-small'}}>Minimum reached</p>}
-        <br/>
-        {photoUpload.map(photo => {
-          return (
-            <div key={photo} style={{display: 'inline', marginLeft: '5px'}}>
-              <img  src={photo} style={{width: '40px', height: '40px', borderRadius: '15px', cursor: 'pointer'}}/>
-            </div>
-            )}
-            )} {photoUpload.length < 5 ? <button onClick={addImageForm}>Add a photo!</button> : null }
-        <br/>
-        <span style={{fontSize: 'x-small'}}>For privacy reasons, do not use your full name or email address</span>
-        <br/>
-        What is your nickname?: <input type='text' name='username' maxLength='60' placeholder='Example: jackson11!'required></input>
-        <br/>
-        <span style={{fontSize: 'x-small'}}>For authentication reasons, you will not be emailed</span>
-        <br/>
-        Email: <input type='email' name='email' maxLength='60' placeholder='Example: jackson11@email.com' required style={{width: '250px'}}></input>
-        <br/>
-        <input type='submit' style={{cursor: 'pointer'}}></input>
-      </form>
-      <div>{imageForm}</div>
+    <div className='qa-modal-background'>
+      <div id='review-write-form'>
+        <span onClick={() => setWriteReview(null)} style={{cursor: 'pointer', float: 'right'}}>X</span>
+        <h3>Write Your Review</h3>
+        <h5>About the {productName}</h5>
+        <ReviewSelector metaInfo={metaInfo} mainRating={mainRating} setMainRating={setMainRating} setRecommend={setRecommend} clickCharRating={clickCharRating}/>
+        <form onSubmit={submitReview}>
+          Summary:
+          <br/>
+          <input type='text' name='summary' maxLength='60' style={{width: '400px'}} />
+          <br/>
+          Review:
+          <br/>
+          <textarea name='body' minLength='50' maxLength='1000' style={{width: '400px', height: '250px', resize: 'none'}} required onChange={bodyChange}/>
+          <br/>
+          {reviewBody.length < 50 ? <p style={{fontSize: 'x-small'}}>Minimum required characters left: {50 - reviewBody.length}</p> : <p style={{fontSize: 'x-small'}}>Minimum reached</p>}
+          <br/>
+          {photoUpload.map(photo => {
+            return (
+              <div key={photo} style={{display: 'inline', marginLeft: '5px'}}>
+                <img  src={photo} style={{width: '40px', height: '40px', borderRadius: '15px', cursor: 'pointer'}}/>
+              </div>
+              )}
+              )} {photoUpload.length < 5 ? <button onClick={addImageForm}>Add a photo!</button> : null }
+          <br/>
+          <span style={{fontSize: 'x-small'}}>For privacy reasons, do not use your full name or email address</span>
+          <br/>
+          What is your nickname?: <input type='text' name='username' maxLength='60' placeholder='Example: jackson11!'required></input>
+          <br/>
+          <span style={{fontSize: 'x-small'}}>For authentication reasons, you will not be emailed</span>
+          <br/>
+          Email: <input type='email' name='email' maxLength='60' placeholder='Example: jackson11@email.com' required style={{width: '250px'}}></input>
+          <br/>
+          <input type='submit' style={{cursor: 'pointer'}}></input>
+        </form>
+        <div>{imageForm}</div>
+      </div>
     </div>
   )
 }

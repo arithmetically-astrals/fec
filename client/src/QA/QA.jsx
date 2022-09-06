@@ -82,9 +82,20 @@ const QA = (props) => {
       {questions.length === 0
       ? <h2 className='qa-no-questions'>Be the first to ask a question...</h2>
       : <>
-          <input id='qa-search' type='text' placeholder='Have a question? Search for answers…' onChange={(e) => {
-            setSearch(e.target.value);
-          }}></input>
+          <div id='qa-search-container'>
+            <input id='qa-search' type='text' placeholder='Have a question? Search for answers…' value={search} onChange={(e) => {
+              setSearch(e.target.value);
+            }}/>
+            {search.length
+            ? <div id='qa-search-clear' className={document.getElementsByClassName('bodyDark').length
+              ? 'qa-search-clear-dark'
+              : null
+              } onClick={() => {
+                setSearch('');
+              }}/>
+            : <img id='qa-search-button' src='https://www.kindacode.com/wp-content/uploads/2020/12/search.png' height='30px'/>
+            }
+          </div>
           <div data-testid='questions' id='qa-questions'>
             {search.length < 3 || renderedQuestions.some((question) => (
               question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
