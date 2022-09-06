@@ -57,7 +57,7 @@ const AnswerModal = (props) => {
   }
 
   return (
-    <div className='qa-modal-background'>
+    <div className='modal-background'>
       <div className={classObj.qaClose}/>
       <div className={classObj.qaModal} ref={modal}>
         <h2 className='qa-modal-title'>Submit Your Answer</h2>

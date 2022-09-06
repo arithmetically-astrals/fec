@@ -34,7 +34,7 @@ const PhotoModal = (props) => {
   }, [modal]);
 
   return (
-    <div className='qa-modal-background'>
+    <div className='modal-background'>
       <div className={document.getElementsByClassName('bodyDark').length
       ? 'qa-close-dark'
       : 'qa-close'
