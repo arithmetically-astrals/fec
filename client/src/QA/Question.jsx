@@ -9,7 +9,7 @@ const Question = (props) => {
   const clicked = useRef(false);
   let searchedQuestion;
   if (props.search.length >= 3) {
-    searchedQuestion = props.question.question_body.split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+    searchedQuestion = props.question.question_body.trim().split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
     searchedQuestion.forEach((term, index) => {
       if (term.toUpperCase() === props.search.toUpperCase()) {
         searchedQuestion[index] = <mark key={index}>{term}</mark>
@@ -35,7 +35,7 @@ const Question = (props) => {
           <span className='qa-question-body'>
             {props.search.length >= 3
             ? searchedQuestion
-            : props.question.question_body
+            : props.question.question_body.trim()
             }
           </span>
           <span className='qa-question-actions'>
