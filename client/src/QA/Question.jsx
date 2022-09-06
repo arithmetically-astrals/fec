@@ -29,7 +29,10 @@ const Question = (props) => {
 
   return (
     <>
-      <div className='qa-question-container'>
+      <div className={document.getElementsByClassName('bodyDark').length
+      ? 'qa-question-container qa-question-container-dark'
+      : 'qa-question-container'
+      }>
         <div className='qa-question-header'>
           <h3 className='qa-question-tag'>Q:</h3>
           <span className='qa-question-body'>
