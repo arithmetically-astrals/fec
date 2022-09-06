@@ -62,7 +62,7 @@ function Related({itemId, starRating, setitemId}) {
 
     if(!productList || !defaultData) {
       return (
-        <div>Loading Related Products...</div>
+        <div>loading Related Products...</div>
       )
     } else {
       return (
