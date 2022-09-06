@@ -30,6 +30,9 @@ let toggleDarkMode = () => {
   if (document.getElementById('qa-search')) {
     document.getElementById('qa-search').classList.toggle('qa-search-dark');
   }
+  if (document.getElementById('qa-search-clear')) {
+    document.getElementById('qa-search-clear').classList.toggle('qa-search-clear-dark');
+  }
   const qaAnswerPhotos = document.getElementsByClassName('qa-answer-photos');
   for (let i = 0; i < qaAnswerPhotos.length; i++) {
     qaAnswerPhotos[i].classList.toggle('qa-answer-photos-dark');
