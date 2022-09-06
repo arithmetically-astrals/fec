@@ -14,7 +14,7 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 describe.only('review stuff', function () {
   const user = userEvent.setup();
 
-  render(<Reviews itemId={37311}/>)
+  render(<Reviews itemId={37311} setstarRating={() => {}}/>)
 
   it('should render a single set of reviews', () => {
 
@@ -36,6 +36,17 @@ describe.only('review stuff', function () {
         .then(() => {
           expect(screen.getAllByTestId('review-tile')).toHaveLength(4);
         })
+      })
+  })
+
+  it('should render write review form when button is clicked', () => {
+
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
+      .then(() => {
+        return user.click(screen.getByRole('button', {name: 'Write a review'}))
+      })
+      .then(() => {
+        expect(screen.getByText('Write Your Review')).toBeVisible()
       })
   })
 
