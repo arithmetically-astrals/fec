@@ -2,20 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
 const Carousel = (props) => {
-  // const [styleInfo, setStyleInfo] = useState(0);
-
-  // useEffect( () => {
-  //   axios.get('/products/styles', {
-  //     params: {
-  //       product_id: props.itemId
-  //     }
-  //   }).then(response => {
-  //     setStyleInfo(response.data);
-  //   }).catch(err => {
-  //     console.log('err: ', err)
-  //   })
-  // },[props.itemId])
-
   if (props.styleInfo.results === undefined) {
     return (<div>loading...</div>)
   } else {
