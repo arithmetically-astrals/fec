@@ -24,8 +24,6 @@ const StylePicker = (props) => {
       quantity.push(i + 1)
     }
 
-    console.log(props.styleInfo.results)
-
     // handle changes to which of the SKU options is selected
     let changeHandler = (e) => {
       props.setCurrentSize(e.target.value);
