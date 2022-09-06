@@ -91,7 +91,7 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
   }
 
   return (
-    <div className='qa-modal-background'>
+    <div className='modal-background'>
       <div id='review-write-form'>
         <span onClick={() => setWriteReview(null)} style={{cursor: 'pointer', float: 'right'}}>X</span>
         <h3>Write Your Review</h3>
