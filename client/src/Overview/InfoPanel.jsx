@@ -4,12 +4,12 @@ import Details from "./Details.jsx";
 import StylePicker from "./StylePicker.jsx";
 
 // This function returns a DOM element with the key details of the product listed
-const InfoPanel = ({itemId, styleInfo}) => {
+const InfoPanel = (props) => {
 
   return (
     <div id='overview-infopanel'>
-      <Details itemId={itemId} />
-      <StylePicker styleInfo={styleInfo} itemId={itemId} r/>
+      <Details itemId={props.itemId} />
+      <StylePicker styleInfo={props.styleInfo} itemId={props.itemId} r/>
       <div id='overview-infopanel-actions'>
         <div id='overview-infopanel-actions-cart'>
           add to cart
