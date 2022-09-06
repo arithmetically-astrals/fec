@@ -49,6 +49,7 @@ $pop9: #C0FDFF;
     position: relative; // paired with child (thumbnails) being position: absolute;
     height: auto;
     text-align: center;
+    overflow: hidden;
 }
 
 // main image in carousel

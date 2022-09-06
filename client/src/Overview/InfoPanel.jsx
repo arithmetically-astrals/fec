@@ -9,7 +9,7 @@ const InfoPanel = (props) => {
   return (
     <div id='overview-infopanel'>
       <Details itemId={props.itemId} />
-      <StylePicker styleInfo={props.styleInfo} itemId={props.itemId} r/>
+      <StylePicker styleInfo={props.styleInfo} setStyleId={props.setStyleId} itemId={props.itemId} />
       <div id='overview-infopanel-actions'>
         <div id='overview-infopanel-actions-cart'>
           add to cart

@@ -9,8 +9,8 @@ const StylePicker = (props) => {
     return (
       <div id='overview-infopanel-stylepicker'>
         <div id='overview-infopanel-stylepicker-styles'>
-          {props.styleInfo.results.map(({ name, photos }) => (
-            <img className='overview-infopanel-stylepicker-style' key={name} src={photos[0].thumbnail_url} />
+          {props.styleInfo.results.map(({ style_id, photos }) => (
+            <img className='overview-infopanel-stylepicker-style' key={style_id} src={photos[0].thumbnail_url} onClick={() => props.setStyleId(style_id) } />
           ))}
         </div>
         <select id='overview-infopanel-stylepicker-sizes'>
