@@ -57,7 +57,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
 
   //shows img modal
   const clickImg = (photo) => {
-     setShowImg(<div className='qa-modal-background'><div id='review-img-modal'><span onClick={closeImg} style={{cursor: 'pointer', float: 'right', padding: '10px', fontSize: 'x-large'}}>
+     setShowImg(<div className='modal-background'><div id='review-img-modal'><span onClick={closeImg} style={{cursor: 'pointer', float: 'right', padding: '10px', fontSize: 'x-large'}}>
        X</span><img src={photo.url} style={{maxWidth: '750px', maxHeight: '750px'}}/></div></div> )
   }
 
