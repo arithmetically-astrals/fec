@@ -7,9 +7,9 @@ import InfoPanel from "./InfoPanel.jsx";
 import LongDescription from "./LongDescription.jsx";
 
 const Overview = (props) => {
-
   const [styleInfo, setStyleInfo] = useState(0);
   const [styleId, setStyleId] = useState(0);
+  const [photoUrl, setPhotoUrl] = useState(0);
 
   useEffect( () => {
     axios.get('/products/styles', {
@@ -19,6 +19,7 @@ const Overview = (props) => {
     }).then(response => {
       setStyleInfo(response.data);
       setStyleId(response.data.results[0].style_id);
+      setPhotoUrl(response.data.results[0].photos[0].url);
     }).catch(err => {
       console.log('err: ', err)
     })
@@ -27,8 +28,8 @@ const Overview = (props) => {
   return (
     <div id='overview' className='widget'>
       <div id='overview-carouselandinfopanel'>
-        <Carousel itemId={props.itemId} styleId={styleId} styleInfo={styleInfo} />
-        <InfoPanel itemId={props.itemId} styleId={styleId} styleInfo={styleInfo} setStyleInfo={setStyleInfo} starRating={props.starRating} />
+        <Carousel itemId={props.itemId} styleId={styleId} styleInfo={styleInfo} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} />
+        <InfoPanel itemId={props.itemId} styleId={styleId} setStyleId={setStyleId} styleInfo={styleInfo} setStyleInfo={setStyleInfo} starRating={props.starRating} />
       </div>
       <LongDescription itemId={props.itemId} />
     </div>
