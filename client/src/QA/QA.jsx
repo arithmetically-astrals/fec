@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from "react";
-import Search from "./Search.jsx";
-import QuestionList from "./QuestionList.jsx";
-import MoreQuestions from "./MoreQuestions.jsx";
-import AddQuestion from "./AddQuestion.jsx";
-import axios from "axios";
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import QuestionModal from './QuestionModal.jsx';
+import Question from './Question.jsx';
 
 const QA = (props) => {
 
@@ -13,13 +11,33 @@ const QA = (props) => {
   const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
   const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [productName, setProductName] = useState('');
+  const [questionModal, setQuestionModal] = useState(false);
 
-  let product_id = props.itemId;
+  let renderedQuestions = [];
+  let searchedQuestions = [];
+  if (search.length >= 3) {
+    questions.forEach((question) => {
+      if (question.question_body.toUpperCase().includes(search.toUpperCase())) {
+        searchedQuestions.push(question);
+      }
+    })
+    for (let i = 0; i < questionCount; i++) {
+      if (searchedQuestions[i]) {
+        renderedQuestions.push(searchedQuestions[i]);
+      }
+    }
+  } else {
+    for (let i = 0; i < questionCount; i++) {
+      if (questions[i]) {
+        renderedQuestions.push(questions[i]);
+      }
+    }
+  }
 
   useEffect(() => {
     axios.get('/qa/questions', {
       params: {
-        product_id: product_id,
+        product_id: props.itemId,
         count: 10000
       }
     })
@@ -56,22 +74,53 @@ const QA = (props) => {
 
   return (
     <div id='qa' className='widget'>
+      {questionModal
+      ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
+      : null
+      }
       <h1>Questions</h1>
       {questions.length === 0
-      ? <div>Be the first to ask a question...</div>
+      ? <h2 className='qa-no-questions'>Be the first to ask a question...</h2>
       : <>
-          <Search search={search} setSearch={setSearch}/>
-          <QuestionList questions={questions} search={search} questionCount={questionCount} setQuestions={setQuestions} product_id={product_id} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName}/>
-          {questions.length <= questionCount
-          ? null
-          : <MoreQuestions questionCount={questionCount} setQuestionCount={setQuestionCount}/>
-          }
+          <div id='qa-search-container'>
+            <input id='qa-search' type='text' placeholder='Have a question? Search for answers…' value={search} onChange={(e) => {
+              setSearch(e.target.value);
+            }}/>
+            {search.length
+            ? <div id='qa-search-clear' className={document.getElementsByClassName('bodyDark').length
+              ? 'qa-search-clear-dark'
+              : null
+              } onClick={() => {
+                setSearch('');
+              }}/>
+            : <img id='qa-search-button' src='https://www.kindacode.com/wp-content/uploads/2020/12/search.png' height='30px'/>
+            }
+          </div>
+          <div data-testid='questions' id='qa-questions'>
+            {search.length < 3 || renderedQuestions.some((question) => (
+              question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
+            ))
+            ? renderedQuestions.map((question, index) => (
+              <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} search={search}/>
+            ))
+            : <h2 className='qa-no-questions'>No questions found!</h2>
+            }
+          </div>
         </>
       }
-      <AddQuestion questions={questions} setQuestions={setQuestions} product_id={product_id} questionCount={questionCount} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} initialQuestionHelpfulness={initialQuestionHelpfulness} productName={productName}/>
+      <div id='qa-button-container'>
+        {(search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
+        ? <button className='qa-button' onClick={() => {
+            setQuestionCount(questionCount + 2);
+          }}>More Answered Questions</button>
+        : null
+        }
+        <button className='qa-button' onClick={() => {
+          setQuestionModal(true);
+        }}>Add a question</button>
+      </div>
     </div>
   )
-
 }
 
 export default QA;
