@@ -30,3 +30,107 @@ $pop6: #D8BBFF;
 $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
+
+#related-card-container  {
+  position: relative;
+  max-width: 100%;
+  align-content: center;
+}
+
+#related-card-list, #outfitlist-container{
+  align-self: center;
+  position: relative;
+  padding: 0.25rem;
+  max-width: 100%;
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+#related-card, #outfitlist-addcard, #outfitlist-card {
+  position: relative;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  width: 300px;
+  height: 450px;
+}
+
+#outfitlist-addcard-text {
+  font-size: 25px;
+  margin: 2em;
+}
+
+#outfitlist-delete-button {
+  position: absolute;
+  font-size: 2.0em;
+  top: 10px;
+  right: 10px;
+  color: #E5B3FE;
+}
+
+#related-star-button {
+  position: absolute;
+  font-size: 1.5em;
+  top: 10px;
+  right: 10px;
+  color: #E5B3FE;
+}
+
+#related-background-modal {
+  background: white;
+  border: 1px solid black;
+  color: black;
+  display: flex;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  width: 25%;
+  height: 70%;
+  z-index: 50;
+  overflow-y: scroll;
+}
+
+#related-product-name {
+  padding: 0 0 10px 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+}
+
+#related-category {
+  text-align: center;
+  font-size: 0.8em;
+  padding: 0 0 8px 8px;
+}
+
+#related-product-price {
+  text-align: center;
+  bottom: 25px;
+  font-size: 0.75em;
+}
+
+#related-product-rating {
+  text-align: center;
+  bottom: 10px;
+}
+
+#related-left-arrow {
+  display: inline-block;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  font-size: 80px;
+  opacity: 0.4;
+  z-index: 5;
+}
+
+#related-right-arrow {
+  display: inline-block;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  font-size: 80px;
+  opacity: 0.4;
+  z-index: 5;
+}
