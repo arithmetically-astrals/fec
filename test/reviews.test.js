@@ -14,7 +14,7 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 describe.only('review stuff', function () {
   const user = userEvent.setup();
 
-  render(<Reviews itemId={37311} setstarRating={() => {}}/>)
+  render(<Reviews itemId={37316} setstarRating={() => {}}/>)
 
   it('should render a single set of reviews', () => {
 
@@ -39,15 +39,51 @@ describe.only('review stuff', function () {
       })
   })
 
-  it('should render write review form when button is clicked', () => {
-
+  it('should render image modal when image is clicked', () => {
     return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
       .then(() => {
-        return user.click(screen.getByRole('button', {name: 'Write a review'}))
+    return user.click(screen.getAllByTestId('image')[0])
+      .then(() => {
+        expect(screen.getByTestId('imageModal')).toBeInTheDocument()
       })
+    })
+  })
+
+  it('should close the image modal when button is clicked', () => {
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
+      .then(() => {
+        return user.click(screen.getAllByTestId('image')[0])
+      .then(() => {
+        expect(screen.getByTestId('imageModal')).toBeInTheDocument()
+      return user.click(screen.getByText(/X/))
+      .then(() => {
+        expect(screen.queryByTestId('imageModal')).not.toBeInTheDocument()
+        })
+      })
+    })
+  })
+
+  it('should render write review form when button is clicked', () => {
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
+      .then(() => {
+    return user.click(screen.getByRole('button', {name: 'Write a review'}))
       .then(() => {
         expect(screen.getByText('Write Your Review')).toBeVisible()
       })
+    })
+  })
+
+  it('should add a photo to the review form', () => {
+    return waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument())
+      .then(() => {
+    return user.click(screen.getByRole('button', {name: 'Write a review'}))
+      .then(() => {
+        return user.click(screen.getByRole('button', {name: 'Add a photo!'}))
+      .then(() => {
+        expect(screen.getByText('Insert image link below:')).toBeVisible()
+        })
+      })
+    })
   })
 
 });
