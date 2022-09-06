@@ -3,14 +3,14 @@ import axios from 'axios';
 import StarScale from "../Shared/StarScale.jsx";
 
 // This function returns a DOM element with the key details of the product listed
-const Details = ({itemId = 37311}) => {
+const Details = (props) => {
   const [metaInfo, setmetaInfo] = useState(0)
   const [starCount, setstarCount] = useState(0)
 
   useEffect( () => {
     axios.get('/products/item', {
       params: {
-        product_id: itemId
+        product_id: props.itemId
       }
     }).then(response => {
       setmetaInfo(response.data);
@@ -25,7 +25,7 @@ const Details = ({itemId = 37311}) => {
     }).catch(err => {
       console.log('err: ', err)
     })
-  },[itemId])
+  },[props.itemId])
 
   return (
     <div id='overview-infopanel-details'>

@@ -1,36 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const StylePicker = ({itemId, styleInfo}) => {
-  const [productInfo, setProductInfo] = useState(0)
+const StylePicker = (props) => {
 
-  useEffect( () => {
-    axios.get('/products/item', {
-      params: {
-        product_id: itemId
-      }
-    }).then(response => {
-      setProductInfo(response.data);
-      console.log('styles', response.data.results[0].name)
-    }).catch(err => {
-      console.log('err: ', err)
-    })
-  },[itemId])
-
-  console.log('styleInfo', styleInfo)
-  if (styleInfo.results === undefined ) {
+  if (props.styleInfo.results === undefined ) {
     return <div>loading styles</div>
   } else {
     return (
       <div id='overview-infopanel-stylepicker'>
         <div id='overview-infopanel-stylepicker-styles'>
-          {styleInfo.results.map(({ name, photos }) => (
+          {props.styleInfo.results.map(({ name, photos }) => (
             <img className='overview-infopanel-stylepicker-style' key={name} src={photos[0].thumbnail_url} />
           ))}
         </div>
         <select id='overview-infopanel-stylepicker-sizes'>
           {/* the skus data structure is an object, not an array, so we must needs get an array of the values of the skus object */}
-          {Object.values(styleInfo.results[0].skus).map(({ size }) => (
+          {Object.values(props.styleInfo.results[0].skus).map(({ size }) => (
             <option className='overview-infopanel-stylepicker-size' key={size}>{size}</option>
           ))}
         </select>
