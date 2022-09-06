@@ -24,7 +24,7 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
 
     if (slideLeft + 200 >= width) {
       setShowRight(false);
-      var leftover = slideLeft + 300 - width;
+      var leftover = slideLeft + 200 - width;
     } else {
       var leftover = 200;
     }
