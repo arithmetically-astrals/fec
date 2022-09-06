@@ -64,7 +64,8 @@ const Question = (props) => {
               }
             }}>Helpful?</a>
           : <>Helpful?</>
-          } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/> | {reported
+          } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/>
+          {/* | {reported
           ? <>Reported</>
           : <a href='#' onClick={(e) => {
               e.preventDefault();
@@ -76,7 +77,7 @@ const Question = (props) => {
                   console.log(err);
                 });
             }}>Report</a>
-          }
+          } */}
         </span>
       </div>
       <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
