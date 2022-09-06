@@ -41,6 +41,17 @@ function Related({itemId, starRating, setitemId}) {
                   .then((relatedListItemResponse) => relatedListItemResponse.data)),//end mapping
             )//end of Promise.all, now set state of ProductList with relatedList
               .then((prodList) => {
+              //   //filtering duplicates from the productList
+              //   const uniqueList = [];
+              //   const uniqueProducts = prodList.filter(eachProduct => {
+              //     const isDuplicate = uniqueList.includes(eachProduct.id);
+              //     if(!isDuplicate) {uniqueList.push(eachProduct);
+              //     return true;
+              //     }
+              // })
+              // setProductList(uniqueList);
+              setProductList(prodList);
+            })
                 setProductList(prodList);
               })
               .catch(err => {

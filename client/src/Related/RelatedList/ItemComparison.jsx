@@ -9,7 +9,7 @@ const ItemComparison = ({product, defaultData, show, setShow}) => {
   }
 
   return (
-    <div className='modal-background'>
+    <div className='modal-background' onClick={() => {setShow(!show);}}>
       <div onClick={() => {setShow(!show);}} >
       <div id='related-background-modal'>
         <div id='related-modal'>
