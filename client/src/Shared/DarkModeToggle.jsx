@@ -11,8 +11,16 @@ let toggleDarkMode = () => {
   document.getElementById('darkModeToggle').classList.toggle('darkModeToggleDark')
   document.getElementById('topMessage').classList.toggle('topMessageDark');
 
-  document.getElementById('overview-infopanel-stylepicker-size').classList.toggle('overview-infopanel-stylepicker-size-dark');
-  document.getElementById('overview-infopanel-stylepicker-quantity').classList.toggle('overview-infopanel-stylepicker-quantity-dark');
+  var elements = document.getElementsByClassName('overview-infopanel-stylepicker-size');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle('overview-infopanel-stylepicker-size-dark');
+  }
+
+  var elements = document.getElementsByClassName('overview-infopanel-stylepicker-quantity');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].classList.toggle('overview-infopanel-stylepicker-quantity-dark');
+  }
+
   document.getElementById('overview-infopanel-actions-cart').classList.toggle('overview-infopanel-actions-cart-dark');
   document.getElementById('overview-infopanel-actions-favorite').classList.toggle('overview-infopanel-actions-favorite-dark');
 
