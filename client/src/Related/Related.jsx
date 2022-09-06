@@ -50,8 +50,7 @@ function Related({itemId, starRating, setitemId}) {
               //     }
               // })
               // setProductList(uniqueList);
-              setProductList(prodList);
-            })
+            // })
                 setProductList(prodList);
               })
               .catch(err => {

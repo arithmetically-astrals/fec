@@ -24,16 +24,13 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
 
     if (slideLeft + 200 >= width) {
       setShowRight(false);
-      var leftover = slideLeft + 200 - width;
+      var leftover = slideLeft + 300 - width;
     } else {
       var leftover = 200;
     }
     scrollRef.current.scrollLeft += leftover;
     setSlideLeft((scrollRef.current.scrollLeft += leftover));
   }
-
-
-
 
   return (
     <div id='related-card-container'>
