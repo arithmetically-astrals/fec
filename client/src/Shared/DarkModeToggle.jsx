@@ -41,9 +41,9 @@ let toggleDarkMode = () => {
   for (let i = 0; i < qaButtons.length; i++) {
     qaButtons[i].classList.toggle('qa-button-dark');
   }
-  const qaAnswerContainers = document.getElementsByClassName('qa-answer-container');
+  const qaQuestionContainers = document.getElementsByClassName('qa-question-container');
   for (let i = 0; i < qaButtons.length; i++) {
-    qaAnswerContainers[i].classList.toggle('qa-answer-container-dark');
+    qaQuestionContainers[i].classList.toggle('qa-question-container-dark');
   }
   const qaAnswers = document.getElementsByClassName('qa-answers');
   for (let i = 0; i < qaAnswers.length; i++) {

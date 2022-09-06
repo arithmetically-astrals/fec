@@ -583,6 +583,14 @@ body {
 }
 
 .qa-question-container {
+  border-bottom: 3px solid #ffcbf2;
+}
+
+.qa-question-container-dark {
+  border-bottom: 3px solid #C0FDFF;
+}
+
+.qa-question-header {
   padding: 10px;
 }
 
@@ -603,12 +611,7 @@ body {
 .qa-answer-container {
   display: flex;
   border-top: 1px dashed #bbb;
-  border-bottom: 3px solid #ffcbf2;
   padding: 8px;
-}
-
-.qa-answer-container-dark {
-  border-bottom: 3px solid #C0FDFF;
 }
 
 .qa-answer-tag {
