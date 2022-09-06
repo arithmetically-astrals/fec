@@ -30,6 +30,9 @@ let toggleDarkMode = () => {
   if (document.getElementById('qa-search')) {
     document.getElementById('qa-search').classList.toggle('qa-search-dark');
   }
+  if (document.getElementById('qa-search-clear')) {
+    document.getElementById('qa-search-clear').classList.toggle('qa-search-clear-dark');
+  }
   const qaAnswerPhotos = document.getElementsByClassName('qa-answer-photos');
   for (let i = 0; i < qaAnswerPhotos.length; i++) {
     qaAnswerPhotos[i].classList.toggle('qa-answer-photos-dark');
@@ -38,9 +41,9 @@ let toggleDarkMode = () => {
   for (let i = 0; i < qaButtons.length; i++) {
     qaButtons[i].classList.toggle('qa-button-dark');
   }
-  const qaAnswerContainers = document.getElementsByClassName('qa-answer-container');
+  const qaQuestionContainers = document.getElementsByClassName('qa-question-container');
   for (let i = 0; i < qaButtons.length; i++) {
-    qaAnswerContainers[i].classList.toggle('qa-answer-container-dark');
+    qaQuestionContainers[i].classList.toggle('qa-question-container-dark');
   }
   const qaAnswers = document.getElementsByClassName('qa-answers');
   for (let i = 0; i < qaAnswers.length; i++) {
