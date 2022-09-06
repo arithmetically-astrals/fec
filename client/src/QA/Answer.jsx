@@ -25,7 +25,7 @@ const Answer = (props) => {
 
   return (
     <>
-      {props.answer.body}
+      {props.answer.body.trim()}
       {photoModal
       ? <PhotoModal setPhotoModal={setPhotoModal} clickedPhoto={clickedPhoto.current}/>
       : null
@@ -41,9 +41,9 @@ const Answer = (props) => {
         </div>
       : null
       }
-      <div className='qa-answer-actions'>by {props.answer.answerer_name.toUpperCase() === 'SELLER'
-      ? <b>{props.answer.answerer_name}</b>
-      : props.answer.answerer_name
+      <div className='qa-answer-actions'>by {props.answer.answerer_name.trim().toUpperCase() === 'SELLER'
+      ? <b>{props.answer.answerer_name.trim()}</b>
+      : props.answer.answerer_name.trim()
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
         year: 'numeric', month: 'short', day: 'numeric'
       })} | {props.answer.helpfulness === props.initialAnswerHelpfulness[props.answer.id]
