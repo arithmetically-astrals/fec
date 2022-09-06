@@ -244,7 +244,7 @@ body {
 }
 
 #review-meta-box {
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 20px;
   font-size: x-small;
   width: 185px;
@@ -288,9 +288,7 @@ body {
 }
 
 #reviews {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 15%;
 }
 
 #review-rating-char {
@@ -316,42 +314,25 @@ body {
 }
 
 #review-tile-box button {
-  background-color: white;
-  color: black;
-  border: 2px solid #ffcbf2;
-  transition-duration: 0.4s;
-  padding: 16px 32px;
-  font-size: 16px;
-  margin: 4px 2px;
-  margin-left: 10%;
+  margin-left: 20%;
+  background-color: rgb(210, 209, 209);
+  padding: 3px;
+  border: 1px solid black;
+  border-radius: 15px;
   cursor: pointer;
-}
-
-#review-tile-box button:hover {
-  background-color: #ffcbf2;
-  color: white;
 }
 
 #review-tile-box select {
-  background-color: white;
-  color: black;
-  border: 2px solid #ffcbf2;
-  transition-duration: 0.4s;
-  font-size: 16px;
-  padding: 8px 16px;
-  margin: 4px 2px;
+  background-color: rgb(210, 209, 209);
+  border: 1px solid black;
+  border-radius: 15px;
   cursor: pointer;
 }
 
-#review-tile-box select:hover {
-  background-color: #ffcbf2;
-  color: white;
-}
-
 #review-tile {
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 15px;
-  width: 500px;
+  width: 450px;
   margin: 5px;
   padding: 5px;
 }
@@ -364,7 +345,7 @@ body {
 
 #review-img-modal {
   position: fixed;
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: rgb(210, 209, 209);
   width: auto;
@@ -378,10 +359,10 @@ body {
 
 #review-write-form {
   position: fixed;
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: rgb(207, 207, 207);
-  width: 700px;
+  width: 70%;
   height: auto;
   top: 50%;
   left: 50%;
@@ -390,51 +371,20 @@ body {
   padding: 10px;
 }
 
-#review-write-form button {
-  background-color: white;
-  color: black;
-  border: 2px solid #ffcbf2;
-  transition-duration: 0.4s;
-  padding: 4px 8px;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-#review-write-form input[type='submit'] {
-  background-color: white;
-  color: black;
-  border: 2px solid #ffcbf2;
-  transition-duration: 0.4s;
-  padding: 8px 16px;
-  font-size: 16px;
-  margin: 20px;
-  cursor: pointer;
-}
-
-#review-write-form button:hover {
-  background-color: #ffcbf2;
-  color: white;
-}
-
-#review-write-form input[type='submit']:hover {
-  background-color: #ffcbf2;
-  color: white;
-}
-
 #review-input-rating {
-  position: absolute;
+  position: relative;
   background-color: #e8e7e7;
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 15px;
-  left: 450px;
-  bottom: 50px;
+  float: right;
+  margin-right: 15%;
+  top: -50px;
   padding: 10px;
 }
 
 #review-image-form {
   position: fixed;
-  border: 3px solid #888;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: rgb(207, 207, 207);
   width: 80%;
@@ -461,7 +411,6 @@ body {
   gap: 1rem;
   overflow-x: scroll;
   scroll-behavior: smooth;
-
 }
 
 #related-card, #outfitlist-addcard, #outfitlist-card {
@@ -557,18 +506,12 @@ body {
   margin-right: auto;
 }
 
-#qa-search-container {
-  position: relative;
-  display: inline;
-}
-
 #qa-search {
   width: calc(100% - 16px);
   padding: 5px;
   height: 30px;
   border: 3px solid #ffcbf2;
   outline: none;
-  font-size: 18px;
 }
 
 .qa-search-dark {
@@ -578,47 +521,6 @@ body {
 
 .qa-search-dark::placeholder {
   color: #000;
-}
-
-#qa-search-button {
-  position: absolute;
-  right: 4px;
-  margin-top: 9px;
-}
-
-#qa-search-clear {
-  position: absolute;
-  right: 14px;
-  bottom: 2px;
-  width: 15px;
-  height: 15px;
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-#qa-search-clear:hover {
-  opacity: 1;
-}
-
-#qa-search-clear:before, #qa-search-clear:after {
-  position: absolute;
-  content: '';
-  right: 6px;
-  height: 15px;
-  width: 2px;
-  background-color: #222;
-}
-
-.qa-search-clear-dark:before, .qa-search-clear-dark:after {
-  background-color: #fff !important;
-}
-
-#qa-search-clear:before {
-  transform: rotate(45deg);
-}
-
-#qa-search-clear:after {
-  transform: rotate(-45deg);
 }
 
 .qa-no-questions {
@@ -633,14 +535,6 @@ body {
 }
 
 .qa-question-container {
-  border-bottom: 3px solid #ffcbf2;
-}
-
-.qa-question-container-dark {
-  border-bottom: 3px solid #C0FDFF;
-}
-
-.qa-question-header {
   padding: 10px;
 }
 
@@ -661,7 +555,12 @@ body {
 .qa-answer-container {
   display: flex;
   border-top: 1px dashed #bbb;
+  border-bottom: 3px solid #ffcbf2;
   padding: 8px;
+}
+
+.qa-answer-container-dark {
+  border-bottom: 3px solid #C0FDFF;
 }
 
 .qa-answer-tag {

@@ -6,7 +6,6 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
   const [showRight, setShowRight] = useState(true);
   const [slideLeft, setSlideLeft] = useState(0);
 
-
   const scrollRef = useRef();
 
   const handleScrollLeft = () => {
@@ -25,13 +24,15 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
 
     if (slideLeft + 200 >= width) {
       setShowRight(false);
-      var leftover = slideLeft + 300 - width;
+      var leftover = slideLeft + 200 - width;
     } else {
       var leftover = 200;
     }
     scrollRef.current.scrollLeft += leftover;
     setSlideLeft((scrollRef.current.scrollLeft += leftover));
   }
+
+
 
 
   return (
