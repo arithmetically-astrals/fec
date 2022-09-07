@@ -2,7 +2,7 @@ import React from 'react';
 
 const RelatedTitle = () => {
   return (
-    <h2>Related Products</h2>
+    <div className='widget-header'>Related Products</div>
   );
 }
 
