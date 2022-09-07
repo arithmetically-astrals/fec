@@ -10,6 +10,7 @@ const Overview = (props) => {
   const [styleInfo, setStyleInfo] = useState(0);
   const [styleId, setStyleId] = useState(0);
   const [photoUrl, setPhotoUrl] = useState(0);
+  const [currentSize, setCurrentSize] = useState(0);
 
   useEffect( () => {
     axios.get('/products/styles', {
@@ -20,6 +21,7 @@ const Overview = (props) => {
       setStyleInfo(response.data);
       setStyleId(response.data.results[0].style_id);
       setPhotoUrl(response.data.results[0].photos[0].url);
+      setCurrentSize(Object.values(response.data.results[0].skus)[0].size)
     }).catch(err => {
       console.log('err: ', err)
     })
@@ -29,7 +31,7 @@ const Overview = (props) => {
     <div id='overview' className='widget'>
       <div id='overview-carouselandinfopanel'>
         <Carousel itemId={props.itemId} styleId={styleId} styleInfo={styleInfo} photoUrl={photoUrl} setPhotoUrl={setPhotoUrl} />
-        <InfoPanel itemId={props.itemId} styleId={styleId} setStyleId={setStyleId} styleInfo={styleInfo} setStyleInfo={setStyleInfo} starRating={props.starRating} />
+        <InfoPanel itemId={props.itemId} styleId={styleId} setStyleId={setStyleId} styleInfo={styleInfo} setPhotoUrl={setPhotoUrl} setStyleInfo={setStyleInfo} starRating={props.starRating} currentSize={currentSize} setCurrentSize={setCurrentSize} />
       </div>
       <LongDescription itemId={props.itemId} />
     </div>

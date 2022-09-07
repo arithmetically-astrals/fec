@@ -9,7 +9,7 @@ const InfoPanel = (props) => {
   return (
     <div id='overview-infopanel'>
       <Details itemId={props.itemId} />
-      <StylePicker styleInfo={props.styleInfo} setStyleId={props.setStyleId} itemId={props.itemId} />
+      <StylePicker styleInfo={props.styleInfo} styleId={props.styleId} setStyleId={props.setStyleId} itemId={props.itemId} setPhotoUrl={props.setPhotoUrl} currentSize={props.currentSize} setCurrentSize={props.setCurrentSize} />
       <div id='overview-infopanel-actions'>
         <div id='overview-infopanel-actions-cart'>
           add to cart
