@@ -13,6 +13,7 @@
   position: relative;
   height: auto;
   text-align: center;
+  overflow: hidden;
 }
 
 #overview-carousel-featuredimage {

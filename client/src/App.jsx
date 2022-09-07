@@ -6,7 +6,7 @@ import Related from './Related/Related.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import DarkModeToggle from './Shared/DarkModeToggle.jsx';
 
-const root = createRoot(document.getElementById('root'));
+
 
 const App = () => {
 
@@ -32,5 +32,5 @@ const App = () => {
   )
 }
 
-
+const root = createRoot(document.getElementById('root'));
 root.render(<App />);
