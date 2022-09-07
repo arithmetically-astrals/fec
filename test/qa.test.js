@@ -15,7 +15,7 @@ describe('questions and answers', function () {
   render(<QA />);
 
   it('Should render questions on load', () => {
-    return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+    return waitFor(() => expect(screen.queryByText(/^loading Related Products\.\.\.$/)).not.toBeInTheDocument())
       .then(() => {
         expect(screen.getByTestId('questions').toExist);
         // return user.click(screen.getByText('More Answered Questions'))
