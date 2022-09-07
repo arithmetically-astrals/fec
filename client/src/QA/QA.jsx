@@ -78,7 +78,7 @@ const QA = (props) => {
       ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
       : null
       }
-      <h1>Questions</h1>
+      <div className='widget-header'>Questions</div>
       {questions
       ? questions.length === 0
         ? <h2 className='qa-no-questions'>Be the first to ask a question...</h2>

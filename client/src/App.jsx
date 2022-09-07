@@ -32,12 +32,16 @@ const App = () => {
         <DarkModeToggle />
         <input id='search' placeholder='search' />
       </div>
-      <div id='topMessage'>special message</div>
 
-      <Overview itemId={itemId} starRating={starRating} />
-      <Related itemId={itemId} setitemId={setitemId} />
-      <QA itemId={itemId} />
-      <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
+      <div id='topMessage'>special message</div>
+      <div id='mainContentContainer'>
+        <div id='mainContent'>
+          <Overview itemId={itemId} starRating={starRating} />
+          <Related itemId={itemId} setitemId={setitemId} />
+          <QA itemId={itemId} />
+          <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
+        </div>
+      </div>
     </div>
   )
 }
