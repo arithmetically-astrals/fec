@@ -31,17 +31,33 @@ $pop7: #D0D1FF;
 $pop8: #C8E7FF;
 $pop9: #C0FDFF;
 
+#related {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+#related-title {
+  text-align: center;
+}
+
 #related-card-container  {
   position: relative;
-  max-width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  display: flex;
   align-content: center;
+  align-self: center;
+
 }
 
 #related-card-list, #outfitlist-container{
   align-self: center;
+  justify-content: center;
   position: relative;
   padding: 0.25rem;
-  max-width: 100%;
+  max-width: 1200px;
   display: flex;
   gap: 1rem;
   overflow-x: scroll;
@@ -50,6 +66,7 @@ $pop9: #C0FDFF;
 
 #related-card, #outfitlist-addcard, #outfitlist-card {
   position: relative;
+  justify-content: center;
   border-radius: 0.25rem;
   padding: 0.25rem;
   width: 300px;
@@ -59,6 +76,7 @@ $pop9: #C0FDFF;
 #outfitlist-addcard-text {
   font-size: 25px;
   margin: 2em;
+  text-align: center;
 }
 
 #outfitlist-delete-button {
