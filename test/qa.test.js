@@ -1,3 +1,4 @@
+require("dotenv").config();
 import React from 'react';
 import '@testing-library/react/dont-cleanup-after-each';
 import '@testing-library/jest-dom';
@@ -12,17 +13,74 @@ axios.defaults.adapter = require('axios/lib/adapters/http');
 describe('questions and answers', function () {
   const user = userEvent.setup();
 
-  render(<QA />);
+  render(<QA itemId={37316}/>)
 
-  it('Should render questions on load', () => {
-    return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
+  it('Should always include an add question button', () => {
+    expect(screen.findByText('Add a question').toExist);
+  });
+
+  it('Should render questions if they exist', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
       .then(() => {
         expect(screen.getByTestId('questions').toExist);
-        // return user.click(screen.getByText('More Answered Questions'))
-        //   .then(() => {
-        //     expect(screen.getByTestId('questions').toHaveLength(6));
-        //   })
       })
-  })
+  });
+
+  it('Should render at maximum 4 questions on load', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        expect(screen.getAllByTestId('question').length).toBeLessThan(5);
+      })
+  });
+
+  it('Should render at maximum 2 more questions when More Answered Questions is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getByRole('button', {name: 'More Answered Questions'}))
+      })
+      .then(() => {
+        expect(screen.getAllByTestId('question').length).toBeGreaterThanOrEqual(5);
+        expect(screen.getAllByTestId('question').length).toBeLessThan(7);
+      })
+  });
+
+  it('Should render at maximum 2 answers for every question', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        expect(screen.getAllByTestId('answer').length).toBeLessThan(3);
+      })
+  });
+
+  // it('Should render all answers for a question when See More Answers is clicked', () => {
+  //   return waitFor(() => {
+  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+  //   })
+  //     .then(() => {
+
+  //     })
+  // });
+
+  // it('Should return to rendering two answers for a question when Collapse Answers is clicked', () => {
+  //   return waitFor(() => {
+  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+  //   })
+  //     .then(() => {
+
+  //     })
+  // });
 
 });

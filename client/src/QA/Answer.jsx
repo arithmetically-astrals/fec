@@ -24,7 +24,7 @@ const Answer = (props) => {
   }, [])
 
   return (
-    <>
+    <div data-testid='answer'>
       {props.answer.body.trim()}
       {photoModal
       ? <PhotoModal setPhotoModal={setPhotoModal} clickedPhoto={clickedPhoto.current}/>
@@ -86,7 +86,7 @@ const Answer = (props) => {
       }}>Report</a>
       }
       </div>
-    </>
+    </div>
   )
 }
 
