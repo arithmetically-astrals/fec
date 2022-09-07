@@ -24,7 +24,7 @@ const Answer = (props) => {
   }, [])
 
   return (
-    <>
+    <div data-testid='answer'>
       {props.answer.body.trim()}
       {photoModal
       ? <PhotoModal setPhotoModal={setPhotoModal} clickedPhoto={clickedPhoto.current}/>
@@ -33,7 +33,7 @@ const Answer = (props) => {
       {props.answer.photos.length
       ? <div>
           {props.answer.photos.map((photo, index) => (
-            <img className='qa-answer-photos' src={photo} key={index} height='80' onClick={() => {
+            <img data-testid='photo-thumbnail' className='qa-answer-photos' src={photo} key={index} height='80' onClick={() => {
               clickedPhoto.current = photo;
               setPhotoModal(true);
             }}/>
@@ -86,7 +86,7 @@ const Answer = (props) => {
       }}>Report</a>
       }
       </div>
-    </>
+    </div>
   )
 }
 
