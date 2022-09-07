@@ -3,7 +3,7 @@ import React from 'react';
 import '@testing-library/react/dont-cleanup-after-each';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
-import {render, screen, waitFor} from '@testing-library/react';
+import {render, screen, waitFor, within} from '@testing-library/react';
 import QA from "../client/src/QA/QA.jsx";
 import axios from 'axios';
 
@@ -59,19 +59,33 @@ describe('questions and answers', function () {
       expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
     })
       .then(() => {
-        expect(screen.getAllByTestId('answer').length).toBeLessThan(3);
+        const questions = screen.queryAllByTestId('question');
+        questions.forEach((question) => {
+          expect(within(question).queryAllByTestId('answers').length).toBeLessThan(3);
+        })
       })
   });
 
-  // it('Should render all answers for a question when See More Answers is clicked', () => {
-  //   return waitFor(() => {
-  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
-  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
-  //   })
-  //     .then(() => {
-
-  //     })
-  // });
+  it('Should render all answers for a question when See More Answers is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        const moreAnswers = screen.getAllByRole('link', {name: 'See more answers'})
+        moreAnswers.forEach((moreAnswer) => {
+          return user.click(moreAnswer);
+        })
+      })
+      .then(() => {
+        const questions = screen.queryAllByTestId('question');
+        questions.forEach((question) => {
+          if (within(question).queryByText('Collapse answers')) {
+            expect(within(question).queryAllByTestId('answers').length).toBeGreaterThanOrEqual(3);
+          }
+        })
+      })
+  });
 
   // it('Should return to rendering two answers for a question when Collapse Answers is clicked', () => {
   //   return waitFor(() => {
