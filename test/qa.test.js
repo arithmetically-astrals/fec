@@ -87,14 +87,65 @@ describe('questions and answers', function () {
       })
   });
 
-  // it('Should return to rendering two answers for a question when Collapse Answers is clicked', () => {
-  //   return waitFor(() => {
-  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
-  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
-  //   })
-  //     .then(() => {
+  it('Should return to rendering two answers for a question when Collapse Answers is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getAllByRole('link', {name: 'See more answers'})[0]);
+      })
+      .then(() => {
+        expect(screen.queryAllByText(/Collapse answers/i).toExist);
+      })
+      .then(() => {
+        return user.click(screen.getAllByText(/Collapse answers/i)[0]);
+      })
+      .then(() => {
+        const questions = screen.queryAllByTestId('question');
+        questions.forEach((question) => {
+          expect(within(question).queryAllByTestId('answers').length).toBeLessThan(3);
+        })
+      })
+  });
 
-  //     })
-  // });
+  it('Should open a question modal when Add a question is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getByRole('button', {name: 'Add a question'}))
+      })
+      .then(() => {
+        expect(screen.getByTestId('question-modal').toExist);
+      })
+  });
+
+  it('Should open an answer modal when Add Answer is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getAllByRole('link', {name: 'Add Answer'})[0])
+      })
+      .then(() => {
+        expect(screen.getByTestId('answer-modal').toExist);
+      })
+  });
+
+  it('Should open a photo modal when a photo is clicked', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getAllByTestId('photo-thumbnail')[0])
+      })
+      .then(() => {
+        expect(screen.getByTestId('photo-modal').toExist);
+      })
+  });
 
 });

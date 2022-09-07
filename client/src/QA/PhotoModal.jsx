@@ -39,7 +39,7 @@ const PhotoModal = (props) => {
       ? 'qa-close-dark'
       : 'qa-close'
       }/>
-      <img id='qa-photo-modal' src={props.clickedPhoto} ref={modal}/>
+      <img data-testid='photo-modal' id='qa-photo-modal' src={props.clickedPhoto} ref={modal}/>
     </div>
   )
 }
