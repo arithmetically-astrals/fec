@@ -5,7 +5,7 @@ import RelatedTitle from './RelatedList/RelatedTitle.jsx';
 import RelatedList from "./RelatedList/RelatedList.jsx";
 import OutfitTitle from './OutfitList/OutfitTitle.jsx';
 import OutfitList from "./OutfitList/OutfitList.jsx";
-import App from '../App.jsx';
+// import App from '../App.jsx';
 
 import axios from 'axios';
 
@@ -31,7 +31,6 @@ function Related({itemId, starRating, setitemId}) {
           }
         })//...then map relatedList items, converting relatedItems array into Promise
           .then((relatedList) => {
-            console.log('related list', relatedList)
             Promise.all(
               relatedList.data.map((relatedListItem) =>
                 axios.get(`/products/item`, {
@@ -62,12 +61,13 @@ function Related({itemId, starRating, setitemId}) {
 
     if(!productList || !defaultData) {
       return (
-        <div>Loading Related Products...</div>
+        <div>loading Related Products...</div>
       )
     } else {
+      console.log(defaultData)
       return (
 
-        <div id='related' className='widget'>
+        <div data-testid='related' id='related' className='widget'>
           <RelatedTitle/>
           <RelatedList defaultData={defaultData} productList={productList} setitemId={setitemId} />
           <OutfitTitle />

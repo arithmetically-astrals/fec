@@ -79,7 +79,7 @@ const OutfitList = ({defaultData}) => {
 }
 
   return (
-    <div id='outfitlist-container'>
+    <div data-testid='outfitlist' id='outfitlist-container'>
       <div id='outfitlist-add-card-container'>
         <AddOutfitCard id='outfitlist-add-card' defaultData={defaultData} rating={outfitStarRating} setStorageChange={setStorageChange} storageChange={storageChange} productImage={productImage}/>
       </div>
