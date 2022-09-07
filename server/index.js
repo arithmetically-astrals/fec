@@ -13,6 +13,19 @@ app.use(express.json());
 
 // Express routes
 
+//tracks user clicks
+app.post('/tracker', (req, res) => {
+  axios.post(`${process.env.API}/interactions`, req.body, {
+    headers: {
+      'Authorization': process.env.AUTH_CODE
+    }
+  }).then(response => {
+    res.sendStatus(201);
+  }).catch(err => {
+    console.log(err);
+    res.sendStatus(422);
+  })
+})
 // gets all data for one product
 app.get('/products/item', (req, res) => {
   var productId = req.query.product_id;

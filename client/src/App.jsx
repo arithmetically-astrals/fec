@@ -5,16 +5,26 @@ import QA from './QA/QA.jsx';
 import Related from './Related/Related.jsx';
 import Reviews from './Reviews/Reviews.jsx';
 import DarkModeToggle from './Shared/DarkModeToggle.jsx';
+import axios from 'axios';
 
-const root = createRoot(document.getElementById('root'));
+
 
 const App = () => {
 
   const [itemId, setitemId] = useState(37316);
   const [starRating, setstarRating] = useState(0);
 
+  const trackClick = (e) => {
+    var widget = e.target.getAttribute("id") + ''|| e.target.getAttribute("class") + ''|| 'Unlabled div';
+    axios.post('/tracker', {
+      element: e.target.tagName + '',
+      widget: widget,
+      time: new Date()
+    })
+  }
+
   return (
-    <div id='appContainer'>
+    <div id='appContainer' onClick={trackClick}>
       <div id='topNav'>
         <div id='logo'>
           checkout
@@ -25,12 +35,12 @@ const App = () => {
       <div id='topMessage'>special message</div>
 
       <Overview itemId={itemId} starRating={starRating} />
-      <Related itemId={itemId} setitemId={setitemId}/>
-      <QA itemId={itemId}/>
+      <Related itemId={itemId} setitemId={setitemId} />
+      <QA itemId={itemId} />
       <Reviews itemId={itemId} starRating={starRating} setstarRating={setstarRating} />
     </div>
   )
 }
 
-
+const root = createRoot(document.getElementById('root'));
 root.render(<App />);
