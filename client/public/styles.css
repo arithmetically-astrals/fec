@@ -13,6 +13,7 @@
   position: relative;
   height: auto;
   text-align: center;
+  overflow: hidden;
 }
 
 #overview-carousel-featuredimage {
@@ -814,10 +815,6 @@ body {
   border: 1px solid #aaa !important;
   color: #fff !important;
   background-color: #aaa !important;
-}
-
-.blurred {
-  backdrop-filter: blur(10px);
 }
 
 #topNav {

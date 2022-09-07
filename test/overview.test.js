@@ -21,6 +21,9 @@ describe('overview', function () {
     return waitFor(() => expect(screen.queryByText(/loading/)).not.toBeInTheDocument())
       .then(() => {
         expect(screen.getByTestId('overview').toExist);
+        expect(screen.getByTestId('overview-carousel').toExist);
+        expect(screen.getByTestId('overview-infopanel').toExist);
+        expect(screen.getByTestId('overview-infopanel-details').toExist);
       })
 
   })
