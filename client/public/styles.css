@@ -519,6 +519,14 @@
   color: #E5B3FE;
 }
 
+#outfitlist-delete-button-dark {
+  position: absolute;
+  font-size: 2em;
+  top: 10px;
+  right: 10px;
+  color: #C0FDFF !important;
+}
+
 #related-star-button {
   position: absolute;
   font-size: 1.5em;
@@ -528,10 +536,33 @@
   z-index: 1000;
 }
 
+#related-star-button-dark {
+  position: absolute;
+  font-size: 1.5em;
+  top: 10px;
+  right: 10px;
+  color: #C0FDFF !important;
+  z-index: 1000;
+}
+
 #related-background-modal {
   background: white;
   border: 1px solid black;
   color: black;
+  display: flex;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  width: 25%;
+  height: 50%;
+  z-index: 50;
+  overflow-y: scroll;
+}
+
+#related-background-modal-dark {
+  background: black;
+  border: 1px solid white;
+  color: white;
   display: flex;
   position: fixed;
   top: 30%;
@@ -608,6 +639,42 @@
 
 #related-right-arrow:hover {
   opacity: 1;
+}
+
+#related-left-arrow-dark {
+  font-size: 60px;
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  color: #C0FDFF !important;
+  cursor: pointer;
+  z-index: 8;
+  opacity: 0.7;
+}
+
+#related-right-arrow-dark {
+  font-size: 60px;
+  border: none;
+  width: 10vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  color: #C0FDFF !important;
+  cursor: pointer;
+  z-index: 8;
+  opacity: 0.7;
 }
 
 #review-meta-box {
