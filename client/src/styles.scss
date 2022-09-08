@@ -77,12 +77,29 @@ body {
   width: 100%;
 }
 
+#mainContentContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mainContent {
+  width: 70%;
+}
+
 .widget {
   background-color: #fafafa;
 }
 
 .widgetDark {
   background-color: $shade2 !important;
+}
+
+.widget-header {
+  font-size: x-large;
+  text-align: center;
+  font-weight: 700;
+  padding: 2em;
 }
 
 .borderDark {
@@ -105,10 +122,6 @@ body {
   border: 1px solid $shadeA !important;
   color: $shadeF !important;
   background-color: $shadeA !important;
-}
-
-.blurred {
-    backdrop-filter: blur(10px);
 }
 
 #topNav {

@@ -64,7 +64,7 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
         Insert image link below:
         <br/>
         <form onSubmit={addPhoto}>
-          <input type='text' name='imgUrl' style={{width: '400px'}}required/>
+          <input type='text' name='imgUrl' style={{width: '400px'}} required data-testid="reviewImgInput"/>
           <input type='submit' value='Add image' style={{cursor: 'pointer'}}/>
         </form>
       </div>
@@ -110,7 +110,7 @@ const ReviewForm = ({itemId, setWriteReview, metaInfo, setDefaultList}) => {
           <br/>
           {photoUpload.map(photo => {
             return (
-              <div key={photo} style={{display: 'inline', marginLeft: '5px'}}>
+              <div key={photo} style={{display: 'inline', marginLeft: '5px'}} data-testid="reviewImage">
                 <img  src={photo} style={{width: '40px', height: '40px', borderRadius: '15px', cursor: 'pointer'}}/>
               </div>
               )}

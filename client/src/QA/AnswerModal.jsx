@@ -59,7 +59,7 @@ const AnswerModal = (props) => {
   return (
     <div className='modal-background'>
       <div className={classObj.qaClose}/>
-      <div className={classObj.qaModal} ref={modal}>
+      <div data-testid='answer-modal' className={classObj.qaModal} ref={modal}>
         <h2 className='qa-modal-title'>Submit Your Answer</h2>
         <h5 className='qa-modal-title'>{props.productName}: {props.question.question_body}</h5>
         <div>

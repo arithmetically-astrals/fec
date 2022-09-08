@@ -29,7 +29,7 @@ const Question = (props) => {
 
   return (
     <>
-      <div className={document.getElementsByClassName('bodyDark').length
+      <div data-testid='question' className={document.getElementsByClassName('bodyDark').length
       ? 'qa-question-container qa-question-container-dark'
       : 'qa-question-container'
       }>
