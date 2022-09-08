@@ -148,4 +148,49 @@ describe('questions and answers', function () {
       })
   });
 
+  it('Should be able to mark an answer as helpful', () => {
+    return waitFor(() => {
+      expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+    })
+      .then(() => {
+        return user.click(screen.getAllByRole('link', {name: 'Helpful?'})[0])
+      })
+      .then(() => {
+        expect(screen.getAllByText('Helpful?')[0].toExist);
+      })
+  });
+
+  // it('Should be alerted when submitting an invalid question', () => {
+  //   return waitFor(() => {
+  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+  //   })
+  //     .then(() => {
+  //       return user.click(screen.getByRole('button', {name: 'Add a question'}))
+  //     })
+  //     .then(() => {
+  //       return user.click(screen.getByRole('button', {name: 'Submit'}))
+  //     })
+  //     .then(() => {
+  //       expect(global.alert).toHaveBeenCalledTimes(1);
+  //     })
+  // });
+
+  // it('Should be alerted when submitting an invalid answer', () => {
+  //   return waitFor(() => {
+  //     expect(screen.queryByText(/Loading questions.../i)).not.toBeInTheDocument();
+  //     expect(screen.queryByText(/Be the first to ask a question.../i)).not.toBeInTheDocument();
+  //   })
+  //     .then(() => {
+  //       return user.click(screen.getAllByRole('link', {name: 'Add Answer'})[0])
+  //     })
+  //     .then(() => {
+  //       return user.click(screen.getByRole('button', {name: 'Submit'}))
+  //     })
+  //     .then(() => {
+  //       expect(global.alert).toHaveBeenCalledTimes(1);
+  //     })
+  // });
+
 });

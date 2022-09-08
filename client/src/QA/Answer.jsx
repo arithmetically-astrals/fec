@@ -46,7 +46,7 @@ const Answer = (props) => {
       : props.answer.answerer_name.trim()
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
         year: 'numeric', month: 'short', day: 'numeric'
-      })} | {props.answer.helpfulness === props.initialAnswerHelpfulness[props.answer.id]
+      })} | {props.answer.helpfulness === props.initialAnswerHelpfulness.current[props.answer.id]
       ? <a href='#' onClick={(e) => {
         e.preventDefault();
         if (!clicked.current) {

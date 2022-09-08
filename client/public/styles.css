@@ -403,6 +403,7 @@
 
 .qa-modal-input-dark {
   resize: none;
+  min-width: 250px;
   background-color: #555;
 }
 
