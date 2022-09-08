@@ -6,3 +6,5 @@ config.js
 node_modules/
 jest.config.js
 coverage
+fec-first-try.pem
+config.js

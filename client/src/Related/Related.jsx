@@ -41,6 +41,7 @@ function Related({itemId, starRating, setitemId}) {
                   .then((relatedListItemResponse) => relatedListItemResponse.data)), //end mapping
             )//end of Promise.all, now filter duplicates from related list
               .then((prodList) => {
+                setProductList([]);//reset to empty state
                 const uniqueList = [];
                 const uniqueProducts = prodList.filter(eachProduct => {
                   const isDuplicate = uniqueList.includes(eachProduct.id);
