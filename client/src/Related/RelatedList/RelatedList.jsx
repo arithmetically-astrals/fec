@@ -38,7 +38,7 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
           return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} setitemId={setitemId}/>
         })}
       </div>
-      {showRight ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-right-arrow-dark' : 'related-right-arrow'} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : ''}}*/ onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
+      {showRight ? (<div id='related-right-arrow' className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : null} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : ''}}*/ onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
     </div>
   );
 
