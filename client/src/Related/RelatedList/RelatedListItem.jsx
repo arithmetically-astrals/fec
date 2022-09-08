@@ -63,11 +63,16 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
         <img src={productImage}
         style={{
         objectFit: 'cover',
-        overflow: 'hidden',
+        // overflow: 'hidden',
+        // width: '100%',
+        // display: 'block',
+        // height: '300px',
+        // aspectRation: '16 / 9'
+        position: 'relative',
         width: '100%',
-        display: 'block',
-        height: '300px',
-        aspectRation: '16 / 9'
+        height: '350px',
+        overflow: 'hidden',
+        display: 'block'
         }}
         />
         <div id='related-product-name'>{product.name}</div>
