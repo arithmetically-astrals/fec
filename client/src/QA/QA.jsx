@@ -42,18 +42,14 @@ const QA = (props) => {
       }
     })
       .then((response) => {
-        let tempObj = {};
         response.data.results.forEach((question) => {
-          tempObj[question.question_id] = question.question_helpfulness;
+          initialQuestionHelpfulness.current[question.question_id] = question.question_helpfulness;
         })
-        initialQuestionHelpfulness.current = tempObj;
-        tempObj = {};
         response.data.results.forEach((question) => {
           Object.keys(question.answers).forEach((id) => {
-            tempObj[id] = [question.answers[id].helpfulness, false];
+            initialAnswerStates.current[id] = [false, false];
           })
         })
-        initialAnswerStates.current = tempObj;
         setQuestions(response.data.results);
       })
       .catch((err) => {

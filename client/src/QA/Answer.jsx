@@ -47,32 +47,33 @@ const Answer = (props) => {
       : props.answer.answerer_name.trim()
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
         year: 'numeric', month: 'short', day: 'numeric'
-      })} | {props.answer.helpfulness === props.initialAnswerStates.current[props.answer.id][0]
-      ? <a href='#' onClick={(e) => {
-        e.preventDefault();
-        if (!clicked.current) {
-          clicked.current = true;
-          axios.put(`/qa/answers/${props.answer.id}/helpful`)
-          .then(() => {
-            axios.get('/qa/questions', {
-              params: {
-                product_id: props.product_id,
-                count: 10000
-              }
-            })
-              .then((response) => {
-                props.setQuestions(response.data.results);
+      })} | {props.initialAnswerStates.current[props.answer.id][0]
+      ? <>Helpful?</>
+      : <a href='#' onClick={(e) => {
+          e.preventDefault();
+          if (!clicked.current) {
+            clicked.current = true;
+            axios.put(`/qa/answers/${props.answer.id}/helpful`)
+              .then(() => {
+                props.initialAnswerStates.current[props.answer.id][0] = true;
+                axios.get('/qa/questions', {
+                  params: {
+                    product_id: props.product_id,
+                    count: 10000
+                  }
+                })
+                  .then((response) => {
+                    props.setQuestions(response.data.results);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
               })
               .catch((err) => {
                 console.log(err);
               });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }
-      }}>Helpful?</a>
-      : <>Helpful?</>
+          }
+        }}>Helpful?</a>
       } Yes ({props.answer.helpfulness}) | {props.initialAnswerStates.current[props.answer.id][1]
       ? <>Reported</>
       : <a href='#' onClick={(e) => {
