@@ -43,7 +43,7 @@ const QA = (props) => {
     })
       .then((response) => {
         response.data.results.forEach((question) => {
-          initialQuestionHelpfulness.current[question.question_id] = question.question_helpfulness;
+          initialQuestionHelpfulness.current[question.question_id] = false;
         })
         response.data.results.forEach((question) => {
           Object.keys(question.answers).forEach((id) => {
