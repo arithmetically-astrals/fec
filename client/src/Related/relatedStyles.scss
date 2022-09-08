@@ -48,15 +48,15 @@ $pop9: #C0FDFF;
   justify-content: center;
   display: flex;
   // align-content: center;
-  align-self: center;
+  // align-self: center;
   position: relative;
   overflow: hidden;
   padding: 20px;
 }
 
 #related-card-list, #outfitlist-container{
-  align-self: center;
-  justify-content: center;
+  // align-self: center;
+  // justify-content: center;
   position: relative;
   // padding: 0.25rem;
   max-width: 1200px;
@@ -64,12 +64,15 @@ $pop9: #C0FDFF;
   // gap: 1rem;
   // overflow-x: scroll;
   // scroll-behavior: smooth;
-  padding: 0 5vw;
+  padding: 0 1vw;
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  justify-content: center;
+  // justify-content: center;
+}
 
+#outfitlist-container {
+  justify-content: center;
 }
 
 #outfitlist-container::-webkit-scrollbar {
@@ -160,7 +163,7 @@ $pop9: #C0FDFF;
   // display: inline-block;
   // position: absolute;
   // bottom: 50%;
-  // left: 0;
+  // right: 0;
   font-size: 60px;
   // opacity: 0.4;
   // z-index: 5;
@@ -177,7 +180,41 @@ $pop9: #C0FDFF;
   color: #DEAAFF;
   cursor: pointer;
   z-index: 8;
+  opacity: 0.7;
 }
+
+#related-left-arrow:hover {
+  opacity: 1;
+}
+
+// #related-left-arrow:before, #related-left-arrow:after {
+//   // display: inline-block;
+//   // position: absolute;
+//   // bottom: 50%;
+//   // left: 0;
+//   font-size: 60px;
+//   // opacity: 0.4;
+//   // z-index: 5;
+//   border: none;
+//   width: 10vw;
+//   height: 100%;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+//   color: #DEAAFF;
+//   cursor: pointer;
+//   z-index: 8;
+//   opacity: 0.7;
+// }
+
+// .related-left-arrow-dark:before, .related-left-arrow-dark:after {
+//   color: #C0FDFF !important;
+// }
+
 
 #related-right-arrow {
   // display: inline-block;
@@ -200,4 +237,9 @@ $pop9: #C0FDFF;
   color: #DEAAFF;
   cursor: pointer;
   z-index: 8;
+  opacity: 0.7;
+}
+
+#related-right-arrow:hover {
+  opacity: 1;
 }
