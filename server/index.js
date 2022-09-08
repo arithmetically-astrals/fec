@@ -4,10 +4,12 @@ require("dotenv").config();
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
+const compression = require('compression')
 
 const app = express();
 
 // middleware
+app.use(compression())
 app.use(express.static(path.join(__dirname, '../client/public')));
 app.use(express.json());
 
@@ -257,20 +259,20 @@ app.put('/qa/questions/:question_id/helpful', (req, res) => {
 });
 
 //report a question
-app.put('/qa/questions/:question_id/report', (req, res) => {
-  axios.put(`${process.env.API}/qa/questions/${req.params.question_id}/report`, null, {
-    headers: {
-      Authorization: process.env.AUTH_CODE
-    }
-  })
-    .then(() => {
-      res.sendStatus(204);
-    })
-    .catch((err) => {
-      console.log(err.response.data);
-      res.sendStatus(501);
-    });
-});
+// app.put('/qa/questions/:question_id/report', (req, res) => {
+//   axios.put(`${process.env.API}/qa/questions/${req.params.question_id}/report`, null, {
+//     headers: {
+//       Authorization: process.env.AUTH_CODE
+//     }
+//   })
+//     .then(() => {
+//       res.sendStatus(204);
+//     })
+//     .catch((err) => {
+//       console.log(err.response.data);
+//       res.sendStatus(501);
+//     });
+// });
 
 //mark an answer as helpful
 app.put('/qa/answers/:answer_id/helpful', (req, res) => {

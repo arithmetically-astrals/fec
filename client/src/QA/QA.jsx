@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import QuestionModal from './QuestionModal.jsx';
 import Question from './Question.jsx';
@@ -8,10 +8,10 @@ const QA = (props) => {
   const [questions, setQuestions] = useState(null);
   const [search, setSearch] = useState('');
   const [questionCount, setQuestionCount] = useState(4);
-  const [initialQuestionHelpfulness, setInitialQuestionHelpfulness] = useState({});
-  const [initialAnswerHelpfulness, setInitialAnswerHelpfulness] = useState({});
   const [productName, setProductName] = useState('');
   const [questionModal, setQuestionModal] = useState(false);
+  const initialQuestionHelpfulness = useRef({});
+  const initialAnswerHelpfulness = useRef({});
 
   let renderedQuestions = [];
   let searchedQuestions = [];
@@ -46,14 +46,14 @@ const QA = (props) => {
         response.data.results.forEach((question) => {
           tempObj[question.question_id] = question.question_helpfulness;
         })
-        setInitialQuestionHelpfulness(tempObj);
+        initialQuestionHelpfulness.current = tempObj;
         tempObj = {};
         response.data.results.forEach((question) => {
           Object.keys(question.answers).forEach((id) => {
             tempObj[id] = question.answers[id].helpfulness;
           })
         })
-        setInitialAnswerHelpfulness(tempObj);
+        initialAnswerHelpfulness.current = tempObj;
         setQuestions(response.data.results);
       })
       .catch((err) => {
@@ -75,7 +75,7 @@ const QA = (props) => {
   return (
     <div id='qa' className='widget'>
       {questionModal
-      ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setInitialQuestionHelpfulness={setInitialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
+      ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
       : null
       }
       <div className='widget-header'>Questions</div>
@@ -102,7 +102,7 @@ const QA = (props) => {
                 question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
               ))
               ? renderedQuestions.map((question, index) => (
-                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} setInitialAnswerHelpfulness={setInitialAnswerHelpfulness} productName={productName} search={search}/>
+                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} productName={productName} search={search}/>
               ))
               : <h2 className='qa-no-questions'>No questions found!</h2>
               }

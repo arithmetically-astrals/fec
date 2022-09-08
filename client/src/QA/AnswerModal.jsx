@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const AnswerModal = (props) => {
 
-  const [body, setBody] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [photos, setPhotos] = useState([]);
+  const body = useRef('');
+  const name = useRef('');
+  const email = useRef('');
+  const photos = useRef([]);
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
@@ -48,7 +48,7 @@ const AnswerModal = (props) => {
     qaClose: 'qa-close',
     qaModal: 'qa-modal',
     qaModalInput: 'qa-modal-input',
-    qaModalButton: 'qa-button',
+    qaModalButton: 'qa-button'
   };
   if (document.getElementsByClassName('bodyDark').length) {
     for (let key in classObj) {
@@ -69,7 +69,7 @@ const AnswerModal = (props) => {
             </div>
             <div>
               <textarea className={classObj.qaModalInput} maxLength='1000' rows='10' cols='80' onChange={(e) => {
-                setBody(e.target.value);
+                body.current = e.target.value;
               }}/>
             </div>
             {emptyBody
@@ -85,7 +85,7 @@ const AnswerModal = (props) => {
             </div>
             <div>
               <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Example: jack543!' onChange={(e) => {
-                setName(e.target.value);
+                name.current = e.target.value;
               }}/>
             </div>
             {emptyName
@@ -104,7 +104,7 @@ const AnswerModal = (props) => {
             </div>
             <div>
               <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Example: jack@email.com' onChange={(e) => {
-                setEmail(e.target.value);
+                email.current = e.target.value;
               }}/>
             </div>
             {emptyEmail
@@ -128,12 +128,12 @@ const AnswerModal = (props) => {
               <label><b>Upload your photos</b></label>
             </div>
             <div>
-              {photos.length === 5
+              {photos.current.length === 5
               ? null
               : <div>
                   <div>
-                    {photos.length !== 4
-                    ? <>You can upload {5 - photos.length} more pictures</>
+                    {photos.current.length !== 4
+                    ? <>You can upload {5 - photos.current.length} more pictures</>
                     : <>You can upload 1 more picture</>
                     }
                   </div>
@@ -146,9 +146,7 @@ const AnswerModal = (props) => {
                     preview.classList.add('filled');
                     caption.innerHTML = file.name;
                     caption.classList.add('filled');
-                    let photosClone = photos;
-                    photosClone.push(url);
-                    setPhotos(photosClone);
+                    photos.current.push(url);
                     forceUpdate();
                   }}/>
                   <input className={classObj.qaModalButton} type='button' value='Upload a photo...' onClick={() => {
@@ -156,7 +154,7 @@ const AnswerModal = (props) => {
                   }}/>
                 </div>
               }
-              <div style={{display: photos.length ? 'initial' : 'none'}}>
+              <div style={{display: photos.current.length ? 'initial' : 'none'}}>
                 <figure className='qa-modal-photos'>
                   <img className='qa-modal-photo' src='' height='130'/>
                   <figcaption className='qa-modal-caption'/>
@@ -183,28 +181,28 @@ const AnswerModal = (props) => {
           <button className={`qa-modal-header ${classObj.qaModalButton}`} onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
-            if (body.trim() === '') {
+            if (body.current.trim() === '') {
               setEmptyBody(true);
               sendRequest = false;
               alertMessages.push('A valid answer body');
             } else {
               setEmptyBody(false);
             }
-            if (name.trim() === '') {
+            if (name.current.trim() === '') {
               setEmptyName(true);
               sendRequest = false;
               alertMessages.push('A valid nickname');
             } else {
               setEmptyName(false);
             }
-            if (email.trim() === '') {
+            if (email.current.trim() === '') {
               setInvalidEmail(false);
               setEmptyEmail(true);
               sendRequest = false;
               alertMessages.push('A valid email');
             } else {
               setEmptyEmail(false);
-              if (email.toLowerCase().match(
+              if (email.current.toLowerCase().match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               ) === null) {
                 setInvalidEmail(true);
@@ -217,10 +215,10 @@ const AnswerModal = (props) => {
             if (sendRequest) {
               props.setAnswerModal(false);
               axios.post(`/qa/questions/${props.question.question_id}/answers`, {
-                body: body.trim(),
-                name: name.trim(),
-                email: email.trim(),
-                photos: photos
+                body: body.current.trim(),
+                name: name.current.trim(),
+                email: email.current.trim(),
+                photos: photos.current
               })
                 .then(() => {
                   axios.get('/qa/questions', {
@@ -230,15 +228,15 @@ const AnswerModal = (props) => {
                     }
                   })
                     .then((response) => {
-                      let tempObj = props.initialAnswerHelpfulness;
+                      let tempObj = props.initialAnswerHelpfulness.current;
                       response.data.results.forEach((question) => {
                         Object.keys(question.answers).forEach((id) => {
-                          if (props.initialAnswerHelpfulness[id] === undefined) {
+                          if (props.initialAnswerHelpfulness.current[id] === undefined) {
                             tempObj[id] = question.answers[id].helpfulness;
                           }
                         })
                       })
-                      props.setInitialAnswerHelpfulness(tempObj);
+                      props.initialAnswerHelpfulness.current = tempObj;
                       props.setQuestions(response.data.results);
                     })
                     .catch((err) => {
