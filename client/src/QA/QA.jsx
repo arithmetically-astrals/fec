@@ -11,7 +11,7 @@ const QA = (props) => {
   const [productName, setProductName] = useState('');
   const [questionModal, setQuestionModal] = useState(false);
   const initialQuestionHelpfulness = useRef({});
-  const initialAnswerHelpfulness = useRef({});
+  const initialAnswerStates = useRef({});
 
   let renderedQuestions = [];
   let searchedQuestions = [];
@@ -50,10 +50,10 @@ const QA = (props) => {
         tempObj = {};
         response.data.results.forEach((question) => {
           Object.keys(question.answers).forEach((id) => {
-            tempObj[id] = question.answers[id].helpfulness;
+            tempObj[id] = [question.answers[id].helpfulness, false];
           })
         })
-        initialAnswerHelpfulness.current = tempObj;
+        initialAnswerStates.current = tempObj;
         setQuestions(response.data.results);
       })
       .catch((err) => {
@@ -102,7 +102,7 @@ const QA = (props) => {
                 question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
               ))
               ? renderedQuestions.map((question, index) => (
-                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerHelpfulness={initialAnswerHelpfulness} productName={productName} search={search}/>
+                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerStates={initialAnswerStates} productName={productName} search={search}/>
               ))
               : <h2 className='qa-no-questions'>No questions found!</h2>
               }

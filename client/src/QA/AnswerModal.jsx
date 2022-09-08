@@ -228,15 +228,15 @@ const AnswerModal = (props) => {
                     }
                   })
                     .then((response) => {
-                      let tempObj = props.initialAnswerHelpfulness.current;
+                      let tempObj = props.initialAnswerStates.current;
                       response.data.results.forEach((question) => {
                         Object.keys(question.answers).forEach((id) => {
-                          if (props.initialAnswerHelpfulness.current[id] === undefined) {
-                            tempObj[id] = question.answers[id].helpfulness;
+                          if (props.initialAnswerStates.current[id] === undefined) {
+                            tempObj[id] = [question.answers[id].helpfulness, false];
                           }
                         })
                       })
-                      props.initialAnswerHelpfulness.current = tempObj;
+                      props.initialAnswerStates.current = tempObj;
                       props.setQuestions(response.data.results);
                     })
                     .catch((err) => {
