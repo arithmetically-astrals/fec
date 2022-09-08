@@ -42,13 +42,15 @@ const Question = (props) => {
             }
           </span>
           <span className='qa-question-actions'>
-            {props.question.question_helpfulness === props.initialQuestionHelpfulness.current[props.question.question_id]
-            ? <a href='#' onClick={(e) => {
+            {props.initialQuestionHelpfulness.current[props.question.question_id]
+            ? <>Helpful?</>
+            : <a href='#' onClick={(e) => {
                 e.preventDefault();
                 if (!clicked.current) {
                   clicked.current = true;
                   axios.put(`/qa/questions/${props.question.question_id}/helpful`)
                   .then(() => {
+                    props.initialQuestionHelpfulness.current[props.question.question_id] = true;
                     axios.get('/qa/questions', {
                       params: {
                         product_id: props.product_id,
@@ -67,8 +69,7 @@ const Question = (props) => {
                   });
                 }
               }}>Helpful?</a>
-            : <>Helpful?</>
-            } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/>
+            } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerStates={props.initialAnswerStates} productName={props.productName} product_id={props.product_id}/>
             {/* | {reported
             ? <>Reported</>
             : <a href='#' onClick={(e) => {
@@ -84,7 +85,7 @@ const Question = (props) => {
             } */}
           </span>
         </div>
-        <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
+        <AnswerList answers={Object.values(props.question.answers)} question={props.question} initialAnswerStates={props.initialAnswerStates} product_id={props.product_id} setQuestions={props.setQuestions}/>
       </div>
     </>
   )

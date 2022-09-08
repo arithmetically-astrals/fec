@@ -45,7 +45,7 @@ const AnswerList = (props) => {
           <div className='qa-answers'>
             {renderedAnswers.map((answer, index) => (
               <div key={index} className='qa-answer'>
-                <Answer answer={answer} initialAnswerHelpfulness={props.initialAnswerHelpfulness} product_id={props.product_id} setQuestions={props.setQuestions}/>
+                <Answer answer={answer} initialAnswerStates={props.initialAnswerStates} product_id={props.product_id} setQuestions={props.setQuestions}/>
               </div>
             ))}
             {Object.values(props.question.answers).length > 2

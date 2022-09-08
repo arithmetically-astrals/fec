@@ -8,6 +8,7 @@ const Answer = (props) => {
   const [photoModal, setPhotoModal] = useState(false);
   const clicked = useRef(false);
   const clickedPhoto = useRef(null);
+  const previouslyReported = useRef(false);
 
   useEffect(() => {
     const allElements = document.body.getElementsByTagName('*');
@@ -46,38 +47,40 @@ const Answer = (props) => {
       : props.answer.answerer_name.trim()
       }, {new Date(props.answer.date).toLocaleDateString('en-us', {
         year: 'numeric', month: 'short', day: 'numeric'
-      })} | {props.answer.helpfulness === props.initialAnswerHelpfulness.current[props.answer.id]
-      ? <a href='#' onClick={(e) => {
-        e.preventDefault();
-        if (!clicked.current) {
-          clicked.current = true;
-          axios.put(`/qa/answers/${props.answer.id}/helpful`)
-          .then(() => {
-            axios.get('/qa/questions', {
-              params: {
-                product_id: props.product_id,
-                count: 10000
-              }
-            })
-              .then((response) => {
-                props.setQuestions(response.data.results);
+      })} | {props.initialAnswerStates.current[props.answer.id][0]
+      ? <>Helpful?</>
+      : <a href='#' onClick={(e) => {
+          e.preventDefault();
+          if (!clicked.current) {
+            clicked.current = true;
+            axios.put(`/qa/answers/${props.answer.id}/helpful`)
+              .then(() => {
+                props.initialAnswerStates.current[props.answer.id][0] = true;
+                axios.get('/qa/questions', {
+                  params: {
+                    product_id: props.product_id,
+                    count: 10000
+                  }
+                })
+                  .then((response) => {
+                    props.setQuestions(response.data.results);
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
               })
               .catch((err) => {
                 console.log(err);
               });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        }
-      }}>Helpful?</a>
-      : <>Helpful?</>
-      } Yes ({props.answer.helpfulness}) | {reported
+          }
+        }}>Helpful?</a>
+      } Yes ({props.answer.helpfulness}) | {props.initialAnswerStates.current[props.answer.id][1]
       ? <>Reported</>
       : <a href='#' onClick={(e) => {
         e.preventDefault();
         axios.put(`/qa/answers/${props.answer.id}/report`)
           .then(() => {
+            props.initialAnswerStates.current[props.answer.id][1] = true;
             setReported(true);
           })
           .catch((err) => {
