@@ -57,8 +57,8 @@ const ReviewTile = ({info, setList, itemId, count}) => {
 
   //shows img modal
   const clickImg = (photo) => {
-     setShowImg(<div className='modal-background'><div id='review-img-modal' data-testid="imageModal"><span onClick={closeImg} style={{cursor: 'pointer', float: 'right', padding: '10px', fontSize: 'x-large'}}>
-       X</span><img src={photo.url} style={{maxWidth: '750px', maxHeight: '750px'}}/></div></div> )
+     setShowImg(<div className='modal-background'><div id='review-img-modal' data-testid="imageModal"><span onClick={closeImg} style={{cursor: 'pointer', float: 'right', padding: '3px', fontSize: 'x-large'}}>
+       X</span><img src={photo.url} style={{maxWidth: '80%', maxHeight: '80%'}}/></div></div> )
   }
 
   //closes img modal
@@ -77,7 +77,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
       <h4>{info.summary}</h4>
       {!showMore ? <p>{info.body}</p> : <p>{info.body.slice(0, 250) + '...'}
       <span onClick={clickShowMore} style={{cursor: 'pointer', color: 'blue', fontSize: 'x-small'}}>(Show more)</span></p>}
-      <div>{info.recommend ? <div style={{fontSize: 'small', margin: '5px'}}>✓ I recommend this product</div>: null}</div>
+      <div>{info.recommend ? <div style={{fontSize: 'small', margin: '15px'}}>✓ I recommend this product</div>: null}</div>
       {info.photos.length > 0 ? <div id='review-tile-photobox'>
         {info.photos.map(photo => {
           return (
@@ -88,7 +88,7 @@ const ReviewTile = ({info, setList, itemId, count}) => {
         })}
       </div>: null}
       <div>{showImg}</div>
-      <div style={{fontSize: 'small', margin: '5px'}}>Was this review helpful? {!clickedYes ? <span data-testid="yes-button" onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> : <span style={{color: 'green'}}>Yes</span>} <span data-testid="yes-count">({yesCount}) </span>
+      <div style={{fontSize: 'x-small', float: 'right'}}>Was this review helpful? {!clickedYes ? <span data-testid="yes-button" onClick={clickYes} style={{textDecoration: 'underline', cursor: 'pointer'}} >Yes</span> : <span style={{color: 'green'}}>Yes</span>} <span data-testid="yes-count">({yesCount}) </span>
       | <span onClick={clickReport} style={{textDecoration: 'underline', cursor: 'pointer'}}>Report</span></div>
     </div>
   )

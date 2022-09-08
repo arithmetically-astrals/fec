@@ -65,11 +65,13 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
             <option>Newest</option>
           </select>
         </div>
+        <div id='review-tile-container'>
         {mapList.map((info, index) => {
           if (index < count) {
             return <ReviewTile info={info} itemId={itemId} count={count} setList={setList} key={info.review_id} />
           }
         })}
+        </div>
         <button onClick={moreReviews}>More reviews</button>
         <button onClick={clickWriteReview}>Write a review</button>
       </div>
