@@ -238,7 +238,7 @@ const AnswerModal = (props) => {
                           }
                         })
                       })
-                      props.initialAnswerHelpfulness = tempObj;
+                      props.initialAnswerHelpfulness.current = tempObj;
                       props.setQuestions(response.data.results);
                     })
                     .catch((err) => {

@@ -3,9 +3,9 @@ import axios from 'axios';
 
 const QuestionModal = (props) => {
 
-  const [body, setBody] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const body = useRef('');
+  const name = useRef('');
+  const email = useRef('');
   const [emptyBody, setEmptyBody] = useState(false);
   const [emptyName, setEmptyName] = useState(false);
   const [emptyEmail, setEmptyEmail] = useState(false);
@@ -65,7 +65,7 @@ const QuestionModal = (props) => {
             </div>
             <div>
               <textarea className={classObj.qaModalInput} maxLength='1000' rows='10' cols='80' onChange={(e) => {
-                setBody(e.target.value);
+                body.current = e.target.value;
               }}/>
             </div>
             {emptyBody
@@ -81,7 +81,7 @@ const QuestionModal = (props) => {
             </div>
             <div>
               <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Example: jackson11!' onChange={(e) => {
-                setName(e.target.value);
+                name.current = e.target.value;
               }}/>
             </div>
             {emptyName
@@ -100,7 +100,7 @@ const QuestionModal = (props) => {
             </div>
             <div>
               <input className={classObj.qaModalInput} type='text' maxLength='60' placeholder='Why did you like the product or not?' onChange={(e) => {
-                setEmail(e.target.value);
+                email.current = e.target.value;
               }}/>
             </div>
             {emptyEmail
@@ -122,28 +122,28 @@ const QuestionModal = (props) => {
           <button className={`qa-modal-header ${classObj.qaModalButton}`} onClick={(e) => {
             let sendRequest = true;
             let alertMessages = [];
-            if (body.trim() === '') {
+            if (body.current.trim() === '') {
               setEmptyBody(true);
               sendRequest = false;
               alertMessages.push('A valid question body');
             } else {
               setEmptyBody(false);
             }
-            if (name.trim() === '') {
+            if (name.current.trim() === '') {
               setEmptyName(true);
               sendRequest = false;
               alertMessages.push('A valid nickname');
             } else {
               setEmptyName(false);
             }
-            if (email.trim() === '') {
+            if (email.current.trim() === '') {
               setInvalidEmail(false);
               setEmptyEmail(true);
               sendRequest = false;
               alertMessages.push('A valid email');
             } else {
               setEmptyEmail(false);
-              if (email.toLowerCase().match(
+              if (email.current.toLowerCase().match(
                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
               ) === null) {
                 setInvalidEmail(true);
@@ -156,9 +156,9 @@ const QuestionModal = (props) => {
             if (sendRequest) {
               props.setQuestionModal(false);
               axios.post('/qa/questions', {
-                body: body.trim(),
-                name: name.trim(),
-                email: email.trim(),
+                body: body.current.trim(),
+                name: name.current.trim(),
+                email: email.current.trim(),
                 product_id: props.product_id
               })
                 .then(() => {
@@ -175,7 +175,7 @@ const QuestionModal = (props) => {
                           tempObj[question.question_id] = question.question_helpfulness;
                         }
                       })
-                      props.initialQuestionHelpfulness = tempObj;
+                      props.initialQuestionHelpfulness.current = tempObj;
                       props.setQuestions(response.data.results);
                     })
                     .catch((err) => {
