@@ -8,7 +8,7 @@ const AddAnswer = (props) => {
   return (
     <>
       {answerModal
-      ? <AnswerModal question={props.question} product_id={props.product_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} setQuestions={props.setQuestions} productName={props.productName} setAnswerModal={setAnswerModal}/>
+      ? <AnswerModal question={props.question} product_id={props.product_id} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setQuestions={props.setQuestions} productName={props.productName} setAnswerModal={setAnswerModal}/>
       : null
       }
       <a href='#' onClick={(e) => {

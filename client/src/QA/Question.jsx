@@ -42,7 +42,7 @@ const Question = (props) => {
             }
           </span>
           <span className='qa-question-actions'>
-            {props.question.question_helpfulness === props.initialQuestionHelpfulness[props.question.question_id]
+            {props.question.question_helpfulness === props.initialQuestionHelpfulness.current[props.question.question_id]
             ? <a href='#' onClick={(e) => {
                 e.preventDefault();
                 if (!clicked.current) {
@@ -68,7 +68,7 @@ const Question = (props) => {
                 }
               }}>Helpful?</a>
             : <>Helpful?</>
-            } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} setInitialAnswerHelpfulness={props.setInitialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/>
+            } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerHelpfulness={props.initialAnswerHelpfulness} productName={props.productName} product_id={props.product_id}/>
             {/* | {reported
             ? <>Reported</>
             : <a href='#' onClick={(e) => {
