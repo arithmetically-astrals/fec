@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Question = (props) => {
 
-  const [reported, setReported] = useState(false);
+  // const [reported, setReported] = useState(false);
   const clicked = useRef(false);
   let searchedQuestion;
   if (props.search.length >= 3) {
@@ -18,8 +18,8 @@ const Question = (props) => {
   }
 
   useEffect(() => {
-    const allElements = document.body.getElementsByTagName('*');
     if (document.getElementsByClassName('bodyDark').length) {
+      const allElements = document.body.getElementsByTagName('*');
       for (let i = 0; i < allElements.length; i++) {
         allElements[i].classList.add('borderDark');
         allElements[i].classList.add('textDark');
