@@ -32,13 +32,13 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
 
   return (
     <div id='related-card-container'>
-      {slideLeft >  0 ? (<div id='related-left-arrow' onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
+      {slideLeft >  0 ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-left-arrow-dark' : 'related-left-arrow'} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-left-arrow-dark' : ''}}*/ onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
       <div id='related-card-list' ref={scrollRef}>
         {productList.map((product) => {
           return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} setitemId={setitemId}/>
         })}
       </div>
-      {showRight ? (<div id='related-right-arrow' onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
+      {showRight ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-right-arrow-dark' : 'related-right-arrow'} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : ''}}*/ onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
     </div>
   );
 

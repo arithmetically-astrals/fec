@@ -85,7 +85,7 @@ const OutfitList = ({defaultData}) => {
       </div>
 
       <div id='related-card-container'>
-        {slideLeft >  0 ? (<div id='related-left-arrow' onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
+        {slideLeft >  0 ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-left-arrow-dark' : 'related-left-arrow'} onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
 
         <div id='related-card-list' ref={scrollRef}>
         <AddOutfitCard id='outfitlist-add-card' defaultData={defaultData} rating={outfitStarRating} setStorageChange={setStorageChange} storageChange={storageChange} productImage={productImage}/>
@@ -95,7 +95,7 @@ const OutfitList = ({defaultData}) => {
 
         </div>
 
-        {showRight ? (<div id='related-right-arrow' onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
+        {showRight ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-right-arrow-dark' : 'related-right-arrow'} onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
 
       </div>
 
