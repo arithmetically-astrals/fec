@@ -456,34 +456,60 @@
   color: #C0FDFF;
 }
 
+#related {
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+#related-title {
+  text-align: center;
+}
+
 #related-card-container {
   position: relative;
-  max-width: 100%;
-  align-content: center;
+  max-width: 1200px;
+  justify-content: center;
+  display: flex;
+  align-self: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
 }
 
 #related-card-list, #outfitlist-container {
   align-self: center;
+  justify-content: center;
   position: relative;
-  padding: 0.25rem;
-  max-width: 100%;
+  max-width: 1200px;
+  padding: 0 5vw;
   display: flex;
-  gap: 1rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
+  justify-content: center;
+}
+
+#outfitlist-container::-webkit-scrollbar {
+  display: none;
+}
+
+#related-card-list::-webkit-scrollbar {
+  display: none;
 }
 
 #related-card, #outfitlist-addcard, #outfitlist-card {
   position: relative;
-  border-radius: 0.25rem;
-  padding: 0.25rem;
+  flex: 0 0 auto;
   width: 300px;
   height: 450px;
+  margin-right: 20px;
 }
 
 #outfitlist-addcard-text {
   font-size: 25px;
   margin: 2em;
+  text-align: center;
 }
 
 #outfitlist-delete-button {
@@ -500,6 +526,7 @@
   top: 10px;
   right: 10px;
   color: #E5B3FE;
+  z-index: 1000;
 }
 
 #related-background-modal {
@@ -511,7 +538,7 @@
   top: 30%;
   left: 30%;
   width: 25%;
-  height: 70%;
+  height: 50%;
   z-index: 50;
   overflow-y: scroll;
 }
@@ -541,23 +568,33 @@
 }
 
 #related-left-arrow {
-  display: inline-block;
+  border: none;
+  width: 10vw;
+  height: 100%;
   position: absolute;
-  bottom: 50%;
+  top: 0;
   left: 0;
-  font-size: 80px;
-  opacity: 0.4;
-  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  cursor: pointer;
+  z-index: 8;
 }
 
 #related-right-arrow {
-  display: inline-block;
+  border: none;
+  width: 10vw;
+  height: 100%;
   position: absolute;
-  bottom: 50%;
+  top: 0;
   right: 0;
-  font-size: 80px;
-  opacity: 0.4;
-  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  cursor: pointer;
+  z-index: 8;
 }
 
 #review-meta-box {
