@@ -88,7 +88,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
           </div>
           <div id='metaTextRight'>{metaInfo.ratings[1] || 0}</div>
         </div>
-        <div>{metaInfo.characteristics.Comfort ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Comfort ? <div>
             <a>Comfort</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Comfort.value)} />
@@ -97,7 +97,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
             </div>
           </div> : null}
         </div>
-        <div>{metaInfo.characteristics.Fit ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Fit ? <div>
             <a>Fit</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Fit.value)} />
@@ -106,7 +106,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
             </div>
           </div> : null}
         </div>
-        <div>{metaInfo.characteristics.Length ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Length ? <div>
             <a>Length</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Length.value)} />
@@ -115,7 +115,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
             </div>
           </div> : null}
         </div>
-        <div>{metaInfo.characteristics.Quality ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Quality ? <div>
             <a>Quality</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Quality.value)} />
@@ -124,7 +124,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
             </div>
           </div> : null}
         </div>
-        <div>{metaInfo.characteristics.Size ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Size ? <div>
             <a>Size</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Size.value)} />
@@ -133,7 +133,7 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
             </div>
           </div> : null}
         </div>
-        <div>{metaInfo.characteristics.Width ? <div>
+        <div style={{marginTop: '10px'}}>{metaInfo.characteristics.Width ? <div>
             <a>Width</a>
             <div id='review-rating-char'>
               <div style={triangleStyle(metaInfo.characteristics.Width.value)} />
