@@ -469,7 +469,6 @@
 
 #related-card-container {
   position: relative;
-  max-width: 1200px;
   justify-content: center;
   display: flex;
   position: relative;
@@ -479,7 +478,6 @@
 
 #related-card-list, #outfitlist-container {
   position: relative;
-  max-width: 1200px;
   padding: 0 1vw;
   display: flex;
   overflow-x: auto;
