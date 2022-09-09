@@ -44,8 +44,6 @@ const QA = (props) => {
       .then((response) => {
         response.data.results.forEach((question) => {
           initialQuestionHelpfulness.current[question.question_id] = false;
-        })
-        response.data.results.forEach((question) => {
           Object.keys(question.answers).forEach((id) => {
             initialAnswerStates.current[id] = [false, false];
           })
