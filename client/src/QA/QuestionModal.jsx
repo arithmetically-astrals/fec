@@ -169,13 +169,11 @@ const QuestionModal = (props) => {
                     }
                   })
                     .then((response) => {
-                      let tempObj = props.initialQuestionHelpfulness.current;
                       response.data.results.forEach((question) => {
-                        if (props.initialQuestionHelpfulness.current[question.question_id] === undefined) {
-                          tempObj[question.question_id] = question.question_helpfulness;
+                        if (!props.initialQuestionStates.current[question.question_id]) {
+                          props.initialQuestionStates.current[question.question_id] = [false, false];
                         }
                       })
-                      props.initialQuestionHelpfulness.current = tempObj;
                       props.setQuestions(response.data.results);
                     })
                     .catch((err) => {

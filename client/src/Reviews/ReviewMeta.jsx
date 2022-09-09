@@ -3,7 +3,7 @@ import axios from 'axios';
 import StarScale from '../Shared/StarScale.jsx';
 
 //renders the meta info box
-const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount, clickFilterStar, metaInfo, setmetaInfo}) => {
+const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount, clickFilterStar, metaInfo, setmetaInfo, filterNum}) => {
 
   //makes a call to the db to populate the meta info box
   useEffect( () => {
@@ -54,35 +54,35 @@ const ReviewMeta = ({itemId, starRating, setstarRating, starCount, setstarCount,
         <div id='review-meta-stars'>{StarScale(starRating)}</div>
         <p>{Math.round(100 - (metaInfo.recommended.false / metaInfo.recommended.true) * 100)}% of reviews recommend this product.</p>
         <div>
-          <div id='metaTextLeft' onClick={clickFilterStar}>5 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>{filterNum[4] ? <mark>5 stars:</mark>: '5 stars:'}</div>
           <div id='review-rating-bar'>
             <div style={barStyle(metaInfo.ratings[5] || 0)} />
           </div>
           <div id='metaTextRight'>{metaInfo.ratings[5] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft' onClick={clickFilterStar}>4 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>{filterNum[3] ? <mark>4 stars:</mark>: '4 stars:'}</div>
           <div id='review-rating-bar'>
             <div style={barStyle(metaInfo.ratings[4] || 0)} />
           </div>
           <div id='metaTextRight'>{metaInfo.ratings[4] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft' onClick={clickFilterStar}>3 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>{filterNum[2] ? <mark>3 stars:</mark>: '3 stars:'}</div>
           <div id='review-rating-bar'>
             <div style={barStyle(metaInfo.ratings[3] || 0)} />
           </div>
           <div id='metaTextRight'>{metaInfo.ratings[3] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft' onClick={clickFilterStar}>2 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>{filterNum[1] ? <mark>2 stars:</mark>: '2 stars:'}</div>
           <div id='review-rating-bar'>
             <div style={barStyle(metaInfo.ratings[2] || 0)} />
           </div>
           <div id='metaTextRight'>{metaInfo.ratings[2] || 0}</div>
         </div>
         <div>
-          <div id='metaTextLeft' onClick={clickFilterStar}>1 stars:</div>
+          <div id='metaTextLeft' onClick={clickFilterStar}>{filterNum[0] ? <mark>1 stars:</mark>: '1 stars:'}</div>
           <div id='review-rating-bar'>
             <div style={barStyle(metaInfo.ratings[1] || 0)} />
           </div>
