@@ -7,18 +7,18 @@ const AnswerList = (props) => {
   const [renderedAnswers, setRenderedAnswers] = useState([]);
 
   useEffect(() => {
+    props.answers.sort((a, b) => (
+      b.helpfulness - a.helpfulness
+    ));
     props.answers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    let j = -1;
-    for (let i = props.answers.length - 1; i > j; i--) {
-      if (props.answers[i].answerer_name.toUpperCase() === 'SELLER') {
-        props.answers.unshift(props.answers[i]);
-        i++;
-        props.answers.splice(i, 1);
-        j++;
+      if (a.answerer_name.toUpperCase() === 'SELLER') {
+        return -1;
+      } else if (b.answerer_name.toUpperCase() === 'SELLER') {
+        return 1;
+      } else {
+        return 0;
       }
-    }
+    });
     if (moreAnswers) {
       setRenderedAnswers(props.answers);
     } else {
