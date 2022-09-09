@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReviewTile from './ReviewTile.jsx';
 
 //renders the reviews for the product
-const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultList, clickWriteReview}) => {
+const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultList, clickWriteReview, searchReviews}) => {
   //the current number of reviews to render
   const [count, setCount] = useState(2);
 
@@ -64,6 +64,9 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
             <option>Helpful</option>
             <option>Newest</option>
           </select>
+          <br/>
+          Search reviews:
+          <input type='text' onChange={searchReviews} placeholder='Enter search here...'/>
         </div>
         <div id='review-tile-container'>
         {mapList.map((info, index) => {
