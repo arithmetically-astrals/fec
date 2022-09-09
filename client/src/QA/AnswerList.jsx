@@ -19,7 +19,6 @@ const AnswerList = (props) => {
         j++;
       }
     }
-    console.log(props.answers);
     if (moreAnswers) {
       setRenderedAnswers(props.answers);
     } else {
