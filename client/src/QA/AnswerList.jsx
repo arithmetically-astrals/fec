@@ -7,33 +7,22 @@ const AnswerList = (props) => {
   const [renderedAnswers, setRenderedAnswers] = useState([]);
 
   useEffect(() => {
-    let sellerAnswers = [];
-    let normalAnswers = [];
-    let truncatedSortedAnswers = [];
-    props.answers.forEach((answer) => {
-      if (answer.answerer_name.toUpperCase() === 'SELLER') {
-        sellerAnswers.push(answer);
-      } else {
-        normalAnswers.push(answer);
+    props.answers.sort((a, b) => {
+      return b.helpfulness - a.helpfulness;
+    });
+    let j = -1;
+    for (let i = props.answers.length - 1; i > j; i--) {
+      if (props.answers[i].answerer_name.toUpperCase() === 'SELLER') {
+        props.answers.unshift(props.answers[i]);
+        i++;
+        props.answers.splice(i, 1);
+        j++;
       }
-    })
-    sellerAnswers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    normalAnswers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    let sortedAnswers = sellerAnswers.concat(normalAnswers);
+    }
     if (moreAnswers) {
-      setRenderedAnswers(sortedAnswers);
+      setRenderedAnswers(props.answers);
     } else {
-      if (props.answers[0]) {
-        truncatedSortedAnswers.push(sortedAnswers[0]);
-      }
-      if (props.answers[1]) {
-        truncatedSortedAnswers.push(sortedAnswers[1]);
-      }
-      setRenderedAnswers(truncatedSortedAnswers);
+      setRenderedAnswers(props.answers.slice(0, 2));
     }
   }, [props.question, moreAnswers])
 

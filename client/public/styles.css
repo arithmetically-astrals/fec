@@ -739,6 +739,15 @@
   color: white;
 }
 
+#review-tile-box input[type=text] {
+  background-color: white;
+  color: black;
+  border: 2px solid #ffcbf2;
+  width: 200px;
+  padding: 5px;
+  margin: 5px;
+}
+
 #review-tile {
   border: 3px solid #888;
   border-radius: 15px;
