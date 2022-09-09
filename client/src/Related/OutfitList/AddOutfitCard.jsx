@@ -19,8 +19,7 @@ const AddOutfitCard = ({defaultData, rating, setStorageChange, storageChange,pro
         setStorageChange(!storageChange);
       }}
     >
-      <img src={`https://pic.onlinewebfonts.com/svg/img_514215.png`}
-      {/*https://cdn.icon-icons.com/icons2/1875/PNG/512/additem_120286.png*/}
+      <img src={`https://cdn.icon-icons.com/icons2/1875/PNG/512/additem_120286.png`}
         style={{
         objectFit: 'cover',
         overflow: 'hidden',
