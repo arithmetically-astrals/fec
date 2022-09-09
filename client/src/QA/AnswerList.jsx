@@ -7,16 +7,13 @@ const AnswerList = (props) => {
   const [renderedAnswers, setRenderedAnswers] = useState([]);
 
   useEffect(() => {
-    props.answers.sort((a, b) => (
-      b.helpfulness - a.helpfulness
-    ));
     props.answers.sort((a, b) => {
-      if (a.answerer_name.toUpperCase() === 'SELLER') {
+      if ((a.answerer_name.toUpperCase() === 'SELLER' && b.answerer_name.toUpperCase() === 'SELLER') || (a.answerer_name.toUpperCase() !== 'SELLER' && b.answerer_name.toUpperCase() !== 'SELLER')) {
+        return b.helpfulness - a.helpfulness;
+      } else if (a.answerer_name.toUpperCase() === 'SELLER') {
         return -1;
-      } else if (b.answerer_name.toUpperCase() === 'SELLER') {
-        return 1;
       } else {
-        return 0;
+        return 1;
       }
     });
     if (moreAnswers) {
