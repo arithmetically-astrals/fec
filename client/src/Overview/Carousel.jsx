@@ -13,7 +13,7 @@ const Carousel = (props) => {
             if (photo.thumbnail_url === null) { 
               photo.thumbnail_url = 'https://images.unsplash.com/photo-1477420143023-6a0e0b04b69a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
             }
-            photo.thumbnail_url.substring(0, 4) === 'http'}).map(({ url, thumbnail_url }) => (
+            return photo.thumbnail_url.substring(0, 4) === 'http'}).map(({ url, thumbnail_url }) => (
             <img className='overview-carousel-thumbnail' key={thumbnail_url} src={thumbnail_url} onClick={() => props.setPhotoUrl(url)} />
           ))}
         </div>
