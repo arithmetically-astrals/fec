@@ -8,17 +8,14 @@ const AnswerList = (props) => {
 
   useEffect(() => {
     props.answers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    let j = -1;
-    for (let i = props.answers.length - 1; i > j; i--) {
-      if (props.answers[i].answerer_name.toUpperCase() === 'SELLER') {
-        props.answers.unshift(props.answers[i]);
-        i++;
-        props.answers.splice(i, 1);
-        j++;
+      if ((a.answerer_name.toUpperCase() === 'SELLER' && b.answerer_name.toUpperCase() === 'SELLER') || (a.answerer_name.toUpperCase() !== 'SELLER' && b.answerer_name.toUpperCase() !== 'SELLER')) {
+        return b.helpfulness - a.helpfulness;
+      } else if (a.answerer_name.toUpperCase() === 'SELLER') {
+        return -1;
+      } else {
+        return 1;
       }
-    }
+    });
     if (moreAnswers) {
       setRenderedAnswers(props.answers);
     } else {
@@ -30,7 +27,7 @@ const AnswerList = (props) => {
     <div>
       {renderedAnswers.length
       ? <div className='qa-answer-container'>
-          <h3 className='qa-answer-tag'>A: </h3>
+          <h3 className='qa-answer-tag'>A:</h3>
           <div className='qa-answers'>
             {renderedAnswers.map((answer, index) => (
               <div key={index} className='qa-answer'>
