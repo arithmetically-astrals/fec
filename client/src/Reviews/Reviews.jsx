@@ -43,11 +43,24 @@ const Reviews = ({itemId, starRating, setstarRating}) => {
     }
   }
 
+  const searchReviews = (e) => {
+    var text = e.target.value;
+    if (text.length < 3) {
+      setList([]);
+      return;
+    }
+    var searchFilter = defaultList.filter((item) => {
+      return item.body.includes(text) || item.summary.includes(text)
+    })
+
+    setList(searchFilter);
+  }
+
   return (
   <div id='reviews' className='widget'>
     <div className='widget-header'>Ratings and Reviews</div>
     <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} setstarCount={setstarCount} starCount={starCount} clickFilterStar={clickFilterStar} metaInfo={metaInfo} setmetaInfo={setmetaInfo} filterNum={filterNum}/>
-    <ReviewList itemId={itemId} starCount={starCount} list={list} setList={setList} defaultList={defaultList} setDefaultList={setDefaultList} clickWriteReview={clickWriteReview}/>
+    <ReviewList itemId={itemId} starCount={starCount} list={list} setList={setList} defaultList={defaultList} setDefaultList={setDefaultList} clickWriteReview={clickWriteReview} searchReviews={searchReviews}/>
     {writeReview ? <ReviewForm itemId={itemId} setWriteReview={setWriteReview} metaInfo={metaInfo} setDefaultList={setDefaultList}/> : null}
 
   </div>
