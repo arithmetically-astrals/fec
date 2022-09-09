@@ -37,7 +37,7 @@ const ReviewList = ({itemId, starCount, list, setList, defaultList, setDefaultLi
         sort: e.target.value.toLowerCase()
       }
     }).then(response => {
-      setList(response.data.results);
+      setDefaultList(response.data.results);
     }).catch(err => {
       console.log('ReviewList err: ', err)
     })
