@@ -57,6 +57,7 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
       <div
       onClick={() => {
         setitemId(itemId);
+        window.scrollTo(0, 0);
 
       }}
       >
