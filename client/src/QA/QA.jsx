@@ -16,11 +16,9 @@ const QA = (props) => {
   let renderedQuestions = [];
   let searchedQuestions = [];
   if (search.length >= 3) {
-    questions.forEach((question) => {
-      if (question.question_body.toUpperCase().includes(search.toUpperCase())) {
-        searchedQuestions.push(question);
-      }
-    })
+    searchedQuestions = questions.filter((question) => (
+      question.question_body.toUpperCase().includes(search.toUpperCase())
+    ))
     renderedQuestions = searchedQuestions.slice(0, questionCount);
   } else if (questions) {
     renderedQuestions = questions.slice(0, questionCount);

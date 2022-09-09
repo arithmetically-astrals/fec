@@ -6,14 +6,16 @@ import axios from 'axios';
 const Question = (props) => {
 
   const clicked = useRef(false);
-  let searchedQuestion;
+  let renderedQuestion;
   if (props.search.length >= 3) {
-    searchedQuestion = props.question.question_body.trim().split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
-    searchedQuestion.forEach((term, index) => {
+    renderedQuestion = props.question.question_body.trim().split(new RegExp(`(${props.search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'i'));
+    renderedQuestion.forEach((term, index) => {
       if (term.toUpperCase() === props.search.toUpperCase()) {
-        searchedQuestion[index] = <mark key={index}>{term}</mark>
+        renderedQuestion[index] = <mark key={index}>{term}</mark>
       }
     })
+  } else {
+    renderedQuestion = props.question.question_body.trim();
   }
 
   useEffect(() => {
@@ -34,12 +36,7 @@ const Question = (props) => {
       }>
         <div className='qa-question-header'>
           <h3 className='qa-question-tag'>Q:</h3>
-          <span className='qa-question-body'>
-            {props.search.length >= 3
-            ? searchedQuestion
-            : props.question.question_body.trim()
-            }
-          </span>
+          <span className='qa-question-body'>{renderedQuestion}</span>
           <span className='qa-question-actions'>
             {props.initialQuestionStates.current[props.question.question_id][0]
             ? <>Helpful?</>
