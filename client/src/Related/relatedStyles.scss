@@ -98,6 +98,13 @@ $pop9: #C0FDFF;
   margin-right: 20px;
 }
 
+#related-card:hover {
+  transform: scale(1.05);
+}
+#outfitlist-card:hover {
+  transform: scale(1.04);
+}
+
 #outfitlist-addcard {
   // position: relative;
   // // justify-content: center;
@@ -113,6 +120,10 @@ $pop9: #C0FDFF;
   margin-right: 0px;
 }
 
+#outfitlist-addcard:hover {
+  transform: scale(1.05);
+}
+
 #outfitlist-addcard-text {
   font-size: 25px;
   margin: 2em;
@@ -125,6 +136,11 @@ $pop9: #C0FDFF;
   top: 10px;
   right: 10px;
   color: #E5B3FE;
+}
+
+#related-delete-button:hover {
+  opacity: 1;
+  transform: scale(1.5);
 }
 
 // #outfitlist-delete-button-dark {
@@ -143,6 +159,10 @@ $pop9: #C0FDFF;
   z-index: 1000;
 }
 
+#related-star-button:hover {
+  opacity: 1;
+  transform: scale(1.25);
+}
 // #related-star-button-dark {
 //   position: absolute;
 //   font-size: 1.5em;
@@ -231,6 +251,7 @@ $pop9: #C0FDFF;
 
 #related-left-arrow:hover {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 #related-right-arrow {
@@ -259,6 +280,7 @@ $pop9: #C0FDFF;
 
 #related-right-arrow:hover {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 
