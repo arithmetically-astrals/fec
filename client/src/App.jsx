@@ -27,13 +27,13 @@ const App = () => {
     <div id='appContainer' onClick={trackClick}>
       <div id='topNav'>
         <div id='logo'>
-          checkout
+          The Astral Plane
         </div>
         <DarkModeToggle />
         <input id='search' placeholder='search' />
       </div>
 
-      <div id='topMessage'>special message</div>
+      <div id='topMessage'>Limited time offer! 10% off all Astral-themed items</div>
       <div id='mainContentContainer'>
         <div id='mainContent'>
           <Overview itemId={itemId} starRating={starRating} />
