@@ -10,7 +10,7 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
   const handleScrollLeft = () => {
     setShowRight(true);
     if (slideLeft - 200 <= 0) {
-      var leftover = 300 - slideLeft;
+      var leftover = 200 - slideLeft;
     } else {
       var leftover = 200;
     }
@@ -32,13 +32,13 @@ const RelatedList = ({defaultData, productList, setitemId}) => {
 
   return (
     <div id='related-card-container'>
-      {slideLeft >  0 ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-left-arrow-dark' : 'related-left-arrow'} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-left-arrow-dark' : ''}}*/ onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
+      {slideLeft >  0 ? (<div id='related-left-arrow' /*{className={document.getElementsByClassName('bodyDark').length ? 'related-left-arrow-dark' : ''}}*/ onClick={() => {handleScrollLeft();}}>&#8592;</div>) : ('')}
       <div id='related-card-list' ref={scrollRef}>
         {productList.map((product) => {
           return <RelatedListItem key={product.id} itemId={product.id} product={product} defaultData={defaultData} setitemId={setitemId}/>
         })}
       </div>
-      {showRight ? (<div id={document.getElementsByClassName('bodyDark').length ?'related-right-arrow-dark' : 'related-right-arrow'} /*{className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : ''}}*/ onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
+      {(showRight && productList.length > 4) ? (<div id='related-right-arrow'  /*{className={document.getElementsByClassName('bodyDark').length ? 'related-right-arrow-dark' : null}}*/ onClick={() => {handleScrollRight()}}>&#8594;</div>) : ('')}
     </div>
   );
 

@@ -51,7 +51,7 @@ const RelatedListItem = ({itemId, setitemId, product, defaultData}) => {
   return (
     <div id='related-card'>
       <div id='related-comparison-and-star-button'>
-        <div id={document.getElementsByClassName('bodyDark').length ?'related-star-button-dark' : 'related-star-button'} onClick={() => {setShow(!show);}}>&#9733;</div>
+        <div id='related-star-button' onClick={() => {setShow(!show);}}>&#9733;</div>
         <ItemComparison id='related-comparison' product={product} defaultData={defaultData} show={show} setShow={setShow}/>
       </div>
       <div

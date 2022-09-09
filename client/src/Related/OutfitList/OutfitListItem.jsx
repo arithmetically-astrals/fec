@@ -11,7 +11,7 @@ const OutfitListItem = ({eachOutfit, setStorageChange, storageChange}) => {
   return (
     <div>
       <div id='outfitlist-card'>
-        <div id={document.getElementsByClassName('bodyDark').length ? 'outfitlist-delete-button-dark' : 'outfitlist-delete-button'}
+        <div id='outfitlist-delete-button'
         onClick={() => {
           setStorageChange(!storageChange);
           localStorage.removeItem(eachOutfit);
