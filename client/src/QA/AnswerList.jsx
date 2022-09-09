@@ -27,7 +27,7 @@ const AnswerList = (props) => {
     <div>
       {renderedAnswers.length
       ? <div className='qa-answer-container'>
-          <h3 className='qa-answer-tag'>A: </h3>
+          <h3 className='qa-answer-tag'>A:</h3>
           <div className='qa-answers'>
             {renderedAnswers.map((answer, index) => (
               <div key={index} className='qa-answer'>
