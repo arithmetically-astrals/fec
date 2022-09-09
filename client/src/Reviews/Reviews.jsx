@@ -46,7 +46,7 @@ const Reviews = ({itemId, starRating, setstarRating}) => {
   return (
   <div id='reviews' className='widget'>
     <div className='widget-header'>Ratings and Reviews</div>
-    <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} setstarCount={setstarCount} starCount={starCount} clickFilterStar={clickFilterStar} metaInfo={metaInfo} setmetaInfo={setmetaInfo} />
+    <ReviewMeta itemId={itemId}  starRating={starRating} setstarRating={setstarRating} setstarCount={setstarCount} starCount={starCount} clickFilterStar={clickFilterStar} metaInfo={metaInfo} setmetaInfo={setmetaInfo} filterNum={filterNum}/>
     <ReviewList itemId={itemId} starCount={starCount} list={list} setList={setList} defaultList={defaultList} setDefaultList={setDefaultList} clickWriteReview={clickWriteReview}/>
     {writeReview ? <ReviewForm itemId={itemId} setWriteReview={setWriteReview} metaInfo={metaInfo} setDefaultList={setDefaultList}/> : null}
 
