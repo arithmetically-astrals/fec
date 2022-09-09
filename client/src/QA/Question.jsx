@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const Question = (props) => {
 
-  // const [reported, setReported] = useState(false);
   const clicked = useRef(false);
   let searchedQuestion;
   if (props.search.length >= 3) {
@@ -42,7 +41,7 @@ const Question = (props) => {
             }
           </span>
           <span className='qa-question-actions'>
-            {props.initialQuestionHelpfulness.current[props.question.question_id]
+            {props.initialQuestionStates.current[props.question.question_id][0]
             ? <>Helpful?</>
             : <a href='#' onClick={(e) => {
                 e.preventDefault();
@@ -50,7 +49,7 @@ const Question = (props) => {
                   clicked.current = true;
                   axios.put(`/qa/questions/${props.question.question_id}/helpful`)
                   .then(() => {
-                    props.initialQuestionHelpfulness.current[props.question.question_id] = true;
+                    props.initialQuestionStates.current[props.question.question_id][0] = true;
                     axios.get('/qa/questions', {
                       params: {
                         product_id: props.product_id,
@@ -70,13 +69,13 @@ const Question = (props) => {
                 }
               }}>Helpful?</a>
             } Yes ({props.question.question_helpfulness}) | <AddAnswer question={props.question} product_id={props.product_id} setQuestions={props.setQuestions} initialAnswerStates={props.initialAnswerStates} productName={props.productName} product_id={props.product_id}/>
-            {/* | {reported
+            {/* | {props.initialQuestionStates.current[props.question.question_id][1]
             ? <>Reported</>
             : <a href='#' onClick={(e) => {
                 e.preventDefault();
                 axios.put(`/qa/questions/${props.question.question_id}/report`)
                   .then(() => {
-                    setReported(true);
+                    props.initialQuestionStates.current[props.question.question_id][1] = true;
                   })
                   .catch((err) => {
                     console.log(err);
