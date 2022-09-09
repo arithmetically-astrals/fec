@@ -10,18 +10,17 @@ const AnswerList = (props) => {
     props.answers.sort((a, b) => {
       return b.helpfulness - a.helpfulness;
     });
-    let sortedAnswers = [];
-    props.answers.forEach((answer) => {
-      if (answer.answerer_name.toUpperCase() === 'SELLER') {
-        sortedAnswers.unshift(answer);
-      } else {
-        sortedAnswers.push(answer);
+    for (let i = props.answers.length - 1; i > -1; i--) {
+      if (props.answers[i].answerer_name.toUpperCase() === 'SELLER') {
+        let answer = props.answers[i];
+        props.answers.splice(i, 1);
+        props.answers.unshift(answer);
       }
-    })
+    }
     if (moreAnswers) {
-      setRenderedAnswers(sortedAnswers);
+      setRenderedAnswers(props.answers);
     } else {
-      setRenderedAnswers(sortedAnswers.slice(0, 2));
+      setRenderedAnswers(props.answers.slice(0, 2));
     }
   }, [props.question, moreAnswers])
 
