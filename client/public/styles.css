@@ -506,8 +506,20 @@
   margin-right: 20px;
 }
 
+#related-card:hover {
+  transform: scale(1.05);
+}
+
+#outfitlist-card:hover {
+  transform: scale(1.04);
+}
+
 #outfitlist-addcard {
   margin-right: 0px;
+}
+
+#outfitlist-addcard:hover {
+  transform: scale(1.05);
 }
 
 #outfitlist-addcard-text {
@@ -524,6 +536,11 @@
   color: #E5B3FE;
 }
 
+#related-delete-button:hover {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
 #related-star-button {
   position: absolute;
   font-size: 1.5em;
@@ -531,6 +548,11 @@
   right: 10px;
   color: #E5B3FE;
   z-index: 1000;
+}
+
+#related-star-button:hover {
+  opacity: 1;
+  transform: scale(1.25);
 }
 
 #related-background-modal {
@@ -605,6 +627,7 @@
 
 #related-left-arrow:hover {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 #related-right-arrow {
@@ -627,6 +650,7 @@
 
 #related-right-arrow:hover {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 html {
