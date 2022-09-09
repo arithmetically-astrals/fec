@@ -629,6 +629,10 @@
   opacity: 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 #review-meta-box {
   border: 3px solid #888;
   border-radius: 20px;
