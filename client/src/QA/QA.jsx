@@ -10,7 +10,7 @@ const QA = (props) => {
   const [questionCount, setQuestionCount] = useState(4);
   const [productName, setProductName] = useState('');
   const [questionModal, setQuestionModal] = useState(false);
-  const initialQuestionHelpfulness = useRef({});
+  const initialQuestionStates = useRef({});
   const initialAnswerStates = useRef({});
 
   let renderedQuestions = [];
@@ -35,7 +35,7 @@ const QA = (props) => {
     })
       .then((response) => {
         response.data.results.forEach((question) => {
-          initialQuestionHelpfulness.current[question.question_id] = false;
+          initialQuestionStates.current[question.question_id] = [false, false];
           Object.keys(question.answers).forEach((id) => {
             initialAnswerStates.current[id] = [false, false];
           })
@@ -61,7 +61,7 @@ const QA = (props) => {
   return (
     <div id='qa' className='widget'>
       {questionModal
-      ? <QuestionModal productName={productName} initialQuestionHelpfulness={initialQuestionHelpfulness} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
+      ? <QuestionModal productName={productName} initialQuestionStates={initialQuestionStates} setQuestions={setQuestions} product_id={props.itemId} setQuestionModal={setQuestionModal}/>
       : null
       }
       <div className='widget-header'>Questions</div>
@@ -88,7 +88,7 @@ const QA = (props) => {
                 question.question_body.toUpperCase().indexOf(search.toUpperCase()) > -1
               ))
               ? renderedQuestions.map((question, index) => (
-                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionHelpfulness={initialQuestionHelpfulness} initialAnswerStates={initialAnswerStates} productName={productName} search={search}/>
+                <Question question={question} key={index} setQuestions={setQuestions} product_id={props.itemId} initialQuestionStates={initialQuestionStates} initialAnswerStates={initialAnswerStates} productName={productName} search={search}/>
               ))
               : <h2 className='qa-no-questions'>No questions found!</h2>
               }

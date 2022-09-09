@@ -170,8 +170,8 @@ const QuestionModal = (props) => {
                   })
                     .then((response) => {
                       response.data.results.forEach((question) => {
-                        if (props.initialQuestionHelpfulness.current[question.question_id] === undefined) {
-                          props.initialQuestionHelpfulness.current[question.question_id] = false;
+                        if (!props.initialQuestionStates.current[question.question_id]) {
+                          props.initialQuestionStates.current[question.question_id] = [false, false];
                         }
                       })
                       props.setQuestions(response.data.results);
