@@ -7,22 +7,17 @@ const AnswerList = (props) => {
   const [renderedAnswers, setRenderedAnswers] = useState([]);
 
   useEffect(() => {
-    let sellerAnswers = [];
-    let normalAnswers = [];
+    props.answers.sort((a, b) => {
+      return b.helpfulness - a.helpfulness;
+    });
+    let sortedAnswers = [];
     props.answers.forEach((answer) => {
       if (answer.answerer_name.toUpperCase() === 'SELLER') {
-        sellerAnswers.push(answer);
+        sortedAnswers.unshift(answer);
       } else {
-        normalAnswers.push(answer);
+        sortedAnswers.push(answer);
       }
     })
-    sellerAnswers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    normalAnswers.sort((a, b) => {
-      return b.helpfulness - a.helpfulness;
-    });
-    let sortedAnswers = sellerAnswers.concat(normalAnswers);
     if (moreAnswers) {
       setRenderedAnswers(sortedAnswers);
     } else {
