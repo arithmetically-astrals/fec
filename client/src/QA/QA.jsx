@@ -21,17 +21,9 @@ const QA = (props) => {
         searchedQuestions.push(question);
       }
     })
-    for (let i = 0; i < questionCount; i++) {
-      if (searchedQuestions[i]) {
-        renderedQuestions.push(searchedQuestions[i]);
-      }
-    }
+    renderedQuestions = searchedQuestions.slice(0, questionCount);
   } else if (questions) {
-    for (let i = 0; i < questionCount; i++) {
-      if (questions[i]) {
-        renderedQuestions.push(questions[i]);
-      }
-    }
+    renderedQuestions = questions.slice(0, questionCount);
   }
 
   useEffect(() => {
