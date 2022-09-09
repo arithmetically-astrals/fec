@@ -503,7 +503,7 @@
   flex: 0 0 auto;
   width: 300px;
   height: 450px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #outfitlist-addcard-text {
@@ -526,15 +526,6 @@
   top: 10px;
   right: 10px;
   color: #E5B3FE;
-  z-index: 1000;
-}
-
-#related-star-button-dark {
-  position: absolute;
-  font-size: 1.5em;
-  top: 10px;
-  right: 10px;
-  color: #C0FDFF !important;
   z-index: 1000;
 }
 
