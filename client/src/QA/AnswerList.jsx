@@ -10,13 +10,16 @@ const AnswerList = (props) => {
     props.answers.sort((a, b) => {
       return b.helpfulness - a.helpfulness;
     });
-    for (let i = props.answers.length - 1; i > -1; i--) {
+    let j = -1;
+    for (let i = props.answers.length - 1; i > j; i--) {
       if (props.answers[i].answerer_name.toUpperCase() === 'SELLER') {
-        let answer = props.answers[i];
+        props.answers.unshift(props.answers[i]);
+        i++;
         props.answers.splice(i, 1);
-        props.answers.unshift(answer);
+        j++;
       }
     }
+    console.log(props.answers);
     if (moreAnswers) {
       setRenderedAnswers(props.answers);
     } else {
