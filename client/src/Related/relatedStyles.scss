@@ -51,7 +51,7 @@ $pop9: #C0FDFF;
   // align-self: center;
   position: relative;
   overflow: hidden;
-  padding: 20px;
+  padding: 5px;
 }
 
 #related-card-list, #outfitlist-container{
@@ -83,7 +83,7 @@ $pop9: #C0FDFF;
   display: none;
 }
 
-#related-card, #outfitlist-addcard, #outfitlist-card {
+#related-card, #outfitlist-card {
   position: relative;
   // justify-content: center;
   // border-radius: 0.25rem;
@@ -96,6 +96,21 @@ $pop9: #C0FDFF;
   max-width: 275px;
   max-height: 450px;
   margin-right: 20px;
+}
+
+#outfitlist-addcard {
+  // position: relative;
+  // // justify-content: center;
+  // // border-radius: 0.25rem;
+  // // padding: 0.25rem;
+  // // width: 300px;
+  // // height: 450px;
+  // flex: 0 0 auto;
+  // width: auto;
+  // height: auto;
+  // max-width: 275px;
+  // max-height: 450px;
+  margin-right: 0px;
 }
 
 #outfitlist-addcard-text {

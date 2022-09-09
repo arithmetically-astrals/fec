@@ -473,7 +473,7 @@
   display: flex;
   position: relative;
   overflow: hidden;
-  padding: 20px;
+  padding: 5px;
 }
 
 #related-card-list, #outfitlist-container {
@@ -496,7 +496,7 @@
   display: none;
 }
 
-#related-card, #outfitlist-addcard, #outfitlist-card {
+#related-card, #outfitlist-card {
   position: relative;
   flex: 0 0 auto;
   width: auto;
@@ -504,6 +504,10 @@
   max-width: 275px;
   max-height: 450px;
   margin-right: 20px;
+}
+
+#outfitlist-addcard {
+  margin-right: 0px;
 }
 
 #outfitlist-addcard-text {

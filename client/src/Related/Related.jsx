@@ -65,7 +65,6 @@ function Related({itemId, starRating, setitemId}) {
         <div>loading Related Products...</div>
       )
     } else {
-      console.log(defaultData)
       return (
 
         <div data-testid='related' id='related' className='widget'>
