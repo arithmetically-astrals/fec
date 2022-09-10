@@ -64,14 +64,18 @@ Add info
 
 # Deployment
 
- //(installs dependencies)
-//npm install
-
- //(compiles code)
-//npm start
-
- //(starts server)
-//npm run dev-server
+Installs dependencies
+```
+npm install
+```
+Compiles code
+```
+npm start
+```
+Starts server
+```
+npm run dev-server
+```
 
 # Lighthouse
 
