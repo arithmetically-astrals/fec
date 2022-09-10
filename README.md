@@ -48,30 +48,37 @@ Add tech here
 
 # Development
 
-Add info
-
 ## Pre-Installation Requirements
 
-Add info
+```
+Node v16.14.2
+NPM v8.5.0
+```
 
 ## Environment Variables Management
 
-Add info
+This project uses [dotenv](https://github.com/motdotla/dotenv).
+
+The eviroment variables needed are inside the .example-env file. Simply copy the file, remove the 'expample-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
 
 ## Installation
 
-Add info
+Installs dependencies
+```
+npm install
+```
+Compiles code
+```
+npm start
+```
+Starts server
+```
+npm run dev-server
+```
 
 # Deployment
 
- //(installs dependencies)
-//npm install
-
- //(compiles code)
-//npm start
-
- //(starts server)
-//npm run dev-server
+Add info here
 
 # Lighthouse
 
