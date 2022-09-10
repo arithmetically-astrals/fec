@@ -2,7 +2,7 @@
 
 ### Overview
 
-The Front End Capstone(FEC) project is an e-commerce site that made with React and Express following a business requirements document and using an API provided by the project stakeholders. Our team was tasked to create a dynamic and modern user interface to enhance the client experience. We challenged ourselves to use technologies that were new to use such as React hooks, Sass, and Jest. To keep our workflow organized we used daily stand-up mettings along with Trello to keep track of individual engineers progress and used Git workflow techniques along with code reviews/testing to keep our code stable.
+The Front End Capstone(FEC) project is an e-commerce site that was made with React and Express following a business requirements document and uses an API provided by the project stakeholders. Our team was tasked to create a dynamic and modern user interface to enhance the client experience. We challenged ourselves to use technologies that were new to use such as React hooks, Sass, and Jest. To keep our workflow organized we used daily stand-up meetings along with Trello to keep track of individual engineers' progress and used Git workflow techniques along with code reviews/testing to keep our code stable.
 
 # Table of Contents
 
@@ -12,9 +12,9 @@ The Front End Capstone(FEC) project is an e-commerce site that made with React a
   - [Questions & Answers](#questions-&-answers)
   - [Ratings & Reviews](#ratings-&-reviews)
 - [Tech Stack](#tech-stack)
-- [Development](#developement)
+- [Development](#development)
   - [Pre-Installation Requirements](#pre-installation-requirements)
-  - [Environment Variables Management](#evirnoment-variables-management)
+  - [Environment Variables Management](#environment-variables-management)
   - [Installation](#installation)
 - [Deployment](#deployment)
 - [Lighthouse](#lighthouse)
@@ -44,34 +44,50 @@ Add info here
 
 # Tech Stack
 
-Add tech here
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
+![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
 
 # Development
 
-Add info
-
 ## Pre-Installation Requirements
 
-Add info
+```
+Node v16.14.2
+NPM v8.5.0
+```
 
 ## Environment Variables Management
 
-Add info
+This project uses [dotenv](https://github.com/motdotla/dotenv).
+
+The environment variables needed are inside the .example-env file. Simply copy the file, remove the 'example-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
 
 ## Installation
 
-Add info
+Installs dependencies
+```
+npm install
+```
+Compiles code
+```
+npm start
+```
+Starts server
+```
+npm run dev-server
+```
 
 # Deployment
 
- //(installs dependencies)
-//npm install
-
- //(compiles code)
-//npm start
-
- //(starts server)
-//npm run dev-server
+Add info here
 
 # Lighthouse
 
