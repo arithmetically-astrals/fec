@@ -48,11 +48,12 @@ Add tech here
 
 # Development
 
-Add info
-
 ## Pre-Installation Requirements
 
-Add info
+```
+Node v16.14.2
+NPM v8.5.0
+```
 
 ## Environment Variables Management
 
