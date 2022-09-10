@@ -56,13 +56,11 @@ Add info
 
 ## Environment Variables Management
 
-Add info
+This project uses [dotenv](https://github.com/motdotla/dotenv).
+
+The eviroment variables needed are inside the .example-env file. Simply copy the file, remove the 'expample-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
 
 ## Installation
-
-Add info
-
-# Deployment
 
 Installs dependencies
 ```
@@ -76,6 +74,10 @@ Starts server
 ```
 npm run dev-server
 ```
+
+# Deployment
+
+Add info here
 
 # Lighthouse
 
