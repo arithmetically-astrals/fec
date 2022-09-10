@@ -1,4 +1,4 @@
-# Arithmetically Astrals Front End Captstone project
+# Arithmetically Astrals Front End Capstone project
 
 ### Overview
 
@@ -68,7 +68,7 @@ NPM v8.5.0
 
 This project uses [dotenv](https://github.com/motdotla/dotenv).
 
-The environment variables needed are inside the .example-env file. Simply copy the file, remove the 'example-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
+The environment variables needed are inside the .example-env file. Simply copy the file, remove the 'example-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use.
 
 ## Installation
 
