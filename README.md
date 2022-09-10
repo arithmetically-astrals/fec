@@ -14,7 +14,7 @@ The Front End Capstone(FEC) project is an e-commerce site that made with React a
 - [Tech Stack](#tech-stack)
 - [Development](#developement)
   - [Pre-Installation Requirements](#pre-installation-requirements)
-  - [Environment Variables Management](#evirnoment-variables-management)
+  - [Environment Variables Management](#envirnoment-variables-management)
   - [Installation](#installation)
 - [Deployment](#deployment)
 - [Lighthouse](#lighthouse)
@@ -39,7 +39,6 @@ Add info here
 Add info here
 
 ## Ratings & Reviews
-
 Add info here
 
 # Tech Stack
@@ -67,7 +66,7 @@ NPM v8.5.0
 
 This project uses [dotenv](https://github.com/motdotla/dotenv).
 
-The eviroment variables needed are inside the .example-env file. Simply copy the file, remove the 'expample-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
+The enviroment variables needed are inside the .example-env file. Simply copy the file, remove the 'expample-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
 
 ## Installation
 
