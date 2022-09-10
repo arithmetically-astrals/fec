@@ -8,13 +8,13 @@ The Front End Capstone(FEC) project is an e-commerce site that made with React a
 
 - [Features](#features)
   - [Product Overview](#product-overview)
-  - [Realated items](#related-items)
+  - [Related items](#related-items)
   - [Questions & Answers](#questions-&-answers)
   - [Ratings & Reviews](#ratings-&-reviews)
 - [Tech Stack](#tech-stack)
-- [Developement](#developement)
+- [Development](#developement)
   - [Pre-Installation Requirements](#pre-installation-requirements)
-  - [Enviroment Variables Management](#eviroment-variables-management)
+  - [Environment Variables Management](#evirnoment-variables-management)
   - [Installation](#installation)
 - [Deployment](#deployment)
 - [Lighthouse](#lighthouse)
@@ -46,7 +46,7 @@ Add info here
 
 Add tech here
 
-# Developement
+# Development
 
 Add info
 
@@ -54,7 +54,7 @@ Add info
 
 Add info
 
-## Eviroment Variables Management
+## Environment Variables Management
 
 Add info
 
@@ -77,6 +77,6 @@ Add photo here
 # Contributors
 
 Product Overview - [Casey Penk](https://github.com/caseypenk)\
-Realted Items - [Daniel Elliott](https://github.com/delliott33)\
+Related Items - [Daniel Elliott](https://github.com/delliott33)\
 Questions & Answers - [Joseph Chou](https://github.com/JosephChou124)\
 Ratings & Reviews - [Brian Vose](https://github.com/Banzubie)
