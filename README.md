@@ -40,7 +40,9 @@ Add info here
 
 ## Ratings & Reviews
 
-Add info here
+![Screen Shot 2022-09-10 at 9 30 28 AM](https://user-images.githubusercontent.com/103958999/189490719-c424128d-79d1-48b0-b19c-a1abf0c116e4.jpeg)
+
+More info about reviews
 
 # Tech Stack
 
