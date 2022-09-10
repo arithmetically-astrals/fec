@@ -106,7 +106,6 @@ const QA = (props) => {
           : null
         : null
         }
-        {console.log(document.getElementsByClassName('bodyDark').length)}
         <button className={document.getElementsByClassName('bodyDark').length
           ? 'qa-button qa-button-dark'
           : 'qa-button'
