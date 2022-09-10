@@ -2,7 +2,7 @@
 
 ### Overview
 
-The Front End Capstone(FEC) project is an e-commerce site that made with React and Express following a business requirements document and using an API provided by the project stakeholders. Our team was tasked to create a dynamic and modern user interface to enhance the client experience. We challenged ourselves to use technologies that were new to use such as React hooks, Sass, and Jest. To keep our workflow organized we used daily stand-up mettings along with Trello to keep track of individual engineers progress and used Git workflow techniques along with code reviews/testing to keep our code stable.
+The Front End Capstone(FEC) project is an e-commerce site that was made with React and Express following a business requirements document and uses an API provided by the project stakeholders. Our team was tasked to create a dynamic and modern user interface to enhance the client experience. We challenged ourselves to use technologies that were new to use such as React hooks, Sass, and Jest. To keep our workflow organized we used daily stand-up meetings along with Trello to keep track of individual engineers' progress and used Git workflow techniques along with code reviews/testing to keep our code stable.
 
 # Table of Contents
 
@@ -12,9 +12,9 @@ The Front End Capstone(FEC) project is an e-commerce site that made with React a
   - [Questions & Answers](#questions-&-answers)
   - [Ratings & Reviews](#ratings-&-reviews)
 - [Tech Stack](#tech-stack)
-- [Development](#developement)
+- [Development](#development)
   - [Pre-Installation Requirements](#pre-installation-requirements)
-  - [Environment Variables Management](#evirnoment-variables-management)
+  - [Environment Variables Management](#environment-variables-management)
   - [Installation](#installation)
 - [Deployment](#deployment)
 - [Lighthouse](#lighthouse)
@@ -68,7 +68,7 @@ NPM v8.5.0
 
 This project uses [dotenv](https://github.com/motdotla/dotenv).
 
-The eviroment variables needed are inside the .example-env file. Simply copy the file, remove the 'expample-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
+The environment variables needed are inside the .example-env file. Simply copy the file, remove the 'example-' part of the file name, and input the required values of your access token, hackreactor cohort code, and port number you wish to use. 
 
 ## Installation
 
