@@ -322,16 +322,11 @@ $pop9: #C0FDFF;
 }
 
 .qa-button-dark {
-  border-color: #C0FDFF;
-  background-color: #555;
-  transition-duration: 0.4s;
-  padding: 16px 32px;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+  border-color: #C0FDFF !important;
+  background-color: #555 !important;
 }
 
 .qa-button-dark:hover {
-  background-color: #666;
-  color: #C0FDFF;
+  background-color: #666 !important;
+  color: #C0FDFF !important;
 }

@@ -97,13 +97,20 @@ const QA = (props) => {
       <div id='qa-button-container'>
         {questions
         ? (search.length >= 3 && searchedQuestions.length > renderedQuestions.length) || (search.length < 3 && questions.length > questionCount)
-          ? <button className='qa-button' onClick={() => {
+          ? <button className={document.getElementsByClassName('bodyDark').length
+          ? 'qa-button qa-button-dark'
+          : 'qa-button'
+          } onClick={() => {
               setQuestionCount(questionCount + 2);
             }}>More Answered Questions</button>
           : null
         : null
         }
-        <button className='qa-button' onClick={() => {
+        {console.log(document.getElementsByClassName('bodyDark').length)}
+        <button className={document.getElementsByClassName('bodyDark').length
+          ? 'qa-button qa-button-dark'
+          : 'qa-button'
+          } onClick={() => {
           setQuestionModal(true);
         }}>Add a question</button>
       </div>
