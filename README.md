@@ -76,7 +76,7 @@ Add photo here
 
 # Contributors
 
-Product Overview -
-Realted Items -
-Questions & Answers -
+Product Overview - [Casey Penk](https://github.com/caseypenk)
+Realted Items - [Daniel Elliott](https://github.com/delliott33)
+Questions & Answers - [Joseph Chou](https://github.com/JosephChou124)
 Ratings & Reviews - [Brian Vose](https://github.com/Banzubie)
