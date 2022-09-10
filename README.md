@@ -40,7 +40,9 @@ Add info here
 
 ## Ratings & Reviews
 
-Add info here
+![Screen Shot 2022-09-10 at 9 30 28 AM](https://user-images.githubusercontent.com/103958999/189490719-c424128d-79d1-48b0-b19c-a1abf0c116e4.jpeg)
+
+All of the collective meta review information is held in the upper left side while the list of reviews will either sit on the right side or flex underneath depending on the users screen width. Users can vote once on if a review was helpful or report the review for inspection by a moderator. Sorting and searching reviews is also available. A user can also add a new review to the page through the button that will open a modal that will allow a user to input their ratings, summary, pictures, and main body of the review that will be rendered on the page once it has been submitted.
 
 # Tech Stack
 
@@ -91,7 +93,7 @@ Add info here
 
 # Lighthouse
 
-![Screen Shot of lighthouse report](https://user-images.githubusercontent.com/103958999/189488344-b17353cf-2794-47fd-a15d-71dd889ff36f.jpeg)
+![Screen Shot of lighthouse report](https://user-images.githubusercontent.com/103958999/189490868-c61e6d32-c957-4883-b772-e6d293e27785.jpeg)
 
 # Contributors
 
