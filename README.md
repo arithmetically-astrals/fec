@@ -72,7 +72,7 @@ Add info
 
 # Lighthouse
 
-Add photo here
+![Screen Shot of lighthouse report](https://user-images.githubusercontent.com/103958999/189488344-b17353cf-2794-47fd-a15d-71dd889ff36f.jpeg)
 
 # Contributors
 
