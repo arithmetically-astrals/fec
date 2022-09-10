@@ -76,6 +76,7 @@ Add photo here
 
 # Contributors
 
+Team Arithmetically Astrals\
 Product Overview - [Casey Penk](https://github.com/caseypenk)\
 Realted Items - [Daniel Elliott](https://github.com/delliott33)\
 Questions & Answers - [Joseph Chou](https://github.com/JosephChou124)\
