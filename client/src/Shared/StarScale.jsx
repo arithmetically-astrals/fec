@@ -52,4 +52,4 @@ const StarScale = (num) => {
   )
 }
 
-export default StarScale; 
+export default StarScale;
