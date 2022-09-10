@@ -72,8 +72,7 @@ Add info
 
 # Lighthouse
 
-![Screen Shot 2022-09-08 at 2 33 00 PM](https://user-images.githubusercontent.com/103958999/189487874-42f81d62-59a5-434f-b571-520bb085c956.png)
-
+Add photo here
 
 # Contributors
 
