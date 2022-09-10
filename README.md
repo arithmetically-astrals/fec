@@ -24,7 +24,7 @@ The Front End Capstone(FEC) project is an e-commerce site that was made with Rea
 
 ## Product Overview
 
-Add info here
+The overview section contains three major components: a carousel of images of the current product, a panel with information about the current product, and a long text description of the current product. Within the carousel, there is one main image and any number of thumbnail images arrated on the left side of the main image. Within the information panel, there is the product's name, price, style selector, size selector, quantity selector, add to cart button, and add to favorites button. The long product description comes below the carousel and information panel and contains a long text description with details of the item.
 
 ## Related Items
 
