@@ -77,7 +77,7 @@ const ReviewSelector = ({metaInfo, mainRating, setMainRating, setRecommend, clic
         {reviewStarScale(mainRating)}
         </div>
       <br/>
-      <span>Do you reccomend this product?</span>
+      <span>Do you recommend this product?</span>
       <br/>
       Yes<input name='recommend' type='radio' onClick={() => setRecommend(true)} required/>
       No <input name='recommend' type='radio' onClick={() => setRecommend(false)} required/>
