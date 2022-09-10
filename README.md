@@ -64,6 +64,9 @@ Add info
 
 # Deployment
 
+ //(installs dependencies)
+//npm install
+
  //(compiles code)
 //npm start
 
